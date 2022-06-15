@@ -1,0 +1,25 @@
+@import './fonts.scss';
+
+body {
+  margin: 0;
+}
+
+.containerStyles {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #f1ead7;
+}
+
+.logo {
+  width: 60%;
+}
+
+.date {
+  font-family: 'Tan Aesop', 'Arial', sans-serif;
+  font-style: normal;
+  font-size: 40px;
+  margin-top: 50px;
+}
