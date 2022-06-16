@@ -8,6 +8,10 @@ const IndexPage = () => {
       <Helmet>
         <meta charSet="utf-8" />
         <title>Highlands Music Festival</title>
+        <link
+          rel="icon"
+          href="https://highlands-orry.s3.ca-central-1.amazonaws.com/favicon.png"
+        />
       </Helmet>
       <div className="containerStyles">
         <img
