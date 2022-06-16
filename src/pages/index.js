@@ -15,7 +15,9 @@ const IndexPage = () => {
           alt="logo"
           className="logo"
         />
+        <p className="location">Palmer Rapids, Ontario</p>
         <p className="date">Sept 30 - Oct 2</p>
+        <p className="other">Coming soon...</p>
       </div>
     </main>
   );

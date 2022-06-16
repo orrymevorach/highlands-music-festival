@@ -7,7 +7,7 @@ body {
 .containerStyles {
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  //   justify-content: center;
   align-items: center;
   height: 100vh;
   background-color: #f1ead7;
@@ -15,20 +15,31 @@ body {
 
 .logo {
   width: 60%;
+  margin: 200px 0 50px;
 }
 
-.date {
+.date,
+.location,
+.other {
   font-family: 'Tan Aesop', 'Arial', sans-serif;
   font-style: normal;
-  font-size: 40px;
-  margin-top: 50px;
+  font-size: 25px;
+  margin: 0 0 15px 0;
+  color: #33421b;
+}
+
+.other {
+  font-size: 20px;
+  margin-top: 30px;
 }
 
 @media screen and (max-width: 650px) {
   .logo {
     width: 80%;
   }
-  .date {
-    font-size: 20px;
+  .date,
+  .location,
+  .other {
+    font-size: 15px;
   }
 }
