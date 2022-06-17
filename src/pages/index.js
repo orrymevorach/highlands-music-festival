@@ -1,22 +1,27 @@
 import * as React from 'react';
 import { Helmet } from 'react-helmet';
+import '../styles/index.scss';
 
 const IndexPage = () => {
-  const containerStyles = {
-    display: 'flex',
-    'flex-direction': 'column',
-    'justify-content': 'center',
-    'align-items': 'center',
-    height: '100vh',
-  };
   return (
     <main>
       <Helmet>
         <meta charSet="utf-8" />
         <title>Highlands Music Festival</title>
+        <link
+          rel="icon"
+          href="https://highlands-orry.s3.ca-central-1.amazonaws.com/favicon.png"
+        />
       </Helmet>
-      <div style={containerStyles}>
-        <h1>More information coming soon..</h1>
+      <div className="containerStyles">
+        <img
+          src="https://highlands-orry.s3.ca-central-1.amazonaws.com/Logo-1200px-No-Bkgd.png"
+          alt="logo"
+          className="logo"
+        />
+        <p className="location">Palmer Rapids, Ontario</p>
+        <p className="date">Sept 30 - Oct 2</p>
+        <p className="other">Coming soon...</p>
       </div>
     </main>
   );

@@ -1,0 +1,45 @@
+@import './fonts.scss';
+
+body {
+  margin: 0;
+}
+
+.containerStyles {
+  display: flex;
+  flex-direction: column;
+  //   justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #f1ead7;
+}
+
+.logo {
+  width: 60%;
+  margin: 200px 0 50px;
+}
+
+.date,
+.location,
+.other {
+  font-family: 'Tan Aesop', 'Arial', sans-serif;
+  font-style: normal;
+  font-size: 25px;
+  margin: 0 0 15px 0;
+  color: #33421b;
+}
+
+.other {
+  font-size: 20px;
+  margin-top: 30px;
+}
+
+@media screen and (max-width: 650px) {
+  .logo {
+    width: 80%;
+  }
+  .date,
+  .location,
+  .other {
+    font-size: 15px;
+  }
+}
