@@ -4,6 +4,7 @@ import { imgPath } from '../utils/constants';
 const TeaserPage = () => {
   return (
     <div className="containerStyles">
+      <h1>Highlands Music Festival</h1>
       <img
         src={`${imgPath}/Logo-1200px-No-Bkgd-min.png`}
         alt="Highlands Music Festival logo"
