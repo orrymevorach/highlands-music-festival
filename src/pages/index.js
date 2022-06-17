@@ -1,6 +1,7 @@
 import * as React from 'react';
 import { Helmet } from 'react-helmet';
 import '../styles/index.scss';
+import { imgPath } from '../utils/constants';
 
 const IndexPage = () => {
   return (
@@ -8,14 +9,11 @@ const IndexPage = () => {
       <Helmet>
         <meta charSet="utf-8" />
         <title>Highlands Music Festival</title>
-        <link
-          rel="icon"
-          href="https://highlands-orry.s3.ca-central-1.amazonaws.com/favicon.png"
-        />
+        <link rel="icon" href={`${imgPath}/favicon.png`} />
       </Helmet>
       <div className="containerStyles">
         <img
-          src="https://highlands-orry.s3.ca-central-1.amazonaws.com/Logo-1200px-No-Bkgd.png"
+          src={`${imgPath}/Logo-1200px-No-Bkgd-min.png`}
           alt="logo"
           className="logo"
         />
