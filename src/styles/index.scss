@@ -1,13 +1,10 @@
+@import './global.scss';
 @import './fonts.scss';
-
-body {
-  margin: 0;
-}
 
 .containerStyles {
   display: flex;
   flex-direction: column;
-  //   justify-content: center;
+  justify-content: center;
   align-items: center;
   height: 100vh;
   background-color: #f1ead7;
@@ -15,7 +12,7 @@ body {
 
 .logo {
   width: 60%;
-  margin: 200px 0 50px;
+  margin: 50px 0;
 }
 
 .date,
