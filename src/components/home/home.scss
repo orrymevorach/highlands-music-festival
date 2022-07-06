@@ -1,9 +1,5 @@
 @import '../../styles/colors.scss';
 
-main {
-  background-color: $yellow;
-}
-
 .h1 {
   // Want to have the h1 for SEO,  but don't want to show it since its included in the logo
   display: none;

@@ -1,12 +1,9 @@
 import React from 'react';
-import Layout from '../components/layout';
+import '../styles/global.scss';
+import About from '../components/about';
 
-const About = () => {
-  return (
-    <Layout>
-      <h1>About Page</h1>
-    </Layout>
-  );
+const AboutPage = () => {
+  return <About />;
 };
 
-export default About;
+export default AboutPage;

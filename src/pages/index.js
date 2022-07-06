@@ -1,11 +1,9 @@
 import * as React from 'react';
 import { Helmet } from 'react-helmet';
 import Home from '../components/home';
-import '../styles/index.scss';
 import { imgPath } from '../utils/constants';
-import About from './about';
+import AboutPage from './about';
 import { Router } from '@gatsbyjs/reach-router';
-import Layout from '../components/layout';
 
 const IndexPage = () => {
   return (
@@ -23,12 +21,10 @@ const IndexPage = () => {
         <title>Highlands Music Festival</title>
         <link rel="icon" href={`${imgPath}/favicon.png`} />
       </Helmet>
-      <Layout>
-        <Router>
-          <Home path="/" />
-          <About path="about" />
-        </Router>
-      </Layout>
+      <Router>
+        <Home path="/" />
+        <AboutPage path="about" />
+      </Router>
     </main>
   );
 };

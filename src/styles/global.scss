@@ -1,4 +1,12 @@
+@import './fonts.scss';
+@import './colors.scss';
+
 body {
   margin: 0;
   height: 100vh;
+  background-color: $yellow;
+}
+
+.row {
+  display: flex;
 }

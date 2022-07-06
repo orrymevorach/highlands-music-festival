@@ -2,10 +2,11 @@ import React from 'react';
 import './home.scss';
 import { imgPath } from '../../utils/constants';
 import Icons from '../icons';
+import Layout from '../layout';
 
 const Home = () => {
   return (
-    <>
+    <Layout>
       <h1 className="h1">Highlands Music Festival</h1>
       <div className="mainContentContainer">
         <img
@@ -28,7 +29,7 @@ const Home = () => {
           <button className="buyNowButton">Buy Now</button>
         </div>
       </div>
-    </>
+    </Layout>
   );
 };
 

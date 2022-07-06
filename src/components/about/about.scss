@@ -1,0 +1,30 @@
+@import '../../styles/colors.scss';
+
+.heading {
+  font-family: 'Tan Aesop';
+  color: $darkGreen;
+  font-size: 40px;
+}
+
+.wrapper {
+  margin: 0 100px;
+}
+
+.aboutDate {
+  font-family: 'Neue Haas Light';
+}
+
+.left {
+  width: 75%;
+}
+
+$textColumnMargin: 25px;
+.textColumn {
+  width: 40%;
+  &:first-of-type {
+    margin-right: $textColumnMargin;
+  }
+  &:last-of-type {
+    margin-left: $textColumnMargin;
+  }
+}
