@@ -1,8 +1,9 @@
 import * as React from 'react';
 import { Helmet } from 'react-helmet';
-import TeaserPage from '../components/teaser';
+import Home from '../components/home';
 import '../styles/index.scss';
 import { imgPath } from '../utils/constants';
+import About from './about';
 
 const IndexPage = () => {
   return (
@@ -20,7 +21,8 @@ const IndexPage = () => {
         <title>Highlands Music Festival</title>
         <link rel="icon" href={`${imgPath}/favicon.png`} />
       </Helmet>
-      <TeaserPage />
+      <Home />
+      <About path="about" />
     </main>
   );
 };

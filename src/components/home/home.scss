@@ -1,0 +1,67 @@
+@import '../../styles/colors.scss';
+
+main {
+  background-color: $yellow;
+}
+
+h1 {
+  // Want to have the h1 for SEO,  but don't want to show it since its included in the logo
+  display: none;
+}
+
+.mainContentContainer {
+  display: flex;
+  justify-content: flex-end;
+  position: relative;
+}
+
+.logo {
+  width: 500px;
+  position: absolute;
+  top: 100px;
+  left: 50px;
+  bottom: 200px;
+  z-index: 1;
+}
+
+.videoContainer {
+  position: relative;
+}
+
+.video {
+  width: 1000px;
+  height: 75vh;
+}
+
+.date {
+  position: absolute;
+  top: 0;
+  right: 20px;
+  font-family: 'Neue Haas Bold';
+  color: $darkGreen;
+  text-transform: uppercase;
+}
+
+.ticketsAvailable {
+  font-family: 'Neue Haas Light';
+  text-transform: uppercase;
+  position: absolute;
+  bottom: 8px;
+  left: 20px;
+}
+.buyNowButton {
+  background-color: $darkGreen;
+  font-family: 'Neue Haas Bold';
+  letter-spacing: 3px;
+  color: $white;
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  border: none;
+  padding: 8px 25px;
+  text-transform: uppercase;
+}
+
+.fa-brands {
+  width: 100px;
+}
