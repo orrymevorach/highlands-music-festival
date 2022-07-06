@@ -7,7 +7,7 @@ import Icons from '../icons';
 const Home = () => {
   return (
     <>
-      <h1>Highlands Music Festival</h1>
+      <h1 className="h1">Highlands Music Festival</h1>
       <Nav />
       <div className="mainContentContainer">
         <img

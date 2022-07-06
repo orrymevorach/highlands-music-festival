@@ -4,6 +4,7 @@ import Home from '../components/home';
 import '../styles/index.scss';
 import { imgPath } from '../utils/constants';
 import About from './about';
+import { Router } from '@reach/router';
 
 const IndexPage = () => {
   return (
@@ -21,7 +22,9 @@ const IndexPage = () => {
         <title>Highlands Music Festival</title>
         <link rel="icon" href={`${imgPath}/favicon.png`} />
       </Helmet>
-      <Home />
+      <Router>
+        <Home path="/" />
+      </Router>
       <About path="about" />
     </main>
   );

@@ -1,11 +1,14 @@
 import React from 'react';
 import './nav.scss';
+import { Link } from '@reach/router';
 
 const Nav = () => {
   return (
     <nav>
       <ul>
-        <li>About</li>
+        <Link to="about">
+          <li>About</li>
+        </Link>
         <li>Lineup & Schedule</li>
         <li>Buy Tickets</li>
         <li>Location & Accommodation</li>

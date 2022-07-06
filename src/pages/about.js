@@ -1,8 +1,7 @@
 import React from 'react';
-import '../components/home/home.scss';
 
 const About = () => {
-  return <h2>Highlands Music Festival</h2>;
+  return <h1>Highlands Music Festival</h1>;
 };
 
 export default About;
