@@ -1,14 +1,12 @@
 import React from 'react';
 import './home.scss';
 import { imgPath } from '../../utils/constants';
-import Nav from '../nav';
 import Icons from '../icons';
 
 const Home = () => {
   return (
     <>
       <h1 className="h1">Highlands Music Festival</h1>
-      <Nav />
       <div className="mainContentContainer">
         <img
           src={`${imgPath}/Logo-1200px-No-Bkgd-min.png`}
@@ -16,7 +14,6 @@ const Home = () => {
           className="logo"
         />
         <Icons />
-
         <div className="videoContainer">
           <h2 className="date">Septemeber 30 -- October 2</h2>
           <iframe

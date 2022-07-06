@@ -1,19 +1,43 @@
 import React from 'react';
 import './nav.scss';
-import { Link } from '@reach/router';
+import { Link } from 'gatsby';
+
+const links = [
+  {
+    href: '/about',
+    text: 'About',
+  },
+  {
+    href: '/lineupe-and-schedule',
+    text: 'Lineup & Schedule',
+  },
+  {
+    href: '/tickets',
+    text: 'Buy Tickets',
+  },
+  {
+    href: '/location-and-accommodation',
+    text: 'Location & Accommodation',
+  },
+  {
+    href: '/activities',
+    text: 'Activities',
+  },
+  {
+    href: '/faq',
+    text: 'FAQ',
+  },
+];
 
 const Nav = () => {
   return (
     <nav>
       <ul>
-        <Link to="about">
-          <li>About</li>
-        </Link>
-        <li>Lineup & Schedule</li>
-        <li>Buy Tickets</li>
-        <li>Location & Accommodation</li>
-        <li>Acitivities</li>
-        <li>FAQ</li>
+        {links.map(({ href, text }) => (
+          <li>
+            <Link to={href}>{text}</Link>
+          </li>
+        ))}
       </ul>
     </nav>
   );
