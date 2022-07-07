@@ -51,7 +51,9 @@ export default function LocationAndAccommodation() {
             </p>
             <div className="packingContainer">
               {packingList.map(({ packingItem }) => (
-                <p className="packingListItem">{packingItem}</p>
+                <p key={packingItem} className="packingListItem">
+                  {packingItem}
+                </p>
               ))}
             </div>
           </div>

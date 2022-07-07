@@ -13,7 +13,10 @@ const Icons = () => {
       <a href="#" className="icon">
         <FontAwesomeIcon icon={faFacebookF} />
       </a>
-      <a href="#" className="icon">
+      <a
+        href="https://www.instagram.com/highlandsmusicfestival"
+        className="icon"
+      >
         <FontAwesomeIcon icon={faInstagram} />
       </a>
       <a href="#" className="icon">

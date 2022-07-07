@@ -46,7 +46,7 @@ const Schedule = () => {
       <h2 className="heading">Schedule</h2>
       <div className="center row">
         {schedule.map(({ dayOfWeek, dailySchedule }) => (
-          <div className="thirdColumn">
+          <div key={dayOfWeek} className="thirdColumn">
             <p className="scheduleDate">{dayOfWeek}</p>
             {dailySchedule.map(({ startTime, endTime, activity }) => (
               <div className="row">
