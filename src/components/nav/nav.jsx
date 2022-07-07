@@ -36,7 +36,7 @@ const links = [
 const Nav = () => {
   return (
     <nav>
-      <ul>
+      <ul className="navList">
         {links.map(({ href, text }) => (
           <li key={href}>
             <Link to={href}>{text}</Link>

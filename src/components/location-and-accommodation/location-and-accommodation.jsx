@@ -49,13 +49,13 @@ export default function LocationAndAccommodation() {
               one of the cabins listed. Each cabin will have a max capacity of
               12 people.
             </p>
-            <div className="packingContainer">
+            <ul className="packingContainer">
               {packingList.map(({ packingItem }) => (
-                <p key={packingItem} className="packingListItem">
-                  {packingItem}
-                </p>
+                <li key={packingItem} className="packingListItem">
+                  <p>{packingItem}</p>
+                </li>
               ))}
-            </div>
+            </ul>
           </div>
         </div>
       </div>
