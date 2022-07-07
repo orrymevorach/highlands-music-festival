@@ -2,8 +2,6 @@ import React from 'react';
 import '../styles/global.scss';
 import About from '../components/about';
 
-const AboutPage = () => {
+export default function AboutPage() {
   return <About />;
-};
-
-export default AboutPage;
+}
