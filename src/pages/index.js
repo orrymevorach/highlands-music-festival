@@ -5,6 +5,7 @@ import { imgPath } from '../utils/constants';
 import AboutPage from './about';
 import { Router } from '@gatsbyjs/reach-router';
 import LineupAndSchedule from './lineup-and-schedule';
+import LocationAndAccommodation from './location-and-accommodation';
 
 const IndexPage = () => {
   return (
@@ -26,6 +27,7 @@ const IndexPage = () => {
         <Home path="/" />
         <AboutPage path="about" />
         {/* <LineupAndSchedule path="lineup-and-schedule" /> */}
+        <LocationAndAccommodation path="location-and-accommodation" />
       </Router>
     </main>
   );

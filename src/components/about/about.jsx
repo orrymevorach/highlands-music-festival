@@ -5,7 +5,7 @@ import Layout from '../layout';
 export default function About() {
   return (
     <Layout>
-      <div className="wrapper">
+      <div className="aboutWrapper">
         <div className="left">
           <h1 className="heading">Highlands Music Festival</h1>
           <h3 className="aboutDate">Sept 30 - Oct 2</h3>

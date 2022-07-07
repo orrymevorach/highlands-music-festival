@@ -23,14 +23,14 @@ const links = [
     href: '/location-and-accommodation',
     text: 'Location & Accommodation',
   },
-  {
-    href: '/activities',
-    text: 'Activities',
-  },
-  {
-    href: '/faq',
-    text: 'FAQ',
-  },
+  // {
+  //   href: '/activities',
+  //   text: 'Activities',
+  // },
+  // {
+  //   href: '/faq',
+  //   text: 'FAQ',
+  // },
 ];
 
 const Nav = () => {
@@ -38,7 +38,7 @@ const Nav = () => {
     <nav>
       <ul>
         {links.map(({ href, text }) => (
-          <li>
+          <li key={href}>
             <Link to={href}>{text}</Link>
           </li>
         ))}

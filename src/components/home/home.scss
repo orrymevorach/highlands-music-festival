@@ -9,6 +9,7 @@
   display: flex;
   justify-content: flex-end;
   position: relative;
+  margin-top: 50px;
 }
 
 .logo {
@@ -25,8 +26,8 @@
 }
 
 .video {
-  width: 1000px;
   height: 75vh;
+  width: 100%;
 }
 
 .date {
