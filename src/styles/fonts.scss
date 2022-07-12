@@ -23,6 +23,16 @@
   src: url('../fonts/Neue Haas/NeueHaasUnicaPro-Medium.ttf');
 }
 
+@font-face {
+  font-family: 'Neue Haas Bold';
+  src: url('../fonts/Neue Haas/NeueHaasUnicaPro-Bold.ttf');
+}
+
+@font-face {
+  font-family: 'Neue Haas Heavy';
+  src: url('../fonts/Neue Haas/NeueHaasUnicaPro-Heavy.ttf');
+}
+
 .bodyCopy {
   font-family: 'Neue Haas Light', 'Arial', sans-serif;
   &Bold {
@@ -35,4 +45,13 @@
 
 .subheading {
   font-family: 'Neue Haas Regular', 'Arial', sans-serif;
+  letter-spacing: 1.5px;
+  &Bold {
+    letter-spacing: 2px;
+    font-family: 'Neue Haas Bold', 'Arial', sans-serif;
+  }
+  &Heavy {
+    letter-spacing: 2px;
+    font-family: 'Neue Haas Heavy', 'Arial', sans-serif;
+  }
 }

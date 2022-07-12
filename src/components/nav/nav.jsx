@@ -11,10 +11,10 @@ const links = [
     href: '/about',
     text: 'About',
   },
-  // {
-  //   href: '/lineup-and-schedule',
-  //   text: 'Lineup & Schedule',
-  // },
+  {
+    href: '/lineup-and-schedule',
+    text: 'Lineup & Schedule',
+  },
   {
     href: '/tickets',
     text: 'Buy Tickets',
