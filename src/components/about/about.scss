@@ -4,27 +4,54 @@
   font-family: 'Tan Aesop';
   color: $darkGreen;
   font-size: 40px;
+  margin: 20px 0 10px;
 }
 
 .aboutWrapper {
   margin: 0 100px;
-}
-
-.aboutDate {
-  font-family: 'Neue Haas Light';
-}
-
-.left {
   width: 75%;
 }
 
-$textColumnMargin: 25px;
-.textColumn {
-  width: 40%;
+.aboutDate {
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  font-size: 16px;
+  margin-bottom: 50px;
+}
+
+.aboutAddress {
+  font-size: 14px;
+}
+
+.aboutColumn {
+  width: 43%;
   &:first-of-type {
-    margin-right: $textColumnMargin;
+    margin-right: 50px;
   }
-  &:last-of-type {
-    margin-left: $textColumnMargin;
-  }
+}
+
+.col1.par1 {
+  margin-bottom: 0;
+}
+
+.col1.par3 {
+  margin-top: 15px;
+}
+
+.col2.par1 {
+  width: 230px;
+  line-height: 2;
+  margin-bottom: 10px;
+}
+
+.col1.par4,
+.col2.par3 {
+  margin-top: 80px;
+}
+
+.aboutIcon {
+  width: 150px;
+  position: fixed;
+  top: 65%;
+  right: 50px;
 }

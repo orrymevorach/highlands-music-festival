@@ -12,3 +12,27 @@
   font-family: 'Neue Haas Bold';
   src: url('../fonts/Neue Haas/NeueHaasUnicaPro-Bold.ttf');
 }
+
+@font-face {
+  font-family: 'Neue Haas Regular';
+  src: url('../fonts/Neue Haas/NeueHaasUnicaPro-Regular.ttf');
+}
+
+@font-face {
+  font-family: 'Neue Haas Medium';
+  src: url('../fonts/Neue Haas/NeueHaasUnicaPro-Medium.ttf');
+}
+
+.bodyCopy {
+  font-family: 'Neue Haas Light', 'Arial', sans-serif;
+  &Bold {
+    font-family: 'Neue Haas Bold', 'Arial', sans-serif;
+  }
+  &Medium {
+    font-family: 'Neue Haas Medium', 'Arial', sans-serif;
+  }
+}
+
+.subheading {
+  font-family: 'Neue Haas Regular', 'Arial', sans-serif;
+}
