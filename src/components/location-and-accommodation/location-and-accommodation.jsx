@@ -9,7 +9,8 @@ const packingList = [
   { packingItem: 'Shower towel' },
   { packingItem: 'Swim towel' },
   { packingItem: 'Bathing suit' },
-  { packingItem: 'Warm clothing for cooler evenings Toiletries' },
+  { packingItem: 'Warm clothing for cooler evenings ' },
+  { packingItem: 'Toiletries' },
   { packingItem: 'Flashlight & batteries' },
   { packingItem: 'Device chargers (regular or portable)' },
 ];
@@ -22,7 +23,7 @@ export default function LocationAndAccommodation() {
           <h2 className="heading">Location</h2>
           <h2 className="heading">& Accommodation</h2>
         </div>
-        <div className="row ">
+        <div className="row">
           <div className="location">
             <div className="imageContainer"></div>
             <p className="center locationLineOne bodyCopy">
