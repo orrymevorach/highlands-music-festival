@@ -1,6 +1,7 @@
 import React from 'react';
 import './nav.scss';
 import { Link } from 'gatsby';
+import HamburgerMenu from '../hamburger-menu';
 
 const links = [
   {
@@ -35,7 +36,7 @@ const links = [
 
 const Nav = () => {
   return (
-    <nav>
+    <nav className="nav">
       <ul className="navList">
         {links.map(({ href, text }) => (
           <li key={href}>
@@ -43,6 +44,7 @@ const Nav = () => {
           </li>
         ))}
       </ul>
+      <HamburgerMenu />
     </nav>
   );
 };

@@ -1,3 +1,9 @@
+.nav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .navList {
   display: flex;
   list-style: none;
@@ -15,6 +21,7 @@
     a {
       color: #33421b;
       text-decoration: none;
+      font-size: 19px;
     }
   }
 }

@@ -20,6 +20,7 @@
     "@fortawesome/free-regular-svg-icons": "^6.1.1",
     "@fortawesome/free-solid-svg-icons": "^6.1.1",
     "@fortawesome/react-fontawesome": "^0.1.18",
+    "clsx": "^1.2.1",
     "gatsby": "^4.15.2",
     "gatsby-plugin-react-helmet": "^5.15.0",
     "gatsby-plugin-sass": "^5.15.1",
