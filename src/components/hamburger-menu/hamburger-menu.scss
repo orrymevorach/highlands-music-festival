@@ -1,8 +1,11 @@
-@import '../../styles/colors.scss';
+@import '@colors';
+@import '@vars';
 
 .hamburgerMenu {
-  width: 55px;
-  height: 45px;
+  z-index: 10;
+  display: none;
+  width: 30px;
+  height: 20px;
   position: absolute;
   top: 58px;
   right: 50px;
@@ -75,4 +78,10 @@
   top: 18px;
   width: 0%;
   left: 50%;
+}
+
+@media (max-width: $mobile) {
+  .hamburgerMenu {
+    display: block;
+  }
 }

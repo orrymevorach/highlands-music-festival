@@ -1,7 +1,8 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import './nav.scss';
 import { Link } from 'gatsby';
 import HamburgerMenu from '../hamburger-menu';
+import { useWindowSize } from '@hooks';
 
 const links = [
   {
@@ -35,17 +36,34 @@ const links = [
 ];
 
 const Nav = () => {
+  const [isOpen, setIsOpen] = useState(false);
+  const { isMobile } = useWindowSize();
+  const showNav = !isMobile || (isMobile && isOpen);
+
+  useEffect(() => {
+    const body = document.getElementsByTagName('body')[0];
+    if (isOpen) {
+      body.style.overflow = 'hidden';
+    } else {
+      body.style.overflow = 'visible';
+    }
+  }, [isOpen]);
+
   return (
-    <nav className="nav">
-      <ul className="navList">
-        {links.map(({ href, text }) => (
-          <li key={href}>
-            <Link to={href}>{text}</Link>
-          </li>
-        ))}
-      </ul>
-      <HamburgerMenu />
-    </nav>
+    <>
+      {showNav ? (
+        <nav className="nav">
+          <ul className="navList">
+            {links.map(({ href, text }) => (
+              <li key={href}>
+                <Link to={href}>{text}</Link>
+              </li>
+            ))}
+          </ul>
+        </nav>
+      ) : null}
+      <HamburgerMenu isOpen={isOpen} setIsOpen={setIsOpen} />
+    </>
   );
 };
 

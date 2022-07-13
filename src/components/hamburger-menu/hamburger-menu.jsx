@@ -1,10 +1,8 @@
-import React, { useState } from 'react';
+import React from 'react';
 import './hamburger-menu.scss';
 import clsx from 'clsx';
 
-export default function HamburgerMenu() {
-  const [isOpen, setIsOpen] = useState(false);
-
+export default function HamburgerMenu({ isOpen = false, setIsOpen }) {
   return (
     <button
       className={clsx('hamburgerMenu', isOpen ? 'open' : '')}
