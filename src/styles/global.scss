@@ -1,5 +1,6 @@
 @import './fonts.scss';
 @import './colors.scss';
+@import './vars.scss';
 
 body {
   margin: 0;
@@ -33,4 +34,17 @@ h5,
 h6,
 p {
   margin: 0;
+}
+
+.heading {
+  font-family: 'Tan Aesop';
+  color: $darkGreen;
+  font-size: 40px;
+  margin: 20px 0 10px;
+  @media (max-width: $tablet) {
+    font-size: 30px;
+  }
+  @media (max-width: $mobile) {
+    font-size: 24px;
+  }
 }
