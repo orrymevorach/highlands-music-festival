@@ -8,7 +8,7 @@ const LineupAndSchedule = () => {
   return (
     <Layout>
       <Schedule />
-      {/* <Lineup /> */}
+      <Lineup />
     </Layout>
   );
 };
