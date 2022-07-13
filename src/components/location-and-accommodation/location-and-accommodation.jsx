@@ -24,18 +24,21 @@ export default function LocationAndAccommodation() {
         </div>
         <div className="row ">
           <div className="location">
-            <p className="center locationLineOne">
+            <div className="imageContainer"></div>
+            <p className="center locationLineOne bodyCopy">
               Camp Walden is located in the beautiful Haliburton Highlands
             </p>
-            <p className="center locationAddress">38483 Highway 28</p>
-            <p className="center locationAddress">Palmer Rapids, Ontario</p>
-            <p className="center locationAddress"> K0J 2E0 (45.2,-77.44)</p>
-            <div className="packingContainer">
-              <p>We recommend checking out our suggested packing list</p>
-            </div>
+            <p className="center locationAddress bodyCopy">38483 Highway 28</p>
+            <p className="center locationAddress bodyCopy">
+              Palmer Rapids, Ontario
+            </p>
+            <p className="center locationAddress bodyCopy">
+              K0J 2E0 (45.2,-77.44)
+            </p>
           </div>
           <div className="accommodation">
-            <p>
+            <div className="imageContainer"></div>
+            <p className="accommodationLineOne bodyCopy">
               Since 1970, and set in Ontario’s beautiful Haliburton Highlands,
               Camp Walden has hosted hundreds of children each year for
               recreational summer programs. With 750 acres including its
@@ -44,19 +47,29 @@ export default function LocationAndAccommodation() {
               trails, Walden is aptly named and a haven just 3 hours away from
               Toronto, and 2 from Ottawa.
             </p>
-            <p>
-              When purchasing a single ticket, or tickets for your group, select
-              one of the cabins listed. Each cabin will have a max capacity of
-              12 people.
+            <p className="bodyCopy">
+              When purchasing a single{' '}
+              <span className="bodyCopyBold">
+                ticket, or tickets for your group,
+              </span>{' '}
+              select one of the cabins listed. Each cabin will have a max
+              capacity of 12 people.
             </p>
-            <ul className="packingContainer">
-              {packingList.map(({ packingItem }) => (
-                <li key={packingItem} className="packingListItem">
-                  <p>{packingItem}</p>
-                </li>
-              ))}
-            </ul>
           </div>
+        </div>
+        <div className="row">
+          <div className="packingContainerLineOne">
+            <p className="bodyCopyMedium col1Par3">
+              We recommend checking out our suggested packing list
+            </p>
+          </div>
+          <ul className="packingContainerLineTwo">
+            {packingList.map(({ packingItem }) => (
+              <li key={packingItem} className="packingListItem">
+                <p className="bodyCopy">{packingItem}</p>
+              </li>
+            ))}
+          </ul>
         </div>
       </div>
     </Layout>

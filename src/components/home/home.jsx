@@ -6,7 +6,7 @@ import Layout from '../layout';
 
 const Home = () => {
   return (
-    <Layout>
+    <Layout hasPaddingBottom={false}>
       <h1 className="h1">Highlands Music Festival</h1>
       <div className="mainContentContainer">
         <img
