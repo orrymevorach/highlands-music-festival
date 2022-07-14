@@ -16,6 +16,7 @@ module.exports = {
           '@colors': path.resolve(__dirname, 'src/styles/colors.scss'),
           '@fonts': path.resolve(__dirname, 'src/styles/fonts.scss'),
           '@hooks': path.resolve(__dirname, 'src/hooks/index.js'),
+          '@utils': path.resolve(__dirname, 'src/utils/'),
         },
         extensions: ['jsx', 'scss'],
       },

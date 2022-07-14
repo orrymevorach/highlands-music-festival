@@ -1,6 +1,7 @@
 import React from 'react';
 import './location-and-accommodation.scss';
 import Layout from '../layout';
+import { useGoogleMaps } from '@hooks';
 
 const packingList = [
   { packingItem: 'Single bed fitted/flat sheet ' },
@@ -16,6 +17,7 @@ const packingList = [
 ];
 
 export default function LocationAndAccommodation() {
+  useGoogleMaps();
   return (
     <Layout>
       <div className="locationAccommodationWrapper">
@@ -25,7 +27,7 @@ export default function LocationAndAccommodation() {
         </div>
         <div className="row">
           <div className="location">
-            <div className="imageContainer"></div>
+            <div id="map"></div>
             <p className="center locationLineOne bodyCopy">
               Camp Walden is located in the beautiful Haliburton Highlands
             </p>

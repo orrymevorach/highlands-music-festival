@@ -63,11 +63,18 @@
   margin-bottom: 8px;
 }
 
+#map,
 .imageContainer {
+  height: 300px;
   width: 100%;
-  height: 200px;
   margin: 20px 0 30px;
-  border: 1px solid black;
+}
+
+.imageContainer {
+  background-image: url('https://highlands-music-festival.s3.ca-central-1.amazonaws.com/gallery-the-setting-6.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
 }
 
 .locationLineOne,
