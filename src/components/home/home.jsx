@@ -18,19 +18,12 @@ const Home = () => {
         <Icons />
         <div className="videoContainer">
           <h2 className="date">Septemeber 30 -- October 2</h2>
-          {/* <iframe
-            className="video"
-            width="100%"
-            height="100%"
-            src="https://www.youtube.com/embed/EwYiqraCygA?autoplay=1&rel=0&modestbranding=1&autohide=1&showinfo=0&controls=0"
-            frameBorder="0"
-            allowFullScreen
-          ></iframe> */}
           <video
-            src={`${imgPath}/My Movie 4.mp4`}
+            src={`${imgPath}/Walden-HighQ.mp4`}
             autoPlay
             muted
             className="video"
+            loop
           ></video>
           <p className="ticketsAvailable">2022 tickets are now available</p>
           <button className="buyNowButton">

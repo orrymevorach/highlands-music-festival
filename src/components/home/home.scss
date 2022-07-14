@@ -23,17 +23,26 @@
 
 .videoContainer {
   position: relative;
+  bottom: -10px;
+  right: 0px;
+  height: 73vh;
+  overflow: hidden;
+  color: white;
 }
 
 .video {
-  height: 75vh;
+  height: 115%;
   width: 100%;
+  position: relative;
+  top: -50px;
+  left: 0;
 }
 
 .date {
   position: absolute;
-  top: 0;
-  right: 20px;
+  top: 25px;
+  z-index: 5;
+  right: 25px;
   font-family: 'Neue Haas Bold';
   color: $darkGreen;
   text-transform: uppercase;
@@ -46,7 +55,7 @@
   bottom: 8px;
   left: 20px;
 }
-.buyNowButton {
+.buyNowButton a {
   background-color: $darkGreen;
   font-family: 'Neue Haas Bold';
   letter-spacing: 3px;
@@ -55,11 +64,17 @@
   bottom: 20px;
   right: 20px;
   border: none;
-  padding: 8px 25px;
   text-transform: uppercase;
-  a:visited {
+  font-size: 18px;
+  padding: 10px 28px;
+  &:visited {
     color: white;
   }
+  &:hover {
+    background-color: white;
+    color: $darkGreen;
+  }
+  transition: 0.2s;
 }
 
 .fa-brands {
