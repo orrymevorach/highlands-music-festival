@@ -6,6 +6,7 @@ import AboutPage from './about';
 import { Router } from '@gatsbyjs/reach-router';
 import LineupAndSchedule from './lineup-and-schedule';
 import LocationAndAccommodation from './location-and-accommodation';
+import BuyTickets from './buy-tickets';
 
 const IndexPage = () => {
   return (
@@ -28,6 +29,7 @@ const IndexPage = () => {
         <AboutPage path="about" />
         {/* <LineupAndSchedule path="lineup-and-schedule" /> */}
         <LocationAndAccommodation path="location-and-accommodation" />
+        <BuyTickets path="buy-tickets" />
       </Router>
     </main>
   );

@@ -3,6 +3,7 @@ import './home.scss';
 import { imgPath } from '../../utils/constants';
 import Icons from '../icons';
 import Layout from '../layout';
+import { Link } from 'gatsby';
 
 const Home = () => {
   return (
@@ -32,7 +33,9 @@ const Home = () => {
             className="video"
           ></video>
           <p className="ticketsAvailable">2022 tickets are now available</p>
-          <button className="buyNowButton">Buy Now</button>
+          <button className="buyNowButton">
+            <Link to="buy-tickets">Buy Now</Link>
+          </button>
         </div>
       </div>
     </Layout>

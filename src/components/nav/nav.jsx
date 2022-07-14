@@ -18,7 +18,7 @@ const links = [
     text: 'Lineup & Schedule',
   },
   {
-    href: '/tickets',
+    href: '/buy-tickets',
     text: 'Buy Tickets',
   },
   {
