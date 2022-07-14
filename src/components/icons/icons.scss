@@ -1,4 +1,5 @@
-@import '../../styles/colors.scss';
+@import '@colors';
+@import '@vars';
 
 .iconsContainer {
   display: flex;
@@ -17,12 +18,23 @@
   text-align: center;
   margin-bottom: 8px;
   padding: 6px 6px 4px 6px;
-  //   border-radius: 8px;
   border-radius: 50%;
   transition: 0.3s;
   cursor: pointer;
   &:hover {
     background-color: $yellow;
     color: $darkGreen;
+  }
+}
+
+@media screen and (max-width: $mobile) {
+  .iconsContainer {
+    flex-direction: row;
+    position: static;
+    width: 162px;
+    margin: 0 auto;
+  }
+  .icon {
+    margin: 08px;
   }
 }
