@@ -148,6 +148,7 @@ const Schedule = () => {
             {dailySchedule.map(
               ({ startTime, endTime, activity, lineBreak }) => (
                 <div
+                  key={`${startTime}-${endTime}-${activity}`}
                   className={`row scheduleRow ${
                     lineBreak ? 'lineBreak' : null
                   }`}

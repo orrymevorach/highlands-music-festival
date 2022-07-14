@@ -1,3 +1,5 @@
+@import '@vars';
+
 .scheduleWrapper {
   margin: 0 100px;
   position: relative;
@@ -15,19 +17,9 @@
   text-align: center;
 }
 
-.thirdColumn {
-  width: 400px;
-  margin: 0 auto;
-}
-
 .scheduleRow {
   font-size: 13px;
   margin-bottom: 10px;
-}
-.scheduleTime {
-  width: 160px;
-  text-align: right;
-  margin-right: 35px;
 }
 
 .scheduleDate {
@@ -36,17 +28,26 @@
   margin: 50px 0 30px 130px;
 }
 
+.scheduleTime {
+  width: 160px;
+  text-align: right;
+  margin-right: 35px;
+}
+
 .scheduleActivity {
+  width: 210px;
   text-transform: uppercase;
 }
 
 .lineBreak::after {
   content: '';
+  position: relative;
+  left: -210px;
   display: block;
   height: 60px;
   width: 1px;
   background-color: black;
-  margin: 10px 0;
+  margin: 20px 0;
 }
 
 .greenSun {
@@ -54,4 +55,49 @@
   width: 100px;
   left: -50px;
   bottom: -50px;
+}
+
+@media (max-width: $tablet) {
+  .scheduleWrapper {
+    margin: 0 25px;
+    .heading {
+      margin-bottom: 50px;
+    }
+    .row {
+      flex-direction: column;
+    }
+    .thirdColumn {
+      width: 100%;
+      &::after {
+        content: '';
+        position: relative;
+        left: 50%;
+        display: block;
+        height: 80px;
+        width: 1px;
+        background-color: black;
+        margin: 30px 0;
+      }
+      &:last-of-type:after {
+        display: none;
+      }
+    }
+    .scheduleRow {
+      flex-direction: row;
+      justify-content: center;
+      position: relative;
+    }
+    .scheduleActivity,
+    .scheduleTime {
+      width: 50%;
+    }
+    .scheduleDate {
+      margin-left: 0;
+      margin-top: 0;
+      text-align: center;
+    }
+    .lineBreak::after {
+      display: none;
+    }
+  }
 }
