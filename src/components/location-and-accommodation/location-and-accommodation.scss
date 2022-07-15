@@ -120,6 +120,7 @@
     margin: 0 25px;
     .heading {
       margin: 0 0 5px 0;
+      font-size: 27px;
     }
     .row {
       flex-direction: column;
@@ -159,6 +160,7 @@
       flex-wrap: nowrap;
       margin-top: 70px;
       max-height: none;
+      width: 100%;
     }
   }
 }

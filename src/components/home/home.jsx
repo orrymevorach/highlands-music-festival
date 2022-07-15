@@ -19,7 +19,7 @@ const Home = () => {
         />
 
         <div className="videoContainer">
-          <h2 className="date">Septemeber 30 -- October 2</h2>
+          <h2 className="date">Septemeber 30 - October 2</h2>
           <video
             src={`${imgPath}/Walden-HighQ.mp4`}
             autoPlay
