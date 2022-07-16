@@ -1,7 +1,6 @@
 @import '@vars';
 
 .scheduleWrapper {
-  margin: 0 100px;
   position: relative;
   &::after {
     content: '';
@@ -59,7 +58,6 @@
 
 @media (max-width: $tablet) {
   .scheduleWrapper {
-    margin: 0 25px;
     .heading {
       margin-bottom: 50px;
     }

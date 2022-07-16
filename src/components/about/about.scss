@@ -1,8 +1,9 @@
 @import '@vars';
 @import '@colors';
+@import '@mixins';
 
 .aboutWrapper {
-  margin: 0 100px;
+  @include wrapper;
   width: 75%;
 }
 
@@ -57,9 +58,6 @@
 }
 
 @media (max-width: $tablet) {
-  .aboutWrapper {
-    margin: 0 50px;
-  }
   .aboutIcon {
     position: absolute;
   }
@@ -68,7 +66,6 @@
 @media (max-width: $mobile) {
   .aboutWrapper {
     width: auto;
-    margin: 0 25px;
     .row {
       flex-direction: column;
       width: 100%;

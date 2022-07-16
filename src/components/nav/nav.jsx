@@ -29,10 +29,10 @@ const links = [
   //   href: '/activities',
   //   text: 'Activities',
   // },
-  // {
-  //   href: '/faq',
-  //   text: 'FAQ',
-  // },
+  {
+    href: '/faq',
+    text: 'FAQ',
+  },
 ];
 
 const Nav = () => {
