@@ -156,19 +156,28 @@
 }
 @media screen and (max-width: $mobile) {
   .videoContainer {
-    height: 100%;
+    height: auto;
+    top: 0px;
+    overflow: auto;
+    &::after {
+      background-color: rgba(0, 0, 0, 0);
+    }
   }
   .video {
-    width: auto;
-    left: -500px;
+    width: 100%;
+    left: 0;
+    top: 0;
+    margin-top: 30px;
   }
   .videoTextContainer {
-    padding-top: 250px;
+    padding-top: 100px;
     justify-content: flex-start;
+    position: static;
   }
   .date {
     position: relative;
     font-size: 18px;
+    color: $darkGreen;
   }
   .logo {
     width: 90%;
@@ -176,9 +185,6 @@
   .bottomRow {
     position: absolute;
     bottom: 40px;
-  }
-  .ticketsAvailable {
-    color: $beige;
   }
   .buyNowButton {
     margin: 30px 0;

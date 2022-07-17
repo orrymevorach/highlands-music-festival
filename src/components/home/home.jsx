@@ -1,8 +1,8 @@
 import React from 'react';
 import './home.scss';
-import { imgPath, colors } from '@utils/constants';
-import Icons from '../icons';
-import Layout from '../layout';
+import { imgPath } from '@utils/constants';
+import Icons from '@components/Icons';
+import Layout from '@components/layout';
 import { Link } from 'gatsby';
 import clsx from 'clsx';
 import { useWindowSize } from '@hooks';
@@ -32,14 +32,18 @@ const BottomRow = () => {
 };
 
 const Home = () => {
+  const { isMobile } = useWindowSize();
+  const imagePath = isMobile
+    ? 'Logo-1200px-No-Bkgd-min'
+    : 'Logo-1200px-Neutral';
   return (
     <div className="mainContentContainer">
-      <Layout hasPaddingBottom={false} hamburgerMenuColor={colors.beige}>
+      <Layout hasPaddingBottom={false}>
         <h1 className="h1">Highlands Music Festival</h1>
         <div className="videoContainer">
           <div className="videoTextContainer">
             <img
-              src={`${imgPath}/Logo-1200px-Neutral.png`}
+              src={`${imgPath}/${imagePath}.png`}
               alt="Highlands Music Festival logo"
               className="logo"
             />
