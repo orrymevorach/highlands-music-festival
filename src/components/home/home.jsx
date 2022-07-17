@@ -1,6 +1,6 @@
 import React from 'react';
 import './home.scss';
-import { imgPath } from '../../utils/constants';
+import { imgPath, colors } from '@utils/constants';
 import Icons from '../icons';
 import Layout from '../layout';
 import { Link } from 'gatsby';
@@ -34,7 +34,7 @@ const BottomRow = () => {
 const Home = () => {
   return (
     <div className="mainContentContainer">
-      <Layout hasPaddingBottom={false}>
+      <Layout hasPaddingBottom={false} hamburgerMenuColor={colors.beige}>
         <h1 className="h1">Highlands Music Festival</h1>
         <div className="videoContainer">
           <div className="videoTextContainer">

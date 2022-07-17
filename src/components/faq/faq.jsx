@@ -165,9 +165,9 @@ const faq = [
       'We would love for you and your group to buy all the tickets in a cabin! We have spaces with 3 beds or 12 beds.',
   },
   {
-    question: '“Don’t see your question here?',
+    question: 'Don’t see your question here?',
     answer:
-      ' Please reach out to us at xxx@highlands.com* for any questions about the festival!',
+      'Please reach out to us at xxx@highlands.com* for any questions about the festival!',
   },
 ];
 

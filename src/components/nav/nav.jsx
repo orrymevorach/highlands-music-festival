@@ -35,7 +35,7 @@ const links = [
   },
 ];
 
-const Nav = () => {
+const Nav = ({ hamburgerMenuColor = '' }) => {
   const [isOpen, setIsOpen] = useState(false);
   const { isMobile } = useWindowSize();
   const showNav = !isMobile || (isMobile && isOpen);
@@ -62,7 +62,11 @@ const Nav = () => {
           </ul>
         </nav>
       ) : null}
-      <HamburgerMenu isOpen={isOpen} setIsOpen={setIsOpen} />
+      <HamburgerMenu
+        isOpen={isOpen}
+        setIsOpen={setIsOpen}
+        hamburgerMenuColor={hamburgerMenuColor}
+      />
     </>
   );
 };

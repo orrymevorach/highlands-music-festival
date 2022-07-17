@@ -1,13 +1,13 @@
 import React from 'react';
 import './about.scss';
 import Layout from '../layout';
-import { imgPath } from '@utils/constants';
+import { imgPath, colors } from '@utils/constants';
 import { useWindowSize } from '@hooks';
 
 export default function About() {
   const { isMobile } = useWindowSize();
   return (
-    <Layout hasPaddingBottom={false}>
+    <Layout hasPaddingBottom={false} hamburgerMenuColor={colors.beige}>
       <div className="aboutPageImageContainer"></div>
       <div className="aboutWrapper">
         <h1 className="heading">Highlands Music Festival</h1>
