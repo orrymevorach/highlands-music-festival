@@ -141,7 +141,7 @@ const Schedule = () => {
   return (
     <div className="scheduleWrapper">
       <h2 className="heading scheduleHeading">Schedule</h2>
-      <div className="row">
+      <div className="scheduleContainer">
         {schedule.map(({ dayOfWeek, dailySchedule }) => (
           <div key={dayOfWeek} className="thirdColumn">
             <p className="scheduleDate subheadingHeavy">{dayOfWeek}</p>
@@ -149,9 +149,7 @@ const Schedule = () => {
               ({ startTime, endTime, activity, lineBreak }) => (
                 <div
                   key={`${startTime}-${endTime}-${activity}`}
-                  className={`row scheduleRow ${
-                    lineBreak ? 'lineBreak' : null
-                  }`}
+                  className={`scheduleRow ${lineBreak ? 'lineBreak' : ''}`}
                 >
                   {endTime ? (
                     <p className="subheadingHeavy scheduleTime">
