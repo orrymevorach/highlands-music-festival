@@ -8,17 +8,17 @@ const faq = [
   {
     question: 'Can you tell me more about the drive?',
     answer:
-      'The drive to Highlands is a glorious ride! No matter whether you are taking the 2 hour drive from Ottawa, Pembroke, and Peterborough, or the 3 hour drive from Toronto, the final 30 minutes of the journey involves a steady incline into the Haliburton Highlands. Nearby towns with a hospital and other amenities include Bancroft and Barry’s Bay but the area surrounding Highlands is undisturbed... free of any cell phone service... serene...and beautiful. We encourage Highland-goers to carpool together so that at least one participant has hands free to take pictures along the way!',
+      'The drive to Highlands is a glorious ride!  No matter whether you are taking the 2 hour drive from Ottawa, Pembroke, and Peterborough, or the 3 hour drive from Toronto, the final 30 minutes of the journey involves a steady incline into the Haliburton Highlands.  Nearby towns with a hospital and other amenities include Bancroft and Barry’s Bay but the area surrounding Highlands is undisturbed… free of any cell phone service… serene… and beautiful.  We encourage Highland-goers to carpool together so that at least one participant has hands free to take pictures along the way!',
   },
   {
     question: 'Can I leave the festival and come back?',
     answer:
-      'Plan not to. Highlands is meant to be a brief and immersive experience. We will take care of you, provide for you, and entertain you - and we need you there to participate, cheer, and sing along! We are remote. Reentry will not be permitted and anyways, there’s nowhere to go!',
+      'Plan not to.  Highlands is meant to be a brief and immersive experience.  We will take care of you, provide for you, and entertain you - and we need you there to participate, cheer, and sing along!  We are remote.  Reentry will not be permitted and anyways, there’s nowhere to go!',
   },
   {
     question: 'When is check in?',
     answer:
-      'Arrive between the hours of .... The formal program will end at X, and participants are asked to leave the site no later than Y.',
+      'Arrive between the hours of .... The formal program will end at 1:00PM, and participants are asked to leave the site no later than X.',
   },
   {
     question:
@@ -56,7 +56,7 @@ const faq = [
   {
     question: 'What are the accommodations? Are there showers and bathrooms?',
     answer:
-      'Think of the summer camps you see in the movies! The writing on the wall... the glorious Dining Hall... that is the type of setting for the Highlands Music Festival. Individual, private, ceramic flush toilets are available all over the camp. Showers are individual stalls in guys, girls, and gender-neutral shower houses. Many will choose to bathe in the lake... and many others might not bathe at all...',
+      'Think of the summer camps you see in the movies!  The writing on the wall… the glorious Dining Hall… that is the type of setting for the Highlands Music Festival.  Individual, private, ceramic flush toilets are available all over the camp.  Showers are individual stalls in guys, girls, and gender-neutral shower houses.  Many will choose to bathe in the lake… and many others might not bathe at all… ',
   },
   {
     question:
@@ -107,6 +107,22 @@ const faq = [
             <p className="bodyCopy name">Pulver</p>
             <p className="bodyCopy">The Visionary</p>
           </li>
+          <li className="row">
+            <p className="bodyCopy name">Toby</p>
+            <p className="bodyCopy"></p>
+          </li>
+          <li className="row">
+            <p className="bodyCopy name">Josh</p>
+            <p className="bodyCopy"></p>
+          </li>
+          <li className="row">
+            <p className="bodyCopy name">Amanda</p>
+            <p className="bodyCopy"></p>
+          </li>
+          <li className="row">
+            <p className="bodyCopy name">Danielle</p>
+            <p className="bodyCopy"></p>
+          </li>
         </ul>
       </div>
     ),
@@ -119,12 +135,12 @@ const faq = [
   {
     question: 'What is the food situation?',
     answer:
-      'Breakfast, lunch, dinner, and desserts will be provided, with additional food options available for purchase from any of our vendors/partners (details to come). Food is camp-chic! Think grilled cheese, poutine, and a loaded salad bar.',
+      'Breakfast, lunch, dinner, and desserts will be provided, with additional food options available for purchase from any of our vendors/partners (details to come).  Food is camp-chic!  Think grilled cheese, poutine, and a loaded salad bar.',
   },
   {
     question: 'Do you accommodate special diets?',
     answer:
-      'Yes, please include any dietary restrictions when purchasing your ticket or email us at info@ highlandsmusicfestival.com to notify us of any allergies or dietary restrictions.',
+      'Yes, please include any dietary restrictions when purchasing your ticket or email us at info@highlandsmusicfestival.com to notify us of any allergies or dietary restrictions.',
   },
 
   {
@@ -147,6 +163,11 @@ const faq = [
     question: 'Can I book a cabin exclusively?',
     answer:
       'We would love for you and your group to buy all the tickets in a cabin! We have spaces with 3 beds or 12 beds.',
+  },
+  {
+    question: '“Don’t see your question here?',
+    answer:
+      ' Please reach out to us at xxx@highlands.com* for any questions about the festival!',
   },
 ];
 

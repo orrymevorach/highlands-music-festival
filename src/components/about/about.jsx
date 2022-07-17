@@ -1,21 +1,24 @@
 import React from 'react';
 import './about.scss';
 import Layout from '../layout';
-import { imgPath } from '../../utils/constants';
+import { imgPath } from '@utils/constants';
+import { useWindowSize } from '@hooks';
 
 export default function About() {
+  const { isMobile } = useWindowSize();
   return (
     <Layout hasPaddingBottom={false}>
       <div className="aboutPageImageContainer"></div>
       <div className="aboutWrapper">
         <h1 className="heading">Highlands Music Festival</h1>
         <h3 className="aboutDate subheading">September 30 - October 2</h3>
-        <img
-          src={`${imgPath}/Iconography/Iconography-03.png`}
-          alt=""
-          className="aboutIcon"
-        />
-
+        {!isMobile && (
+          <img
+            src={`${imgPath}/Iconography/Iconography-03.png`}
+            alt=""
+            className="aboutIcon"
+          />
+        )}
         <div className="row">
           <div className="aboutColumn">
             <p className="bodyCopyBold col1 par1">
@@ -38,7 +41,8 @@ export default function About() {
             <li className="bodyCopy">2 nights of basic camp accommodations</li>
             <li className="bodyCopy">5 delicious meals</li>
             <li className="bodyCopy">Parking </li>
-            <li className="bodyCopy">Access to rural Wi-Fi amp activities</li>
+            <li className="bodyCopy">Access to rural Wi-Fi</li>
+            <li className="bodyCopy">Camp activities</li>
           </ul>
         </div>
 
@@ -82,9 +86,13 @@ export default function About() {
         </div>
       </div>
       <div className="imagesRow">
-        <img src={`${imgPath}/CL-FIREPIT-2 (1).jpg`} alt="" />
-        <img src={`${imgPath}/CL-BACKYARD.jpg`} alt="" />
-        <img src={`${imgPath}/29E.jpg`} alt="" />
+        {!isMobile && (
+          <>
+            <img src={`${imgPath}/CL-FIREPIT-2 (1).jpg`} alt="" />
+            <img src={`${imgPath}/CL-BACKYARD.jpg`} alt="" />
+            <img src={`${imgPath}/29E.jpg`} alt="" />
+          </>
+        )}
         <img src={`${imgPath}/CL-DECK-2.jpg`} alt="" />
         <img src={`${imgPath}/EVENING-SET-UP-FIREHALL.jpg`} alt="" />
       </div>

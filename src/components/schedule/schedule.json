@@ -1,0 +1,108 @@
+[
+  {
+    "dayOfWeek": "Friday",
+    "dailySchedule": [
+      {
+        "startTime": "4:00PM",
+        "endTime": "6:30PM",
+        "activity": "Arrival"
+      },
+      {
+        "startTime": "4:00PM",
+        "endTime": "7:00PM",
+        "activity": "Camp Activities Available"
+      },
+      {
+        "startTime": "5:45PM",
+        "endTime": "7:15PM",
+        "activity": "Dinner"
+      },
+      {
+        "startTime": "7:30PM",
+        "endTime": "11:30PM",
+        "activity": "Music on the Main Stage"
+      },
+      {
+        "startTime": "11:30PM",
+        "activity": "Evening Snack"
+      },
+      {
+        "startTime": "12:00AM",
+        "activity": "The Afterparty Begins"
+      }
+    ]
+  },
+  {
+    "dayOfWeek": "Saturday",
+    "dailySchedule": [
+      {
+        "startTime": "7:00AM",
+        "endTime": "9:00AM",
+        "activity": "WELLNESS MORNING (MEDITATION, YOGA, BUT FIRST COFFEE)"
+      },
+      { "startTime": "9:00AM", "activity": "EARLY MORNING DIP IN THE LAKE" },
+      {
+        "startTime": "9:00AM",
+        "endTime": "11:00AM",
+        "activity": "Breakfast buffet"
+      },
+      {
+        "startTime": "10:00AM",
+        "endTime": "7:00PM",
+        "activity": "OPEN ACTIVITIES AROUND CAMP"
+      },
+      {
+        "startTime": "10:00AM",
+        "endTime": "5:45PM",
+        "activity": "MUSIC ON THREE STAGES"
+      },
+      {
+        "startTime": "12:00PM",
+        "activity": "Lunch"
+      },
+      {
+        "startTime": "5:45PM",
+        "endTime": "7:15PM",
+        "activity": "REST HOUR / DINNER"
+      },
+      {
+        "startTime": "7:30PM",
+        "endTime": "11:30PM",
+        "activity": "MUSIC ON THE MAIN STAGE"
+      },
+      {
+        "startTime": "11:30PM",
+        "activity": "EVENING SNACK"
+      },
+      { "startTime": "12:00AM", "activity": "MIDNIGHT BONFIRE AND AFTERPARTY" }
+    ]
+  },
+  {
+    "dayOfWeek": "Sunday",
+    "dailySchedule": [
+      {
+        "startTime": "7:00AM",
+        "endTime": "9:00AM",
+        "activity": "WELLNESS MORNING (MEDITATION, YOGA, BUT FIRST COFFEE)"
+      },
+      {
+        "startTime": "9:00AM",
+        "activity": "EARLY MORNING DIP IN THE LAKE"
+      },
+      {
+        "startTime": "9:00AM",
+        "endTime": "11:00AM",
+        "activity": "BREAKFAST BUFFET"
+      },
+      {
+        "startTime": "11:30AM",
+        "endTime": "12:30PM",
+        "activity": "MUSIC ON THE MAIN STAGE"
+      },
+      {
+        "startTime": "1:00PM",
+        "activity": "GOODBYE!  SEE YOU NEXT YEAR!"
+      }
+    ]
+  }
+]

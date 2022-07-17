@@ -7,7 +7,7 @@ export default function BuyTickets() {
   const [showLoader, setShowLoader] = useState(true);
   setTimeout(() => {
     setShowLoader(false);
-  }, 500);
+  }, 1000);
 
   useLoadEvenbriteOnPageLoad();
   return (
