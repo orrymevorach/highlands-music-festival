@@ -145,6 +145,16 @@ const Schedule = () => {
         {schedule.map(({ dayOfWeek, dailySchedule }) => (
           <div key={dayOfWeek} className="thirdColumn">
             <p className="scheduleDate subheadingHeavy">{dayOfWeek}</p>
+            <img
+              src={`${imgPath}/Iconography/Iconography-03.png`}
+              alt=""
+              className="greenSun"
+            />
+            <img
+              src={`${imgPath}/Iconography/Iconography-03.png`}
+              alt=""
+              className="greenSun"
+            />
             {dailySchedule.map(
               ({ startTime, endTime, activity, lineBreak }) => (
                 <div
@@ -165,11 +175,6 @@ const Schedule = () => {
           </div>
         ))}
       </div>
-      <img
-        src={`${imgPath}/Iconography/Iconography-03.png`}
-        alt=""
-        className="greenSun"
-      />
     </div>
   );
 };

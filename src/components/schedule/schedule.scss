@@ -65,8 +65,14 @@
 .greenSun {
   position: absolute;
   width: 100px;
-  left: -50px;
-  bottom: -50px;
+}
+.greenSun:nth-child(odd) {
+  top: 100px;
+  left: -90px;
+}
+.greenSun:nth-child(even) {
+  top: 300px;
+  right: -90px;
 }
 
 @media screen and (max-width: 1250px) {
@@ -75,9 +81,6 @@
   }
   .scheduleTime {
     margin-right: 20px;
-  }
-  .thirdColumn {
-    margin: 0 15px;
   }
 }
 
@@ -95,6 +98,7 @@
       flex-direction: column;
     }
     .thirdColumn {
+      position: relative;
       &::after {
         content: '';
         position: relative;
@@ -124,5 +128,11 @@
       margin-top: 0;
       text-align: center;
     }
+  }
+  .greenSun:nth-child(odd) {
+    left: -80px;
+  }
+  .greenSun:nth-child(even) {
+    right: -80px;
   }
 }
