@@ -96,4 +96,12 @@
   .col2.par3 {
     margin-top: 30px;
   }
+  .imagesRow {
+    display: grid;
+    grid-template-columns: 1fr;
+    margin-top: 80px;
+    img {
+      width: 100%;
+    }
+  }
 }
