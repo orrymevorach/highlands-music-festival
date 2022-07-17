@@ -1,15 +1,6 @@
 @import '@colors';
 @import '@vars';
 
-.iconsContainer {
-  display: flex;
-  flex-direction: column;
-  margin: 0 0 20px 20px;
-  position: absolute;
-  bottom: 0;
-  left: 0;
-}
-
 .icon {
   box-sizing: initial;
   width: 25px;
@@ -25,17 +16,5 @@
   &:hover {
     background-color: $yellow;
     color: $darkGreen;
-  }
-}
-
-@media screen and (max-width: $mobile) {
-  .iconsContainer {
-    flex-direction: row;
-    position: static;
-    width: 162px;
-    margin: 0 auto;
-  }
-  .icon {
-    margin: 08px;
   }
 }

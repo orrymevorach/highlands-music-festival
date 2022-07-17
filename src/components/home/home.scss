@@ -7,110 +7,179 @@
 }
 
 .mainContentContainer {
-  display: flex;
-  justify-content: flex-end;
   position: relative;
-  margin-top: 50px;
-  align-items: center;
-}
-
-.logo {
-  width: 500px;
-  position: absolute;
-  top: 100px;
-  left: 50px;
-  bottom: 200px;
-  z-index: 1;
+  height: 100vh;
+  overflow: hidden;
 }
 
 .videoContainer {
   position: relative;
-  bottom: -10px;
-  right: 0px;
-  height: 73vh;
   overflow: hidden;
-  color: white;
+  height: 570px;
+  &:after {
+    content: '';
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0.2);
+    height: 100%;
+    width: 100%;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 5;
+  }
 }
 
 .video {
-  height: 115%;
   width: 100%;
   position: relative;
-  top: -50px;
-  left: 0;
+  top: -100px;
+}
+
+.videoTextContainer {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  z-index: 6;
+  height: 100%;
+}
+
+.logo {
+  width: 600px;
+  border-radius: 4px;
+  padding: 10px;
+  width: 70%;
 }
 
 .date {
-  position: absolute;
   top: 25px;
+  left: 25px;
   z-index: 5;
-  right: 25px;
   font-family: 'Neue Haas Bold';
   color: $beige;
   text-transform: uppercase;
+  font-size: 22px;
+  position: absolute;
 }
 
 .ticketsAvailable {
   font-family: 'Neue Haas Light';
   text-transform: uppercase;
-  position: absolute;
-  bottom: 8px;
-  left: 20px;
+  color: $beige;
+  &.darkGreen {
+    color: $darkGreen;
+  }
 }
 
 .buyNowButton {
   background-color: $darkGreen;
   font-family: 'Neue Haas Bold';
   letter-spacing: 3px;
-  color: $white;
-  position: absolute;
-  bottom: 20px;
-  right: 20px;
+  color: $beige;
   border: none;
   text-transform: uppercase;
   font-size: 18px;
   padding: 10px 28px;
   &:visited {
-    color: white;
+    color: $beige;
   }
   &:hover {
-    background-color: white;
+    background-color: $beige;
     color: $darkGreen;
   }
   transition: 0.2s;
 }
 
-.fa-brands {
-  width: 100px;
+.bottomRow {
+  position: absolute;
+  bottom: 10px;
+  width: 100%;
+  padding: 0 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
-@media screen and (max-width: $mobile) {
-  .mainContentContainer {
-    display: block;
+.ticketsAvailable {
+  order: 2;
+  margin-left: 60px;
+}
+.buyNowButton {
+  order: 3;
+}
+.iconsContainer {
+  order: 1;
+}
+
+@media screen and (max-width: 1200px) {
+  .videoContainer {
+    height: 460px;
   }
-  .logo {
-    position: static;
-    width: 90%;
-    margin: 150px auto 0;
+  .ticketsAvailable {
+    color: $darkGreen;
   }
   .date {
-    position: static;
-    text-align: center;
-    margin-top: 30px;
+    font-size: 18px;
   }
+}
+@media screen and (max-width: $tablet) {
   .videoContainer {
-    width: 100%;
+    height: 350px;
+  }
+  .bottomRow {
+    position: relative;
+    bottom: -50px;
+    flex-direction: column;
+  }
+  .ticketsAvailable {
+    margin-left: 0;
+    color: $darkGreen;
+    font-size: 20px;
+    order: 1;
+  }
+  .buyNowButton {
+    margin: 20px 0;
+    order: 2;
+  }
+  .iconsContainer {
+    order: 3;
+  }
+  .date {
+    top: 10px;
+    left: 10px;
+    font-size: 14px;
+  }
+}
+@media screen and (max-width: $mobile) {
+  .videoContainer {
+    height: 100%;
   }
   .video {
-    height: 400px;
-    position: static;
     width: auto;
-    margin-top: 50px;
+    left: -500px;
   }
-
-  .buyNowButton {
+  .videoTextContainer {
+    padding-top: 250px;
+    justify-content: flex-start;
+  }
+  .date {
     position: relative;
-    left: 50%;
-    transform: translateX(50%);
+    font-size: 18px;
+  }
+  .logo {
+    width: 90%;
+  }
+  .bottomRow {
+    position: absolute;
+    bottom: 40px;
+  }
+  .ticketsAvailable {
+    color: $beige;
+  }
+  .buyNowButton {
+    margin: 30px 0;
   }
 }

@@ -5,14 +5,9 @@ import './icons.scss';
 
 const Icons = () => {
   return (
-    <div className="iconsContainer">
-      <a
-        href="https://www.instagram.com/highlandsmusicfestival"
-        className="icon"
-      >
-        <FontAwesomeIcon icon={faInstagram} />
-      </a>
-    </div>
+    <a href="https://www.instagram.com/highlandsmusicfestival" className="icon">
+      <FontAwesomeIcon icon={faInstagram} />
+    </a>
   );
 };
 export default Icons;
