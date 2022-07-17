@@ -5,10 +5,17 @@ import { imgPath } from '../../utils/constants';
 
 export default function About() {
   return (
-    <Layout>
+    <Layout hasPaddingBottom={false}>
+      <div className="aboutPageImageContainer"></div>
       <div className="aboutWrapper">
         <h1 className="heading">Highlands Music Festival</h1>
         <h3 className="aboutDate subheading">September 30 - October 2</h3>
+        <img
+          src={`${imgPath}/Iconography/Iconography-03.png`}
+          alt=""
+          className="aboutIcon"
+        />
+
         <div className="row">
           <div className="aboutColumn">
             <p className="bodyCopyBold col1 par1">
@@ -74,11 +81,13 @@ export default function About() {
           </div>
         </div>
       </div>
-      <img
-        src={`${imgPath}/Iconography/Iconography-03.png`}
-        alt=""
-        className="aboutIcon"
-      />
+      <div className="imagesRow">
+        <img src={`${imgPath}/CL-FIREPIT-2 (1).jpg`} alt="" />
+        <img src={`${imgPath}/CL-BACKYARD.jpg`} alt="" />
+        <img src={`${imgPath}/29E.jpg`} alt="" />
+        <img src={`${imgPath}/CL-DECK-2.jpg`} alt="" />
+        <img src={`${imgPath}/EVENING-SET-UP-FIREHALL.jpg`} alt="" />
+      </div>
     </Layout>
   );
 }
