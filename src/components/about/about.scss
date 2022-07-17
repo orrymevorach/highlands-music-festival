@@ -80,6 +80,7 @@
 @media (max-width: $mobile) {
   .aboutWrapper {
     width: auto;
+    overflow: hidden;
     .row {
       flex-direction: column;
       width: 100%;
