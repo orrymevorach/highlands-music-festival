@@ -1,0 +1,8 @@
+@import '@vars';
+
+.layout {
+  padding-bottom: 50px;
+  @media (max-width: $mobile) {
+    padding-top: 40px;
+  }
+}

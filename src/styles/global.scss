@@ -1,3 +1,72 @@
+@import './fonts.scss';
+@import './colors.scss';
+@import './vars.scss';
+
+.clearfix:after {
+  visibility: hidden;
+  display: block;
+  font-size: 0;
+  content: '';
+  clear: both;
+  height: 0;
+}
+
+* {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
 body {
   margin: 0;
+  height: 100vh;
+  background-color: $yellow;
+}
+
+.row {
+  display: flex;
+}
+
+.center {
+  text-align: center;
+}
+
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  li {
+    margin: 0;
+    padding: 0;
+  }
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  margin: 0;
+}
+
+.heading {
+  font-family: 'Tan Aesop';
+  color: $darkGreen;
+  font-size: 40px;
+  margin: 20px 0 10px;
+  @media (max-width: $tablet) {
+    font-size: 30px;
+  }
+  @media (max-width: $mobile) {
+    font-size: 24px;
+  }
+}
+
+a {
+  text-decoration: none;
+}
+
+img {
+  display: block;
 }
