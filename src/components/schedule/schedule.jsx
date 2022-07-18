@@ -4,8 +4,10 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faMinus } from '@fortawesome/free-solid-svg-icons';
 import { imgPath } from '../../utils/constants';
 import schedule from './schedule.json';
+import { useWindowSize } from '@hooks';
 
 const Schedule = () => {
+  const { isDesktop } = useWindowSize();
   return (
     <div className="scheduleWrapper">
       <h2 className="heading scheduleHeading">Schedule</h2>
@@ -13,16 +15,20 @@ const Schedule = () => {
         {schedule.map(({ dayOfWeek, dailySchedule }) => (
           <div key={dayOfWeek} className="thirdColumn">
             <p className="scheduleDate subheadingHeavy">{dayOfWeek}</p>
-            <img
-              src={`${imgPath}/Iconography/Iconography-03.png`}
-              alt=""
-              className="greenSun"
-            />
-            <img
-              src={`${imgPath}/Iconography/Iconography-03.png`}
-              alt=""
-              className="greenSun"
-            />
+            {!isDesktop && (
+              <>
+                <img
+                  src={`${imgPath}/Iconography/Iconography-03.png`}
+                  alt=""
+                  className="greenSun"
+                />
+                <img
+                  src={`${imgPath}/Iconography/Iconography-03.png`}
+                  alt=""
+                  className="greenSun"
+                />
+              </>
+            )}
             {dailySchedule.map(
               ({ startTime, endTime, activity, lineBreak }) => (
                 <div
