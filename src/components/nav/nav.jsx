@@ -3,6 +3,7 @@ import './nav.scss';
 import { Link } from 'gatsby';
 import HamburgerMenu from '../hamburger-menu';
 import { useWindowSize } from '@hooks';
+import clsx from 'clsx';
 
 const links = [
   {
@@ -39,6 +40,7 @@ const Nav = ({ hamburgerMenuColor = '' }) => {
   const [isOpen, setIsOpen] = useState(false);
   const { isMobile } = useWindowSize();
   const showNav = !isMobile || (isMobile && isOpen);
+  const pathname = window.location.pathname;
 
   useEffect(() => {
     const body = document.getElementsByTagName('body')[0];
@@ -55,7 +57,7 @@ const Nav = ({ hamburgerMenuColor = '' }) => {
         <nav className="nav">
           <ul className="navList">
             {links.map(({ href, text }) => (
-              <li key={href}>
+              <li key={href} className={clsx(href === pathname && 'active')}>
                 <Link to={href}>{text}</Link>
               </li>
             ))}
