@@ -38,9 +38,9 @@ const links = [
 
 const Nav = ({ hamburgerMenuColor = '' }) => {
   const [isOpen, setIsOpen] = useState(false);
+  const [pathname, setPathname] = useState('');
   const { isMobile } = useWindowSize();
   const showNav = !isMobile || (isMobile && isOpen);
-  const pathname = window?.location?.pathname;
 
   useEffect(() => {
     const body = document.getElementsByTagName('body')[0];
@@ -50,6 +50,12 @@ const Nav = ({ hamburgerMenuColor = '' }) => {
       body.style.overflow = 'visible';
     }
   }, [isOpen]);
+
+  useEffect(() => {
+    if (window?.location) {
+      setPathname(window.location.pathname);
+    }
+  }, [pathname]);
 
   return (
     <>
