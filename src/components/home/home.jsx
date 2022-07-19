@@ -32,6 +32,10 @@ const BottomRow = () => {
 };
 
 const Home = () => {
+  // Removing 100 pixels from top positioning
+  const videoHeight =
+    document?.getElementsByClassName('video')[0]?.clientHeight - 100;
+
   return (
     <div className="mainContentContainer">
       <Layout hasPaddingBottom={false} hamburgerMenuColor={colors.beige}>
@@ -51,7 +55,8 @@ const Home = () => {
             muted
             className="video"
             loop
-          />
+          ></video>
+          <div className="videoOverlay" style={{ height: videoHeight }}></div>
         </div>
         <BottomRow />
       </Layout>

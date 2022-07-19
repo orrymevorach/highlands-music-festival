@@ -44,26 +44,8 @@
 }
 
 @media (max-width: $tablet) {
-  .navList li {
-    &:hover a:after {
-      display: none;
-    }
-    a {
-      font-size: 16px;
-    }
-  }
-
-  .active {
-    position: relative;
-    &:after {
-      content: '';
-      width: 40px;
-      height: 1px;
-      background-color: $darkGreen;
-      position: absolute;
-      left: -60px;
-      top: 50%;
-    }
+  .navList li a {
+    font-size: 16px;
   }
 }
 
@@ -80,10 +62,25 @@
       flex-direction: column;
       li {
         padding: 5px 0;
+        &:hover a:after {
+          display: none;
+        }
         a {
           font-size: 22px;
         }
       }
+    }
+  }
+  .active {
+    position: relative;
+    &:after {
+      content: '';
+      width: 40px;
+      height: 1px;
+      background-color: $darkGreen;
+      position: absolute;
+      left: -60px;
+      top: 50%;
     }
   }
 }
