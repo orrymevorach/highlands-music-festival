@@ -33,6 +33,7 @@
   font-size: 14px;
   max-width: 200px;
   margin: 0 auto;
+  text-align: center;
 }
 
 .packingContainerLineOne {
@@ -80,6 +81,10 @@
 .locationLineOne,
 .accommodationLineOne {
   margin-top: 20px;
+  a {
+    color: black;
+    text-decoration: underline;
+  }
 }
 
 .accommodationLineOne {
@@ -162,5 +167,13 @@
       max-height: none;
       width: 100%;
     }
+  }
+  .locationLineOne {
+    text-align: left;
+    margin: 0 0 10px 0;
+  }
+  .locationAddress {
+    text-align: left;
+    margin: 0;
   }
 }

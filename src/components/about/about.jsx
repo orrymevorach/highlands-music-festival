@@ -33,7 +33,7 @@ export default function About() {
           </div>
           <ul className="aboutColumn">
             <li className="bodyCopy col2 par1 bodyCopyMedium">
-              $425 + Eventbrite Fee + HS Ticket price includes —
+              $425 + Eventbrite Fee + HST Ticket price includes —
             </li>
             <li className="bodyCopy">
               Festival pass (admission to all acts from Friday-Sunday)

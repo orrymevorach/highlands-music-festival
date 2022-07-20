@@ -2,6 +2,7 @@ import React from 'react';
 import './location-and-accommodation.scss';
 import Layout from '../layout';
 import { useGoogleMaps } from '@hooks';
+import { Link } from 'gatsby';
 
 const packingList = [
   { packingItem: 'Single bed fitted/flat sheet ' },
@@ -28,27 +29,19 @@ export default function LocationAndAccommodation() {
         <div className="row">
           <div className="location">
             <div id="map"></div>
-            <p className="center locationLineOne bodyCopy">
+            <p className="locationLineOne bodyCopy">
               Camp Walden is located in the beautiful Haliburton Highlands
             </p>
-            <p className="center locationAddress bodyCopy">38483 Highway 28</p>
-            <p className="center locationAddress bodyCopy">
-              Palmer Rapids, Ontario
-            </p>
-            <p className="center locationAddress bodyCopy">
-              K0J 2E0 (45.2,-77.44)
-            </p>
+            <p className="locationAddress bodyCopy">38483 Highway 28</p>
+            <p className="locationAddress bodyCopy">Palmer Rapids, Ontario</p>
+            <p className="locationAddress bodyCopy">K0J 2E0 (45.2,-77.44)</p>
           </div>
           <div className="accommodation">
             <div className="imageContainer"></div>
             <p className="accommodationLineOne bodyCopy">
-              Since 1970, and set in Ontario’s beautiful Haliburton Highlands,
-              Camp Walden has hosted hundreds of children each year for
-              recreational summer programs. With 750 acres including its
-              beautiful 100 acre private lake, 50 rustic camper cabins, a
-              vaulting Dining Hall, and dozens of natural gathering spaces and
-              trails, Walden is aptly named and a haven just 3 hours away from
-              Toronto, and 2 from Ottawa.
+              Cabins vary in size and features. Some have private bathrooms and
+              sinks on the porch while others don’t. All cabin information can
+              be found on the <Link href="buy-tickets">ticketing page.</Link>
             </p>
             <p className="bodyCopy">
               When purchasing a single{' '}
