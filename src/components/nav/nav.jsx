@@ -41,16 +41,10 @@ const links = [
 ];
 
 const HomeIcon = () => {
-  const { isMobile } = useWindowSize();
-  const iconSize = isMobile ? '2xl' : 'xl';
   return (
     <li>
       <Link className="homeIcon" to="/">
-        <FontAwesomeIcon
-          icon={faHome}
-          color={colors.darkGreen}
-          size={iconSize}
-        />
+        <FontAwesomeIcon icon={faHome} color={colors.darkGreen} size="xl" />
       </Link>
     </li>
   );
@@ -66,7 +60,7 @@ const InstagramIcon = () => {
         <FontAwesomeIcon
           icon={faInstagram}
           color={colors.darkGreen}
-          size="2xl"
+          size="xl"
         />
       </a>
     </li>
