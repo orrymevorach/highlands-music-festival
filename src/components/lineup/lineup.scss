@@ -53,7 +53,6 @@
 .lineupSun {
   width: 60px;
   margin: 0 10px;
-  animation: spin 2s;
 }
 
 .headlineSun {
@@ -65,20 +64,47 @@
   .lineupContainer {
     width: 100%;
     overflow: hidden;
-  }
-  .artist {
-    font-size: 14px;
-  }
-  .lineupSun {
-    width: 40px;
-  }
-  .headlineSun {
-    margin: 0 50px;
-    width: 60px;
+    padding: 0 10px;
   }
   .lineupBackground {
     width: auto;
     left: 50%;
     transform: translateX(-50%);
+  }
+  .lineupSun {
+    width: 40px;
+    padding-top: 5px;
+  }
+}
+
+@media screen and (max-width: 750px) {
+  .lineupBackground {
+    height: 600px;
+  }
+  .artist {
+    font-size: 16px;
+    margin: 8px 0;
+  }
+  .lineupSun {
+    width: 30px;
+  }
+  .headlineSun {
+    margin: 0 20px;
+    width: 60px;
+  }
+}
+
+@media screen and (max-width: 560px) {
+  .artist {
+    font-size: 12px;
+    margin: 8px 0;
+  }
+  .lineupSun {
+    width: 20px;
+    margin: 0 2px;
+  }
+  .headlineSun {
+    margin: 0 20px;
+    width: 60px;
   }
 }
