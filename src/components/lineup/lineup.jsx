@@ -43,15 +43,61 @@ const lineup = [
   },
 ];
 
+const Headliners = () => (
+  <div className="lineupRow headlineRow">
+    <p className="heading">
+      Busty <br />
+      and <br />
+      the <br />
+      Bass
+    </p>
+    <img
+      src={`${imgPath}/Iconography/Iconography-03.png`}
+      alt=""
+      className="lineupSun headlineSun"
+    />
+    <p className="heading">
+      The <br /> Brook <br /> & the <br /> Bluff
+    </p>
+  </div>
+);
+
+const BackgroundImage = () => (
+  <img
+    src="https://highlands-music-festival.s3.ca-central-1.amazonaws.com/Iconography/Iconography-02.png"
+    alt=""
+    className="lineupBackground"
+  />
+);
+
+const Artists = () => (
+  <>
+    {lineup.map(({ artists }, index) => (
+      <div key={`${artists[0]}-${index}`} className="lineupRow">
+        {artists.map(({ artist }) => {
+          return (
+            <div key={artist} className="artistContainer">
+              <p className="heading artist">{artist}</p>
+              <img
+                src={`${imgPath}/Iconography/Iconography-03.png`}
+                alt=""
+                className="lineupSun"
+              />
+            </div>
+          );
+        })}
+      </div>
+    ))}
+  </>
+);
+
 export default function Lineup() {
   return (
     <div className="lineupContainer">
       <h2 className="heading center">Lineup</h2>
-      <img
-        src={`${imgPath}/Lineup-Banner-2.png`}
-        alt=""
-        className="lineupBanner"
-      />
+      <BackgroundImage />
+      <Headliners />
+      <Artists />
     </div>
   );
 }
