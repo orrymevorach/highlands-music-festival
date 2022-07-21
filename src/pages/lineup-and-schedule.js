@@ -7,8 +7,8 @@ import Layout from '../components/layout';
 const LineupAndSchedule = () => {
   return (
     <Layout>
-      <Schedule />
       <Lineup />
+      <Schedule />
     </Layout>
   );
 };

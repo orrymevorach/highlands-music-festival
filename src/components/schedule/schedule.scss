@@ -2,16 +2,7 @@
 @import '@mixins';
 
 .scheduleWrapper {
-  position: relative;
   @include wrapper;
-  &::after {
-    content: '';
-    display: block;
-    height: 200px;
-    width: 1px;
-    background-color: black;
-    margin: 50px auto;
-  }
 }
 
 .scheduleContainer {
