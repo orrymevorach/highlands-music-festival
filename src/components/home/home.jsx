@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import './home.scss';
 import { imgPath, colors } from '@utils/constants';
 import Layout from '../layout';
@@ -16,13 +16,6 @@ const TopRow = () => (
 );
 
 const Video = () => {
-  // const [videoHeight, setVideoHeight] = useState(0);
-  // useEffect(() => {
-  //   if (document && document.getElementsByClassName('video')) {
-  //     const height = document?.getElementsByClassName('video')[0].clientHeight;
-  //     setVideoHeight(height);
-  //   }
-  // }, [videoHeight]);
   return (
     <>
       <video
@@ -31,6 +24,7 @@ const Video = () => {
         muted
         className="video"
         loop
+        playsInline
       ></video>
       <div className="videoOverlay"></div>
     </>
