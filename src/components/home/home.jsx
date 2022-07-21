@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import './home.scss';
 import { imgPath, colors } from '@utils/constants';
 import Layout from '../layout';
@@ -16,9 +16,13 @@ const TopRow = () => (
 );
 
 const Video = () => {
-  // Removing 100 pixels from top positioning
-  const videoHeight =
-    document?.getElementsByClassName('video')[0]?.clientHeight - 100;
+  const [videoHeight, setVideoHeight] = useState(0);
+  useEffect(() => {
+    if (document && document.getElementsByClassName('video')) {
+      const height = document?.getElementsByClassName('video')[0].clientHeight;
+      setVideoHeight(height);
+    }
+  }, [videoHeight]);
   return (
     <>
       <video
