@@ -4,12 +4,16 @@ import { Link } from 'gatsby';
 import HamburgerMenu from '../hamburger-menu';
 import { useWindowSize } from '@hooks';
 import clsx from 'clsx';
+import { faHome } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faInstagram } from '@fortawesome/free-brands-svg-icons';
+import { colors } from '@utils/constants';
 
 const links = [
-  {
-    href: '/',
-    text: 'Home',
-  },
+  // {
+  //   href: '/',
+  //   text: 'Home',
+  // },
   {
     href: '/about',
     text: 'About',
@@ -35,6 +39,39 @@ const links = [
     text: 'FAQ',
   },
 ];
+
+const HomeIcon = () => {
+  const { isMobile } = useWindowSize();
+  const iconSize = isMobile ? '2xl' : 'xl';
+  return (
+    <li>
+      <Link className="homeIcon" to="/">
+        <FontAwesomeIcon
+          icon={faHome}
+          color={colors.darkGreen}
+          size={iconSize}
+        />
+      </Link>
+    </li>
+  );
+};
+
+const InstagramIcon = () => {
+  return (
+    <li>
+      <a
+        href="https://www.instagram.com/highlandsmusicfestival"
+        className="instagramIcon"
+      >
+        <FontAwesomeIcon
+          icon={faInstagram}
+          color={colors.darkGreen}
+          size="2xl"
+        />
+      </a>
+    </li>
+  );
+};
 
 const Nav = ({ hamburgerMenuColor = '' }) => {
   const [isOpen, setIsOpen] = useState(false);
@@ -62,11 +99,13 @@ const Nav = ({ hamburgerMenuColor = '' }) => {
       {showNav ? (
         <nav className="nav">
           <ul className="navList">
+            <HomeIcon />
             {links.map(({ href, text }) => (
               <li key={href} className={clsx(href === pathname && 'active')}>
                 <Link to={href}>{text}</Link>
               </li>
             ))}
+            <InstagramIcon />
           </ul>
         </nav>
       ) : null}

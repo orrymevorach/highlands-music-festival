@@ -43,6 +43,22 @@
   }
 }
 
+.homeIcon {
+  margin-right: 15px;
+}
+
+.instagramIcon {
+  position: absolute;
+  right: 50px;
+  top: 50px;
+}
+
+@media (max-width: 920px) {
+  .instagramIcon {
+    right: 20px;
+  }
+}
+
 @media (max-width: $tablet) {
   .navList li a {
     font-size: 16px;
@@ -82,5 +98,14 @@
       left: -60px;
       top: 50%;
     }
+  }
+
+  .homeIcon {
+    margin: 0 0 15px 0;
+  }
+
+  .instagramIcon {
+    position: static;
+    margin-top: 15px;
   }
 }
