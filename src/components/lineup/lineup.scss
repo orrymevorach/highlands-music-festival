@@ -1,5 +1,6 @@
 @import '@vars';
 @import '@mixins';
+@import '@colors';
 
 .lineupContainer {
   position: relative;
@@ -13,14 +14,71 @@
     margin: 50px auto;
   }
 }
-.lineupBanner {
+
+.lineupBackground {
   width: 100%;
-  margin: 0 auto;
+  height: 100%;
+  opacity: 0.2;
+  background: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.headlineRow {
+  margin-bottom: 20px;
+  color: $darkGreen;
+}
+
+.lineupRow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  & > .artist:last-of-type + img {
+    display: none;
+  }
+}
+
+.artistContainer {
+  display: flex;
+  align-items: center;
+}
+
+.artist {
+  font-size: 20px;
+  color: $mediumGreen;
+}
+
+.lineupSun {
+  width: 60px;
+  margin: 0 10px;
+  animation: spin 2s;
+}
+
+.headlineSun {
+  margin: 0 50px;
+  width: 80px;
 }
 
 @media screen and (max-width: 1200px) {
   .lineupContainer {
     width: 100%;
-    padding: 0;
+    overflow: hidden;
+  }
+  .artist {
+    font-size: 14px;
+  }
+  .lineupSun {
+    width: 40px;
+  }
+  .headlineSun {
+    margin: 0 50px;
+    width: 60px;
+  }
+  .lineupBackground {
+    width: auto;
+    left: 50%;
+    transform: translateX(-50%);
   }
 }
