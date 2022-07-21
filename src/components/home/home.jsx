@@ -4,6 +4,7 @@ import { imgPath, colors } from '@utils/constants';
 import Layout from '../layout';
 import { Link } from 'gatsby';
 import clsx from 'clsx';
+import { useWindowSize } from '@hooks';
 
 const TopRow = () => (
   <div className="topRow">
@@ -32,6 +33,7 @@ const Video = () => {
 };
 
 export default function Home() {
+  const { isMobile } = useWindowSize();
   return (
     <div className="mainContentContainer">
       <Layout hasPaddingBottom={false} hamburgerMenuColor={colors.beige}>
@@ -45,7 +47,7 @@ export default function Home() {
             />
             <TopRow />
           </div>
-          <Video />
+          {!isMobile && <Video />}
         </div>
       </Layout>
     </div>
