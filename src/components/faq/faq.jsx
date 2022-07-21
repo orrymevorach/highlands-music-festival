@@ -18,7 +18,7 @@ const faq = [
   {
     question: 'When is check in?',
     answer:
-      'Arrive between the hours of .... The formal program will end at 1:00PM, and participants are asked to leave the site no later than X.',
+      'Arrival on Friday is between the hours of 4:00pm-6:30pm. The formal program will end at 1:00pm on Sunday, but guests will be asked to leave the site no later than 4:00pm.',
   },
   {
     question:
@@ -39,7 +39,7 @@ const faq = [
   {
     question: 'Are there lockers?',
     answer:
-      'There are small “laptop-sized” lockers available for wallets, devices, and passports..',
+      'There are small “laptop-sized” lockers available for wallets, devices, and passports.',
   },
   {
     question: 'What is the schedule?',
