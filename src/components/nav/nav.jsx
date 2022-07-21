@@ -71,7 +71,7 @@ const Nav = ({ hamburgerMenuColor = '' }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [pathname, setPathname] = useState('');
   const { isMobile } = useWindowSize();
-  const showNav = !isMobile || (isMobile && isOpen);
+  const showNav = (isMobile !== undefined && !isMobile) || (isMobile && isOpen); // checking for undefined avoids flicker on page load
 
   useEffect(() => {
     const body = document.getElementsByTagName('body')[0];

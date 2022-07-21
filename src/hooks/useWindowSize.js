@@ -23,7 +23,7 @@ export default function useWindowSize() {
 
   return {
     ...windowSize,
-    isMobile: windowSize.width <= 850,
+    isMobile: windowSize.width ? windowSize.width <= 850 : undefined,
     isTablet: windowSize.width <= 1000 && windowSize.width > 850,
     isDesktop: windowSize.width > 1000,
   };
