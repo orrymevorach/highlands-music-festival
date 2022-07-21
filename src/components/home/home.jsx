@@ -35,7 +35,7 @@ const Video = () => {
 export default function Home() {
   const { isMobile } = useWindowSize();
   return (
-    <div className="mainContentContainer">
+    <div className="homePageContainer">
       <Layout hasPaddingBottom={false} hamburgerMenuColor={colors.beige}>
         <h1 className="h1">Highlands Music Festival</h1>
         <div className="videoContainer">
