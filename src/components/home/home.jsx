@@ -16,13 +16,13 @@ const TopRow = () => (
 );
 
 const Video = () => {
-  const [videoHeight, setVideoHeight] = useState(0);
-  useEffect(() => {
-    if (document && document.getElementsByClassName('video')) {
-      const height = document?.getElementsByClassName('video')[0].clientHeight;
-      setVideoHeight(height);
-    }
-  }, [videoHeight]);
+  // const [videoHeight, setVideoHeight] = useState(0);
+  // useEffect(() => {
+  //   if (document && document.getElementsByClassName('video')) {
+  //     const height = document?.getElementsByClassName('video')[0].clientHeight;
+  //     setVideoHeight(height);
+  //   }
+  // }, [videoHeight]);
   return (
     <>
       <video
@@ -32,10 +32,7 @@ const Video = () => {
         className="video"
         loop
       ></video>
-      <div
-        className="videoOverlay"
-        style={{ height: `${videoHeight}px` }}
-      ></div>
+      <div className="videoOverlay"></div>
     </>
   );
 };
