@@ -3,13 +3,12 @@ import './home.scss';
 import { imgPath, colors } from '@utils/constants';
 import Layout from '../layout';
 import { Link } from 'gatsby';
-import clsx from 'clsx';
 import { useWindowSize } from '@hooks';
 
 const TopRow = () => (
   <div className="topRow">
     <h2 className="date">Septemeber 30 - October 2</h2>
-    <p className={clsx('ticketsAvailable')}>2022 tickets are now available</p>
+    <p className="ticketsAvailable">2022 tickets are now available</p>
     <Link to="buy-tickets" className={`buyNowButton`}>
       Buy Now
     </Link>

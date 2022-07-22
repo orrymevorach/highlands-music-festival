@@ -42,8 +42,8 @@ const links = [
 
 const HomeIcon = () => {
   return (
-    <li>
-      <Link className="homeIcon" to="/">
+    <li className="homeIcon">
+      <Link to="/">
         <FontAwesomeIcon icon={faHome} color={colors.darkGreen} size="xl" />
       </Link>
     </li>
@@ -52,11 +52,8 @@ const HomeIcon = () => {
 
 const InstagramIcon = () => {
   return (
-    <li>
-      <a
-        href="https://www.instagram.com/highlandsmusicfestival"
-        className="instagramIcon"
-      >
+    <li className="instagramIcon">
+      <a href="https://www.instagram.com/highlandsmusicfestival">
         <FontAwesomeIcon
           icon={faInstagram}
           color={colors.darkGreen}
