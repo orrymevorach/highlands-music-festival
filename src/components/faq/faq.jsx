@@ -24,7 +24,7 @@ const faq = [
     question:
       'What is the cancellation policy? Is there a ticket refund policy?',
     answer:
-      'Tickets are non-refundable and non-transferable except by special permission. Ticket-holders who wish to transfer their ticket should contact XXX.',
+      'Tickets are non-refundable and non-transferable except by special permission. Ticket-holders who wish to transfer their ticket should contact info@highlandsmusicfestival.ca.',
   },
   {
     question: 'What is the COVID philosophy?',
@@ -109,19 +109,19 @@ const faq = [
           </li>
           <li className="row">
             <p className="bodyCopy name">Toby</p>
-            <p className="bodyCopy"></p>
+            <p className="bodyCopy">Is this mic on?</p>
           </li>
           <li className="row">
             <p className="bodyCopy name">Josh</p>
-            <p className="bodyCopy"></p>
+            <p className="bodyCopy">Festival Vibes</p>
           </li>
           <li className="row">
             <p className="bodyCopy name">Amanda</p>
-            <p className="bodyCopy"></p>
+            <p className="bodyCopy">That Camp Feelin'</p>
           </li>
           <li className="row">
             <p className="bodyCopy name">Danielle</p>
-            <p className="bodyCopy"></p>
+            <p className="bodyCopy">Who needs tickets?</p>
           </li>
         </ul>
       </div>
@@ -140,7 +140,7 @@ const faq = [
   {
     question: 'Do you accommodate special diets?',
     answer:
-      'Yes, please include any dietary restrictions when purchasing your ticket or email us at info@highlandsmusicfestival.com to notify us of any allergies or dietary restrictions.',
+      'Yes, please include any dietary restrictions when purchasing your ticket or email us at info@highlandsmusicfestival.ca to notify us of any allergies or dietary restrictions.',
   },
 
   {
@@ -167,7 +167,7 @@ const faq = [
   {
     question: 'Don’t see your question here?',
     answer:
-      'Please reach out to us at xxx@highlands.com* for any questions about the festival!',
+      'Please reach out to us at info@highlandsmusicfestival.ca for any questions about the festival!',
   },
 ];
 
