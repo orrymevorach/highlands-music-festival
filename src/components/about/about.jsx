@@ -12,6 +12,7 @@ import {
   CLDeck,
   FirehallEvening,
 } from '@images';
+import { imgPath } from '@utils/constants';
 
 export default function About() {
   const { isMobile } = useWindowSize();
@@ -21,7 +22,13 @@ export default function About() {
       <div className="aboutWrapper">
         <LogoColor classNames="aboutLogo" />
         <h3 className="aboutDate subheading">September 30 - October 2</h3>
-        {!isMobile && <GreenSun classNames="aboutIcon" />}
+        {!isMobile && (
+          <img
+            src={`${imgPath}/Iconography/Iconography-03.png`}
+            alt=""
+            className="aboutIcon"
+          />
+        )}
         <div className="row">
           <div className="aboutColumn">
             <p className="bodyCopyBold col1 par1">
