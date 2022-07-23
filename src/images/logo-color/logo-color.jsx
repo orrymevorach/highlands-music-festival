@@ -6,7 +6,7 @@ export default function LogoColor({ classNames }) {
     <StaticImage
       src="https://highlands-music-festival.s3.ca-central-1.amazonaws.com/Logo-1200px-No-Bkgd-min.png"
       alt="Highlands Music Festival logo"
-      placeholder="tracedSVG"
+      placeholder="none"
       className={classNames}
     />
   );
