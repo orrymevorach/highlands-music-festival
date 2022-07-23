@@ -1,5 +1,6 @@
 import React from 'react';
-import { imgPath } from '../utils/constants';
+import { imgPath } from '../../utils/constants';
+import './teaser.scss';
 
 const TeaserPage = () => {
   return (

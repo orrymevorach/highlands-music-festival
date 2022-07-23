@@ -1,8 +1,12 @@
 import * as React from 'react';
 import { Helmet } from 'react-helmet';
-import TeaserPage from '../components/teaser';
-import '../styles/index.scss';
+import Home from '../components/home';
 import { imgPath } from '../utils/constants';
+import AboutPage from './about';
+import { Router } from '@gatsbyjs/reach-router';
+import LineupAndSchedule from './lineup-and-schedule';
+import LocationAndAccommodation from './location-and-accommodation';
+import BuyTickets from './buy-tickets';
 
 const IndexPage = () => {
   return (
@@ -20,7 +24,13 @@ const IndexPage = () => {
         <title>Highlands Music Festival</title>
         <link rel="icon" href={`${imgPath}/favicon.png`} />
       </Helmet>
-      <TeaserPage />
+      <Router>
+        <Home path="/" />
+        <AboutPage path="about" />
+        {/* <LineupAndSchedule path="lineup-and-schedule" /> */}
+        <LocationAndAccommodation path="location-and-accommodation" />
+        <BuyTickets path="buy-tickets" />
+      </Router>
     </main>
   );
 };

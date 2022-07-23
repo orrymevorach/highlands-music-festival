@@ -1,0 +1,84 @@
+@import '@colors';
+@import '@mixins';
+
+.faqWrapper {
+  @include wrapper;
+  .heading {
+    color: $darkGreen;
+    margin-bottom: 25px;
+  }
+}
+
+.question {
+  color: $mediumGreen;
+  font-size: 20px;
+}
+
+.answer {
+  font-size: 14px;
+}
+
+.faqContainer {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  max-height: 1450px;
+  @media screen and (max-width: 1390px) {
+    max-height: 1750px;
+  }
+  @media screen and (max-width: 1160px) {
+    max-height: 1850px;
+  }
+  @media screen and (max-width: 1110px) {
+    max-height: 2050px;
+  }
+  @media screen and (max-width: $mobile) {
+    max-height: none;
+  }
+}
+
+.sunIcon,
+.questionContainer {
+  width: 33%;
+  padding: 0 30px 30px 0;
+}
+
+.link {
+  color: black;
+  &:active {
+    color: black;
+  }
+}
+
+.committeeHeading {
+  text-transform: uppercase;
+  margin: 15px 0 5px;
+  font-size: 14px;
+}
+
+.committeeMembers {
+  font-size: 14px;
+  margin: 0;
+  line-height: 1.2;
+}
+
+.name {
+  width: 100px;
+}
+
+@media screen and (max-width: $tablet) {
+  .sunIcon,
+  .questionContainer {
+    width: 50%;
+  }
+}
+
+@media screen and (max-width: $mobile) {
+  .sunIcon,
+  .questionContainer {
+    width: 100%;
+  }
+  .name {
+    width: 60px;
+  }
+}

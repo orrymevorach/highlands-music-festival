@@ -1,0 +1,125 @@
+@import '@vars';
+@import '@colors';
+@import '@mixins';
+
+.aboutWrapper {
+  @include wrapper;
+  width: 75%;
+  margin-top: 50px;
+  position: relative;
+}
+
+.aboutPageImageContainer {
+  background-image: url('https://highlands-music-festival.s3.ca-central-1.amazonaws.com/gallery-the-setting-11.jpg');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 100%;
+  height: 250px;
+}
+
+.aboutLogo {
+  width: 500px;
+  margin-bottom: 50px;
+}
+
+.aboutDate {
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  font-size: 16px;
+  margin-bottom: 50px;
+  color: $darkGreen;
+}
+
+.aboutAddress {
+  font-size: 14px;
+}
+
+.aboutColumn {
+  width: 43%;
+  &:first-of-type {
+    margin-right: 50px;
+  }
+}
+
+.col1.par1 {
+  margin-bottom: 0;
+}
+
+.col1.par3 {
+  margin-top: 15px;
+}
+
+.col2.par1 {
+  width: 230px;
+  line-height: 2;
+  margin-bottom: 10px;
+}
+
+.col1.par4,
+.col2.par3 {
+  margin-top: 80px;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg) scale(0);
+  }
+  100% {
+    transform: rotate(180deg) scale(1);
+  }
+}
+
+.aboutIcon {
+  position: absolute;
+  width: 150px;
+  top: 0;
+  right: -100px;
+  animation: spin 3s;
+}
+
+.col1.par4,
+.col2.par3 {
+  margin-bottom: 25px;
+}
+
+.imagesRow {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  margin-top: 80px;
+  img {
+    width: 100%;
+  }
+}
+
+@media (max-width: $mobile) {
+  .aboutWrapper {
+    width: auto;
+    overflow: hidden;
+    .row {
+      flex-direction: column;
+      width: 100%;
+    }
+  }
+  .col2.par1,
+  .aboutColumn {
+    width: 100%;
+  }
+
+  .col1.par3,
+  .col1.par4,
+  .col2.par3 {
+    margin-top: 30px;
+  }
+  .imagesRow {
+    display: grid;
+    grid-template-columns: 1fr;
+    margin-top: 80px;
+    img {
+      width: 100%;
+    }
+  }
+  .aboutLogo {
+    width: 90%;
+  }
+}
