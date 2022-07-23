@@ -10,7 +10,12 @@ export default function About() {
     <Layout hasPaddingBottom={false} hamburgerMenuColor={colors.beige}>
       <div className="aboutPageImageContainer"></div>
       <div className="aboutWrapper">
-        <h1 className="heading">Highlands Music Festival</h1>
+        {/* <h1 className="heading">Highlands Music Festival</h1> */}
+        <img
+          src={`${imgPath}/Logo-1200px-No-Bkgd-min.png`}
+          alt=""
+          className="aboutLogo"
+        />
         <h3 className="aboutDate subheading">September 30 - October 2</h3>
         {!isMobile && (
           <img

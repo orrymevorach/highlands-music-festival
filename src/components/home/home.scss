@@ -159,3 +159,26 @@
     }
   }
 }
+
+@media screen and (orientation: landscape) and (max-width: $mobile) {
+  .homePageContainer {
+    background-position: initial;
+    .imageContainer {
+      padding-top: 100px;
+    }
+    .logo {
+      width: 50%;
+    }
+    .topRow {
+      margin-top: 0;
+    }
+    .buyNowButton {
+      margin: 20px 0 0;
+    }
+    .date,
+    .ticketsAvailable {
+      font-size: 16px;
+      margin: 5px 0;
+    }
+  }
+}

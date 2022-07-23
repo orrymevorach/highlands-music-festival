@@ -18,6 +18,11 @@
   height: 250px;
 }
 
+.aboutLogo {
+  width: 500px;
+  margin-bottom: 50px;
+}
+
 .aboutDate {
   text-transform: uppercase;
   letter-spacing: 1.5px;
@@ -113,5 +118,8 @@
     img {
       width: 100%;
     }
+  }
+  .aboutLogo {
+    width: 90%;
   }
 }
