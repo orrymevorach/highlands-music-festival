@@ -112,3 +112,18 @@
     margin-top: 15px;
   }
 }
+
+@media screen and (orientation: landscape) and (max-width: $mobile) {
+  .nav {
+    height: 100%;
+    overflow: visible;
+    overflow-y: visible;
+    position: absolute;
+  }
+  .nav .navList li {
+    padding: 2px 0;
+    a {
+      font-size: 14px;
+    }
+  }
+}
