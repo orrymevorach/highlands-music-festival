@@ -2,7 +2,7 @@ import React from 'react';
 import './faq.scss';
 import Layout from '@components/layout';
 import { Link } from 'gatsby';
-import { imgPath } from '@utils/constants';
+import { YellowSun } from '@images';
 
 const faq = [
   {
@@ -187,11 +187,7 @@ export default function FAQ() {
               )}
             </div>
           ))}
-          <img
-            src={`${imgPath}/Iconography/Iconography-02.png`}
-            alt=""
-            className="sunIcon"
-          />
+          <YellowSun classNames="sunIcon" />
         </div>
       </div>
     </Layout>

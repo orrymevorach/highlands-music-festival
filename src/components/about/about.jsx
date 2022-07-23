@@ -1,8 +1,17 @@
 import React from 'react';
 import './about.scss';
 import Layout from '../layout';
-import { imgPath, colors } from '@utils/constants';
+import { colors } from '@utils/constants';
 import { useWindowSize } from '@hooks';
+import {
+  GreenSun,
+  LogoColor,
+  CLFirepit,
+  CLBackyard,
+  Omni,
+  CLDeck,
+  FirehallEvening,
+} from '@images';
 
 export default function About() {
   const { isMobile } = useWindowSize();
@@ -10,20 +19,9 @@ export default function About() {
     <Layout hasPaddingBottom={false} hamburgerMenuColor={colors.beige}>
       <div className="aboutPageImageContainer"></div>
       <div className="aboutWrapper">
-        {/* <h1 className="heading">Highlands Music Festival</h1> */}
-        <img
-          src={`${imgPath}/Logo-1200px-No-Bkgd-min.png`}
-          alt=""
-          className="aboutLogo"
-        />
+        <LogoColor classNames="aboutLogo" />
         <h3 className="aboutDate subheading">September 30 - October 2</h3>
-        {!isMobile && (
-          <img
-            src={`${imgPath}/Iconography/Iconography-03.png`}
-            alt=""
-            className="aboutIcon"
-          />
-        )}
+        {!isMobile && <GreenSun classNames="aboutIcon" />}
         <div className="row">
           <div className="aboutColumn">
             <p className="bodyCopyBold col1 par1">
@@ -93,13 +91,13 @@ export default function About() {
       <div className="imagesRow">
         {!isMobile && (
           <>
-            <img src={`${imgPath}/CL-FIREPIT-2 (1).jpg`} alt="" />
-            <img src={`${imgPath}/CL-BACKYARD.jpg`} alt="" />
-            <img src={`${imgPath}/29E.jpg`} alt="" />
+            <CLFirepit />
+            <CLBackyard />
+            <Omni />
           </>
         )}
-        <img src={`${imgPath}/CL-DECK-2.jpg`} alt="" />
-        <img src={`${imgPath}/EVENING-SET-UP-FIREHALL.jpg`} alt="" />
+        <CLDeck />
+        <FirehallEvening />
       </div>
     </Layout>
   );

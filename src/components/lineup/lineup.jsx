@@ -1,6 +1,6 @@
 import React from 'react';
-import { imgPath } from '@utils/constants';
 import './lineup.scss';
+import { GreenSun } from '@images';
 
 const lineup = [
   {
@@ -51,11 +51,7 @@ const Headliners = () => (
       the <br />
       Bass
     </p>
-    <img
-      src={`${imgPath}/Iconography/Iconography-03.png`}
-      alt=""
-      className="lineupSun headlineSun"
-    />
+    <GreenSun classNames="lineupSun headlineSun" />
     <p className="heading">
       The <br /> Brook <br /> & the <br /> Bluff
     </p>
@@ -78,11 +74,7 @@ const Artists = () => (
           return (
             <div key={artist} className="artistContainer">
               <p className="heading artist">{artist}</p>
-              <img
-                src={`${imgPath}/Iconography/Iconography-03.png`}
-                alt=""
-                className="lineupSun"
-              />
+              <GreenSun classNames="lineupSun" />
             </div>
           );
         })}

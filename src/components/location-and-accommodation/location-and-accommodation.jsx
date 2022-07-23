@@ -41,7 +41,7 @@ export default function LocationAndAccommodation() {
             <p className="accommodationLineOne bodyCopy">
               Cabins vary in size and features. Some have private bathrooms and
               sinks on the porch while others don’t. All cabin information can
-              be found on the <Link href="buy-tickets">ticketing page.</Link>
+              be found on the <Link to="buy-tickets">ticketing page.</Link>
             </p>
             <p className="bodyCopy">
               When purchasing a single{' '}

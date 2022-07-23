@@ -2,9 +2,9 @@ import React from 'react';
 import './schedule.scss';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faMinus } from '@fortawesome/free-solid-svg-icons';
-import { imgPath } from '../../utils/constants';
 import schedule from './schedule.json';
 import { useWindowSize } from '@hooks';
+import { GreenSun } from '@images';
 
 const Schedule = () => {
   const { isDesktop } = useWindowSize();
@@ -17,16 +17,8 @@ const Schedule = () => {
             <p className="scheduleDate subheadingHeavy">{dayOfWeek}</p>
             {!isDesktop && (
               <>
-                <img
-                  src={`${imgPath}/Iconography/Iconography-03.png`}
-                  alt=""
-                  className="greenSun"
-                />
-                <img
-                  src={`${imgPath}/Iconography/Iconography-03.png`}
-                  alt=""
-                  className="greenSun"
-                />
+                <GreenSun classNames="greenSun" />
+                <GreenSun classNames="greenSun" />
               </>
             )}
             {dailySchedule.map(

@@ -7,6 +7,9 @@ module.exports = {
   plugins: [
     'gatsby-plugin-sass',
     'gatsby-plugin-react-helmet',
+    `gatsby-plugin-image`,
+    `gatsby-plugin-sharp`,
+    `gatsby-transformer-sharp`,
     {
       resolve: `gatsby-plugin-alias-imports`,
       options: {
@@ -18,6 +21,7 @@ module.exports = {
           '@hooks': path.resolve(__dirname, 'src/hooks/index.js'),
           '@utils': path.resolve(__dirname, 'src/utils/'),
           '@mixins': path.resolve(__dirname, 'src/styles/mixins.scss'),
+          '@images': path.resolve(__dirname, 'src/images/'),
         },
         extensions: ['jsx', 'scss'],
       },
