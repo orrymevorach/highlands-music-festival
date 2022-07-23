@@ -163,6 +163,12 @@
 @media screen and (orientation: landscape) and (max-width: $mobile) {
   .homePageContainer {
     background-position: initial;
+    overflow: visible;
+    height: 100%;
+    .imageContainer,
+    .topRow {
+      position: relative;
+    }
     .imageContainer {
       padding-top: 100px;
     }
