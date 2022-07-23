@@ -9,9 +9,13 @@ const TopRow = () => (
   <div className="topRow">
     <h2 className="date">Septemeber 30 - October 2</h2>
     <p className="ticketsAvailable">2022 tickets are now available</p>
-    <Link to="buy-tickets" className={`buyNowButton`}>
+    <a
+      href="https://www.eventbrite.ca/e/highlands-music-festival-tickets-353399967817"
+      className={`buyNowButton`}
+      target="_blank"
+    >
       Buy Now
-    </Link>
+    </a>
   </div>
 );
 

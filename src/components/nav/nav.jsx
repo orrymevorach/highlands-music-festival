@@ -15,27 +15,28 @@ const links = [
   //   text: 'Home',
   // },
   {
-    href: '/about',
+    to: '/about',
     text: 'About',
   },
   {
-    href: '/lineup-and-schedule',
+    to: '/lineup-and-schedule',
     text: 'Lineup & Schedule',
   },
   {
-    href: '/buy-tickets',
+    to: 'https://www.eventbrite.ca/e/highlands-music-festival-tickets-353399967817',
     text: 'Buy Tickets',
+    isAnchor: true,
   },
   {
-    href: '/location-and-accommodation',
+    to: '/location-and-accommodation',
     text: 'Location & Accommodation',
   },
   // {
-  //   href: '/activities',
+  //   to: '/activities',
   //   text: 'Activities',
   // },
   {
-    href: '/faq',
+    to: '/faq',
     text: 'FAQ',
   },
 ];
@@ -91,9 +92,15 @@ const Nav = ({ hamburgerMenuColor = '' }) => {
         <nav className="nav">
           <ul className="navList">
             <HomeIcon />
-            {links.map(({ href, text }) => (
-              <li key={href} className={clsx(href === pathname && 'active')}>
-                <Link to={href}>{text}</Link>
+            {links.map(({ to, text, isAnchor = false }) => (
+              <li key={to} className={clsx(to === pathname && 'active')}>
+                {isAnchor ? (
+                  <a href={to} target="_blank">
+                    {text}
+                  </a>
+                ) : (
+                  <Link to={to}>{text}</Link>
+                )}
               </li>
             ))}
             <InstagramIcon />
