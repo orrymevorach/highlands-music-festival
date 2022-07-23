@@ -165,9 +165,10 @@
     background-position: initial;
     overflow: visible;
     height: 100%;
+    padding-bottom: 25px;
     .imageContainer,
     .topRow {
-      position: relative;
+      position: static;
     }
     .imageContainer {
       padding-top: 100px;
