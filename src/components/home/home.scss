@@ -160,7 +160,7 @@
   }
 }
 
-@media screen and (orientation: landscape) and (max-width: $mobile) {
+@media screen and (orientation: landscape) and (max-width: 450px) {
   .homePageContainer {
     background-position: initial;
     overflow: visible;

@@ -113,7 +113,7 @@
   }
 }
 
-@media screen and (orientation: landscape) and (max-width: $mobile) {
+@media screen and (orientation: landscape) and (max-width: 450px) {
   .nav {
     height: 100%;
     overflow: visible;
