@@ -2,14 +2,15 @@
 @import '@colors';
 @import '@mixins';
 
-.activitiesPageImageContainer {
-  background-image: url('https://highlands-music-festival.s3.ca-central-1.amazonaws.com/CL-HAMMOCK.jpg');
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  width: 100%;
+.hammocksContainer {
   height: 250px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
+
 .activitiesWrapper {
   @include wrapper;
   padding-top: 25px;

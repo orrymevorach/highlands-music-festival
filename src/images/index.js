@@ -8,3 +8,5 @@ export { default as FirehallEvening } from './firehall-evening';
 export { default as YellowSun } from './yellow-sun';
 export { default as LogoBeige } from './logo-beige';
 export { default as Hammocks } from './hammocks';
+export { default as SwimTower } from './swim-tower';
+export { default as Cabin } from './cabin';

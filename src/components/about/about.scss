@@ -10,12 +10,12 @@
 }
 
 .aboutPageImageContainer {
-  background-image: url('https://highlands-music-festival.s3.ca-central-1.amazonaws.com/gallery-the-setting-11.jpg');
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  width: 100%;
   height: 250px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .aboutLogo {

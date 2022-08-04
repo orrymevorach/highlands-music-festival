@@ -2,14 +2,16 @@ import React from 'react';
 import Layout from '@components/layout';
 import './activities.scss';
 import { colors } from '@utils/constants';
-import { GreenSun } from '@images';
+import { GreenSun, Hammocks } from '@images';
 import { useWindowSize } from '@hooks';
 
 export default function Activities() {
   const { isMobile } = useWindowSize();
   return (
     <Layout hasPaddingBottom={false} hamburgerMenuColor={colors.beige}>
-      <div className="activitiesPageImageContainer"></div>
+      <div className="hammocksContainer">
+        <Hammocks />
+      </div>
       <div className="activitiesWrapper">
         <h2 className="heading">Activities</h2>
         {!isMobile && <GreenSun classNames="activitiesSun" />}

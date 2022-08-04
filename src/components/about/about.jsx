@@ -10,6 +10,7 @@ import {
   Omni,
   CLDeck,
   FirehallEvening,
+  SwimTower,
 } from '@images';
 import { imgPath } from '@utils/constants';
 
@@ -17,7 +18,10 @@ export default function About() {
   const { isMobile } = useWindowSize();
   return (
     <Layout hasPaddingBottom={false} hamburgerMenuColor={colors.beige}>
-      <div className="aboutPageImageContainer"></div>
+      <div className="aboutPageImageContainer">
+        <SwimTower />
+      </div>
+
       <div className="aboutWrapper">
         <LogoColor classNames="aboutLogo" />
         <h3 className="aboutDate subheading">September 30 - October 2</h3>
