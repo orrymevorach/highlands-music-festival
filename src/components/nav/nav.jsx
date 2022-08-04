@@ -31,10 +31,10 @@ const links = [
     to: '/location-and-accommodation',
     text: 'Location & Accommodation',
   },
-  // {
-  //   to: '/activities',
-  //   text: 'Activities',
-  // },
+  {
+    to: '/activities',
+    text: 'Activities',
+  },
   {
     to: '/faq',
     text: 'FAQ',
@@ -95,7 +95,7 @@ const Nav = ({ hamburgerMenuColor = '' }) => {
             {links.map(({ to, text, isAnchor = false }) => (
               <li key={to} className={clsx(to === pathname && 'active')}>
                 {isAnchor ? (
-                  <a href={to} target="_blank">
+                  <a href={to} target="_blank" rel="noreferrer">
                     {text}
                   </a>
                 ) : (

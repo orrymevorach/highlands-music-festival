@@ -4,7 +4,6 @@ import Layout from '../layout';
 import { colors } from '@utils/constants';
 import { useWindowSize } from '@hooks';
 import {
-  GreenSun,
   LogoColor,
   CLFirepit,
   CLBackyard,

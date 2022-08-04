@@ -1,0 +1,67 @@
+@import '@vars';
+@import '@colors';
+@import '@mixins';
+
+.activitiesPageImageContainer {
+  background-image: url('https://highlands-music-festival.s3.ca-central-1.amazonaws.com/CL-HAMMOCK.jpg');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 100%;
+  height: 250px;
+}
+.activitiesWrapper {
+  @include wrapper;
+  padding-top: 25px;
+  position: relative;
+
+  .activitiesContainer {
+    display: flex;
+  }
+
+  .activitiesSun {
+    position: absolute;
+    width: 150px;
+    top: 20px;
+    right: 100px;
+    animation: spin 3s;
+  }
+
+  .activitiesCol {
+    width: 50%;
+    font-size: 24px;
+    &1 {
+      padding-right: 50px;
+    }
+    &2 {
+      position: relative;
+    }
+    .activity {
+      margin: 10px 0;
+    }
+  }
+
+  @media (max-width: $tablet) {
+    .activitiesCol {
+      font-size: 16px;
+    }
+    .heading {
+      margin-top: 50px;
+    }
+    .activitiesSun {
+      width: 80px;
+    }
+  }
+  @media (max-width: $mobile) {
+    .activitiesContainer {
+      flex-direction: column;
+    }
+    .activitiesCol {
+      width: 100%;
+      padding-right: 0;
+      &1 {
+        margin: 10px 0;
+      }
+    }
+  }
+}
