@@ -68,6 +68,15 @@
   }
 }
 
+@media (max-width: 956px) {
+  .navList li {
+    padding: 0 12px;
+    a {
+      font-size: 14px;
+    }
+  }
+}
+
 @media (max-width: $mobile) {
   .nav {
     width: 100%;

@@ -10,10 +10,6 @@ import { faInstagram } from '@fortawesome/free-brands-svg-icons';
 import { colors } from '@utils/constants';
 
 const links = [
-  // {
-  //   href: '/',
-  //   text: 'Home',
-  // },
   {
     to: '/about',
     text: 'About',
@@ -34,6 +30,10 @@ const links = [
   {
     to: '/activities',
     text: 'Activities',
+  },
+  {
+    to: '/committee',
+    text: 'Who We Are',
   },
   {
     to: '/faq',
