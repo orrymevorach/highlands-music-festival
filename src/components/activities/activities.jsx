@@ -23,7 +23,7 @@ export default function Activities() {
             </p>
           </div>
           <ul className="activitiesCol activitiesCol2">
-            <li className="bodyCopy activity">Tennis, Basketball & Hockey</li>
+            <li className="bodyCopy activity">Tennis, Basketball, & Hockey</li>
             <li className="bodyCopy activity">Painting, Beading, & Crafts</li>
             <li className="bodyCopy activity">Rock Climbing & Zipline</li>
             <li className="bodyCopy activity">Canoe, Kayak, Sail, & Swim</li>
