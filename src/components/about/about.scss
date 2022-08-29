@@ -10,7 +10,7 @@
 }
 
 .aboutPageImageContainer {
-  height: 250px;
+  max-height: 250px;
   overflow: hidden;
   display: flex;
   flex-direction: column;
