@@ -2,7 +2,6 @@ import React from 'react';
 import './location-and-accommodation.scss';
 import Layout from '../layout';
 import { useGoogleMaps } from '@hooks';
-import { Link } from 'gatsby';
 
 const packingList = [
   { packingItem: 'Single bed fitted/flat sheet ' },
@@ -45,6 +44,7 @@ export default function LocationAndAccommodation() {
               <a
                 href="https://www.eventbrite.ca/e/highlands-music-festival-tickets-353399967817"
                 target="_blank"
+                rel="noreferrer"
               >
                 ticketing page.
               </a>

@@ -2,7 +2,6 @@ import React from 'react';
 import './home.scss';
 import { imgPath, colors } from '@utils/constants';
 import Layout from '../layout';
-import { Link } from 'gatsby';
 import { useWindowSize } from '@hooks';
 
 const TopRow = () => (
@@ -11,8 +10,9 @@ const TopRow = () => (
     <p className="ticketsAvailable">2022 tickets are now available</p>
     <a
       href="https://www.eventbrite.ca/e/highlands-music-festival-tickets-353399967817"
-      className={`buyNowButton`}
+      className="buyNowButton"
       target="_blank"
+      rel="noreferrer"
     >
       Buy Now
     </a>

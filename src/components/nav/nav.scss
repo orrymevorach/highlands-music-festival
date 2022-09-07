@@ -53,18 +53,18 @@
   top: 50px;
 }
 
-@media (max-width: 920px) {
+@media (max-width: 1190px) {
   .instagramIcon {
-    right: 20px;
+    position: static;
+  }
+  .navList li {
+    padding: 0 15px;
+    a {
+      font-size: 16px;
+    }
   }
   .homeIcon {
     margin-right: 0px;
-  }
-}
-
-@media (max-width: $tablet) {
-  .navList li a {
-    font-size: 16px;
   }
 }
 
