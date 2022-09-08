@@ -2,6 +2,7 @@ import React from 'react';
 import './location-and-accommodation.scss';
 import Layout from '../layout';
 import { useGoogleMaps } from '@hooks';
+import Map from '@images/map';
 
 const packingList = [
   { packingItem: 'Single bed fitted/flat sheet ' },
@@ -73,6 +74,7 @@ export default function LocationAndAccommodation() {
             ))}
           </ul>
         </div>
+        <Map />
       </div>
     </Layout>
   );
