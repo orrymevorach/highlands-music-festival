@@ -174,22 +174,24 @@ const faq = [
 export default function FAQ() {
   return (
     <Layout>
-      <div className="faqWrapper">
-        <h1 className="heading">FAQ</h1>
-        <div className="faqContainer">
-          {faq.map(({ question, Answer, answer }) => (
-            <div className="questionContainer" key={question}>
-              <p className="question bodyCopyBold">{question}</p>
-              {answer ? (
-                <p className="answer bodyCopy">{answer}</p>
-              ) : (
-                <Answer />
-              )}
-            </div>
-          ))}
-          <YellowSun classNames="sunIcon" />
+      <main>
+        <div className="faqWrapper">
+          <h1 className="heading">FAQ</h1>
+          <div className="faqContainer">
+            {faq.map(({ question, Answer, answer }) => (
+              <div className="questionContainer" key={question}>
+                <p className="question bodyCopyBold">{question}</p>
+                {answer ? (
+                  <p className="answer bodyCopy">{answer}</p>
+                ) : (
+                  <Answer />
+                )}
+              </div>
+            ))}
+            <YellowSun classNames="sunIcon" />
+          </div>
         </div>
-      </div>
+      </main>
     </Layout>
   );
 }

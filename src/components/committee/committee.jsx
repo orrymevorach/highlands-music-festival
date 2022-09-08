@@ -115,17 +115,19 @@ const CommitteeMember = ({ name, title, Img }) => (
 export default function Committee() {
   return (
     <Layout>
-      <div className="committeePage">
-        <h1 className="heading">Who We Are</h1>
-        <div className="committeeMembers">
-          {committeeData.map(committeeMemberData => (
-            <CommitteeMember
-              {...committeeMemberData}
-              key={committeeMemberData.name}
-            />
-          ))}
+      <main>
+        <div className="committeePage">
+          <h1 className="heading">Who We Are</h1>
+          <div className="committeeMembers">
+            {committeeData.map(committeeMemberData => (
+              <CommitteeMember
+                {...committeeMemberData}
+                key={committeeMemberData.name}
+              />
+            ))}
+          </div>
         </div>
-      </div>
+      </main>
     </Layout>
   );
 }

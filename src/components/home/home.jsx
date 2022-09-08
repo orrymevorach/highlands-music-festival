@@ -40,18 +40,20 @@ export default function Home() {
   return (
     <div className="homePageContainer">
       <Layout hasPaddingBottom={false} hamburgerMenuColor={colors.beige}>
-        <h1 className="h1">Highlands Music Festival</h1>
-        <div className="videoContainer">
-          <div className="imageContainer">
-            <img
-              src={`${imgPath}/Logo-1200px-Neutral.png`}
-              alt="Highlands Music Festival logo"
-              className="logo"
-            />
-            <TopRow />
+        <main>
+          <h1 className="h1">Highlands Music Festival</h1>
+          <div className="videoContainer">
+            <div className="imageContainer">
+              <img
+                src={`${imgPath}/Logo-1200px-Neutral.png`}
+                alt="Highlands Music Festival logo"
+                className="logo"
+              />
+              <TopRow />
+            </div>
+            {!isMobile && <Video />}
           </div>
-          {!isMobile && <Video />}
-        </div>
+        </main>
       </Layout>
     </div>
   );
