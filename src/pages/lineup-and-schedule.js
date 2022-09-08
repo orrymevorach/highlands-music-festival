@@ -1,15 +1,21 @@
 import React from 'react';
 import '../styles/global.scss';
-import Schedule from '../components/schedule';
-import Lineup from '../components/lineup';
-import Layout from '../components/layout';
+import Head from '@components/head';
+import Schedule from '@components/schedule';
+import Lineup from '@components/lineup';
+import Layout from '@components/layout';
 
 const LineupAndSchedule = () => {
   return (
-    <Layout>
-      <Lineup />
-      <Schedule />
-    </Layout>
+    <>
+      <Head />
+      <Layout>
+        <main>
+          <Lineup />
+          <Schedule />
+        </main>
+      </Layout>
+    </>
   );
 };
 export default LineupAndSchedule;
