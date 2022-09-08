@@ -5,18 +5,6 @@ import { StaticImage } from 'gatsby-plugin-image';
 
 const committeeData = [
   {
-    name: 'Sol Birenbaum',
-    title: 'The Money Man',
-    Img: () => (
-      <StaticImage
-        src="https://highlands-music-festival.s3.ca-central-1.amazonaws.com/committeeMembers/sol.jpeg"
-        alt=""
-        placeholder="blurred"
-        className="memberImage sol"
-      />
-    ),
-  },
-  {
     name: 'Sammy Steiner',
     title: 'The Music',
     Img: () => (
@@ -98,6 +86,18 @@ const committeeData = [
         alt=""
         placeholder="blurred"
         className="memberImage orry"
+      />
+    ),
+  },
+  {
+    name: 'Sol Birenbaum',
+    title: 'The Big Talker',
+    Img: () => (
+      <StaticImage
+        src="https://highlands-music-festival.s3.ca-central-1.amazonaws.com/committeeMembers/sol.jpeg"
+        alt=""
+        placeholder="blurred"
+        className="memberImage sol"
       />
     ),
   },
