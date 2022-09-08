@@ -8,7 +8,7 @@ import { useWindowSize } from '@hooks';
 export default function Activities() {
   const { isMobile } = useWindowSize();
   return (
-    <Layout hasPaddingBottom={false} hamburgerMenuColor={colors.beige}>
+    <Layout hamburgerMenuColor={colors.beige}>
       <main>
         <div className="hammocksContainer">
           <Hammocks />
