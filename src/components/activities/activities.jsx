@@ -28,7 +28,6 @@ export default function Activities() {
                 Tennis, Basketball, & Hockey
               </li>
               <li className="bodyCopy activity">Painting, Beading, & Crafts</li>
-              <li className="bodyCopy activity">Rock Climbing & Zipline</li>
               <li className="bodyCopy activity">Canoe, Kayak, Sail, & Swim</li>
               <li className="bodyCopy activity">Yoga & Fitness Classes</li>
               <li className="bodyCopy activity">Waterski</li>
