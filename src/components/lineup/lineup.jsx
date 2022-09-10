@@ -74,11 +74,12 @@ const Artists = () => (
   <>
     {lineup.map(({ artists }, index) => (
       <div key={`${artists[0]}-${index}`} className="lineupRow">
-        {artists.map(({ artist }) => {
+        {artists.map(({ artist }, index) => {
+          const isLastArtistInRow = index === artists.length - 1;
           return (
             <div key={artist} className="artistContainer">
               <p className="heading artist">{artist}</p>
-              <GreenSun classNames="lineupSun" />
+              {!isLastArtistInRow && <GreenSun classNames="lineupSun" />}
             </div>
           );
         })}
