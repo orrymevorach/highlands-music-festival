@@ -4,7 +4,7 @@
     "dailySchedule": [
       {
         "startTime": "4:00PM",
-        "endTime": "6:30PM",
+        "endTime": "6:00PM",
         "activity": "Arrival"
       },
       {
@@ -13,22 +13,23 @@
         "activity": "Camp Activities Available"
       },
       {
-        "startTime": "5:45PM",
-        "endTime": "7:15PM",
+        "startTime": "6:00PM",
+        "endTime": "7:30PM",
         "activity": "Dinner"
       },
       {
-        "startTime": "7:30PM",
-        "endTime": "11:30PM",
+        "startTime": "8:00PM",
+        "endTime": "12:00AM",
         "activity": "Music on the Main Stage"
       },
       {
-        "startTime": "11:30PM",
+        "startTime": "10:15PM",
+        "endTime": "1:45PM",
         "activity": "Evening Snack"
       },
       {
         "startTime": "12:00AM",
-        "activity": "The Afterparty Begins"
+        "activity": "The Afterparty In The CL"
       }
     ]
   },
@@ -36,14 +37,13 @@
     "dayOfWeek": "Saturday",
     "dailySchedule": [
       {
-        "startTime": "7:00AM",
+        "startTime": "8:00AM",
         "endTime": "9:00AM",
         "activity": "WELLNESS MORNING (MEDITATION, YOGA, BUT FIRST COFFEE)"
       },
-      { "startTime": "9:00AM", "activity": "EARLY MORNING DIP IN THE LAKE" },
       {
-        "startTime": "9:00AM",
-        "endTime": "11:00AM",
+        "startTime": "8:30AM",
+        "endTime": "10:00AM",
         "activity": "Breakfast buffet"
       },
       {
@@ -58,46 +58,61 @@
       },
       {
         "startTime": "12:00PM",
+        "endTime": "1:30PM",
         "activity": "Lunch"
       },
       {
-        "startTime": "5:45PM",
-        "endTime": "7:15PM",
-        "activity": "REST HOUR / DINNER"
+        "startTime": "1:00PM",
+        "endTime": "5:30PM",
+        "activity": "Open Ski"
+      },
+      {
+        "startTime": "6:00PM",
+        "endTime": "7:30PM",
+        "activity": "DINNER"
       },
       {
         "startTime": "7:30PM",
-        "endTime": "11:30PM",
+        "endTime": "11:15PM",
         "activity": "MUSIC ON THE MAIN STAGE"
       },
       {
-        "startTime": "11:30PM",
+        "startTime": "11:15AM",
+        "endTime": "12:00AM",
+        "activity": "BIG ASS BONFIRE WITH DENNIS BY FLAG POLES"
+      },
+      {
+        "startTime": "12:00AM",
         "activity": "EVENING SNACK"
       },
-      { "startTime": "12:00AM", "activity": "MIDNIGHT BONFIRE AND AFTERPARTY" }
+      {
+        "startTime": "12:00AM",
+        "activity": "AFTER PARTY AND BAR IN OMNI"
+      }
     ]
   },
   {
     "dayOfWeek": "Sunday",
     "dailySchedule": [
       {
-        "startTime": "7:00AM",
-        "endTime": "9:00AM",
+        "startTime": "8:30AM",
+        "endTime": "9:30AM",
         "activity": "WELLNESS MORNING (MEDITATION, YOGA, BUT FIRST COFFEE)"
       },
       {
-        "startTime": "9:00AM",
-        "activity": "EARLY MORNING DIP IN THE LAKE"
-      },
-      {
-        "startTime": "9:00AM",
+        "startTime": "9:30AM",
         "endTime": "11:00AM",
         "activity": "BREAKFAST BUFFET"
       },
       {
-        "startTime": "11:30AM",
-        "endTime": "12:30PM",
+        "startTime": "11:00AM",
+        "endTime": "12:00PM",
         "activity": "MUSIC ON THE MAIN STAGE"
+      },
+      {
+        "startTime": "12:00PM",
+        "endTime": "1:00PM",
+        "activity": "PACK UP!"
       },
       {
         "startTime": "1:00PM",
