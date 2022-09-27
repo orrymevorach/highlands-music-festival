@@ -22,7 +22,8 @@
   background: none;
   position: absolute;
   top: 0;
-  left: 0;
+  left: 50%;
+  transform: translateX(-50%);
 }
 
 .headlineRow {
@@ -66,11 +67,6 @@
     overflow: hidden;
     padding: 0 10px;
   }
-  .lineupBackground {
-    width: auto;
-    left: 50%;
-    transform: translateX(-50%);
-  }
   .lineupSun {
     width: 40px;
     padding-top: 5px;
@@ -78,9 +74,6 @@
 }
 
 @media screen and (max-width: 750px) {
-  .lineupBackground {
-    height: 600px;
-  }
   .artist {
     font-size: 16px;
     margin: 8px 0;

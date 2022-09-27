@@ -1,6 +1,6 @@
 import React from 'react';
 import './lineup.scss';
-import { GreenSun } from '@images';
+import { GreenSun, YellowSun } from '@images';
 
 const lineup = [
   'Ada Lea',
@@ -47,14 +47,6 @@ const Headliners = () => (
   </div>
 );
 
-const BackgroundImage = () => (
-  <img
-    src="https://highlands-music-festival.s3.ca-central-1.amazonaws.com/Iconography/Iconography-02.png"
-    alt=""
-    className="lineupBackground"
-  />
-);
-
 const Artists = () => {
   const chunkedLineup = chunkLineupIntoRowsOfThree(lineup);
   return (
@@ -82,7 +74,7 @@ export default function Lineup() {
   return (
     <div className="lineupContainer">
       <h2 className="heading center">Lineup</h2>
-      <BackgroundImage />
+      <YellowSun classNames="lineupBackground" />
       <Headliners />
       <Artists />
     </div>
