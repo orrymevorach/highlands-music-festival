@@ -5,6 +5,14 @@ import { colors } from '@utils/constants';
 import { GreenSun, Hammocks } from '@images';
 import { useWindowSize } from '@hooks';
 
+const activities = [
+  'Tennis, Basketball, & Hockey',
+  'Painting, Beading, & Crafts',
+  'Canoe, Kayak, Sail, & Swim',
+  'Yoga & Fitness Classes',
+  'Waterski',
+];
+
 export default function Activities() {
   const { isMobile } = useWindowSize();
   return (
@@ -24,13 +32,11 @@ export default function Activities() {
               </p>
             </div>
             <ul className="activitiesCol activitiesCol2">
-              <li className="bodyCopy activity">
-                Tennis, Basketball, & Hockey
-              </li>
-              <li className="bodyCopy activity">Painting, Beading, & Crafts</li>
-              <li className="bodyCopy activity">Canoe, Kayak, Sail, & Swim</li>
-              <li className="bodyCopy activity">Yoga & Fitness Classes</li>
-              <li className="bodyCopy activity">Waterski</li>
+              {activities.map(activity => (
+                <li key={activity} className="bodyCopy activity">
+                  {activity}
+                </li>
+              ))}
             </ul>
           </div>
         </div>

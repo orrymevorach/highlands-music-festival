@@ -1,30 +1,27 @@
 import { useState, useEffect } from 'react';
 
 export default function useWindowSize() {
-  // Learn more here: https://joshwcomeau.com/react/the-perils-of-rehydration/
-  const [windowSize, setWindowSize] = useState({
-    width: undefined,
-    height: undefined,
-  });
+  const [device, setDevice] = useState('');
 
   useEffect(() => {
-    function handleResize() {
-      setWindowSize({
-        width: window.innerWidth,
-        height: window.innerHeight,
-      });
+    function getDevice() {
+      let device = '';
+      if (window.innerWidth <= 850) device = 'mobile';
+      if (window.innerWidth <= 1000 && window.innerWidth > 850)
+        device = 'tablet';
+      if (window.innerWidth > 1000) device = 'desktop';
+      setDevice(device);
     }
 
-    window.addEventListener('resize', handleResize);
-    handleResize();
+    window.addEventListener('resize', getDevice);
+    getDevice();
 
-    return () => window.removeEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', getDevice);
   }, []);
-
   return {
-    ...windowSize,
-    isMobile: windowSize.width ? windowSize.width <= 850 : undefined,
-    isTablet: windowSize.width <= 1000 && windowSize.width > 850,
-    isDesktop: windowSize.width > 1000,
+    device,
+    isMobile: device === 'mobile',
+    isTablet: device === 'tablet',
+    isDesktop: device === 'desktop',
   };
 }
