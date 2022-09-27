@@ -2,22 +2,28 @@ import React from 'react';
 import { Link } from 'gatsby';
 import { imgPath } from '@utils/constants';
 
+const linkClassnames = 'bodyCopyBold link';
+const containerClassnames = 'bodyCopy answer';
+
+const Anchor = ({ href, children }) => (
+  <a href={href} className={linkClassnames} target="_blank" rel="noreferrer">
+    {children}
+  </a>
+);
+
+const List = ({ children }) => <ul className="faqList">{children}</ul>;
+
 export const faq = [
   {
     question:
       'How do I get there, when should I arrive, and what will the first hour look and feel like?',
     Answer: () => (
-      <p className="bodyCopy answer">
+      <p className={containerClassnames}>
         Located 2 hours from Ottawa, 3 hours from Toronto, and 4 hours from
         Montreal, the best route to take can be found{' '}
-        <a
-          href="https://www.campwalden.ca/guidebook/directions/"
-          className="bodyCopyBold link"
-          target="_blank"
-          rel="noreferrer"
-        >
+        <Anchor href="https://www.campwalden.ca/guidebook/directions/">
           here
-        </a>
+        </Anchor>
         . Enjoy the foliage. Your final half hour is literally a beautiful
         ascent into the Highlands. When you arrive, your vehicle will be greeted
         at our front gate, handed a program, screened by our friendly security
@@ -27,7 +33,7 @@ export const faq = [
         6:30 (dinner will be delicious!) Gates officially close at 9:00PM (it
         just isn’t safe to drive later than that!) Then the festival is yours to
         discover! Our simple schedule can be found{' '}
-        <Link to="/lineup-and-schedule" className="bodyCopyBold link">
+        <Link to="/lineup-and-schedule" className={linkClassnames}>
           here
         </Link>
       </p>
@@ -36,16 +42,11 @@ export const faq = [
   {
     question: 'Are tickets still available?',
     Answer: () => (
-      <p className="bodyCopy answer">
+      <p className={containerClassnames}>
         Yes! Those last minute friends of yours should be sent{' '}
-        <a
-          href="https://www.eventbrite.ca/e/highlands-music-festival-tickets-353399967817"
-          className="bodyCopyBold link"
-          target="_blank"
-          rel="noreferrer"
-        >
+        <Anchor href="https://www.eventbrite.ca/e/highlands-music-festival-tickets-353399967817">
           here
-        </a>{' '}
+        </Anchor>{' '}
         here immediately to snag their tickets!
       </p>
     ),
@@ -78,14 +79,14 @@ export const faq = [
   {
     question: 'What should I pack? ',
     Answer: () => (
-      <div className="bodyCopy answer">
+      <div className={containerClassnames}>
         <p>
           The weather forecast looks just about perfect, but we want you to come
           prepared for whatever mother nature has in store for us! Walden is
           several degrees cooler at night than in the city and we plan to have
           music that runs late. So pack warm and then pack warmer!
         </p>
-        <ul className="faqList">
+        <List>
           <li>
             Bedding: Sheets, comforter/duvet, and pillow. Add a sleeping bag for
             extra warmth. Bed size is 30”x72”
@@ -111,17 +112,16 @@ export const faq = [
           <li>Optional: Lawn Chair</li>
           <li>Optional: Yoga wear (with layers)</li>
           <li>Optional: Musical Instruments for around the campfire</li>
-        </ul>
+        </List>
         <p>Please do not pack:</p>
-
-        <ul className="faqList">
+        <List>
           <li>Butane or propane filled appliances</li>
           <li>Lamps</li>
           <li>Candles</li>
           <li>Fire crackers</li>
           <li>Glass containers</li>
           <li>Hair dryers, straighteners, etc.</li>
-        </ul>
+        </List>
         <p>
           We understand that items may be forgotten and not realized until you
           have arrived… DON’T WORRY….we can help. Please don’t hesitate to speak
@@ -133,7 +133,7 @@ export const faq = [
   {
     question: 'What kind of music am I going to hear at Highlands?',
     Answer: () => (
-      <div className="bodyCopy answer">
+      <div className={containerClassnames}>
         <p>
           Inspired most-of-all by the festivals of the 1960’s, Highlands sought
           to find young and evolving artists who had something meaningful to say
@@ -141,7 +141,7 @@ export const faq = [
           to sway… to cheer… to sing along… to ponder… with today’s amazingly
           talented musicians at one of our three professional stage locations:
         </p>
-        <ul className="faqList">
+        <List>
           <li>
             “The CL” - our main stage in the beautiful backyard of camp’s heart
             center - the “Counsellor’s Lounge”
@@ -154,7 +154,7 @@ export const faq = [
             The “Amphitheater” - get one-on-one with Highlands
             singer-songwriters in this scenic stage by the lake
           </li>
-        </ul>
+        </List>
         <p>
           We will all be together on Friday and Saturday night to hear our
           headliners. On Saturday all day it’s a musical choose your own
@@ -177,21 +177,16 @@ export const faq = [
   {
     question: 'Are there any camp rules I should be aware of?',
     Answer: () => (
-      <div className="bodyCopy answer">
+      <div className={containerClassnames}>
         <p>
           Yes, thank you for asking! On arrival you will be asked to sign a{' '}
-          <a
-            className="bodyCopyBold link"
-            href={`${imgPath}/HIGHLANDS MUSIC FESTIVAL - WAIVER.pdf`}
-            target="_blank"
-            rel="noreferrer"
-          >
+          <Anchor href={`${imgPath}/HIGHLANDS MUSIC FESTIVAL - WAIVER.pdf`}>
             waiver
-          </a>{' '}
+          </Anchor>{' '}
           attesting to your understanding and agreement to follow these four
           Highlands Principles.
         </p>
-        <ul className="faqList">
+        <List>
           <li>
             Healthy, Safety, Joy, and Welcome: Health and Safety is established
             by establishing clearly defined physical and emotional rules and
@@ -200,14 +195,9 @@ export const faq = [
             not only safe, but also joyful and welcomed by our community. If you
             do not feel safe, please contact a staff member or security staff.
             Some{' '}
-            <a
-              className="bodyCopyBold link"
-              href={`${imgPath}/CAMP+WALDEN+-+PRIVATE+RENTAL+RULES_.pdf`}
-              target="_blank"
-              rel="noreferrer"
-            >
+            <Anchor href={`${imgPath}/CAMP+WALDEN+-+PRIVATE+RENTAL+RULES_.pdf`}>
               camp rules
-            </a>{' '}
+            </Anchor>{' '}
             will be posted on every cabin door. They can be read ahead of time
             here.
           </li>
@@ -231,14 +221,14 @@ export const faq = [
             acknowledge we are on the lands originally belonging to the
             Algonquin and Anishinabewaki nations.
           </li>
-        </ul>
+        </List>
       </div>
     ),
   },
   {
     question: 'Can you tell me more about the drive?',
     Answer: () => (
-      <p className="bodyCopy answer">
+      <p className={containerClassnames}>
         The drive to Highlands is a glorious ride! No matter whether you are
         taking the 2 hour drive from Ottawa, Pembroke, and Peterborough, or the
         3 hour drive from Toronto, the final 30 minutes of the journey involves
@@ -250,14 +240,9 @@ export const faq = [
         pictures along the way! Toronto/Peterborough Highlanders might consider
         stopping at Kawartha Dairy on your way up. Our favs are Moose Tracks,
         Cookie Dough and Chocolate Peanut Butter. In the car, check out the{' '}
-        <a
-          href="https://open.spotify.com/playlist/4e9OCp4qdmoGAyFbaSgvys?si=sDmWXKAoTNO5mtADvJf8rQ&nd=1"
-          className="bodyCopyBold link"
-          target="_blank"
-          rel="noreferrer"
-        >
+        <Anchor href="https://open.spotify.com/playlist/4e9OCp4qdmoGAyFbaSgvys?si=sDmWXKAoTNO5mtADvJf8rQ&nd=1">
           Highlands playlist
-        </a>{' '}
+        </Anchor>{' '}
         to prep your ears for the sweet sounds of the weekend! If you have any
         concerns along the way, please feel free to call the Camp Walden office
         at 1-888-254-4274. Cell phone reception is intermittent/limited so, if
@@ -312,7 +297,7 @@ export const faq = [
   {
     question: 'Who are the organizers?',
     Answer: () => (
-      <p className="bodyCopy answer">
+      <p className={containerClassnames}>
         At the peak of the pandemic... and at the worst possible time, Pulver
         gave Sol an idea. Sol stewed on it for too long and dreamt of putting an
         all-star team of dedicated young people together... not to work for
@@ -322,7 +307,7 @@ export const faq = [
         grabbed capable cousin’s Toby and Josh which made our 9-person
         co-creator team complete! We are delighted to bring you the Highlands
         Music Festival! Get to know our Co-Creators{' '}
-        <Link to="/committee" className="bodyCopyBold link">
+        <Link to="/committee" className={linkClassnames}>
           here.
         </Link>
       </p>
@@ -346,9 +331,9 @@ export const faq = [
   {
     question: 'What about the Pooch?',
     Answer: () => (
-      <div className="bodyCopy answer">
+      <div className={containerClassnames}>
         <p>Yes, you may have a dog/dogs on site as long as you:</p>
-        <ul className="faqList">
+        <List>
           <li>Understand you are responsible for feeding them</li>
           <li>Keep them on a leash</li>
           <li>Provide vaccination proof</li>
@@ -359,7 +344,7 @@ export const faq = [
             vegetation, or become a nuisance to other people or animals at the
             camp.
           </li>
-        </ul>
+        </List>
       </div>
     ),
   },
