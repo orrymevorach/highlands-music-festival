@@ -185,6 +185,8 @@ const faq = [
           <a
             className="bodyCopyBold link"
             href={`${imgPath}/HIGHLANDS MUSIC FESTIVAL - WAIVER.pdf`}
+            target="_blank"
+            rel="noreferrer"
           >
             waiver
           </a>{' '}
@@ -203,6 +205,8 @@ const faq = [
             <a
               className="bodyCopyBold link"
               href={`${imgPath}/CAMP+WALDEN+-+PRIVATE+RENTAL+RULES_.pdf`}
+              target="_blank"
+              rel="noreferrer"
             >
               camp rules
             </a>{' '}
