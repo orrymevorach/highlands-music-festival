@@ -13,37 +13,33 @@ const lineup = [
   {
     artists: [
       { artist: 'Clerel' },
-      { artist: 'Danny Del' },
       { artist: 'Dave Borins' },
+      { artist: 'Ellevator' },
     ],
   },
   {
     artists: [
-      { artist: 'Ellevator' },
       { artist: 'Erez Zobary' },
       { artist: 'Katie Tupper' },
+      { artist: 'Le Ren' },
     ],
   },
   {
     artists: [
-      { artist: 'Le Ren' },
       { artist: 'Logan Staats' },
       { artist: 'Loving' },
+      { artist: 'Mighloe' },
     ],
   },
   {
     artists: [
-      { artist: 'Mighloe' },
       { artist: 'Niall Mutter' },
       { artist: 'Shallow Alcove' },
+      { artist: 'SORAN' },
     ],
   },
   {
-    artists: [
-      { artist: 'SORAN' },
-      { artist: 'THe LYONZ' },
-      { artist: 'Zenesoul' },
-    ],
+    artists: [{ artist: 'THe LYONZ' }, { artist: 'Zenesoul' }],
   },
 ];
 
