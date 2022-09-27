@@ -12,7 +12,8 @@
     "start": "gatsby develop",
     "build": "gatsby build",
     "serve": "gatsby serve",
-    "clean": "gatsby clean"
+    "clean": "gatsby clean",
+    "deploy": "curl -X POST -d {} https://api.netlify.com/build_hooks/6332809c22775f50776e35f6"
   },
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^6.1.1",
