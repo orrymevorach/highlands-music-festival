@@ -22,15 +22,18 @@
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
-  max-height: 1450px;
-  @media screen and (max-width: 1390px) {
-    max-height: 1750px;
+  max-height: 2750px;
+  @media screen and (max-width: 1280px) {
+    max-height: 3000px;
   }
-  @media screen and (max-width: 1160px) {
-    max-height: 1850px;
+  @media screen and (max-width: 1150px) {
+    max-height: 3400px;
   }
-  @media screen and (max-width: 1110px) {
-    max-height: 2050px;
+  @media screen and (max-width: 1075px) {
+    max-height: 3800px;
+  }
+  @media screen and (max-width: 1075px) {
+    max-height: 4100px;
   }
   @media screen and (max-width: $mobile) {
     max-height: none;
@@ -64,6 +67,24 @@
 
 .name {
   width: 100px;
+}
+
+.faqList {
+  margin-bottom: 10px;
+  li {
+    position: relative;
+    padding-left: 10px;
+    &:before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 10px;
+      width: 4px;
+      height: 4px;
+      border-radius: 50%;
+      background-color: black;
+    }
+  }
 }
 
 @media screen and (max-width: $tablet) {

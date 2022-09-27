@@ -3,22 +3,276 @@ import './faq.scss';
 import Layout from '@components/layout';
 import { Link } from 'gatsby';
 import { YellowSun } from '@images';
+import { imgPath } from '@utils/constants';
 
 const faq = [
   {
-    question: 'Can you tell me more about the drive?',
+    question:
+      'How do I get there, when should I arrive, and what will the first hour look and feel like?',
+    Answer: () => (
+      <p className="bodyCopy answer">
+        Located 2 hours from Ottawa, 3 hours from Toronto, and 4 hours from
+        Montreal, the best route to take can be found{' '}
+        <a
+          href="https://www.campwalden.ca/guidebook/directions/"
+          className="bodyCopyBold link"
+          target="_blank"
+          rel="noreferrer"
+        >
+          here
+        </a>
+        . Enjoy the foliage. Your final half hour is literally a beautiful
+        ascent into the Highlands. When you arrive, your vehicle will be greeted
+        at our front gate, handed a program, screened by our friendly security
+        team, and directed to park. We will assist you with your baggage, check
+        you in, show you to your cabin, and invite you to wander the beautiful
+        property before dinner. Gates open at 4 pm. Try to arrive no later than
+        6:30 (dinner will be delicious!) Then the festival is yours to discover!
+        Our simple schedule can be found{' '}
+        <Link to="/lineup-and-schedule" className="bodyCopyBold link">
+          here
+        </Link>
+      </p>
+    ),
+  },
+  {
+    question: 'Are tickets still available?',
+    Answer: () => (
+      <p className="bodyCopy answer">
+        Yes! Those last minute friends of yours should be sent{' '}
+        <a
+          href="https://www.eventbrite.ca/e/highlands-music-festival-tickets-353399967817"
+          className="bodyCopyBold link"
+          target="_blank"
+          rel="noreferrer"
+        >
+          here
+        </a>{' '}
+        here immediately to snag their tickets!
+      </p>
+    ),
+  },
+  {
+    question: 'What are the cabins like?',
     answer:
-      'The drive to Highlands is a glorious ride!  No matter whether you are taking the 2 hour drive from Ottawa, Pembroke, and Peterborough, or the 3 hour drive from Toronto, the final 30 minutes of the journey involves a steady incline into the Haliburton Highlands.  Nearby towns with a hospital and other amenities include Bancroft and Barry’s Bay but the area surrounding Highlands is undisturbed… free of any cell phone service… serene… and beautiful.  We encourage Highland-goers to carpool together so that at least one participant has hands free to take pictures along the way!',
+      'Our cabins are cozy and rustic. There are four walls covered in five decades of camper’s names and memories.  Every cabin has windows, and an A-line tin roof to provide shelter from any storm.  Cabins have beds, running water and a bathroom but there is no central air or heat. In short, they’re simple and perfect.',
+  },
+  {
+    question: 'What is the food situation?',
+    answer:
+      'Breakfast, lunch, dinner, and desserts will be provided!  Food is camp-chic! Think grilled cheese, poutine, and a loaded salad bar.  Get ready to be blown away by the great music first, and great food second!',
+  },
+  {
+    question: 'Do you accommodate special diets?',
+    answer:
+      'Yes, please include any dietary restrictions when purchasing your ticket or email us at info@highlandsmusicfestival.ca to notify us of any allergies or dietary restrictions.',
+  },
+  {
+    question: 'What’s the deal with booze and bud?',
+    answer:
+      "Highlands is for adults-only, and, for the most part, an “all-inclusive” experience.  You will be well fed, programmed, and full of music by the weekend's end.  Alcohol and Cannabis are sold at an inexpensive price from our booze and weed bars throughout the weekend.  As part of our Special Occasions Permit, we must ask you to not bring alcohol on site and of course, that to enjoy responsibly!",
+  },
+  {
+    question: 'So do I need cash?',
+    answer:
+      'In addition to the booze and bud, there’s some cool artists’ merch for sale.  Have a physical credit card handy to support the shopping bug.',
+  },
+  {
+    question: 'What should I pack? ',
+    Answer: () => (
+      <div className="bodyCopy answer">
+        <p>
+          The weather forecast looks just about perfect, but we want you to come
+          prepared for whatever mother nature has in store for us! Walden is
+          several degrees cooler at night than in the city and we plan to have
+          music that runs late. So pack warm and then pack warmer!
+        </p>
+        <ul className="faqList">
+          <li>
+            Bedding: Sheets, comforter/duvet, and pillow. Add a sleeping bag for
+            extra warmth. Bed size is 30”x72”
+          </li>
+          <li>2-3 towels (for the lake and shower)</li>
+          <li>
+            The usual essentials: toiletries, underwear, socks, comfy clothes,
+            etc.
+          </li>
+          <li>Bathing suit (the lake will call to you!)</li>
+          <li>Running shoes + flip flops</li>
+          <li>Rainboots + raincoat just in case</li>
+          <li>Flashlight</li>
+          <li>
+            Refillable water bottle! NOTE: Tap water at camp is fresh, filtered
+            and delicious! There are water fountains/coolers all around camp to
+            keep us hydrated!
+          </li>
+          <li>
+            An orange t-shirt to honour Canada’s National Day for Truth and
+            Reconciliation
+          </li>
+          <li>Optional: Lawn Chair</li>
+          <li>Optional: Yoga wear (with layers)</li>
+          <li>Optional: Musical Instruments for around the campfire</li>
+        </ul>
+        <p>Please do not pack:</p>
+
+        <ul className="faqList">
+          <li>Butane or propane filled appliances</li>
+          <li>Lamps</li>
+          <li>Candles</li>
+          <li>Fire crackers</li>
+          <li>Glass containers</li>
+          <li>Hair dryers, straighteners, etc.</li>
+        </ul>
+        <p>
+          We understand that items may be forgotten and not realized until you
+          have arrived… DON’T WORRY….we can help. Please don’t hesitate to speak
+          to one of our staff to help accommodate your needs.
+        </p>
+      </div>
+    ),
+  },
+  {
+    question: 'What kind of music am I going to hear at Highlands?',
+    Answer: () => (
+      <div className="bodyCopy answer">
+        <p>
+          Inspired most-of-all by the festivals of the 1960’s, Highlands sought
+          to find young and evolving artists who had something meaningful to say
+          and sing about. Highlands is Folk’ish in its broadest sense. Get ready
+          to sway… to cheer… to sing along… to ponder… with today’s amazingly
+          talented musicians at one of our three professional stage locations:
+        </p>
+        <ul className="faqList">
+          <li>
+            “The CL” - our main stage in the beautiful backyard of camp’s heart
+            center - the “Counsellor’s Lounge”
+          </li>
+          <li>
+            “OMNI” - literally means “coming together” - our second stage is in
+            Walden’s Musical Theatre
+          </li>
+          <li>
+            The “Amphitheater” - get one-on-one with Highlands
+            singer-songwriters in this scenic stage by the lake
+          </li>
+        </ul>
+        <p>
+          We will all be together on Friday and Saturday night to hear our
+          headliners. On Saturday all day it’s a musical choose your own
+          adventure. Then join us for a special closing Highland Harmony on
+          Sunday before departure!
+        </p>
+      </div>
+    ),
+  },
+  {
+    question: 'Camp activities, really?',
+    answer:
+      'Yes! While music is the focus of the Highlands experience, maybe between sets you will want to go for a ski (waterski!) or take out a canoe, kayak, or sailboat. Maybe you will want to go for a morning dip after Yoga on the docks. Maybe in the heat of the afternoon you’ll want to shoot down the waterslide into our glorious freshwater private lake. Make a bracelet for a friend, climb the bouldering wall, grab a friendly tennis or basketball game under the stadium lights... the site is yours to enjoy all weekend long.',
+  },
+  {
+    question: 'How do I sign up for these camp activities?',
+    answer:
+      'There’s no need to sign up for anything before you arrive. Activities will be offered to suit the needs of the group and the weather throughout the weekend. You will have plenty of opportunities to enjoy what inspires you in the moment!  Do a little yoga… take a dip… experience hours of music… go for a ski… play a game of tennis… read a book… Highlands is truly yours to enjoy in your own way!',
+  },
+  {
+    question: 'Are there any camp rules I should be aware of?',
+    Answer: () => (
+      <div className="bodyCopy answer">
+        <p>
+          Yes, thank you for asking! On arrival you will be asked to sign a{' '}
+          <a
+            className="bodyCopyBold link"
+            href={`${imgPath}/HIGHLANDS MUSIC FESTIVAL - WAIVER.pdf`}
+          >
+            waiver
+          </a>{' '}
+          attesting to your understanding and agreement to follow these four
+          Highlands Principles.
+        </p>
+        <ul className="faqList">
+          <li>
+            Healthy, Safety, Joy, and Welcome: Health and Safety is established
+            by establishing clearly defined physical and emotional rules and
+            best practices. Highlands is an inclusive community and has no
+            tolerance for hate or discrimination. Our goal is for you to feel
+            not only safe, but also joyful and welcomed by our community. If you
+            do not feel safe, please contact a staff member or security staff.
+            Some{' '}
+            <a
+              className="bodyCopyBold link"
+              href={`${imgPath}/CAMP+WALDEN+-+PRIVATE+RENTAL+RULES_.pdf`}
+            >
+              camp rules
+            </a>{' '}
+            will be posted on every cabin door. They can be read ahead of time
+            here.
+          </li>
+          <li>
+            Mindfulness of Those Around You: Take responsibility for the energy
+            you bring into a space. Community isn’t created for participants,
+            it’s created by participants.
+          </li>
+          <li>
+            Leave No Trace: Take only photos, leave only footprints! We
+            encourage you to plan ahead and come prepared with reusable water
+            bottles, rain gear, and a carpool buddy. Please respect the wildlife
+            and nature and clean up after yourselves.
+          </li>
+          <li>
+            Respect the Land: Show appreciation and respect for the land we are
+            using as well as the surrounding towns of Bancroft, Renfrew,
+            Denbigh, and Barry’s Bay on our journeys to and from Highlands.
+            Highlands hopes festival goers experience a ‘return to nature’ kind
+            of feeling. In encouraging this connection with the land, we
+            acknowledge we are on the lands originally belonging to the
+            Algonquin and Anishinabewaki nations.
+          </li>
+        </ul>
+      </div>
+    ),
+  },
+  {
+    question: 'Can you tell me more about the drive?',
+    Answer: () => (
+      <p className="bodyCopy answer">
+        The drive to Highlands is a glorious ride! No matter whether you are
+        taking the 2 hour drive from Ottawa, Pembroke, and Peterborough, or the
+        3 hour drive from Toronto, the final 30 minutes of the journey involves
+        a steady incline into the Haliburton Highlands. Nearby towns with a
+        hospital and other amenities include Bancroft and Barry’s Bay but the
+        area surrounding Highlands is undisturbed… free of any cell phone
+        service… serene… and beautiful. We encourage Highland-goers to carpool
+        together so that at least one participant has hands free to take
+        pictures along the way! Toronto/Peterborough Highlanders might consider
+        stopping at Kawartha Dairy on your way up. Our favs are Moose Tracks,
+        Cookie Dough and Chocolate Peanut Butter. In the car, check out the{' '}
+        <a
+          href="https://open.spotify.com/playlist/4e9OCp4qdmoGAyFbaSgvys?si=sDmWXKAoTNO5mtADvJf8rQ&nd=1"
+          className="bodyCopyBold link"
+          target="_blank"
+          rel="noreferrer"
+        >
+          Highlands playlist
+        </a>{' '}
+        to prep your ears for the sweet sounds of the weekend! If you have any
+        concerns along the way, please feel free to call the Camp Walden office
+        at 1-888-254-4274. Cell phone reception is intermittent/limited so, if
+        you do need to call, it is best to do so as you’re passing through
+        Bancroft or Denbigh which is about 30 minutes before you reach camp.
+      </p>
+    ),
   },
   {
     question: 'Can I leave the festival and come back?',
     answer:
-      'Plan not to.  Highlands is meant to be a brief and immersive experience.  We will take care of you, provide for you, and entertain you - and we need you there to participate, cheer, and sing along!  We are remote.  Reentry will not be permitted and anyways, there’s nowhere to go!',
+      'Plan not to. Highlands is meant to be a brief and immersive experience. We will take care of you, provide for you, and entertain you - and we need you there to participate, cheer, and sing along! We are remote. Reentry will not be permitted and anyways, there’s nowhere to go!',
   },
   {
-    question: 'When is check in?',
+    question: 'When is check out?',
     answer:
-      'Arrival on Friday is between the hours of 4:00pm-6:30pm. The formal program will end at 1:00pm on Sunday, but guests will be asked to leave the site no later than 4:00pm.',
+      'Arrival on Friday is between the hours of 4:00 pm - 6:30 pm. The formal program will end at 1:00 pm on Sunday, but guests will be asked to leave the site no later than 4:00 pm.',
   },
   {
     question:
@@ -29,12 +283,12 @@ const faq = [
   {
     question: 'What is the COVID philosophy?',
     answer:
-      'Highlands takes place in the fresh air of the great outdoors spanning hundreds of acres! Cabins are non-insulated and well-ventilated. If 500 people are going to gather, this is surely one of the most healthy ways to do it. Please take a rapid test on the morning of your journey and please don’t come if you are actively positive and/or actively sick. While at Highlands, we will respect every person’s hug, mask, and personal space philosophy. Having said that, let’s all try to go a weekend without saying the word “Covid”.',
+      'Highlands takes place in the fresh air of the great outdoors spanning hundreds of acres! Cabins are non-insulated and well-ventilated. If hundreds of people are going to gather, this is surely one of the most healthy ways to do it. Please don’t come if you are actively positive and/or actively sick. While at Highlands, we will respect every person’s hug, mask, and personal space philosophy. Having said that, let’s all try to go a weekend without saying the word “Covid”.',
   },
   {
     question: 'Is there Wi-Fi? Will my cell phone have service?',
     answer:
-      'Your cell phone might “catch a text” from intermittent cell service. An open Starlink Wi-Fi network will be available throughout the weekend.',
+      'Your cell phone might “catch a text” from intermittent cell service. We kinda hope the idea of leaving your devices in the cabin and fully immersing yourself in the great outdoors excites you. However, we understand that many of us are leaving “real life” in the city and may need to check in. An open Starlink Wi-Fi network will be available throughout the weekend.  For the sake of our office staff who field calls from the city, please let people know you’re off the grid.',
   },
   {
     question: 'Are there lockers?',
@@ -42,27 +296,10 @@ const faq = [
       'There are small “laptop-sized” lockers available for wallets, devices, and passports.',
   },
   {
-    question: 'What is the schedule?',
-    Answer: () => (
-      <p className="bodyCopy answer">
-        Check out our schedule{' '}
-        <Link to="/lineup-and-schedule" className="bodyCopyBold link">
-          here
-        </Link>{' '}
-        for all of the details!
-      </p>
-    ),
-  },
-  {
-    question: 'What are the accommodations? Are there showers and bathrooms?',
-    answer:
-      'Think of the summer camps you see in the movies!  The writing on the wall… the glorious Dining Hall… that is the type of setting for the Highlands Music Festival.  Individual, private, ceramic flush toilets are available all over the camp.  Showers are individual stalls in guys, girls, and gender-neutral shower houses.  Many will choose to bathe in the lake… and many others might not bathe at all… ',
-  },
-  {
     question:
-      'Is it all inclusive? Does my ticket come with a camping or parking pass?',
+      'Can you tell me more about the accommodations? Are there showers?',
     answer:
-      'Yes, all of the essentials are covered in your ticket price: room & board, meals, parking, etc. There will be additional items for sale such as food, beverages, merch, and more that will be available for additional $.',
+      'Think of the summer camps you see in the movies! The writing on the wall… the glorious Dining Hall… that is the type of setting for the Highlands Music Festival. Individual, private, ceramic flush toilets are available all over the camp. Showers are individual stalls in guys, girls, and gender-neutral shower houses. Many will choose to bathe in the lake… and many others might not bathe at all…',
   },
   {
     question:
@@ -73,87 +310,27 @@ const faq = [
   {
     question: 'Who are the organizers?',
     Answer: () => (
-      <div>
-        <p className="bodyCopy answer">
-          At the peak of the pandemic... and at the worst possible time, Pulver
-          gave Sol an idea. Sol stewed on it for too long and dreamt of putting
-          an all-star team of dedicated young people together... not to work for
-          Highlands but to Co-Create it! Sol texted Sammy. Sammy got really
-          excited which showed Sol that Pulver wasn’t so crazy after-all.
-          Danielle and Amanda who work with Sol insisted we call Orry and
-          Brooke. Sol grabbed capable cousin’s Toby and Josh which made our
-          9-person co-creator team complete! We are delighted to bring you the
-          Highlands Music Festival!
-        </p>
-        <p className="committeeHeading subheadingBold">The Committee</p>
-        <ul className="committeeMembers">
-          <li className="row">
-            <p className="bodyCopy name">Brooke</p>
-            <p className="bodyCopy">Beautiful Branding</p>
-          </li>
-          <li className="row">
-            <p className="bodyCopy name">Sammy</p>
-            <p className="bodyCopy">The Music</p>
-          </li>
-          <li className="row">
-            <p className="bodyCopy name">Orry</p>
-            <p className="bodyCopy">Food Trucks, Drugs, and Rock 'n Roll</p>
-          </li>
-          <li className="row">
-            <p className="bodyCopy name">Sol</p>
-            <p className="bodyCopy">The Money Man</p>
-          </li>
-          <li className="row">
-            <p className="bodyCopy name">Pulver</p>
-            <p className="bodyCopy">The Visionary</p>
-          </li>
-          <li className="row">
-            <p className="bodyCopy name">Toby</p>
-            <p className="bodyCopy">Is this mic on?</p>
-          </li>
-          <li className="row">
-            <p className="bodyCopy name">Josh</p>
-            <p className="bodyCopy">Festival Vibes</p>
-          </li>
-          <li className="row">
-            <p className="bodyCopy name">Amanda</p>
-            <p className="bodyCopy">That Camp Feelin'</p>
-          </li>
-          <li className="row">
-            <p className="bodyCopy name">Danielle</p>
-            <p className="bodyCopy">Who needs tickets?</p>
-          </li>
-        </ul>
-      </div>
+      <p className="bodyCopy answer">
+        At the peak of the pandemic... and at the worst possible time, Pulver
+        gave Sol an idea. Sol stewed on it for too long and dreamt of putting an
+        all-star team of dedicated young people together... not to work for
+        Highlands but to Co-Create it! Sol texted Sammy. Sammy got really
+        excited which showed Sol that Pulver wasn’t so crazy after-all. Danielle
+        and Amanda who work with Sol insisted we call Orry and Brooke. Sol
+        grabbed capable cousin’s Toby and Josh which made our 9-person
+        co-creator team complete! We are delighted to bring you the Highlands
+        Music Festival! Get to know our Co-Creators{' '}
+        <Link to="/committee" className="bodyCopyBold link">
+          here.
+        </Link>
+      </p>
     ),
   },
   {
     question: 'Can I drink the water?',
     answer:
-      'Walden’s water source is our soft water lake in a relatively unpopulated and unpolluted part of the country. It undergoes regular testing conducted by certified water treatment operators and is subject to the strictest of standards in Canada. The taste of water varies from city to city based on the makeup of its inactive minerals. Walden’s water is clear, refreshing, and indeed tastes different than your home water. Many bottled waters, although seemingly tasteless, are unregulated, and untested. Yes, drink and enjoy Walden’s water!',
+      'Walden’s water source is our soft water lake in a relatively unpopulated and unpolluted part of the country. It undergoes regular testing conducted by certified water treatment operators and is subject to the strictest of standards in Canada. The taste of water varies from city to city based on the makeup of its inactive minerals. Walden’s water is clear, refreshing, and indeed tastes different from your home water. Many bottled waters, although seemingly tasteless, are unregulated, and untested. Yes, drink and enjoy Walden’s water!',
   },
-  {
-    question: 'What is the food situation?',
-    answer:
-      'Breakfast, lunch, dinner, and desserts will be provided, with additional food options available for purchase from any of our vendors/partners (details to come).  Food is camp-chic!  Think grilled cheese, poutine, and a loaded salad bar.',
-  },
-  {
-    question: 'Do you accommodate special diets?',
-    answer:
-      'Yes, please include any dietary restrictions when purchasing your ticket or email us at info@highlandsmusicfestival.ca to notify us of any allergies or dietary restrictions.',
-  },
-
-  {
-    question: 'What kind of music?',
-    answer:
-      'Inspired most-of-all by the festivals of the 1960’s, Highlands sought to find young and evolving artists who had something meaningful to say and sing about. Highlands is Folk’ish in its broadest sense.',
-  },
-  {
-    question: 'Camp activities, really?',
-    answer:
-      'Yes! While music is the focus of the Highlands experience, maybe between sets you will want to go for a ski (waterski!) or take out a canoe, kayak, or sailboat. Maybe you will want to go for a morning dip after Yoga on the docks. Maybe in the heat of the afternoon you’ll want to shoot down the waterslide into our glorious freshwater private lake. Make a bracelet for a friend, climb the bouldering wall, grab a friendly tennis or basketball game under the stadium lights... the site is yours to enjoy all weekend long.',
-  },
-
   {
     question: 'What if it rains and/or is cold?',
     answer:
@@ -165,7 +342,7 @@ const faq = [
       'We would love for you and your group to buy all the tickets in a cabin! We have spaces with 3 beds or 12 beds.',
   },
   {
-    question: 'Don’t see your question here?',
+    question: 'What if I have other questions?',
     answer:
       'Please reach out to us at info@highlandsmusicfestival.ca for any questions about the festival!',
   },
