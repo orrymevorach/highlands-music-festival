@@ -67,10 +67,15 @@ export const faq = [
       'Yes, please include any dietary restrictions when purchasing your ticket or email us at info@highlandsmusicfestival.ca to notify us of any allergies or dietary restrictions.',
   },
   {
-    question: 'What’s the deal with booze and bud?',
+    question: 'What’s the deal with booze?',
     answer:
-      "Highlands is for adults-only, and, for the most part, an “all-inclusive” experience.  You will be well fed, programmed, and full of music by the weekend's end.  Alcohol is sold at an inexpensive price from our booze bars throughout the weekend.  As part of our Special Occasions Permit, we must ask you to not bring alcohol on site and of course, that to enjoy responsibly! We have will also have a special activation during our burger lunch on Saturday brought to you by High Bar + Pinnrz™.",
+      "Highlands is for adults-only, and, for the most part, an “all-inclusive” experience.  You will be well fed, programmed, and full of music by the weekend's end.  Alcohol is sold at an inexpensive price from our booze bars throughout the weekend.  As part of our Special Occasions Permit, we must ask you to not bring alcohol on site and of course, that to enjoy responsibly!",
   },
+  // {
+  //   question: 'What’s the deal with booze and bud?',
+  //   answer:
+  //     "Highlands is for adults-only, and, for the most part, an “all-inclusive” experience.  You will be well fed, programmed, and full of music by the weekend's end.  Alcohol is sold at an inexpensive price from our booze bars throughout the weekend.  As part of our Special Occasions Permit, we must ask you to not bring alcohol on site and of course, that to enjoy responsibly! We have will also have a special activation during our burger lunch on Saturday brought to you by High Bar + Pinnrz™.",
+  // },
   {
     question: 'So do I need cash?',
     answer:
