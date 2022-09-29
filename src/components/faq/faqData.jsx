@@ -69,12 +69,12 @@ export const faq = [
   {
     question: 'What’s the deal with booze and bud?',
     answer:
-      "Highlands is for adults-only, and, for the most part, an “all-inclusive” experience.  You will be well fed, programmed, and full of music by the weekend's end.  Alcohol and Cannabis are sold at an inexpensive price from our booze and weed bars throughout the weekend.  As part of our Special Occasions Permit, we must ask you to not bring alcohol on site and of course, that to enjoy responsibly!",
+      "Highlands is for adults-only, and, for the most part, an “all-inclusive” experience.  You will be well fed, programmed, and full of music by the weekend's end.  Alcohol is sold at an inexpensive price from our booze bars throughout the weekend.  As part of our Special Occasions Permit, we must ask you to not bring alcohol on site and of course, that to enjoy responsibly! We have will also have a special activation during our burger lunch on Saturday brought to you by High Bar + Pinnrz™.",
   },
   {
     question: 'So do I need cash?',
     answer:
-      'In addition to the booze and bud, there’s some cool artists’ merch for sale.  Have a physical credit card handy to support the shopping bug.',
+      'In addition to the booze, there’s some cool artists’ merch for sale.  Have a physical credit card handy to support the shopping bug.',
   },
   {
     question: 'What should I pack? ',
@@ -353,5 +353,10 @@ export const faq = [
     question: 'What if I have other questions?',
     answer:
       'Please reach out to us at info@highlandsmusicfestival.ca for any questions about the festival!',
+  },
+  {
+    question: 'So… Do I dress like I’m going to Summer Camp or a Festival?',
+    answer:
+      'Well… Both!!  Bring your Sweatpants and your Swag… your Sparkle and your Swimsuit… your Woolies and your Wacky Clothes!  Just make sure to dress warmly!',
   },
 ];
