@@ -180,9 +180,7 @@ export const faq = [
       <div className={containerClassnames}>
         <p>
           Yes, thank you for asking! On arrival you will be asked to sign a{' '}
-          <Anchor href={`${imgPath}/HIGHLANDS MUSIC FESTIVAL - WAIVER.pdf`}>
-            waiver
-          </Anchor>{' '}
+          <Anchor href={`${imgPath}/waiver-updated.pdf`}>waiver</Anchor>{' '}
           attesting to your understanding and agreement to follow these four
           Highlands Principles.
         </p>

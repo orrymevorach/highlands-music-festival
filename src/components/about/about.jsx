@@ -25,7 +25,9 @@ export default function About() {
 
         <div className="aboutWrapper">
           <LogoColor classNames="aboutLogo" />
-          <h3 className="aboutDate subheading">September 30 - October 2</h3>
+          <h3 className="aboutDate subheading">
+            September 30 - October 2, 2022 <br /> (2023 dates coming soon)
+          </h3>
           {!isMobile && (
             <img
               src={`${imgPath}/Iconography/Iconography-03.png`}
