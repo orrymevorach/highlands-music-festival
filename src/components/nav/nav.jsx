@@ -18,11 +18,11 @@ const links = [
     to: '/lineup-and-schedule',
     text: 'Lineup & Schedule',
   },
-  {
-    to: 'https://www.eventbrite.ca/e/highlands-music-festival-tickets-353399967817',
-    text: 'Buy Tickets',
-    isAnchor: true,
-  },
+  // {
+  //   to: 'https://www.eventbrite.ca/e/highlands-music-festival-tickets-353399967817',
+  //   text: 'Buy Tickets',
+  //   isAnchor: true,
+  // },
   {
     to: '/location-and-accommodation',
     text: 'Location & Accommodation',

@@ -6,7 +6,7 @@ import { useWindowSize } from '@hooks';
 
 const TopRow = () => (
   <div className="topRow">
-    <h2 className="date">Septemeber 30 - October 2</h2>
+    {/* <h2 className="date">Septemeber 30 - October 2</h2>
     <p className="ticketsAvailable">2022 tickets are now available</p>
     <a
       href="https://www.eventbrite.ca/e/highlands-music-festival-tickets-353399967817"
@@ -15,7 +15,10 @@ const TopRow = () => (
       rel="noreferrer"
     >
       Buy Now
-    </a>
+    </a> */}
+    <p className="ticketsAvailable">
+      Thank you to everyone who joined us in 2022 - See you in 2023!
+    </p>
   </div>
 );
 
@@ -23,14 +26,15 @@ const Video = () => {
   return (
     <>
       <video
-        src={`${imgPath}/Walden-HighQ-cropped-v2.mp4`}
+        // src={`${imgPath}/Walden-HighQ-cropped-v2.mp4`}
+        src={`${imgPath}/highlands-teaser-video.mp4`}
         autoPlay
         muted
         className="video"
         loop
         playsInline
       ></video>
-      <div className="videoOverlay"></div>
+      {/* <div className="videoOverlay"></div> */}
     </>
   );
 };

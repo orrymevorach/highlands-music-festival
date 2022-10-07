@@ -73,7 +73,7 @@ const Artists = () => {
 export default function Lineup() {
   return (
     <div className="lineupContainer">
-      <h2 className="heading center">Lineup</h2>
+      <h2 className="heading center">2022 Lineup</h2>
       <YellowSun classNames="lineupBackground" />
       <Headliners />
       <Artists />
