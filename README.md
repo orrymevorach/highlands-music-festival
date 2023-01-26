@@ -24,7 +24,11 @@ To deploy the master branch to Netlify run:
 npm run deploy
 ```
 
-4.  **Learn more about Gatsby**
+To deploy code to staging environments run, merge code into any of the follow branches:
+`preview-environment`
+`preview-environment-v2`
+`preview-environment-v3`
+` 4. **Learn more about Gatsby**
 
     - [Documentation](https://www.gatsbyjs.com/docs/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter)
 
