@@ -41,24 +41,17 @@ export default function LocationAndAccommodation() {
               <div className="imageContainer"></div>
               <p className="accommodationLineOne bodyCopy">
                 Cabins vary in size and features. Some have private bathrooms
-                and sinks on the porch while others don’t. All cabin information
-                can be found on the{' '}
-                <a
-                  href="https://www.eventbrite.ca/e/highlands-music-festival-tickets-353399967817"
-                  target="_blank"
-                  rel="noreferrer"
-                >
-                  ticketing page.
-                </a>
+                and sinks on the porch while others don’t. Cabin information
+                will be available as you purchase your tickets.
               </p>
-              <p className="bodyCopy">
+              {/* <p className="bodyCopy">
                 When purchasing a single{' '}
                 <span className="bodyCopyBold">
                   ticket, or tickets for your group,
                 </span>{' '}
                 select one of the cabins listed. Each cabin will have a max
                 capacity of 12 people.
-              </p>
+              </p> */}
             </div>
           </div>
           <div className="row">

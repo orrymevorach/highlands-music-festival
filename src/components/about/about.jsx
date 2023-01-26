@@ -26,7 +26,7 @@ export default function About() {
         <div className="aboutWrapper">
           <LogoColor classNames="aboutLogo" />
           <h3 className="aboutDate subheading">
-            September 30 - October 2, 2022 <br /> (2023 dates coming soon)
+            Thursday, September 28th - Sunday, October 1st, 2023
           </h3>
           {!isMobile && (
             <img
@@ -47,7 +47,7 @@ export default function About() {
                 For adults any age who are 19+
               </p>
             </div>
-            <ul className="aboutColumn">
+            {/* <ul className="aboutColumn">
               <li className="bodyCopy col2 par1 bodyCopyMedium">
                 $425 + Eventbrite Fee + HST Ticket price includes —
               </li>
@@ -61,7 +61,7 @@ export default function About() {
               <li className="bodyCopy">Parking </li>
               <li className="bodyCopy">Access to rural Wi-Fi</li>
               <li className="bodyCopy">Camp activities</li>
-            </ul>
+            </ul> */}
           </div>
 
           <div className="row">

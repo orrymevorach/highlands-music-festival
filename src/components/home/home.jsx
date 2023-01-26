@@ -17,7 +17,7 @@ const TopRow = () => (
       Buy Now
     </a> */}
     <p className="ticketsAvailable">
-      Thank you to everyone who joined us in 2022 - See you in 2023!
+      See you in 2023! Thursday, September 28th - Sunday, October 1st, 2023
     </p>
   </div>
 );

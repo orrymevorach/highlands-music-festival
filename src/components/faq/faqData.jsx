@@ -39,18 +39,18 @@ export const faq = [
       </p>
     ),
   },
-  {
-    question: 'Are tickets still available?',
-    Answer: () => (
-      <p className={containerClassnames}>
-        Yes! Those last minute friends of yours should be sent{' '}
-        <Anchor href="https://www.eventbrite.ca/e/highlands-music-festival-tickets-353399967817">
-          here
-        </Anchor>{' '}
-        here immediately to snag their tickets!
-      </p>
-    ),
-  },
+  // {
+  //   question: 'Are tickets still available?',
+  //   Answer: () => (
+  //     <p className={containerClassnames}>
+  //       Yes! Those last minute friends of yours should be sent{' '}
+  //       <Anchor href="https://www.eventbrite.ca/e/highlands-music-festival-tickets-353399967817">
+  //         here
+  //       </Anchor>{' '}
+  //       here immediately to snag their tickets!
+  //     </p>
+  //   ),
+  // },
   {
     question: 'What are the cabins like?',
     answer:
