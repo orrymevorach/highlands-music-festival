@@ -16,6 +16,7 @@
     "deploy": "curl -X POST -d {} https://api.netlify.com/build_hooks/6332809c22775f50776e35f6"
   },
   "dependencies": {
+    "@formspree/react": "^2.4.1",
     "@fortawesome/fontawesome-svg-core": "^6.1.1",
     "@fortawesome/free-brands-svg-icons": "^6.1.1",
     "@fortawesome/free-regular-svg-icons": "^6.1.1",

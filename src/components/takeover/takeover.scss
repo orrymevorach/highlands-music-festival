@@ -1,0 +1,60 @@
+@import '@colors';
+
+.takeover {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  position: absolute;
+  height: 100vh;
+  width: 100%;
+  font-family: 'Neue Haas Bold';
+  color: $darkGreen;
+
+  .overlay {
+    background-color: rgba(0, 0, 0, 0.4);
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    z-index: 100;
+  }
+
+  .modal {
+    background-color: $beige;
+    box-shadow: 0px 0px 20px 1px #2f2f2f;
+    position: relative;
+    z-index: 101;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    flex-direction: column;
+    padding: 50px 40px 50px 40px;
+    .lds-ring {
+      position: relative;
+      top: initial;
+      left: initial;
+      transform: translateX(0);
+      -webkit-transform: translateX(0);
+      margin-top: 20px;
+      height: 50px;
+      width: 50px;
+    }
+  }
+
+  .lineOne {
+    font-size: 30px;
+    margin: 15px 0;
+  }
+
+  .closeButton {
+    background-color: $beige;
+    border: none;
+    color: $darkGreen;
+    position: absolute;
+    right: 5px;
+    top: 5px;
+    z-index: 10001;
+    cursor: pointer;
+  }
+}
