@@ -2,13 +2,14 @@ import React from 'react';
 import '../styles/global.scss';
 import About from '../components/about';
 import Head from '@components/head';
-import { EmailCaptureProvider } from '@context/emailCaptureContext';
+import EmailCaptureFooter from '@components/email-capture-form/email-capture-footer';
 
 export default function AboutPage() {
   return (
-    <EmailCaptureProvider>
+    <>
       <Head />
       <About />
-    </EmailCaptureProvider>
+      <EmailCaptureFooter />
+    </>
   );
 }

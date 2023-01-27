@@ -22,7 +22,6 @@ module.exports = {
           '@utils': path.resolve(__dirname, 'src/utils/'),
           '@mixins': path.resolve(__dirname, 'src/styles/mixins.scss'),
           '@images': path.resolve(__dirname, 'src/images/'),
-          '@context': path.resolve(__dirname, 'src/context/'),
         },
         extensions: ['jsx', 'scss'],
       },
