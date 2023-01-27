@@ -28,8 +28,8 @@ export default function Takeover() {
               )}
             </div>
             <EmailCaptureForm
-              classNames="takeover"
               handleSuccess={() => setIsSubmitted(true)}
+              classNames="takeoverEmailCapture"
             />
 
             <button onClick={handleClose} className="closeButton">

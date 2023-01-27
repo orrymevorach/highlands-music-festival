@@ -46,7 +46,7 @@ export default function Home() {
       <Layout
         hasPaddingBottom={false}
         hamburgerMenuColor={colors.beige}
-        emailCaptureClassNames="homePage"
+        emailCaptureClassNames="homePageEmailCapture"
       >
         <main>
           <h1 className="h1">Highlands Music Festival</h1>

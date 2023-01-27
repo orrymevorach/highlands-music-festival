@@ -10,23 +10,15 @@
   z-index: 90;
   background-color: $beige;
   padding: 20px 0;
-  &.homePage {
+  &.homePageEmailCapture {
     background-color: rgba(0, 0, 0, 0);
   }
-  &.takeover {
+  &.takeoverEmailCapture {
     position: absolute;
     height: 80px;
     bottom: -80px;
     padding: 0 20px;
-    .submittedText {
-      color: $darkGreen;
-      bottom: initial;
-      left: initial;
-      transform: translateX(0);
-      position: relative;
-      color: $darkGreen;
-      font-size: 40px;
-    }
+    align-items: center;
   }
   input,
   button {
@@ -48,12 +40,17 @@
 }
 
 .submittedText {
-  position: absolute;
-  bottom: 30px;
-  left: 50%;
-  transform: translateX(-50%);
   z-index: 100;
-  font-size: 18px;
-  color: $beige;
+  font-size: 24px;
   font-family: 'Neue Haas Bold';
+  &.homePageEmailCapture {
+    position: absolute;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 100;
+    font-size: 18px;
+    color: $beige;
+    font-family: 'Neue Haas Bold';
+  }
 }

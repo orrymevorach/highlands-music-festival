@@ -16,7 +16,9 @@ export default function EmailCaptureForm({ classNames, handleSuccess }) {
 
   if (state.succeeded) {
     return (
-      <p className="submittedText">Thank you! You will hear from us shortly.</p>
+      <p className={clsx(classNames, 'submittedText')}>
+        Thank you! You will hear from us shortly.
+      </p>
     );
   }
 
