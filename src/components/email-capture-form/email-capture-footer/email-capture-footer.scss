@@ -1,0 +1,30 @@
+@import '@colors';
+@import '@vars';
+
+.emailCaptureFooter {
+  .emailCaptureFooterContainer {
+    position: fixed;
+    bottom: 0;
+    box-shadow: 0px 0px 10px 1px $darkGreen;
+    background-color: $beige;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    z-index: 90;
+    background-color: $beige;
+    font-family: 'Neue Haas Medium';
+    padding: 13px 40px;
+    .column {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      color: $darkGreen;
+      width: 50%;
+      font-size: 18px;
+    }
+  }
+  .thankYou {
+    font-size: 20px;
+    margin: 15px 0;
+  }
+}

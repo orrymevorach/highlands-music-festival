@@ -2,25 +2,24 @@
 @import '@vars';
 
 .emailCaptureForm {
-  position: fixed;
-  bottom: 0;
   width: 100%;
   display: flex;
   justify-content: center;
   z-index: 90;
-  background-color: $beige;
-  padding: 20px 0;
+  font-family: 'Neue Haas Medium';
   input,
   button {
     border-radius: 5px;
     border: none;
     padding: 6px 12px;
-    font-size: 18px;
   }
   input {
     width: 90%;
     margin-right: 15px;
     border: 2px solid $darkGreen;
+    &::placeholder {
+      font-size: 14px;
+    }
   }
   button {
     background-color: $darkGreen;

@@ -11,6 +11,7 @@
   font-family: 'Neue Haas Bold';
   color: $darkGreen;
   top: 0;
+  left: 0;
   z-index: 1000;
   .overlay {
     background-color: rgba(0, 0, 0, 0.4);
@@ -42,11 +43,6 @@
       height: 50px;
       width: 50px;
     }
-  }
-
-  .lineOne {
-    font-size: 30px;
-    margin: 15px 0;
   }
 
   .closeButton {

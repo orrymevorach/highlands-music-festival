@@ -3,7 +3,7 @@ import './home.scss';
 import { imgPath, colors } from '@utils/constants';
 import Layout from '../layout';
 import { useWindowSize } from '@hooks';
-import EmailCaptureTakeover from '@components/takeover/email-capture-takeover';
+import EmailCaptureTakeover from '@components/email-capture-form/email-capture-takeover';
 import { EmailCaptureContext } from '../../context/emailCaptureContext';
 
 const TopRow = () => (

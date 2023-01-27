@@ -2,37 +2,24 @@ import './email-capture-form.scss';
 import { useForm, ValidationError } from '@formspree/react';
 import { useLocation } from '@reach/router';
 import React, { useEffect } from 'react';
-import clsx from 'clsx';
 import Loader from '@components/loader';
-import Takeover from '@components/takeover';
 import Cookies from 'js-cookie';
 import { cookies } from '@utils/constants';
 
-export default function EmailCaptureForm({ classNames, handleSuccess }) {
+export default function EmailCaptureForm({ handleSuccess }) {
   const { pathname } = useLocation();
   const [state, handleSubmit] = useForm('mrgvegqk');
   useEffect(() => {
-    if (state.succeeded) Cookies.set(cookies.emailCaptureCookie, true);
-    if (state.succeeded && handleSuccess) {
+    if (state.succeeded) {
+      Cookies.set(cookies.emailCaptureCookie, true);
       handleSuccess();
     }
   }, [state]);
 
-  if (state.succeeded) {
-    return (
-      <Takeover>
-        <p>Thank you! You will hear from us shortly.</p>
-      </Takeover>
-    );
-  }
-
   if (state.submitting) return <Loader />;
 
   return (
-    <form
-      onSubmit={handleSubmit}
-      className={clsx('emailCaptureForm', classNames)}
-    >
+    <form onSubmit={handleSubmit} className="emailCaptureForm">
       <input
         id="email"
         type="email"

@@ -6,7 +6,7 @@ import './email-capture-takeover.scss';
 export default function EmailCaptureTakeover() {
   const [isSubmitted, setIsSubmitted] = useState(false);
   return (
-    <>
+    <div className="emailCaptureTakeover">
       {!isSubmitted ? (
         <Takeover>
           <div className="textContainer">
@@ -17,18 +17,13 @@ export default function EmailCaptureTakeover() {
               </p>
             </>
           </div>
-          <EmailCaptureForm
-            handleSuccess={() => setIsSubmitted(true)}
-            classNames="takeoverEmailCapture"
-          />
+          <EmailCaptureForm handleSuccess={() => setIsSubmitted(true)} />
         </Takeover>
       ) : (
         <Takeover>
-          <div className="textContainer">
-            <p className="lineOne">Thank you! You will hear from us shortly.</p>
-          </div>
+          <p className="lineOne">Thank you! You will hear from us shortly.</p>
         </Takeover>
       )}
-    </>
+    </div>
   );
 }
