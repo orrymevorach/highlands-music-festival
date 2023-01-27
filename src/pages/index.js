@@ -1,17 +1,16 @@
-import React, { useState } from 'react';
+import React from 'react';
 import '../styles/global.scss';
 import Home from '@components/home';
 import Head from '@components/head';
-import EmailCaptureTakeover from '@components/takeover/email-capture-takeover';
+import { EmailCaptureProvider } from '@context/emailCaptureContext';
 
 const IndexPage = () => {
-  const [isSubmitted, setIsSubmitted] = useState(false);
   return (
-    <>
+    <EmailCaptureProvider>
       <Head />
-      <EmailCaptureTakeover />
+
       <Home />
-    </>
+    </EmailCaptureProvider>
   );
 };
 

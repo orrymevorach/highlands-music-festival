@@ -5,11 +5,14 @@ import React, { useEffect } from 'react';
 import clsx from 'clsx';
 import Loader from '@components/loader';
 import Takeover from '@components/takeover';
+import Cookies from 'js-cookie';
+import { cookies } from '@utils/constants';
 
 export default function EmailCaptureForm({ classNames, handleSuccess }) {
   const { pathname } = useLocation();
   const [state, handleSubmit] = useForm('mrgvegqk');
   useEffect(() => {
+    if (state.succeeded) Cookies.set(cookies.emailCaptureCookie, true);
     if (state.succeeded && handleSuccess) {
       handleSuccess();
     }

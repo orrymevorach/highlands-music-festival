@@ -1,8 +1,10 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import './home.scss';
 import { imgPath, colors } from '@utils/constants';
 import Layout from '../layout';
 import { useWindowSize } from '@hooks';
+import EmailCaptureTakeover from '@components/takeover/email-capture-takeover';
+import { EmailCaptureContext } from '../../context/emailCaptureContext';
 
 const TopRow = () => (
   <div className="topRow">
@@ -41,6 +43,7 @@ const Video = () => {
 
 export default function Home() {
   const { isMobile } = useWindowSize();
+  const { hasSubmitted } = useContext(EmailCaptureContext);
   return (
     <div className="homePageContainer">
       <Layout hasPaddingBottom={false} hamburgerMenuColor={colors.beige}>
@@ -59,6 +62,7 @@ export default function Home() {
           </div>
         </main>
       </Layout>
+      {!hasSubmitted && <EmailCaptureTakeover />}
     </div>
   );
 }

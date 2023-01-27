@@ -7,3 +7,7 @@ export const colors = {
   beige: '#f1ead7',
   mediumGreen: '#83885c',
 };
+
+export const cookies = {
+  emailCaptureCookie: 'emailCaptureCookie',
+};
