@@ -1,14 +1,15 @@
-import * as React from 'react';
+import React, { useState } from 'react';
 import '../styles/global.scss';
 import Home from '@components/home';
 import Head from '@components/head';
-import Takeover from '@components/takeover';
+import EmailCaptureTakeover from '@components/takeover/email-capture-takeover';
 
 const IndexPage = () => {
+  const [isSubmitted, setIsSubmitted] = useState(false);
   return (
     <>
       <Head />
-      <Takeover />
+      <EmailCaptureTakeover />
       <Home />
     </>
   );

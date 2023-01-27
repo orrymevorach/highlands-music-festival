@@ -43,11 +43,7 @@ export default function Home() {
   const { isMobile } = useWindowSize();
   return (
     <div className="homePageContainer">
-      <Layout
-        hasPaddingBottom={false}
-        hamburgerMenuColor={colors.beige}
-        emailCaptureClassNames="homePageEmailCapture"
-      >
+      <Layout hasPaddingBottom={false} hamburgerMenuColor={colors.beige}>
         <main>
           <h1 className="h1">Highlands Music Festival</h1>
           <div className="videoContainer">

@@ -4,6 +4,7 @@ import { useLocation } from '@reach/router';
 import React, { useEffect } from 'react';
 import clsx from 'clsx';
 import Loader from '@components/loader';
+import Takeover from '@components/takeover';
 
 export default function EmailCaptureForm({ classNames, handleSuccess }) {
   const { pathname } = useLocation();
@@ -16,9 +17,9 @@ export default function EmailCaptureForm({ classNames, handleSuccess }) {
 
   if (state.succeeded) {
     return (
-      <p className={clsx(classNames, 'submittedText')}>
-        Thank you! You will hear from us shortly.
-      </p>
+      <Takeover>
+        <p>Thank you! You will hear from us shortly.</p>
+      </Takeover>
     );
   }
 
