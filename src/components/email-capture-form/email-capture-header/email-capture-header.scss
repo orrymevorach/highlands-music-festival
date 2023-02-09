@@ -28,3 +28,25 @@
     font-family: 'Tan Aesop', 'Arial', sans-serif;
   }
 }
+@media screen and (max-width: $tablet) {
+  .emailCaptureFooter {
+    .emailCaptureFooterContainer {
+      .column {
+        font-size: 12px;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: $mobile) {
+  .emailCaptureFooter {
+    .emailCaptureFooterContainer {
+      padding: 20px;
+      flex-direction: column;
+      .column {
+        width: 100%;
+        margin-bottom: 10px;
+      }
+    }
+  }
+}
