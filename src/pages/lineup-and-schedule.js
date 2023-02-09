@@ -4,7 +4,7 @@ import Head from '@components/head';
 import Schedule from '@components/schedule';
 import Lineup from '@components/lineup';
 import Layout from '@components/layout';
-import EmailCaptureFooter from '@components/email-capture-form/email-capture-footer';
+import EmailCaptureFooter from '@components/email-capture-form/email-capture-header';
 
 const LineupAndSchedule = () => {
   return (

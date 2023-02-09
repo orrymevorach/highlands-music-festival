@@ -89,7 +89,7 @@ export default function About() {
                 Founded by its 9-person Co-Creator-Team, Highlands is a two-
                 night Folk Music getaway celebrating the musical talent of many
                 youthful Folk (and Folk’ish!) performances on its 3 stage setup
-                at Camp Walden this September 30 - October 2. Camp-style meals
+                at Camp Walden this September 28 - October 1. Camp-style meals
                 and basic accommodations are provided as part of the one-price-
                 fits-all ticket format. With an intentional capacity of just
                 500, the weekend is, by design, meant to be an intimate

@@ -17,15 +17,19 @@
     width: 90%;
     margin-right: 15px;
     border: 2px solid $darkGreen;
+    background-color: $beige;
     &::placeholder {
       font-size: 14px;
+      padding: 0;
     }
   }
   button {
-    background-color: $darkGreen;
-    color: $white;
+    background-color: $beige;
+    color: $darkGreen;
     cursor: pointer;
     transition: 0.2s;
+    font-size: 12px;
+    font-family: 'Tan Aesop', 'Arial', sans-serif;
     &:hover {
       background-color: $beige;
       color: $darkGreen;

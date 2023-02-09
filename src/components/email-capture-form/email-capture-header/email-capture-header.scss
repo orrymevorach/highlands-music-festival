@@ -4,27 +4,27 @@
 .emailCaptureFooter {
   .emailCaptureFooterContainer {
     position: fixed;
-    bottom: 0;
+    top: 0;
     box-shadow: 0px 0px 10px 1px $darkGreen;
-    background-color: $beige;
     width: 100%;
     display: flex;
     justify-content: center;
     z-index: 90;
-    background-color: $beige;
-    font-family: 'Neue Haas Medium';
+    background-color: $darkGreen;
+    font-family: 'Tan Aesop', 'Arial', sans-serif;
     padding: 13px 40px;
     .column {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      color: $darkGreen;
+      color: $beige;
       width: 50%;
-      font-size: 18px;
+      font-size: 14px;
     }
   }
   .thankYou {
     font-size: 20px;
     margin: 15px 0;
+    font-family: 'Tan Aesop', 'Arial', sans-serif;
   }
 }

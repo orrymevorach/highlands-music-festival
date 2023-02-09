@@ -6,11 +6,21 @@ export default function Layout({
   children,
   hasPaddingBottom = true,
   hamburgerMenuColor = '',
+  hasMarginTop = true,
 }) {
   return (
     <div className={hasPaddingBottom ? 'layout' : ''}>
-      <Nav hamburgerMenuColor={hamburgerMenuColor} />
-      {children}
+      {hasMarginTop ? (
+        <div className="layoutMarginTop">
+          <Nav hamburgerMenuColor={hamburgerMenuColor} />
+          {children}
+        </div>
+      ) : (
+        <>
+          <Nav hamburgerMenuColor={hamburgerMenuColor} />
+          {children}
+        </>
+      )}
     </div>
   );
 }

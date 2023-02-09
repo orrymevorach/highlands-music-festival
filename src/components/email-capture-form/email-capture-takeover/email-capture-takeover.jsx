@@ -11,17 +11,21 @@ export default function EmailCaptureTakeover() {
         <Takeover>
           <div className="textContainer">
             <>
-              <p className="lineOne">Join us for an unforgettable festival!</p>
-              <p>
-                Submit your email for exclusive access to early bird pricing.
+              <p className="lineOne">Where Music Festival meets Summer Camp</p>
+              <p className="lineTwo">
+                Sign up for exclusive access to 2023 early bird pricing and
+                lineup announcements
               </p>
             </>
           </div>
-          <EmailCaptureForm handleSuccess={() => setIsSubmitted(true)} />
+          <EmailCaptureForm
+            handleSuccess={() => setIsSubmitted(true)}
+            buttonClassNames="takeoverSubmitButton"
+          />
         </Takeover>
       ) : (
         <Takeover>
-          <p className="lineOne">Thank you! You will hear from us shortly.</p>
+          <p className="lineOne">Thank you! We'll be in touch soon!</p>
         </Takeover>
       )}
     </div>

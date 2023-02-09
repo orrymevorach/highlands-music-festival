@@ -16,9 +16,11 @@ const TopRow = () => (
     >
       Buy Now
     </a> */}
-    <p className="ticketsAvailable">
-      See you in 2023! Thursday, September 28th - Sunday, October 1st, 2023
-    </p>
+    <div>
+      <p className="ticketsAvailable">Tickets on sale soon!</p>
+      <p className="ticketsAvailable">September 28th - October 1st, 2023</p>
+      <p className="ticketsAvailable">Camp Walden, ON</p>
+    </div>
   </div>
 );
 
@@ -43,7 +45,11 @@ export default function Home() {
   const { isMobile } = useWindowSize();
   return (
     <div className="homePageContainer">
-      <Layout hasPaddingBottom={false} hamburgerMenuColor={colors.beige}>
+      <Layout
+        hasPaddingBottom={false}
+        hamburgerMenuColor={colors.beige}
+        hasMarginTop={false}
+      >
         <main>
           <h1 className="h1">Highlands Music Festival</h1>
           <div className="videoContainer">

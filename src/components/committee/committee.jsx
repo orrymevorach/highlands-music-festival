@@ -70,7 +70,7 @@ const committeeData = [
     title: 'Beautiful Branding',
     Img: () => (
       <StaticImage
-        src="https://highlands-music-festival.s3.ca-central-1.amazonaws.com/committeeMembers/brooke.jpg"
+        src="https://highlands-music-festival.s3.ca-central-1.amazonaws.com/committeeMembers/IMG_1545.jpg"
         alt=""
         placeholder="blurred"
         className="memberImage"

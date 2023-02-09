@@ -14,12 +14,13 @@ const links = [
     to: '/about',
     text: 'About',
   },
-  {
-    to: '/lineup-and-schedule',
-    text: 'Lineup & Schedule',
-  },
+  // {
+  //   to: '/lineup-and-schedule',
+  //   text: 'Lineup & Schedule',
+  // },
   // {
   //   to: 'https://www.eventbrite.ca/e/highlands-music-festival-tickets-353399967817',
+  //   to: 'https://www.eventbrite.ca/e/highlands-music-festival-tickets-525480736027?utm-campaig[…]utm-medium=discovery&utm-term=listing&utm-source=cp&aff=escb',
   //   text: 'Buy Tickets',
   //   isAnchor: true,
   // },

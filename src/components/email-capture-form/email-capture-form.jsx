@@ -6,7 +6,10 @@ import Loader from '@components/loader';
 import Cookies from 'js-cookie';
 import { cookies } from '@utils/constants';
 
-export default function EmailCaptureForm({ handleSuccess }) {
+export default function EmailCaptureForm({
+  handleSuccess,
+  buttonClassNames = '',
+}) {
   const { pathname } = useLocation();
   const [state, handleSubmit] = useForm('mrgvegqk');
   useEffect(() => {
@@ -35,7 +38,11 @@ export default function EmailCaptureForm({ handleSuccess }) {
         style={{ display: 'none' }}
       />
       <ValidationError prefix="Email" field="email" errors={state.errors} />
-      <button type="submit" disabled={state.submitting}>
+      <button
+        type="submit"
+        disabled={state.submitting}
+        className={buttonClassNames}
+      >
         Submit
       </button>
     </form>
