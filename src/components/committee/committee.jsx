@@ -17,18 +17,6 @@ const committeeData = [
     ),
   },
   {
-    name: 'Josh Gottlieb',
-    title: 'Festival Vibes',
-    Img: () => (
-      <StaticImage
-        src="https://highlands-music-festival.s3.ca-central-1.amazonaws.com/committeeMembers/josh.jpg"
-        alt=""
-        placeholder="blurred"
-        className="memberImage josh"
-      />
-    ),
-  },
-  {
     name: 'Toby Gottlieb',
     title: 'Is this mic on?',
     Img: () => (
@@ -112,6 +100,18 @@ const committeeData = [
         className="memberImage sol"
       />
     ),
+  },
+  {
+    name: 'Corey Raubvogel',
+    title: 'The Friendly Hustler',
+    // Img: () => (
+    //   <StaticImage
+    //     src="https://highlands-music-festival.s3.ca-central-1.amazonaws.com/committeeMembers/josh.jpg"
+    //     alt=""
+    //     placeholder="blurred"
+    //     className="memberImage josh"
+    //   />
+    // ),
   },
 ];
 

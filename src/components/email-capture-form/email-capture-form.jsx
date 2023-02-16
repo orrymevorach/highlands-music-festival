@@ -17,7 +17,7 @@ export default function EmailCaptureForm({
       Cookies.set(cookies.emailCaptureCookie, true);
       handleSuccess();
     }
-  }, [state]);
+  }, [state, handleSuccess]);
 
   if (state.submitting) return <Loader />;
 
