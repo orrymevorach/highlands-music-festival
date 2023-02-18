@@ -18,7 +18,7 @@ This site was built using Gatsby
 
 3.  **Deployments**
 
-To deploy the master branch to Netlify run:
+To deploy, either merge code into master, or run:
 
 ```
 npm run deploy
