@@ -18,7 +18,7 @@ This site was built using Gatsby
 
 3.  **Deployments**
 
-To deploy, either merge code into master, or run:
+To deploy run:
 
 ```
 npm run deploy
