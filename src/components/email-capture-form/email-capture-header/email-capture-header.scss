@@ -13,6 +13,7 @@
     background-color: $darkGreen;
     font-family: 'Tan Aesop', 'Arial', sans-serif;
     padding: 13px 40px;
+    line-height: 1.7;
     .column {
       display: flex;
       justify-content: space-between;
@@ -43,6 +44,8 @@
     .emailCaptureHeaderContainer {
       padding: 20px;
       flex-direction: column;
+      bottom: 0;
+      top: auto;
       .column {
         width: 100%;
         margin-bottom: 10px;
