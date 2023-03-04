@@ -9,10 +9,11 @@
     width: 100%;
     display: flex;
     justify-content: center;
+    align-items: center;
     z-index: 90;
     background-color: $darkGreen;
     font-family: 'Tan Aesop', 'Arial', sans-serif;
-    padding: 13px 40px;
+    padding: 13px 60px;
     line-height: 1.7;
     .column {
       display: flex;
@@ -27,6 +28,9 @@
     font-size: 20px;
     margin: 15px 0;
     font-family: 'Tan Aesop', 'Arial', sans-serif;
+  }
+  .emailCaptureCloseButton {
+    top: 13px;
   }
 }
 @media screen and (max-width: $tablet) {
@@ -49,6 +53,9 @@
       .column {
         width: 100%;
         margin-bottom: 10px;
+      }
+      .columnCopy {
+        padding-right: 30px;
       }
     }
   }

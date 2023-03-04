@@ -18,3 +18,29 @@
     color: $darkGreen;
   }
 }
+
+.closeButton {
+  background-color: $beige;
+  border: none;
+  color: $darkGreen;
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  z-index: 10001;
+  cursor: pointer;
+  transition: 0.3s;
+  &:hover {
+    background-color: $darkGreen;
+    color: $beige;
+    transition: 0.3s;
+  }
+  &.darkButton {
+    background-color: $darkGreen;
+    color: $beige;
+    &:hover {
+      background-color: $beige;
+      color: $darkGreen;
+      transition: 0.3s;
+    }
+  }
+}

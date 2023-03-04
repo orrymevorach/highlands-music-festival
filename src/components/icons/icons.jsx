@@ -1,13 +1,16 @@
 import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faInstagram } from '@fortawesome/free-brands-svg-icons';
+import { faWindowClose } from '@fortawesome/free-regular-svg-icons';
 import './icons.scss';
+import clsx from 'clsx';
 
-const Icons = () => {
+export const CloseButton = ({ handleClick, dark = false, classNames = '' }) => {
   return (
-    <a href="https://www.instagram.com/highlandsmusicfestival" className="icon">
-      <FontAwesomeIcon icon={faInstagram} />
-    </a>
+    <button
+      onClick={handleClick}
+      className={clsx('closeButton', dark && 'darkButton', classNames)}
+    >
+      <FontAwesomeIcon icon={faWindowClose} size="2x" />
+    </button>
   );
 };
-export default Icons;

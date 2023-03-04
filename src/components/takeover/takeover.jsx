@@ -1,7 +1,6 @@
-import { faWindowClose } from '@fortawesome/free-regular-svg-icons';
 import React, { useState } from 'react';
 import './takeover.scss';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { CloseButton } from '../icons/icons';
 
 export default function Takeover({ children, styles }) {
   const [isOpen, setIsOpen] = useState(true);
@@ -13,9 +12,7 @@ export default function Takeover({ children, styles }) {
           <div className="overlay" onClick={handleClose}></div>
           <div className="modal">
             {children}
-            <button onClick={handleClose} className="closeButton">
-              <FontAwesomeIcon icon={faWindowClose} size="2x" />
-            </button>
+            <CloseButton handleClick={handleClose} />
           </div>
         </div>
       )}
