@@ -5,19 +5,20 @@ import React, { useEffect } from 'react';
 import Loader from '@components/loader';
 import Cookies from 'js-cookie';
 import { cookies } from '@utils/constants';
+import { useEmailCaptureContext } from '@context/email-capture-context';
 
-export default function EmailCaptureForm({
-  handleSuccess,
-  buttonClassNames = '',
-}) {
+export default function EmailCaptureForm({ buttonClassNames = '' }) {
   const { pathname } = useLocation();
   const [state, handleSubmit] = useForm('mrgvegqk');
+  const {
+    triggers: { SUBMIT_FORM },
+  } = useEmailCaptureContext();
   useEffect(() => {
     if (state.succeeded) {
       Cookies.set(cookies.emailCaptureCookie, true);
-      handleSuccess();
+      SUBMIT_FORM();
     }
-  }, [state, handleSuccess]);
+  }, [state, SUBMIT_FORM]);
 
   if (state.submitting) return <Loader />;
 

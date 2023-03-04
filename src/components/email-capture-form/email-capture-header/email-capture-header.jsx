@@ -1,34 +1,30 @@
 import './email-capture-header.scss';
-import React, { useState } from 'react';
+import React from 'react';
 import EmailCaptureForm from '@components/email-capture-form';
 import Takeover from '@components/takeover';
-import { useEmailCapture } from '@hooks';
+import { useEmailCaptureContext } from '@context/email-capture-context';
 
-export default function EmailCaptureFooter() {
-  const [isSubmitted, setIsSubmitted] = useState(false);
-  const hasSubmitted = useEmailCapture();
+export default function EmailCaptureHeader() {
+  const { hasSubmittedForm, hasClosedModal } = useEmailCaptureContext();
   return (
-    <>
-      {!hasSubmitted && (
-        <div className="emailCaptureFooter">
-          {!isSubmitted ? (
-            <div className="emailCaptureFooterContainer">
-              <div className="column">
-                <p className="columnCopy">
-                  Sign up for exclusive access to early bird pricing
-                </p>
-              </div>
-              <div className="column">
-                <EmailCaptureForm handleSuccess={() => setIsSubmitted(true)} />
-              </div>
-            </div>
-          ) : (
-            <Takeover>
-              <p className="thankYou">Thank you! We'll be in touch soon!</p>
-            </Takeover>
-          )}
+    <div className="emailCaptureHeader">
+      {!hasSubmittedForm && (
+        <div className="emailCaptureHeaderContainer">
+          <div className="column">
+            <p className="columnCopy">
+              Sign up for exclusive access to early bird pricing
+            </p>
+          </div>
+          <div className="column">
+            <EmailCaptureForm />
+          </div>
         </div>
       )}
-    </>
+      {hasSubmittedForm && !hasClosedModal && (
+        <Takeover>
+          <p className="thankYou">Thank you! We'll be in touch soon!</p>
+        </Takeover>
+      )}
+    </div>
   );
 }

@@ -2,15 +2,14 @@ import React from 'react';
 import '../styles/global.scss';
 import Faq from '@components/faq/faq';
 import Head from '@components/head';
-import EmailCaptureFooter from '@components/email-capture-form/email-capture-header';
+import { EmailCaptureProvider } from '@context/email-capture-context';
 
 const FAQPage = () => {
   return (
-    <>
+    <EmailCaptureProvider>
       <Head />
       <Faq />
-      <EmailCaptureFooter />
-    </>
+    </EmailCaptureProvider>
   );
 };
 export default FAQPage;

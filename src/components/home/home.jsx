@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import './home.scss';
 import { imgPath, colors } from '@utils/constants';
 import Layout from '../layout';
@@ -45,11 +45,7 @@ export default function Home() {
   const { isMobile } = useWindowSize();
   return (
     <div className="homePageContainer">
-      <Layout
-        hasPaddingBottom={false}
-        hamburgerMenuColor={colors.beige}
-        hasMarginTop={false}
-      >
+      <Layout hasPaddingBottom={false} hamburgerMenuColor={colors.beige}>
         <main>
           <h1 className="h1">Highlands Music Festival</h1>
           <div className="videoContainer">

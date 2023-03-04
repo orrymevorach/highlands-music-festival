@@ -1,8 +1,8 @@
 @import '@colors';
 @import '@vars';
 
-.emailCaptureFooter {
-  .emailCaptureFooterContainer {
+.emailCaptureHeader {
+  .emailCaptureHeaderContainer {
     position: fixed;
     top: 0;
     box-shadow: 0px 0px 10px 1px $darkGreen;
@@ -29,8 +29,8 @@
   }
 }
 @media screen and (max-width: $tablet) {
-  .emailCaptureFooter {
-    .emailCaptureFooterContainer {
+  .emailCaptureHeader {
+    .emailCaptureHeaderContainer {
       .column {
         font-size: 12px;
       }
@@ -39,8 +39,8 @@
 }
 
 @media screen and (max-width: $mobile) {
-  .emailCaptureFooter {
-    .emailCaptureFooterContainer {
+  .emailCaptureHeader {
+    .emailCaptureHeaderContainer {
       padding: 20px;
       flex-direction: column;
       .column {

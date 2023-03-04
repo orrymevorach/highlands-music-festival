@@ -2,17 +2,14 @@ import React from 'react';
 import '../styles/global.scss';
 import Home from '@components/home';
 import Head from '@components/head';
-import EmailCaptureTakeover from '@components/email-capture-form/email-capture-takeover';
-import { useEmailCapture } from '@hooks';
+import { EmailCaptureProvider } from '@context/email-capture-context';
 
 const IndexPage = () => {
-  const hasSubmitted = useEmailCapture();
   return (
-    <>
+    <EmailCaptureProvider>
       <Head />
       <Home />
-      {!hasSubmitted && <EmailCaptureTakeover />}
-    </>
+    </EmailCaptureProvider>
   );
 };
 

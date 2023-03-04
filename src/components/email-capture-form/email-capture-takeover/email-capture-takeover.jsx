@@ -18,10 +18,7 @@ export default function EmailCaptureTakeover() {
               </p>
             </>
           </div>
-          <EmailCaptureForm
-            handleSuccess={() => setIsSubmitted(true)}
-            buttonClassNames="takeoverSubmitButton"
-          />
+          <EmailCaptureForm buttonClassNames="takeoverSubmitButton" />
         </Takeover>
       ) : (
         <Takeover>

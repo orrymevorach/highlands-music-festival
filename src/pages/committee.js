@@ -2,14 +2,13 @@ import React from 'react';
 import '../styles/global.scss';
 import Committee from '@components/committee';
 import Head from '@components/head';
-import EmailCaptureFooter from '@components/email-capture-form/email-capture-header';
+import { EmailCaptureProvider } from '@context/email-capture-context';
 
 export default function CommitteePage() {
   return (
-    <>
+    <EmailCaptureProvider>
       <Head />
       <Committee />
-      <EmailCaptureFooter />
-    </>
+    </EmailCaptureProvider>
   );
 }
