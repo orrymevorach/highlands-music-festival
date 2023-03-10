@@ -104,14 +104,14 @@ const committeeData = [
   {
     name: 'Corey Raubvogel',
     title: 'The Friendly Hustler',
-    // Img: () => (
-    //   <StaticImage
-    //     src="https://highlands-music-festival.s3.ca-central-1.amazonaws.com/committeeMembers/josh.jpg"
-    //     alt=""
-    //     placeholder="blurred"
-    //     className="memberImage josh"
-    //   />
-    // ),
+    Img: () => (
+      <StaticImage
+        src="https://highlands-music-festival.s3.ca-central-1.amazonaws.com/committeeMembers/Corey.png"
+        alt=""
+        placeholder="blurred"
+        className="memberImage"
+      />
+    ),
   },
 ];
 
