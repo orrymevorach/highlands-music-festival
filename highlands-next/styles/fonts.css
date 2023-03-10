@@ -1,0 +1,57 @@
+@font-face {
+  font-family: 'Tan Aesop';
+  src: url('../asset/TAN-AESOP/TAN-AESOP.ttf');
+}
+
+@font-face {
+  font-family: 'Neue Haas Light';
+  src: url('../asset/Neue Haas/NeueHaasUnicaPro-Light.ttf');
+}
+
+@font-face {
+  font-family: 'Neue Haas Bold';
+  src: url('../asset/Neue Haas/NeueHaasUnicaPro-Bold.ttf');
+}
+
+@font-face {
+  font-family: 'Neue Haas Regular';
+  src: url('../asset/Neue Haas/NeueHaasUnicaPro-Regular.ttf');
+}
+
+@font-face {
+  font-family: 'Neue Haas Medium';
+  src: url('../asset/Neue Haas/NeueHaasUnicaPro-Medium.ttf');
+}
+
+@font-face {
+  font-family: 'Neue Haas Bold';
+  src: url('../asset/Neue Haas/NeueHaasUnicaPro-Bold.ttf');
+}
+
+@font-face {
+  font-family: 'Neue Haas Heavy';
+  src: url('../asset/Neue Haas/NeueHaasUnicaPro-Heavy.ttf');
+}
+
+.bodyCopy {
+  font-family: 'Neue Haas Light', 'Arial', sans-serif;
+}
+.bodyCopyBold {
+  font-family: 'Neue Haas Bold', 'Arial', sans-serif;
+}
+.bodyCopyMedium {
+  font-family: 'Neue Haas Medium', 'Arial', sans-serif;
+}
+
+.subheading {
+  font-family: 'Neue Haas Regular', 'Arial', sans-serif;
+  letter-spacing: 1.5px;
+}
+.subHeadingBold {
+  letter-spacing: 2px;
+  font-family: 'Neue Haas Bold', 'Arial', sans-serif;
+}
+.subHeadingHeavy {
+  letter-spacing: 2px;
+  font-family: 'Neue Haas Heavy', 'Arial', sans-serif;
+}

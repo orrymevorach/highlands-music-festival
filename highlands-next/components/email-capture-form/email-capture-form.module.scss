@@ -1,0 +1,38 @@
+@import '@variables';
+
+.emailCaptureForm {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  z-index: 90;
+  font-family: 'Neue Haas Medium';
+  input,
+  button {
+    border-radius: 5px;
+    border: none;
+    padding: 6px 12px;
+  }
+  input {
+    width: 90%;
+    margin-right: 15px;
+    border: 2px solid $darkGreen;
+    background-color: $beige;
+    &::placeholder {
+      font-size: 14px;
+      padding: 0;
+    }
+  }
+  button {
+    background-color: $beige;
+    color: $darkGreen;
+    cursor: pointer;
+    transition: 0.2s;
+    font-size: 12px;
+    font-family: 'Tan Aesop', 'Arial', sans-serif;
+    &:hover {
+      background-color: $beige;
+      color: $darkGreen;
+      transition: 0.2s;
+    }
+  }
+}
