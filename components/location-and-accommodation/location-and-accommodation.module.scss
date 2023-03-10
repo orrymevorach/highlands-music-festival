@@ -64,15 +64,11 @@
   margin-bottom: 8px;
 }
 
-#map,
+.googleMap,
 .locationAccommodationWrapper .imageContainer {
   height: 300px;
   width: 100%;
   margin: 20px 0 30px;
-}
-
-#map {
-  height: 100%;
 }
 
 .locationAccommodationWrapper .imageContainer {
@@ -104,8 +100,10 @@
   margin-top: 80px;
 }
 
-.map {
+.mapOfCamp {
   margin: 0 auto;
+  object-fit: contain;
+  width: 100%;
 }
 
 @media (max-width: $tablet) {

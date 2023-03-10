@@ -1,6 +1,6 @@
 import styles from './location-and-accommodation.module.scss';
 import Layout from '../layout';
-import { useGoogleMaps } from 'hooks';
+import GoogleMap from 'components/location-and-accommodation/GoogleMap';
 import Map from 'public/map';
 import clsx from 'clsx';
 
@@ -18,7 +18,6 @@ const packingList = [
 ];
 
 export default function LocationAndAccommodation() {
-  useGoogleMaps();
   return (
     <Layout>
       <main>
@@ -31,7 +30,7 @@ export default function LocationAndAccommodation() {
           </div>
           <div className={styles.row}>
             <div className={styles.location}>
-              <div id="map"></div>
+              <GoogleMap />
               <p className={clsx(styles.locationLineOne, styles.bodyCopy)}>
                 Camp Walden is located in the beautiful Haliburton Highlands
               </p>
@@ -76,7 +75,7 @@ export default function LocationAndAccommodation() {
               ))}
             </ul>
           </div>
-          <Map classNames={styles.map} />
+          <Map classNames={styles.mapOfCamp} />
         </div>
       </main>
     </Layout>

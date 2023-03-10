@@ -7,6 +7,14 @@ $mediumGreen: #83885c;
 $tablet: 1000px;
 $mobile: 850px;
 
+.row {
+  display: flex;
+}
+
+.center {
+  text-align: center;
+}
+
 @mixin wrapper {
   padding: 0 100px;
   @media screen and (max-width: $tablet) {

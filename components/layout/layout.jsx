@@ -7,7 +7,7 @@ import clsx from 'clsx';
 export default function Layout({
   children,
   hasPaddingBottom = true,
-  hamburgerMenuColor = '',
+  hamburgerMenuColor = 'black',
 }) {
   const { hasSubmittedForm } = useEmailCaptureContext();
   return (
