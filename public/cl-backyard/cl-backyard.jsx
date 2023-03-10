@@ -8,8 +8,9 @@ export default function CLBackyard({ classNames }) {
       alt=""
       placeholder="blurred"
       className={classNames}
-      width={150}
-      height={150}
+      width={1415}
+      height={945}
+      style={{ height: '100%' }}
     />
   );
 }

@@ -8,8 +8,8 @@ export default function LogoColor({ classNames }) {
       alt="Highlands Music Festival logo"
       placeholder="none"
       className={classNames}
-      width={150}
-      height={150}
+      width={1920}
+      height={510}
     />
   );
 }

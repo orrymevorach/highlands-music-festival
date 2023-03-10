@@ -1,7 +1,5 @@
 @import '@variables';
 
-@import '@mixins';
-
 .aboutWrapper {
   @include wrapper;
   width: 75%;
@@ -20,6 +18,7 @@
 
 .aboutLogo {
   width: 500px;
+  height: 100%;
   margin-bottom: 50px;
 }
 

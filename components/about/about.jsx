@@ -1,4 +1,5 @@
-// import './about.scss';
+import clsx from 'clsx';
+import styles from './about.module.scss';
 import Layout from '../layout';
 import { colors } from 'utils/constants';
 import { useWindowSize } from 'hooks';
@@ -12,60 +13,79 @@ import {
   SwimTower,
 } from 'public';
 import { imgPath } from 'utils/constants';
+import Image from 'next/image';
 
 export default function About() {
   const { isMobile } = useWindowSize();
   return (
     <Layout hasPaddingBottom={false} hamburgerMenuColor={colors.beige}>
       <main>
-        <div className="aboutPageImageContainer">
+        <div className={styles.aboutPageImageContainer}>
           <SwimTower />
         </div>
 
-        <div className="aboutWrapper">
-          <LogoColor classNames="aboutLogo" />
-          <h3 className="aboutDate subheading">
+        <div className={styles.aboutWrapper}>
+          <LogoColor classNames={styles.aboutLogo} />
+          <h3 className={clsx(styles.aboutDate, styles.subheading)}>
             Thursday, September 28th - Sunday, October 1st, 2023
           </h3>
           {!isMobile && (
-            <img
+            <Image
               src={`${imgPath}/Iconography/Iconography-03.png`}
               alt=""
-              className="aboutIcon"
+              className={styles.aboutIcon}
+              width={140}
+              height={140}
+              priority
             />
           )}
-          <div className="row">
-            <div className="aboutColumn">
-              <p className="bodyCopyBold col1 par1">
+          <div className={styles.row}>
+            <div className={styles.aboutColumn}>
+              <p
+                className={clsx(styles.bodyCopyBold, styles.col1, styles.par1)}
+              >
                 Takes place at Camp Walden in the beautiful Haliburton Highlands
               </p>
-              <p className="bodyCopy aboutAddress">38483 Highway 28</p>
-              <p className="bodyCopy aboutAddress">Palmer Rapids, Ontario</p>
-              <p className="bodyCopy aboutAddress">K0J 2E0, (45.2,-77.44)</p>
-              <p className="bodyCopy col1 par3 bodyCopyMedium">
+              <p className={clsx(styles.bodyCopy, styles.aboutAddress)}>
+                38483 Highway 28
+              </p>
+              <p className={clsx(styles.bodyCopy, styles.aboutAddress)}>
+                Palmer Rapids, Ontario
+              </p>
+              <p className={clsx(styles.bodyCopy, styles.aboutAddress)}>
+                K0J 2E0, (45.2,-77.44)
+              </p>
+              <p
+                className={clsx(
+                  styles.bodyCopy,
+                  styles.col1,
+                  styles.par3,
+                  styles.bodyCopyMedium
+                )}
+              >
                 For adults any age who are 19+
               </p>
             </div>
-            {/* <ul className="aboutColumn">
-              <li className="bodyCopy col2 par1 bodyCopyMedium">
+            {/* <ul className={styles.aboutColumn">
+              <li className={styles.bodyCopy col2 par1 bodyCopyMedium">
                 $425 + Eventbrite Fee + HST Ticket price includes —
               </li>
-              <li className="bodyCopy">
+              <li className={styles.bodyCopy">
                 Festival pass (admission to all acts from Friday-Sunday)
               </li>
-              <li className="bodyCopy">
+              <li className={styles.bodyCopy">
                 2 nights of basic camp accommodations
               </li>
-              <li className="bodyCopy">5 delicious meals</li>
-              <li className="bodyCopy">Parking </li>
-              <li className="bodyCopy">Access to rural Wi-Fi</li>
-              <li className="bodyCopy">Camp activities</li>
+              <li className={styles.bodyCopy">5 delicious meals</li>
+              <li className={styles.bodyCopy">Parking </li>
+              <li className={styles.bodyCopy">Access to rural Wi-Fi</li>
+              <li className={styles.bodyCopy">Camp activities</li>
             </ul> */}
           </div>
 
-          <div className="row">
-            <div className="aboutColumn">
-              <p className="bodyCopy col1 par4">
+          <div className={styles.row}>
+            <div className={styles.aboutColumn}>
+              <p className={clsx(styles.bodyCopy, styles.col1, styles.par4)}>
                 In the early 1960s, music festivals were a place of social
                 action and political dialogue. The times were a changin’ and
                 music was its tool. At some of those festivals you could sit on
@@ -73,7 +93,7 @@ export default function About() {
                 Bob Dylan and Joan Baez. Young people had something to say and
                 with a guitar in hand, they would play it and they would say it.
               </p>
-              <p className="bodyCopy">
+              <p className={styles.bodyCopy}>
                 Since 1970, and set in Ontario’s beautiful Haliburton Highlands,
                 Camp Walden has hosted hundreds of children each year for
                 recreational summer programs. With 750 acres including its
@@ -83,8 +103,8 @@ export default function About() {
                 Toronto, and 2 from Ottawa.
               </p>
             </div>
-            <div className="aboutColumn">
-              <p className="bodyCopy col2 par3">
+            <div className={styles.aboutColumn}>
+              <p className={clsx(styles.bodyCopy, styles.col2, styles.par3)}>
                 Founded by its 9-person Co-Creator-Team, Highlands is a two-
                 night Folk Music getaway celebrating the musical talent of many
                 youthful Folk (and Folk’ish!) performances on its 3 stage setup
@@ -96,14 +116,14 @@ export default function About() {
                 outdoors, with community, and with the healing power of the
                 arts.
               </p>
-              <p className="bodyCopy">
+              <p className={styles.bodyCopy}>
                 The times are changin’ again, and we think young people are
                 worth listening to. Won’t you join us?
               </p>
             </div>
           </div>
         </div>
-        <div className="imagesRow">
+        <div className={styles.imagesRow}>
           {!isMobile && (
             <>
               <CLFirepit />

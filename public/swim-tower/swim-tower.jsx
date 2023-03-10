@@ -8,8 +8,9 @@ export default function SwimTower({ classNames }) {
       alt=""
       placeholder="none"
       className={classNames}
-      width={150}
-      height={150}
+      priority
+      width={1920}
+      height={890}
     />
   );
 }
