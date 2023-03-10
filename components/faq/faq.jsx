@@ -1,14 +1,19 @@
-import './faq.scss';
-import Layout from '@components/layout';
-import { YellowSun } from '@images';
+import styles from './faq.module.scss';
+import Layout from 'components/layout';
+import { YellowSun } from 'images';
 import Masonry from 'react-masonry-css';
 import { useWindowSize } from 'hooks';
 import { faq } from './faqData';
+import clsx from 'clsx';
 
 const FaqParagraph = ({ question, answer, Answer }) => (
-  <div className="questionContainer" key={question}>
-    <p className="question bodyCopyBold">{question}</p>
-    {answer ? <p className="answer bodyCopy">{answer}</p> : <Answer />}
+  <div className={styles.questionContainer} key={question}>
+    <p className={clsx(styles.question, styles.bodyCopyBold)}>{question}</p>
+    {answer ? (
+      <p className={clsx(styles.answer, styles.bodyCopy)}>{answer}</p>
+    ) : (
+      <Answer />
+    )}
   </div>
 );
 
@@ -23,13 +28,13 @@ export default function Faq() {
   return (
     <Layout>
       <main>
-        <div className="faqWrapper">
-          <h1 className="heading">FAQ</h1>
-          <div className="faqContainer">
+        <div className={styles.faqWrapper}>
+          <h1 className={styles.heading}>FAQ</h1>
+          <div className={styles.faqContainer}>
             <Masonry
               breakpointCols={numberOfColumns}
-              className="my-masonry-grid"
-              columnClassName="my-masonry-grid_column"
+              className={styles['my-masonry-grid']}
+              columnClassName={styles['my-masonry-grid_column']}
             >
               {faq.map(({ question, Answer, answer }) => (
                 <FaqParagraph
@@ -39,7 +44,7 @@ export default function Faq() {
                   Answer={Answer}
                 />
               ))}
-              <YellowSun classNames="sunIcon" />
+              <YellowSun classNames={styles.sunIcon} />
             </Masonry>
           </div>
         </div>

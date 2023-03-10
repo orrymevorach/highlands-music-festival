@@ -71,6 +71,10 @@
   margin: 20px 0 30px;
 }
 
+#map {
+  height: 100%;
+}
+
 .locationAccommodationWrapper .imageContainer {
   background-image: url('https://highlands-music-festival.s3.ca-central-1.amazonaws.com/gallery-the-setting-6.jpg');
   background-repeat: no-repeat;
@@ -98,6 +102,10 @@
 .packingContainerLineOne,
 .packingContainerLineTwo {
   margin-top: 80px;
+}
+
+.map {
+  margin: 0 auto;
 }
 
 @media (max-width: $tablet) {

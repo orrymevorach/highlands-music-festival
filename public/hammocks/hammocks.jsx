@@ -6,10 +6,9 @@ export default function Hammocks({ classNames }) {
     <Image
       src="https://highlands-music-festival.s3.ca-central-1.amazonaws.com/CL-HAMMOCK.jpg"
       alt=""
-      placeholder="blurred"
       className={classNames}
-      width={150}
-      height={150}
+      width={1920}
+      height={1280}
     />
   );
 }

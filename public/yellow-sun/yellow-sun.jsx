@@ -6,10 +6,9 @@ export default function YellowSun({ classNames }) {
     <Image
       src="https://highlands-music-festival.s3.ca-central-1.amazonaws.com/Iconography/Iconography-02.png"
       alt=""
-      placeholder="blurred"
       className={classNames}
-      width={150}
-      height={150}
+      width={1184}
+      height={620}
     />
   );
 }

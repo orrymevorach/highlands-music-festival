@@ -6,7 +6,6 @@ export default function FirehallEvening({ classNames }) {
     <Image
       src="https://highlands-music-festival.s3.ca-central-1.amazonaws.com/EVENING-SET-UP-FIREHALL.jpg"
       alt=""
-      placeholder="blurred"
       className={classNames}
       width={1415}
       height={945}

@@ -1,8 +1,11 @@
+import styles from './faq.module.scss';
+
 import Link from 'next/link';
 import { imgPath } from 'utils/constants';
+import clsx from 'clsx';
 
-const linkClassnames = 'bodyCopyBold link';
-const containerClassnames = 'bodyCopy answer';
+const linkClassnames = clsx(styles.bodyCopyBold, styles.link);
+const containerClassnames = clsx(styles.bodyCopy, styles.answer);
 
 const Anchor = ({ href, children }) => (
   <a href={href} className={linkClassnames} target="_blank" rel="noreferrer">
@@ -10,7 +13,7 @@ const Anchor = ({ href, children }) => (
   </a>
 );
 
-const List = ({ children }) => <ul className="faqList">{children}</ul>;
+const List = ({ children }) => <ul className={styles.faqList}>{children}</ul>;
 
 export const faq = [
   {

@@ -1,8 +1,9 @@
-import Layout from '@components/layout';
-import './activities.scss';
+import Layout from 'components/layout';
+import styles from './activities.module.scss';
 import { colors } from 'utils/constants';
-import { GreenSun, Hammocks } from '@images';
+import { GreenSun, Hammocks } from 'public';
 import { useWindowSize } from 'hooks';
+import clsx from 'clsx';
 
 const activities = [
   'Tennis, Basketball, & Hockey',
@@ -17,22 +18,25 @@ export default function Activities() {
   return (
     <Layout hamburgerMenuColor={colors.beige}>
       <main>
-        <div className="hammocksContainer">
+        <div className={styles.hammocksContainer}>
           <Hammocks />
         </div>
-        <div className="activitiesWrapper">
-          <h2 className="heading">Activities</h2>
-          {!isMobile && <GreenSun classNames="activitiesSun" />}
-          <div className="activitiesContainer">
-            <div className="activitiesCol activitiesCol1">
-              <p className="bodyCopyMedium">
+        <div className={styles.activitiesWrapper}>
+          <h2 className={styles.heading}>Activities</h2>
+          {!isMobile && <GreenSun classNames={styles.activitiesSun} />}
+          <div className={styles.activitiesContainer}>
+            <div className={clsx(styles.activitiesCol, styles.activitiesCol1)}>
+              <p className={styles.bodyCopyMedium}>
                 In between performances, take advantage of the many activities
                 available on the campgrounds.
               </p>
             </div>
-            <ul className="activitiesCol activitiesCol2">
+            <ul className={clsx(styles.activitiesCol, styles.activitiesCol2)}>
               {activities.map(activity => (
-                <li key={activity} className="bodyCopy activity">
+                <li
+                  key={activity}
+                  className={clsx(styles.bodyCopy, styles.activity)}
+                >
                   {activity}
                 </li>
               ))}

@@ -1,4 +1,4 @@
-// import './hamburger-menu.scss';
+import styles from './hamburger-menu.module.scss';
 import clsx from 'clsx';
 
 export default function HamburgerMenu({
@@ -9,7 +9,7 @@ export default function HamburgerMenu({
   const backgroundColor = isOpen ? 'black' : hamburgerMenuColor;
   return (
     <button
-      className={clsx('hamburgerMenu', isOpen ? 'open' : '')}
+      className={clsx(styles.hamburgerMenu, isOpen ? styles.open : '')}
       onClick={() => setIsOpen(!isOpen)}
     >
       <span style={{ backgroundColor }}></span>

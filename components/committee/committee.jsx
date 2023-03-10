@@ -1,6 +1,7 @@
 import Layout from '../layout';
-import './committee.scss';
+import styles from './committee.module.scss';
 import Image from 'next/image';
+import clsx from 'clsx';
 
 const committeeData = [
   {
@@ -10,8 +11,9 @@ const committeeData = [
       <Image
         src="https://highlands-music-festival.s3.ca-central-1.amazonaws.com/committeeMembers/sammy.jpg"
         alt=""
-        placeholder="blurred"
-        className="memberImage sammy"
+        className={clsx(styles.memberImage, styles.sammy)}
+        width={708}
+        height={944}
       />
     ),
   },
@@ -22,8 +24,9 @@ const committeeData = [
       <Image
         src="https://highlands-music-festival.s3.ca-central-1.amazonaws.com/committeeMembers/toby.jpg"
         alt=""
-        placeholder="blurred"
-        className="memberImage toby"
+        className={clsx(styles.memberImage, styles.toby)}
+        width={1184}
+        height={789}
       />
     ),
   },
@@ -35,8 +38,9 @@ const committeeData = [
       <Image
         src="https://highlands-music-festival.s3.ca-central-1.amazonaws.com/committeeMembers/amanda.jpg"
         alt=""
-        placeholder="blurred"
-        className="memberImage"
+        className={styles.memberImage}
+        width={944}
+        height={710}
       />
     ),
   },
@@ -47,8 +51,9 @@ const committeeData = [
       <Image
         src="https://highlands-music-festival.s3.ca-central-1.amazonaws.com/committeeMembers/danielle.jpg"
         alt=""
-        placeholder="blurred"
-        className="memberImage danielle"
+        className={clsx(styles.memberImage, styles.danielle)}
+        width={944}
+        height={708}
       />
     ),
   },
@@ -59,8 +64,9 @@ const committeeData = [
       <Image
         src="https://highlands-music-festival.s3.ca-central-1.amazonaws.com/committeeMembers/IMG_1545.jpg"
         alt=""
-        placeholder="blurred"
-        className="memberImage"
+        className={styles.memberImage}
+        width={944}
+        height={710}
       />
     ),
   },
@@ -71,8 +77,9 @@ const committeeData = [
       <Image
         src="https://highlands-music-festival.s3.ca-central-1.amazonaws.com/committeeMembers/orry.jpg"
         alt=""
-        placeholder="blurred"
-        className="memberImage orry"
+        className={clsx(styles.memberImage, styles.orry)}
+        width={944}
+        height={757}
       />
     ),
   },
@@ -83,8 +90,9 @@ const committeeData = [
       <Image
         src="https://highlands-music-festival.s3.ca-central-1.amazonaws.com/committeeMembers/sol.jpeg"
         alt=""
-        placeholder="blurred"
-        className="memberImage sol"
+        className={clsx(styles.memberImage, styles.sol)}
+        width={944}
+        height={649}
       />
     ),
   },
@@ -95,8 +103,9 @@ const committeeData = [
       <Image
         src="https://highlands-music-festival.s3.ca-central-1.amazonaws.com/committeeMembers/steven.jpg"
         alt=""
-        placeholder="blurred"
-        className="memberImage sol"
+        className={clsx(styles.memberImage, styles.sol)}
+        width={944}
+        height={710}
       />
     ),
   },
@@ -107,19 +116,19 @@ const committeeData = [
     //   <Image
     //     src="https://highlands-music-festival.s3.ca-central-1.amazonaws.com/committeeMembers/josh.jpg"
     //     alt=""
-    //     placeholder="blurred"
-    //     className="memberImage josh"
+    //
+    //     className={styles.memberImage josh"
     //   />
     // ),
   },
 ];
 
 const CommitteeMember = ({ name, title, Img }) => (
-  <div className="memberContainer">
-    <div className="imageContainer">{Img && <Img />}</div>
-    <div className="textContainer">
-      <p className="subheadingHeavy">{name}</p>
-      <p className="bodyCopy">{title}</p>
+  <div className={styles.memberContainer}>
+    <div className={styles.imageContainer}>{Img && <Img />}</div>
+    <div className={styles.textContainer}>
+      <p className={styles.subHeadingHeavy}>{name}</p>
+      <p className={styles.bodyCopy}>{title}</p>
     </div>
   </div>
 );
@@ -127,9 +136,9 @@ export default function Committee() {
   return (
     <Layout>
       <main>
-        <div className="committeePage">
-          <h1 className="heading">Who We Are</h1>
-          <div className="committeeMembers">
+        <div className={styles.committeePage}>
+          <h1 className={styles.heading}>Who We Are</h1>
+          <div className={styles.committeeMembers}>
             {committeeData.map(committeeMemberData => (
               <CommitteeMember
                 {...committeeMemberData}

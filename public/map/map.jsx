@@ -6,10 +6,9 @@ export default function Map({ classNames }) {
     <Image
       src="https://highlands-music-festival.s3.ca-central-1.amazonaws.com/MAP/map-dark.jpg"
       alt=""
-      placeholder="blurred"
       className={classNames}
-      width={150}
-      height={150}
+      width={1280}
+      height={945}
     />
   );
 }
