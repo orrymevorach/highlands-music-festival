@@ -3,6 +3,8 @@ import './home.scss';
 import { imgPath, colors } from '@utils/constants';
 import Layout from '../layout';
 import { useWindowSize } from '@hooks';
+import HeadlinerAnnouncement from '@components/announcement';
+import useAnimateAnnouncement from '@components/announcement/useAnimateAnnouncement';
 
 const TopRow = () => (
   <div className="topRow">
@@ -43,24 +45,32 @@ const Video = () => {
 
 export default function Home() {
   const { isMobile } = useWindowSize();
+  const { showAnnouncement, setShowAnnouncement } = useAnimateAnnouncement();
+
   return (
-    <div className="homePageContainer">
-      <Layout hasPaddingBottom={false} hamburgerMenuColor={colors.beige}>
-        <main>
-          <h1 className="h1">Highlands Music Festival</h1>
-          <div className="videoContainer">
-            <div className="imageContainer">
-              <img
-                src={`${imgPath}/Logo-1200px-Neutral.png`}
-                alt="Highlands Music Festival logo"
-                className="logo"
-              />
-              <TopRow />
-            </div>
-            {!isMobile && <Video />}
-          </div>
-        </main>
-      </Layout>
-    </div>
+    <>
+      {showAnnouncement ? (
+        <HeadlinerAnnouncement setShowAnnouncement={setShowAnnouncement} />
+      ) : (
+        <div className="homePageContainer">
+          <Layout hasPaddingBottom={false} hamburgerMenuColor={colors.beige}>
+            <main>
+              <h1 className="h1">Highlands Music Festival</h1>
+              <div className="videoContainer">
+                <div className="imageContainer">
+                  <img
+                    src={`${imgPath}/Logo-1200px-Neutral.png`}
+                    alt="Highlands Music Festival logo"
+                    className="logo"
+                  />
+                  <TopRow />
+                </div>
+                {!isMobile && <Video />}
+              </div>
+            </main>
+          </Layout>
+        </div>
+      )}
+    </>
   );
 }
