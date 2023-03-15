@@ -9,7 +9,7 @@ import { useRouter } from 'next/router';
 
 export default function EmailCaptureForm({ buttonClassNames = '' }) {
   const { pathname } = useRouter();
-  const [state, handleSubmit] = useForm('mrgvegqk');
+  const [state, handleSubmit] = useForm('mpzewvyb');
   const {
     triggers: { SUBMIT_FORM },
   } = useEmailCaptureContext();
