@@ -19,7 +19,15 @@ export default function Activities() {
     <Layout hamburgerMenuColor={colors.beige}>
       <main>
         <div className={styles.hammocksContainer}>
-          <Image src="/CL-HAMMOCK.jpg" alt="" width={1920} height={1280} />
+          <Image
+            src="/CL-HAMMOCK.jpg"
+            alt=""
+            width={1920}
+            height={1280}
+            placeholder="blur"
+            blurDataURL="/CL-HAMMOCK.jpg"
+            priority
+          />
         </div>
         <div className={styles.activitiesWrapper}>
           <h2 className={styles.heading}>Activities</h2>
@@ -30,6 +38,8 @@ export default function Activities() {
               className={styles.activitiesSun}
               width={150}
               height={150}
+              placeholder="blur"
+              blurDataURL="/Iconography-03.png"
             />
           )}
           <div className={styles.activitiesContainer}>

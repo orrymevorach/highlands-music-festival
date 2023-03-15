@@ -10,10 +10,13 @@ const committeeData = [
     Img: () => (
       <Image
         src="/committeeMembers/sammy.jpg"
+        placeholder="blur"
         alt=""
         className={clsx(styles.memberImage, styles.sammy)}
         width={708}
         height={944}
+        blurDataURL="/committeeMembers/sammy.jpg"
+        priority
       />
     ),
   },
@@ -23,10 +26,13 @@ const committeeData = [
     Img: () => (
       <Image
         src="/committeeMembers/toby.jpg"
+        placeholder="blur"
         alt=""
         className={clsx(styles.memberImage, styles.toby)}
         width={1184}
         height={789}
+        blurDataURL="/committeeMembers/toby.jpg"
+        priority
       />
     ),
   },
@@ -37,10 +43,13 @@ const committeeData = [
     Img: () => (
       <Image
         src="/committeeMembers/amanda.jpg"
+        placeholder="blur"
         alt=""
         className={styles.memberImage}
         width={944}
         height={710}
+        blurDataURL="/committeeMembers/amanda.jpg"
+        priority
       />
     ),
   },
@@ -50,10 +59,12 @@ const committeeData = [
     Img: () => (
       <Image
         src="/committeeMembers/danielle.jpg"
+        placeholder="blur"
         alt=""
         className={clsx(styles.memberImage, styles.danielle)}
         width={944}
         height={708}
+        blurDataURL="/committeeMembers/danielle.jpg"
       />
     ),
   },
@@ -63,10 +74,12 @@ const committeeData = [
     Img: () => (
       <Image
         src="/committeeMembers/brooke.jpg"
+        placeholder="blur"
         alt=""
         className={styles.memberImage}
         width={944}
         height={710}
+        blurDataURL="/committeeMembers/brooke.jpg"
       />
     ),
   },
@@ -76,10 +89,12 @@ const committeeData = [
     Img: () => (
       <Image
         src="/committeeMembers/orry.jpg"
+        placeholder="blur"
         alt=""
         className={clsx(styles.memberImage, styles.orry)}
         width={944}
         height={757}
+        blurDataURL="/committeeMembers/orry.jpg"
       />
     ),
   },
@@ -89,10 +104,12 @@ const committeeData = [
     Img: () => (
       <Image
         src="/committeeMembers/sol.jpeg"
+        placeholder="blur"
         alt=""
         className={clsx(styles.memberImage, styles.sol)}
         width={944}
         height={649}
+        blurDataURL="/committeeMembers/sol.jpeg"
       />
     ),
   },
@@ -114,11 +131,11 @@ const committeeData = [
     title: 'The Friendly Hustler',
     Img: () => (
       <Image
-        src="https://highlands-music-festival.s3.ca-central-1.amazonaws.com/committeeMembers/Corey.png"
+        src="/committeeMembers/Corey.png"
         alt=""
+        className="memberImage"
         width={944}
         height={710}
-        className="memberImage"
       />
     ),
   },

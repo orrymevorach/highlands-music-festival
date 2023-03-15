@@ -78,10 +78,13 @@ export default function LocationAndAccommodation() {
 
           <Image
             src="/map-dark.jpg"
+            placeholder="blur"
             alt=""
             className={styles.mapOfCamp}
             width={1280}
             height={945}
+            blurDataURL="/map-dark.jpg"
+            priority
           />
         </div>
       </main>

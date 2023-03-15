@@ -17,6 +17,8 @@ export default function About() {
             priority
             width={1920}
             height={890}
+            placeholder="blur"
+            blurDataURL="/gallery-the-setting-11.jpg"
           />
         </div>
 
@@ -24,10 +26,12 @@ export default function About() {
           <Image
             src="/Logo-1200px-No-Bkgd-min.png"
             alt="Highlands Music Festival logo"
-            placeholder="none"
+            placeholder="blur"
+            blurDataURL="/Logo-1200px-No-Bkgd-min.png"
             className={styles.aboutLogo}
             width={1920}
             height={510}
+            priority
           />
           <h3 className={clsx(styles.aboutDate, styles.subheading)}>
             Thursday, September 28th - Sunday, October 1st, 2023
@@ -35,6 +39,8 @@ export default function About() {
           {!isMobile && (
             <Image
               src="/Iconography-03.png"
+              blurDataURL="/Iconography-03.png"
+              placeholder="blur"
               alt=""
               className={styles.aboutIcon}
               width={140}
