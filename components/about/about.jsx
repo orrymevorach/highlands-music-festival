@@ -3,16 +3,6 @@ import styles from './about.module.scss';
 import Layout from '../layout';
 import { colors } from 'utils/constants';
 import { useWindowSize } from 'hooks';
-import {
-  LogoColor,
-  CLFirepit,
-  CLBackyard,
-  Omni,
-  CLDeck,
-  FirehallEvening,
-  SwimTower,
-} from 'public';
-import { imgPath } from 'utils/constants';
 import Image from 'next/image';
 
 export default function About() {
@@ -21,17 +11,30 @@ export default function About() {
     <Layout hasPaddingBottom={false} hamburgerMenuColor={colors.beige}>
       <main>
         <div className={styles.aboutPageImageContainer}>
-          <SwimTower />
+          <Image
+            src="/gallery-the-setting-11.jpg"
+            alt=""
+            priority
+            width={1920}
+            height={890}
+          />
         </div>
 
         <div className={styles.aboutWrapper}>
-          <LogoColor classNames={styles.aboutLogo} />
+          <Image
+            src="/Logo-1200px-No-Bkgd-min.png"
+            alt="Highlands Music Festival logo"
+            placeholder="none"
+            className={styles.aboutLogo}
+            width={1920}
+            height={510}
+          />
           <h3 className={clsx(styles.aboutDate, styles.subheading)}>
             Thursday, September 28th - Sunday, October 1st, 2023
           </h3>
           {!isMobile && (
             <Image
-              src={`${imgPath}/Iconography/Iconography-03.png`}
+              src="/Iconography-03.png"
               alt=""
               className={styles.aboutIcon}
               width={140}
@@ -126,13 +129,43 @@ export default function About() {
         <div className={styles.imagesRow}>
           {!isMobile && (
             <>
-              <CLFirepit />
-              <CLBackyard />
-              <Omni />
+              <Image
+                src="/CL-FIREPIT.jpg"
+                alt=""
+                width={1415}
+                height={945}
+                style={{ height: '100%' }}
+              />
+              <Image
+                src="/CL-BACKYARD.jpg"
+                alt=""
+                width={1415}
+                height={945}
+                style={{ height: '100%' }}
+              />
+              <Image
+                src="/29E.jpg"
+                alt=""
+                width={1415}
+                height={945}
+                style={{ height: '100%' }}
+              />
             </>
           )}
-          <CLDeck />
-          <FirehallEvening />
+          <Image
+            src="/CL-DECK-2.jpg"
+            alt=""
+            width={1415}
+            height={945}
+            style={{ height: '100%' }}
+          />
+          <Image
+            src="/EVENING-SET-UP-FIREHALL.jpg"
+            alt=""
+            width={1415}
+            height={945}
+            style={{ height: '100%' }}
+          />
         </div>
       </main>
     </Layout>

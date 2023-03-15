@@ -6,7 +6,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "deployPreview": "git branch -d preview-environment && git push -d origin preview-environment && git checkout -b preview-environment && git push --set-upstream origin preview-environment"
   },
   "dependencies": {
     "@formspree/react": "^2.4.1",

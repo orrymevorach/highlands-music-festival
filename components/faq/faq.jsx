@@ -1,10 +1,10 @@
 import styles from './faq.module.scss';
 import Layout from 'components/layout';
-import { YellowSun } from 'images';
 import Masonry from 'react-masonry-css';
 import { useWindowSize } from 'hooks';
 import { faq } from './faqData';
 import clsx from 'clsx';
+import Image from 'next/image';
 
 const FaqParagraph = ({ question, answer, Answer }) => (
   <div className={styles.questionContainer} key={question}>
@@ -44,7 +44,13 @@ export default function Faq() {
                   Answer={Answer}
                 />
               ))}
-              <YellowSun classNames={styles.sunIcon} />
+              <Image
+                src="/Iconography-02.png"
+                alt=""
+                className={styles.sunIcon}
+                width={1184}
+                height={620}
+              />
             </Masonry>
           </div>
         </div>

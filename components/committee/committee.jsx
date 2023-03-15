@@ -9,7 +9,7 @@ const committeeData = [
     title: 'The Music',
     Img: () => (
       <Image
-        src="https://highlands-music-festival.s3.ca-central-1.amazonaws.com/committeeMembers/sammy.jpg"
+        src="/committeeMembers/sammy.jpg"
         alt=""
         className={clsx(styles.memberImage, styles.sammy)}
         width={708}
@@ -22,7 +22,7 @@ const committeeData = [
     title: 'Is this mic on?',
     Img: () => (
       <Image
-        src="https://highlands-music-festival.s3.ca-central-1.amazonaws.com/committeeMembers/toby.jpg"
+        src="/committeeMembers/toby.jpg"
         alt=""
         className={clsx(styles.memberImage, styles.toby)}
         width={1184}
@@ -36,7 +36,7 @@ const committeeData = [
     title: 'That Camp Feelin',
     Img: () => (
       <Image
-        src="https://highlands-music-festival.s3.ca-central-1.amazonaws.com/committeeMembers/amanda.jpg"
+        src="/committeeMembers/amanda.jpg"
         alt=""
         className={styles.memberImage}
         width={944}
@@ -49,7 +49,7 @@ const committeeData = [
     title: 'Who needs tickets?',
     Img: () => (
       <Image
-        src="https://highlands-music-festival.s3.ca-central-1.amazonaws.com/committeeMembers/danielle.jpg"
+        src="/committeeMembers/danielle.jpg"
         alt=""
         className={clsx(styles.memberImage, styles.danielle)}
         width={944}
@@ -62,7 +62,7 @@ const committeeData = [
     title: 'Beautiful Branding',
     Img: () => (
       <Image
-        src="https://highlands-music-festival.s3.ca-central-1.amazonaws.com/committeeMembers/IMG_1545.jpg"
+        src="/committeeMembers/brooke.jpg"
         alt=""
         className={styles.memberImage}
         width={944}
@@ -75,7 +75,7 @@ const committeeData = [
     title: "Food Trucks, Drugs, and Rock 'n Roll",
     Img: () => (
       <Image
-        src="https://highlands-music-festival.s3.ca-central-1.amazonaws.com/committeeMembers/orry.jpg"
+        src="/committeeMembers/orry.jpg"
         alt=""
         className={clsx(styles.memberImage, styles.orry)}
         width={944}
@@ -88,7 +88,7 @@ const committeeData = [
     title: 'The Big Talker',
     Img: () => (
       <Image
-        src="https://highlands-music-festival.s3.ca-central-1.amazonaws.com/committeeMembers/sol.jpeg"
+        src="/committeeMembers/sol.jpeg"
         alt=""
         className={clsx(styles.memberImage, styles.sol)}
         width={944}
@@ -101,7 +101,7 @@ const committeeData = [
     title: 'The Visionary',
     Img: () => (
       <Image
-        src="https://highlands-music-festival.s3.ca-central-1.amazonaws.com/committeeMembers/steven.jpg"
+        src="/committeeMembers/steven.jpg"
         alt=""
         className={clsx(styles.memberImage, styles.sol)}
         width={944}

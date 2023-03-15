@@ -1,8 +1,8 @@
 import styles from './location-and-accommodation.module.scss';
 import Layout from '../layout';
 import GoogleMap from 'components/location-and-accommodation/GoogleMap';
-import Map from 'public/map';
 import clsx from 'clsx';
+import Image from 'next/image';
 
 const packingList = [
   { packingItem: 'Single bed fitted/flat sheet ' },
@@ -75,7 +75,14 @@ export default function LocationAndAccommodation() {
               ))}
             </ul>
           </div>
-          <Map classNames={styles.mapOfCamp} />
+
+          <Image
+            src="/map-dark.jpg"
+            alt=""
+            className={styles.mapOfCamp}
+            width={1280}
+            height={945}
+          />
         </div>
       </main>
     </Layout>

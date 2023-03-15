@@ -55,7 +55,10 @@ const HomeIcon = () => {
 const InstagramIcon = () => {
   return (
     <li className={styles.instagramIcon}>
-      <a href="https://www.instagram.com/highlandsmusicfestival">
+      <a
+        href="https://www.instagram.com/highlandsmusicfestival"
+        target="_blank"
+      >
         <FontAwesomeIcon
           icon={faInstagram}
           color={colors.darkGreen}

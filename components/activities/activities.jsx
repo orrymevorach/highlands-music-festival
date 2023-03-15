@@ -1,9 +1,9 @@
 import Layout from 'components/layout';
 import styles from './activities.module.scss';
 import { colors } from 'utils/constants';
-import { GreenSun, Hammocks } from 'public';
 import { useWindowSize } from 'hooks';
 import clsx from 'clsx';
+import Image from 'next/image';
 
 const activities = [
   'Tennis, Basketball, & Hockey',
@@ -19,11 +19,19 @@ export default function Activities() {
     <Layout hamburgerMenuColor={colors.beige}>
       <main>
         <div className={styles.hammocksContainer}>
-          <Hammocks />
+          <Image src="/CL-HAMMOCK.jpg" alt="" width={1920} height={1280} />
         </div>
         <div className={styles.activitiesWrapper}>
           <h2 className={styles.heading}>Activities</h2>
-          {!isMobile && <GreenSun classNames={styles.activitiesSun} />}
+          {!isMobile && (
+            <Image
+              src="/Iconography-03.png"
+              alt=""
+              className={styles.activitiesSun}
+              width={150}
+              height={150}
+            />
+          )}
           <div className={styles.activitiesContainer}>
             <div className={clsx(styles.activitiesCol, styles.activitiesCol1)}>
               <p className={styles.bodyCopyMedium}>

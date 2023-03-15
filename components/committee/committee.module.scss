@@ -43,6 +43,7 @@
     transform: scale(2.5) translate(25px, -20px);
   }
   @media screen and (max-width: $tablet) {
+    width: 100%;
     .committeeMembers {
       display: block;
       grid-template-columns: 1fr 1fr;
