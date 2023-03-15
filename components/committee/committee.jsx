@@ -16,7 +16,6 @@ const committeeData = [
         width={708}
         height={944}
         blurDataURL="/committeeMembers/sammy.jpg"
-        priority
       />
     ),
   },
@@ -32,7 +31,6 @@ const committeeData = [
         width={1184}
         height={789}
         blurDataURL="/committeeMembers/toby.jpg"
-        priority
       />
     ),
   },
@@ -49,7 +47,6 @@ const committeeData = [
         width={944}
         height={710}
         blurDataURL="/committeeMembers/amanda.jpg"
-        priority
       />
     ),
   },

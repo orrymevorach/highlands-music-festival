@@ -24,8 +24,6 @@ export default function Activities() {
             alt=""
             width={1920}
             height={1280}
-            placeholder="blur"
-            blurDataURL="/CL-HAMMOCK.jpg"
             priority
           />
         </div>
@@ -38,8 +36,6 @@ export default function Activities() {
               className={styles.activitiesSun}
               width={150}
               height={150}
-              placeholder="blur"
-              blurDataURL="/Iconography-03.png"
             />
           )}
           <div className={styles.activitiesContainer}>
