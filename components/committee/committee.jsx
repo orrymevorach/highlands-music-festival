@@ -73,13 +73,13 @@ const committeeData = [
     title: 'Beautiful Branding',
     Img: () => (
       <Image
-        src="/committeeMembers/brooke.jpg"
+        src="/committeeMembers/brooke.jpeg"
         placeholder="blur"
         alt=""
         className={styles.memberImage}
         width={944}
         height={710}
-        blurDataURL="/committeeMembers/brooke.jpg"
+        blurDataURL="/committeeMembers/brooke.jpeg"
       />
     ),
   },
