@@ -1,4 +1,3 @@
-import '../styles/global.scss';
 import Head from 'components/head';
 import Schedule from 'components/schedule';
 import Lineup from 'components/lineup';

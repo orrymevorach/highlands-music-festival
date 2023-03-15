@@ -1,5 +1,6 @@
-import './lineup.scss';
-import { GreenSun, YellowSun } from '@images';
+import styles from './lineup.module.scss';
+import Image from 'next/image';
+import clsx from 'clsx';
 
 const lineup = [
   'Ada Lea',
@@ -32,15 +33,20 @@ const chunkLineupIntoRowsOfThree = lineup => {
 };
 
 const Headliners = () => (
-  <div className="lineupRow headlineRow">
-    <p className="heading">
+  <div className={clsx(styles.lineupRow, styles.headlineRow)}>
+    <p className={styles.heading}>
       Busty <br />
       and <br />
       the <br />
       Bass
     </p>
-    <GreenSun classNames="lineupSun headlineSun" />
-    <p className="heading">
+    <Image
+      src="/Iconography-03.png"
+      width={80}
+      height={80}
+      className={clsx(styles.lineupSun, styles.headlineSun)}
+    />
+    <p className={styles.heading}>
       The <br /> Brook <br /> & the <br /> Bluff
     </p>
   </div>
@@ -52,13 +58,22 @@ const Artists = () => {
     <>
       {chunkedLineup.map((chunkedRow, index) => {
         return (
-          <div key={`${chunkedRow[0]}-${index}`} className="lineupRow">
+          <div key={`${chunkedRow[0]}-${index}`} className={styles.lineupRow}>
             {chunkedRow.map((artist, index) => {
               const isLastArtistInRow = index === chunkedRow.length - 1;
               return (
-                <div key={artist} className="artistContainer">
-                  <p className="heading artist">{artist}</p>
-                  {!isLastArtistInRow && <GreenSun classNames="lineupSun" />}
+                <div key={artist} className={styles.artistContainer}>
+                  <p className={clsx(styles.heading, styles.artist)}>
+                    {artist}
+                  </p>
+                  {!isLastArtistInRow && (
+                    <Image
+                      src="/Iconography-03.png"
+                      className={clsx(styles.lineupSun)}
+                      width={80}
+                      height={80}
+                    />
+                  )}
                 </div>
               );
             })}
@@ -71,9 +86,9 @@ const Artists = () => {
 
 export default function Lineup() {
   return (
-    <div className="lineupContainer">
-      <h2 className="heading center">2023 Lineup</h2>
-      <YellowSun classNames="lineupBackground" />
+    <div className={styles.lineupContainer}>
+      <h2 className={clsx(styles.heading, styles.center)}>2023 Lineup</h2>
+      {/* <YellowSun classNames="lineupBackground" /> */}
       <Headliners />
       <Artists />
     </div>

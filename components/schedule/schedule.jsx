@@ -1,30 +1,37 @@
-import './schedule.scss';
+import styles from './schedule.module.scss';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faMinus } from '@fortawesome/free-solid-svg-icons';
 import schedule from './schedule.json';
 import { useWindowSize } from 'hooks';
-import { imgPath } from 'utils/constants';
+import clsx from 'clsx';
+import Image from 'next/image';
 
 const Schedule = () => {
   const { isDesktop } = useWindowSize();
   return (
-    <div className="scheduleWrapper">
-      <h2 className="heading scheduleHeading">Schedule</h2>
-      <div className="scheduleContainer">
+    <div className={styles.scheduleWrapper}>
+      <h2 className={clsx(styles.heading, styles.scheduleHeading)}>Schedule</h2>
+      <div className={styles.scheduleContainer}>
         {schedule.map(({ dayOfWeek, dailySchedule }) => (
-          <div key={dayOfWeek} className="thirdColumn">
-            <p className="scheduleDate subheadingHeavy">{dayOfWeek}</p>
+          <div key={dayOfWeek} className={styles.thirdColumn}>
+            <p className={clsx(styles.scheduleDate, styles.subHeadingHeavy)}>
+              {dayOfWeek}
+            </p>
             {!isDesktop && (
               <>
-                <img
-                  src={`${imgPath}/Iconography/Iconography-03.png`}
+                <Image
+                  src="/Iconography-03.png"
                   alt=""
-                  className="greenSun"
+                  className={styles.greenSun}
+                  width={100}
+                  height={100}
                 />
-                <img
-                  src={`${imgPath}/Iconography/Iconography-03.png`}
+                <Image
+                  src="/Iconography-03.png"
                   alt=""
-                  className="greenSun"
+                  className={styles.greenSun}
+                  width={100}
+                  height={100}
                 />
               </>
             )}
@@ -32,16 +39,32 @@ const Schedule = () => {
               ({ startTime, endTime, activity, lineBreak }) => (
                 <div
                   key={`${startTime}-${endTime}-${activity}`}
-                  className={`scheduleRow ${lineBreak ? 'lineBreak' : ''}`}
-                >
-                  {endTime ? (
-                    <p className="subheadingHeavy scheduleTime">
-                      {startTime} <FontAwesomeIcon icon={faMinus} /> {endTime}
-                    </p>
-                  ) : (
-                    <p className="subheadingHeavy scheduleTime">{startTime}</p>
+                  className={clsx(
+                    styles.scheduleRow,
+                    lineBreak ? styles.lineBreak : ''
                   )}
-                  <p className="subheading scheduleActivity">{activity}</p>
+                >
+                  <p
+                    className={clsx(
+                      styles.subHeadingHeavy,
+                      styles.scheduleTime
+                    )}
+                  >
+                    {startTime}{' '}
+                    {endTime ? (
+                      <>
+                        <FontAwesomeIcon icon={faMinus} /> {endTime}
+                      </>
+                    ) : (
+                      ''
+                    )}
+                  </p>
+
+                  <p
+                    className={clsx(styles.subheading, styles.scheduleActivity)}
+                  >
+                    {activity}
+                  </p>
                 </div>
               )
             )}
