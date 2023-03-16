@@ -75,9 +75,11 @@
 .aboutIcon {
   position: absolute;
   width: 150px;
+  height: 150px;
   top: 0;
   right: -100px;
   animation: spin 3s;
+  object-fit: contain;
 }
 
 .col1.par4,

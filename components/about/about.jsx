@@ -4,6 +4,9 @@ import Layout from '../layout';
 import { colors } from 'utils/constants';
 import { useWindowSize } from 'hooks';
 import Image from 'next/image';
+import Logo from 'public/Logo-1200px-No-Bkgd-min.png';
+import Banner from 'public/gallery-the-setting-11.jpg';
+import GreenSun from 'public/Iconography-03.png';
 
 export default function About() {
   const { isMobile } = useWindowSize();
@@ -11,34 +14,20 @@ export default function About() {
     <Layout hasPaddingBottom={false} hamburgerMenuColor={colors.beige}>
       <main>
         <div className={styles.aboutPageImageContainer}>
-          <Image
-            src="/gallery-the-setting-11.jpg"
-            alt=""
-            priority
-            width={1920}
-            height={890}
-          />
+          <Image priority src={Banner} alt="" />
         </div>
-
         <div className={styles.aboutWrapper}>
           <Image
-            src="/Logo-1200px-No-Bkgd-min.png"
+            src={Logo}
             alt="Highlands Music Festival logo"
             className={styles.aboutLogo}
-            width={1920}
-            height={510}
+            priority
           />
           <h3 className={clsx(styles.aboutDate, styles.subheading)}>
             Thursday, September 28th - Sunday, October 1st, 2023
           </h3>
           {!isMobile && (
-            <Image
-              src="/Iconography-03.png"
-              alt=""
-              className={styles.aboutIcon}
-              width={140}
-              height={140}
-            />
+            <Image src={GreenSun} alt="" className={styles.aboutIcon} />
           )}
           <div className={styles.row}>
             <div className={styles.aboutColumn}>
