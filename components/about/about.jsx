@@ -14,7 +14,7 @@ export default function About() {
     <Layout hasPaddingBottom={false} hamburgerMenuColor={colors.beige}>
       <main>
         <div className={styles.aboutPageImageContainer}>
-          <Image priority src={Banner} alt="" placeholder="blur" quality={50} />
+          <Image priority src={Banner} alt="" placeholder="blur" quality={10} />
         </div>
         <div className={styles.aboutWrapper}>
           <Image
@@ -22,10 +22,9 @@ export default function About() {
             alt="Highlands Music Festival logo"
             className={styles.aboutLogo}
             priority
-            placeholder="blur"
-            quality={50}
+            quality={10}
           />
-          <h3 className={clsx(styles.aboutDate, styles.subheading)}>
+          <h3 className={clsx(styles.aboutDate, styles.subHeading)}>
             Thursday, September 28th - Sunday, October 1st, 2023
           </h3>
           {!isMobile && (
@@ -33,7 +32,7 @@ export default function About() {
               src={GreenSun}
               alt=""
               className={styles.aboutIcon}
-              quality={50}
+              quality={10}
             />
           )}
           <div className={styles.row}>
