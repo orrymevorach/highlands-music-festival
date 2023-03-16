@@ -1,7 +1,7 @@
 import Head from 'next/head';
 import { imgPath } from 'utils/constants';
 
-export default function Head() {
+export default function Meta() {
   return (
     <Head>
       <meta charSet="utf-8" />
