@@ -20,7 +20,7 @@ export default function Activities() {
     <Layout hamburgerMenuColor={colors.beige}>
       <main>
         <div className={styles.hammocksContainer}>
-          <Image src={Hammock} priority alt="" />
+          <Image src={Hammock} priority alt="" placeholder="blur" />
         </div>
         <div className={styles.activitiesWrapper}>
           <h2 className={styles.heading}>Activities</h2>

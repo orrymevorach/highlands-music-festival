@@ -14,7 +14,7 @@ export default function About() {
     <Layout hasPaddingBottom={false} hamburgerMenuColor={colors.beige}>
       <main>
         <div className={styles.aboutPageImageContainer}>
-          <Image priority src={Banner} alt="" />
+          <Image priority src={Banner} alt="" placeholder="blur" />
         </div>
         <div className={styles.aboutWrapper}>
           <Image
@@ -22,6 +22,7 @@ export default function About() {
             alt="Highlands Music Festival logo"
             className={styles.aboutLogo}
             priority
+            placeholder="blur"
           />
           <h3 className={clsx(styles.aboutDate, styles.subheading)}>
             Thursday, September 28th - Sunday, October 1st, 2023
