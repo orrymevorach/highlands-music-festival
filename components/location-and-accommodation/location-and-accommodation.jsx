@@ -48,7 +48,7 @@ export default function LocationAndAccommodation() {
             </div>
             <div className={styles.accommodation}>
               <div className={styles.imageContainer}>
-                <Image priority src={Cabin} />
+                <Image priority src={Cabin} quality={50} width={970} />
               </div>
 
               <p className={clsx(styles.accommodationLineOne, styles.bodyCopy)}>
@@ -81,7 +81,13 @@ export default function LocationAndAccommodation() {
             </ul>
           </div>
 
-          <Image src={MapOfCamp} alt="" className={styles.mapOfCamp} />
+          <Image
+            src={MapOfCamp}
+            alt=""
+            className={styles.mapOfCamp}
+            quality={50}
+            width={1520}
+          />
         </div>
       </main>
     </Layout>

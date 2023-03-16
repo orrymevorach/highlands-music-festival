@@ -25,6 +25,7 @@ const Schedule = () => {
                   className={styles.greenSun}
                   width={100}
                   height={100}
+                  quality={10}
                 />
                 <Image
                   src="/green-sun.png"
@@ -32,6 +33,7 @@ const Schedule = () => {
                   className={styles.greenSun}
                   width={100}
                   height={100}
+                  quality={10}
                 />
               </>
             )}

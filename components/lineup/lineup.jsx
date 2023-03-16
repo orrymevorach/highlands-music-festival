@@ -45,6 +45,7 @@ const Headliners = () => (
       width={80}
       height={80}
       className={clsx(styles.lineupSun, styles.headlineSun)}
+      quality={10}
     />
     <p className={styles.heading}>
       The <br /> Brook <br /> & the <br /> Bluff
@@ -72,6 +73,7 @@ const Artists = () => {
                       className={clsx(styles.lineupSun)}
                       width={80}
                       height={80}
+                      quality={10}
                     />
                   )}
                 </div>

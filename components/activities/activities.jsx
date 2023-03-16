@@ -37,6 +37,7 @@ export default function Activities() {
               className={styles.activitiesSun}
               width={150}
               height={150}
+              quality={10}
             />
           )}
           <div className={styles.activitiesContainer}>

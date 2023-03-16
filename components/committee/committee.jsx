@@ -5,6 +5,12 @@ import clsx from 'clsx';
 import Sammy from '../../public/committeeMembers/sammy.jpg';
 import Toby from '../../public/committeeMembers/toby.jpg';
 import Amanda from '../../public/committeeMembers/amanda.jpg';
+import Danielle from '../../public/committeeMembers/danielle.jpg';
+import Brooke from '../../public/committeeMembers/brooke.jpeg';
+import Orry from '../../public/committeeMembers/orry.jpg';
+import Sol from '../../public/committeeMembers/sol.jpeg';
+import Steven from '../../public/committeeMembers/steven.jpg';
+import Corey from '../../public/committeeMembers/Corey.png';
 
 const committeeData = [
   {
@@ -16,6 +22,8 @@ const committeeData = [
         alt=""
         className={clsx(styles.memberImage, styles.sammy)}
         priority
+        width={800}
+        quality={50}
       />
     ),
   },
@@ -28,6 +36,8 @@ const committeeData = [
         alt=""
         className={clsx(styles.memberImage, styles.toby)}
         priority
+        width={800}
+        quality={50}
       />
     ),
   },
@@ -36,7 +46,14 @@ const committeeData = [
     name: 'Amanda Black',
     title: 'That Camp Feelin',
     Img: () => (
-      <Image src={Amanda} alt="" className={styles.memberImage} priority />
+      <Image
+        src={Amanda}
+        alt=""
+        className={styles.memberImage}
+        priority
+        width={800}
+        quality={50}
+      />
     ),
   },
   {
@@ -44,11 +61,11 @@ const committeeData = [
     title: 'Who needs tickets?',
     Img: () => (
       <Image
-        src="/committeeMembers/danielle.jpg"
+        src={Danielle}
         alt=""
         className={clsx(styles.memberImage, styles.danielle)}
-        width={944}
-        height={708}
+        width={800}
+        quality={50}
       />
     ),
   },
@@ -57,11 +74,11 @@ const committeeData = [
     title: 'Beautiful Branding',
     Img: () => (
       <Image
-        src="/committeeMembers/brooke.jpeg"
+        src={Brooke}
         alt=""
         className={styles.memberImage}
-        width={944}
-        height={710}
+        width={800}
+        quality={50}
       />
     ),
   },
@@ -70,11 +87,11 @@ const committeeData = [
     title: "Food Trucks, Drugs, and Rock 'n Roll",
     Img: () => (
       <Image
-        src="/committeeMembers/orry.jpg"
+        src={Orry}
         alt=""
         className={clsx(styles.memberImage, styles.orry)}
-        width={944}
-        height={757}
+        width={800}
+        quality={50}
       />
     ),
   },
@@ -83,11 +100,11 @@ const committeeData = [
     title: 'The Big Talker',
     Img: () => (
       <Image
-        src="/committeeMembers/sol.jpeg"
+        src={Sol}
         alt=""
         className={clsx(styles.memberImage, styles.sol)}
-        width={944}
-        height={649}
+        width={800}
+        quality={50}
       />
     ),
   },
@@ -96,11 +113,11 @@ const committeeData = [
     title: 'The Visionary',
     Img: () => (
       <Image
-        src="/committeeMembers/steven.jpg"
+        src={Steven}
         alt=""
         className={clsx(styles.memberImage, styles.sol)}
-        width={944}
-        height={710}
+        width={800}
+        quality={50}
       />
     ),
   },
@@ -109,11 +126,11 @@ const committeeData = [
     title: 'The Friendly Hustler',
     Img: () => (
       <Image
-        src="/committeeMembers/Corey.png"
+        src={Corey}
         alt=""
         className="memberImage"
-        width={944}
-        height={710}
+        width={800}
+        quality={50}
       />
     ),
   },

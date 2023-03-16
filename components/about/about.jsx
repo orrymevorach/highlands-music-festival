@@ -7,6 +7,11 @@ import Image from 'next/image';
 import Logo from '../../public/Logo-1200px-No-Bkgd-min.png';
 import Banner from '../../public/lake.jpg';
 import GreenSun from '../../public/green-sun.png';
+import ClFirepit from '../../public/CL-FIREPIT.jpg';
+import ClBackyard from '../../public/CL-BACKYARD.jpg';
+import Omni from '../../public/omni.jpg';
+import ClDeck from '../../public/CL-DECK-2.jpg';
+import FirehallEvening from '../../public/EVENING-SET-UP-FIREHALL.jpg';
 
 export default function About() {
   const { isMobile } = useWindowSize();
@@ -14,7 +19,7 @@ export default function About() {
     <Layout hasPaddingBottom={false} hamburgerMenuColor={colors.beige}>
       <main>
         <div className={styles.aboutPageImageContainer}>
-          <Image priority src={Banner} alt="" quality={50} width={1422} />
+          <Image priority src={Banner} alt="" quality={30} width={1422} />
         </div>
         <div className={styles.aboutWrapper}>
           <Image
@@ -26,7 +31,7 @@ export default function About() {
             width={500}
             height={150}
           />
-          <h3 className={clsx(styles.aboutDate, styles.subHeading)}>
+          <h3 className={clsx(styles.aboutDate, styles.subheading)}>
             Thursday, September 28th - Sunday, October 1st, 2023
           </h3>
           {!isMobile && (
@@ -127,41 +132,41 @@ export default function About() {
           {!isMobile && (
             <>
               <Image
-                src="/CL-FIREPIT.jpg"
+                src={ClFirepit}
                 alt=""
-                width={1415}
-                height={945}
+                width={450}
                 style={{ height: '100%' }}
+                quality={50}
               />
               <Image
-                src="/CL-BACKYARD.jpg"
+                src={ClBackyard}
                 alt=""
-                width={1415}
-                height={945}
+                width={450}
                 style={{ height: '100%' }}
+                quality={50}
               />
               <Image
-                src="/omni.jpg"
+                src={Omni}
                 alt=""
-                width={1415}
-                height={945}
+                width={450}
                 style={{ height: '100%' }}
+                quality={50}
               />
             </>
           )}
           <Image
-            src="/CL-DECK-2.jpg"
+            src={ClDeck}
             alt=""
-            width={1415}
-            height={945}
+            width={450}
             style={{ height: '100%' }}
+            quality={50}
           />
           <Image
-            src="/EVENING-SET-UP-FIREHALL.jpg"
+            src={FirehallEvening}
             alt=""
-            width={1415}
-            height={945}
+            width={450}
             style={{ height: '100%' }}
+            quality={50}
           />
         </div>
       </main>
