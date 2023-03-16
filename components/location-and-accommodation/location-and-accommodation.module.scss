@@ -72,6 +72,8 @@
 }
 
 .locationAccommodationWrapper .imageContainer {
+  opacity: 0;
+  animation: fadeIn 0.5s linear forwards;
   img {
     width: 100%;
     object-fit: cover;

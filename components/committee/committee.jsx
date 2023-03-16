@@ -22,7 +22,6 @@ const committeeData = [
         alt=""
         className={clsx(styles.memberImage, styles.sammy)}
         priority
-        width={800}
         quality={50}
       />
     ),
@@ -36,7 +35,6 @@ const committeeData = [
         alt=""
         className={clsx(styles.memberImage, styles.toby)}
         priority
-        width={800}
         quality={50}
       />
     ),
@@ -51,7 +49,6 @@ const committeeData = [
         alt=""
         className={styles.memberImage}
         priority
-        width={800}
         quality={50}
       />
     ),
@@ -64,7 +61,6 @@ const committeeData = [
         src={Danielle}
         alt=""
         className={clsx(styles.memberImage, styles.danielle)}
-        width={800}
         quality={50}
       />
     ),
@@ -73,13 +69,7 @@ const committeeData = [
     name: 'Brooke Rudman',
     title: 'Beautiful Branding',
     Img: () => (
-      <Image
-        src={Brooke}
-        alt=""
-        className={styles.memberImage}
-        width={800}
-        quality={50}
-      />
+      <Image src={Brooke} alt="" className={styles.memberImage} quality={50} />
     ),
   },
   {
@@ -90,7 +80,6 @@ const committeeData = [
         src={Orry}
         alt=""
         className={clsx(styles.memberImage, styles.orry)}
-        width={800}
         quality={50}
       />
     ),
@@ -103,7 +92,6 @@ const committeeData = [
         src={Sol}
         alt=""
         className={clsx(styles.memberImage, styles.sol)}
-        width={800}
         quality={50}
       />
     ),
@@ -116,7 +104,6 @@ const committeeData = [
         src={Steven}
         alt=""
         className={clsx(styles.memberImage, styles.sol)}
-        width={800}
         quality={50}
       />
     ),
@@ -125,13 +112,7 @@ const committeeData = [
     name: 'Corey Raubvogel',
     title: 'The Friendly Hustler',
     Img: () => (
-      <Image
-        src={Corey}
-        alt=""
-        className="memberImage"
-        width={800}
-        quality={50}
-      />
+      <Image src={Corey} alt="" className="memberImage" quality={50} />
     ),
   },
 ];
