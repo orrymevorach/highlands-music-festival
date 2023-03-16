@@ -1,13 +1,9 @@
-import { Helmet } from 'react-helmet';
+import Head from 'next/head';
 import { imgPath } from 'utils/constants';
 
 export default function Head() {
   return (
-    <Helmet
-      htmlAttributes={{
-        lang: 'en',
-      }}
-    >
+    <Head>
       <meta charSet="utf-8" />
       <meta
         name="description"
@@ -15,6 +11,6 @@ export default function Head() {
       />
       <title>Highlands Music Festival</title>
       <link rel="icon" href={`${imgPath}/favicon.png`} />
-    </Helmet>
+    </Head>
   );
 }
