@@ -14,7 +14,7 @@ export default function About() {
     <Layout hasPaddingBottom={false} hamburgerMenuColor={colors.beige}>
       <main>
         <div className={styles.aboutPageImageContainer}>
-          <Image priority src={Banner} alt="" placeholder="blur" quality={10} />
+          <Image priority src={Banner} alt="" quality={50} width={1422} />
         </div>
         <div className={styles.aboutWrapper}>
           <Image
@@ -23,6 +23,8 @@ export default function About() {
             className={styles.aboutLogo}
             priority
             quality={10}
+            width={500}
+            height={150}
           />
           <h3 className={clsx(styles.aboutDate, styles.subHeading)}>
             Thursday, September 28th - Sunday, October 1st, 2023
@@ -33,6 +35,8 @@ export default function About() {
               alt=""
               className={styles.aboutIcon}
               quality={10}
+              width={150}
+              height={150}
             />
           )}
           <div className={styles.row}>

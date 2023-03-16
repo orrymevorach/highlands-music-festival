@@ -61,7 +61,7 @@ const Schedule = () => {
                   </p>
 
                   <p
-                    className={clsx(styles.subHeading, styles.scheduleActivity)}
+                    className={clsx(styles.subheading, styles.scheduleActivity)}
                   >
                     {activity}
                   </p>
