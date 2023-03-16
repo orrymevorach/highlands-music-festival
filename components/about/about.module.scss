@@ -17,12 +17,16 @@
   img {
     width: 100%;
   }
+  opacity: 0;
+  animation: fadeIn 0.5s linear forwards;
 }
 
 .aboutLogo {
   width: 500px;
   height: 100%;
   margin-bottom: 50px;
+  opacity: 0;
+  animation: fadeIn 0.5s linear forwards;
 }
 
 .aboutDate {
