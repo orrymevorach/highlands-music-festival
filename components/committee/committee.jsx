@@ -2,15 +2,15 @@ import Layout from '../layout';
 import styles from './committee.module.scss';
 import Image from 'next/image';
 import clsx from 'clsx';
-import Sammy from '../../public/committeeMembers/sammy.jpg';
-import Toby from '../../public/committeeMembers/toby.jpg';
-import Amanda from '../../public/committeeMembers/amanda.jpg';
-import Danielle from '../../public/committeeMembers/danielle.jpg';
-import Brooke from '../../public/committeeMembers/brooke.jpeg';
-import Orry from '../../public/committeeMembers/orry.jpg';
-import Sol from '../../public/committeeMembers/sol.jpeg';
-import Steven from '../../public/committeeMembers/steven.jpg';
-import Corey from '../../public/committeeMembers/Corey.png';
+import Sammy from 'public/committeeMembers/sammy.jpg';
+import Toby from 'public/committeeMembers/toby.jpg';
+import Amanda from 'public/committeeMembers/amanda.jpg';
+import Danielle from 'public/committeeMembers/danielle.jpg';
+import Brooke from 'public/committeeMembers/brooke.jpeg';
+import Orry from 'public/committeeMembers/orry.jpg';
+import Sol from 'public/committeeMembers/sol.jpeg';
+import Steven from 'public/committeeMembers/steven.jpg';
+import Corey from 'public/committeeMembers/Corey.png';
 
 const committeeData = [
   {

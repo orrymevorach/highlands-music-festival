@@ -4,14 +4,14 @@ import Layout from '../layout';
 import { colors } from 'utils/constants';
 import { useWindowSize } from 'hooks';
 import Image from 'next/image';
-import Logo from '../../public/Logo-1200px-No-Bkgd-min.png';
-import Banner from '../../public/lake.jpg';
-import GreenSun from '../../public/green-sun.png';
-import ClFirepit from '../../public/CL-FIREPIT.jpg';
-import ClBackyard from '../../public/CL-BACKYARD.jpg';
-import Omni from '../../public/omni.jpg';
-import ClDeck from '../../public/CL-DECK-2.jpg';
-import FirehallEvening from '../../public/EVENING-SET-UP-FIREHALL.jpg';
+import Logo from 'public/Logo-1200px-No-Bkgd-min.png';
+import Banner from 'public/lake.jpg';
+import GreenSun from 'public/green-sun.png';
+import ClFirepit from 'public/CL-FIREPIT.jpg';
+import ClBackyard from 'public/CL-BACKYARD.jpg';
+import Omni from 'public/omni.jpg';
+import ClDeck from 'public/CL-DECK-2.jpg';
+import FirehallEvening from 'public/EVENING-SET-UP-FIREHALL.jpg';
 
 export default function About() {
   const { isMobile } = useWindowSize();
