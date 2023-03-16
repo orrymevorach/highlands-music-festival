@@ -2,6 +2,9 @@ import Layout from '../layout';
 import styles from './committee.module.scss';
 import Image from 'next/image';
 import clsx from 'clsx';
+import Sammy from 'public/committeeMembers/sammy.jpg';
+import Toby from 'public/committeeMembers/toby.jpg';
+import Amanda from 'public/committeeMembers/amanda.jpg';
 
 const committeeData = [
   {
@@ -9,13 +12,10 @@ const committeeData = [
     title: 'The Music',
     Img: () => (
       <Image
-        src="/committeeMembers/sammy.jpg"
-        placeholder="blur"
+        src={Sammy}
         alt=""
         className={clsx(styles.memberImage, styles.sammy)}
-        width={708}
-        height={944}
-        blurDataURL="/committeeMembers/sammy.jpg"
+        priority
       />
     ),
   },
@@ -24,13 +24,10 @@ const committeeData = [
     title: 'Is this mic on?',
     Img: () => (
       <Image
-        src="/committeeMembers/toby.jpg"
-        placeholder="blur"
+        src={Toby}
         alt=""
         className={clsx(styles.memberImage, styles.toby)}
-        width={1184}
-        height={789}
-        blurDataURL="/committeeMembers/toby.jpg"
+        priority
       />
     ),
   },
@@ -39,15 +36,7 @@ const committeeData = [
     name: 'Amanda Black',
     title: 'That Camp Feelin',
     Img: () => (
-      <Image
-        src="/committeeMembers/amanda.jpg"
-        placeholder="blur"
-        alt=""
-        className={styles.memberImage}
-        width={944}
-        height={710}
-        blurDataURL="/committeeMembers/amanda.jpg"
-      />
+      <Image src={Amanda} alt="" className={styles.memberImage} priority />
     ),
   },
   {
@@ -56,12 +45,10 @@ const committeeData = [
     Img: () => (
       <Image
         src="/committeeMembers/danielle.jpg"
-        placeholder="blur"
         alt=""
         className={clsx(styles.memberImage, styles.danielle)}
         width={944}
         height={708}
-        blurDataURL="/committeeMembers/danielle.jpg"
       />
     ),
   },
@@ -71,12 +58,10 @@ const committeeData = [
     Img: () => (
       <Image
         src="/committeeMembers/brooke.jpeg"
-        placeholder="blur"
         alt=""
         className={styles.memberImage}
         width={944}
         height={710}
-        blurDataURL="/committeeMembers/brooke.jpeg"
       />
     ),
   },
@@ -86,12 +71,10 @@ const committeeData = [
     Img: () => (
       <Image
         src="/committeeMembers/orry.jpg"
-        placeholder="blur"
         alt=""
         className={clsx(styles.memberImage, styles.orry)}
         width={944}
         height={757}
-        blurDataURL="/committeeMembers/orry.jpg"
       />
     ),
   },
@@ -101,12 +84,10 @@ const committeeData = [
     Img: () => (
       <Image
         src="/committeeMembers/sol.jpeg"
-        placeholder="blur"
         alt=""
         className={clsx(styles.memberImage, styles.sol)}
         width={944}
         height={649}
-        blurDataURL="/committeeMembers/sol.jpeg"
       />
     ),
   },

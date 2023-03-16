@@ -4,6 +4,7 @@ import { colors } from 'utils/constants';
 import { useWindowSize } from 'hooks';
 import clsx from 'clsx';
 import Image from 'next/image';
+import Hammock from 'public/CL-HAMMOCK.jpg';
 
 const activities = [
   'Tennis, Basketball, & Hockey',
@@ -19,19 +20,13 @@ export default function Activities() {
     <Layout hamburgerMenuColor={colors.beige}>
       <main>
         <div className={styles.hammocksContainer}>
-          <Image
-            src="/CL-HAMMOCK.jpg"
-            alt=""
-            width={1920}
-            height={1280}
-            priority
-          />
+          <Image src={Hammock} priority alt="" />
         </div>
         <div className={styles.activitiesWrapper}>
           <h2 className={styles.heading}>Activities</h2>
           {!isMobile && (
             <Image
-              src="/Iconography-03.png"
+              src="/green-sun.png"
               alt=""
               className={styles.activitiesSun}
               width={150}

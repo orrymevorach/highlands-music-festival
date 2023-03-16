@@ -20,14 +20,14 @@ const Schedule = () => {
             {!isDesktop && (
               <>
                 <Image
-                  src="/Iconography-03.png"
+                  src="/green-sun.png"
                   alt=""
                   className={styles.greenSun}
                   width={100}
                   height={100}
                 />
                 <Image
-                  src="/Iconography-03.png"
+                  src="/green-sun.png"
                   alt=""
                   className={styles.greenSun}
                   width={100}

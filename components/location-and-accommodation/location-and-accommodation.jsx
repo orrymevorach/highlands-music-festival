@@ -3,6 +3,8 @@ import Layout from '../layout';
 import GoogleMap from 'components/location-and-accommodation/GoogleMap';
 import clsx from 'clsx';
 import Image from 'next/image';
+import MapOfCamp from 'public/map-dark.jpg';
+import Cabin from 'public/cabin.jpeg';
 
 const packingList = [
   { packingItem: 'Single bed fitted/flat sheet ' },
@@ -45,7 +47,10 @@ export default function LocationAndAccommodation() {
               </p>
             </div>
             <div className={styles.accommodation}>
-              <div className={styles.imageContainer}></div>
+              <div className={styles.imageContainer}>
+                <Image priority src={Cabin} />
+              </div>
+
               <p className={clsx(styles.accommodationLineOne, styles.bodyCopy)}>
                 Cabins vary in size and features. Some have private bathrooms
                 and sinks on the porch while others don’t. Cabin information
@@ -76,16 +81,7 @@ export default function LocationAndAccommodation() {
             </ul>
           </div>
 
-          <Image
-            src="/map-dark.jpg"
-            placeholder="blur"
-            alt=""
-            className={styles.mapOfCamp}
-            width={1280}
-            height={945}
-            blurDataURL="/map-dark.jpg"
-            priority
-          />
+          <Image src={MapOfCamp} alt="" className={styles.mapOfCamp} />
         </div>
       </main>
     </Layout>

@@ -5,8 +5,8 @@ import { colors } from 'utils/constants';
 import { useWindowSize } from 'hooks';
 import Image from 'next/image';
 import Logo from 'public/Logo-1200px-No-Bkgd-min.png';
-import Banner from 'public/gallery-the-setting-11.jpg';
-import GreenSun from 'public/Iconography-03.png';
+import Banner from 'public/lake.jpg';
+import GreenSun from 'public/green-sun.png';
 
 export default function About() {
   const { isMobile } = useWindowSize();
@@ -131,7 +131,7 @@ export default function About() {
                 style={{ height: '100%' }}
               />
               <Image
-                src="/29E.jpg"
+                src="/omni.jpg"
                 alt=""
                 width={1415}
                 height={945}

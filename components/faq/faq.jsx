@@ -45,7 +45,7 @@ export default function Faq() {
                 />
               ))}
               <Image
-                src="/Iconography-02.png"
+                src="/yellow-sun.png"
                 alt=""
                 className={styles.sunIcon}
                 width={1184}

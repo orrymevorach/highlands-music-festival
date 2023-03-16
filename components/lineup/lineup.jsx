@@ -41,7 +41,7 @@ const Headliners = () => (
       Bass
     </p>
     <Image
-      src="/Iconography-03.png"
+      src="/green-sun.png"
       width={80}
       height={80}
       className={clsx(styles.lineupSun, styles.headlineSun)}
@@ -68,7 +68,7 @@ const Artists = () => {
                   </p>
                   {!isLastArtistInRow && (
                     <Image
-                      src="/Iconography-03.png"
+                      src="/green-sun.png"
                       className={clsx(styles.lineupSun)}
                       width={80}
                       height={80}
