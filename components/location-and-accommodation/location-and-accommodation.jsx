@@ -3,8 +3,8 @@ import Layout from '../layout';
 import GoogleMap from 'components/location-and-accommodation/GoogleMap';
 import clsx from 'clsx';
 import Image from 'next/image';
-import MapOfCamp from 'public/map-dark.jpg';
-import Cabin from 'public/cabin.jpeg';
+import MapOfCamp from '../../public/map-dark.jpg';
+import Cabin from '../../public/cabin.jpeg';
 
 const packingList = [
   { packingItem: 'Single bed fitted/flat sheet ' },

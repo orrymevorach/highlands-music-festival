@@ -4,9 +4,9 @@ import Layout from '../layout';
 import { colors } from 'utils/constants';
 import { useWindowSize } from 'hooks';
 import Image from 'next/image';
-import Logo from 'public/Logo-1200px-No-Bkgd-min.png';
-import Banner from 'public/lake.jpg';
-import GreenSun from 'public/green-sun.png';
+import Logo from '../../public/Logo-1200px-No-Bkgd-min.png';
+import Banner from '../../public/lake.jpg';
+import GreenSun from '../../public/green-sun.png';
 
 export default function About() {
   const { isMobile } = useWindowSize();

@@ -2,9 +2,9 @@ import Layout from '../layout';
 import styles from './committee.module.scss';
 import Image from 'next/image';
 import clsx from 'clsx';
-import Sammy from 'public/committeeMembers/sammy.jpg';
-import Toby from 'public/committeeMembers/toby.jpg';
-import Amanda from 'public/committeeMembers/amanda.jpg';
+import Sammy from '../../public/committeeMembers/sammy.jpg';
+import Toby from '../../public/committeeMembers/toby.jpg';
+import Amanda from '../../public/committeeMembers/amanda.jpg';
 
 const committeeData = [
   {

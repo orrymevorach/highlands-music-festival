@@ -8,8 +8,7 @@
       "@global": ["styles/globals.module.scss"],
       "context": ["context/"],
       "hooks": ["hooks/"],
-      "utils": ["utils/"],
-      "public": ["public/"]
+      "utils": ["utils/"]
     }
   }
 }

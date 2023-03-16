@@ -4,7 +4,7 @@ import { colors } from 'utils/constants';
 import { useWindowSize } from 'hooks';
 import clsx from 'clsx';
 import Image from 'next/image';
-import Hammock from 'public/CL-HAMMOCK.jpg';
+import Hammock from '../../public/CL-HAMMOCK.jpg';
 
 const activities = [
   'Tennis, Basketball, & Hockey',
