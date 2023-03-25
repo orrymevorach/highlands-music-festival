@@ -2,42 +2,34 @@
  Highlands Music Festival
 </h1>
 
-This site was built using Gatsby
+This site was built using Next.JS
 
 1.  **Start dev server**
 
     Navigate into your new site’s directory and start it up.
 
     ```
-    npm run develop
+    npm run dev
     ```
 
 2.  **Open the code and start customizing!**
 
-    Your site is now running at http://localhost:8000!
+    Your site is now running at http://localhost:3000!
 
 3.  **Deployments**
 
-To deploy run:
-
-```
-npm run deploy
-```
+To deploy code to production, create a PR and merge it into master
 
 To deploy code to staging environments run, merge code into any of the follow branches:
 `preview-environment`
 `preview-environment-v2`
 `preview-environment-v3`
-` 4. **Learn more about Gatsby**
 
-    - [Documentation](https://www.gatsbyjs.com/docs/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter)
+As a shortcut, you can run:
 
-    - [Tutorials](https://www.gatsbyjs.com/tutorial/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter)
+```
+npm run deployPreview
+```
 
-    - [Guides](https://www.gatsbyjs.com/tutorial/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter)
-
-    - [API Reference](https://www.gatsbyjs.com/docs/api-reference/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter)
-
-    - [Plugin Library](https://www.gatsbyjs.com/plugins?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter)
-
-    - [Cheat Sheet](https://www.gatsbyjs.com/docs/cheat-sheet/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter)
+- Before you run this command, make sure you are on the current branch you wish wish to deploy, and make sure all your changes are committed to the branch
+- This command will delete the current preview-environment branch locally and upstream, create a new branch off of your current branch and push it to a new preview-environment branch
