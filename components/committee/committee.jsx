@@ -112,7 +112,7 @@ const committeeData = [
     name: 'Corey Raubvogel',
     title: 'The Friendly Hustler',
     Img: () => (
-      <Image src={Corey} alt="" className="memberImage" quality={50} />
+      <Image src={Corey} alt="" className={styles.memberImage} quality={50} />
     ),
   },
 ];

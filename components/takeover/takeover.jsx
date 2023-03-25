@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-// import './takeover.scss';
+import style from './takeover.module.scss';
 import { CloseButton } from '../icons/icons';
 
 export default function Takeover({ children, styles }) {
@@ -8,9 +8,9 @@ export default function Takeover({ children, styles }) {
   return (
     <>
       {isOpen && (
-        <div className="takeover" style={styles}>
-          <div className="overlay" onClick={handleClose}></div>
-          <div className="modal">
+        <div className={style.takeover} style={styles}>
+          <div className={style.overlay} onClick={handleClose}></div>
+          <div className={style.modal}>
             {children}
             <CloseButton handleClick={handleClose} />
           </div>
