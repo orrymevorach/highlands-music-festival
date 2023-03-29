@@ -14,12 +14,7 @@ const getMayFirst = () => {
 export default async function handler(req, res) {
   if (req.method === 'POST') {
     try {
-      const { customerId, name, email } = req.body;
-
-      const updatedCustomer = await stripe.customers.update(customerId, {
-        name,
-        email,
-      });
+      const { customerId } = req.body;
 
       const schedule = await stripe.subscriptionSchedules.create({
         customer: customerId,
@@ -27,7 +22,7 @@ export default async function handler(req, res) {
         end_behavior: 'release',
         phases: [
           {
-            items: [{ price: 'price_1MqurjAzwwMUcbvF7N53lwec', quantity: 1 }],
+            items: [{ price: 'price_1MoFQvAzwwMUcbvFbdl99txI', quantity: 1 }],
             iterations: 3,
           },
         ],

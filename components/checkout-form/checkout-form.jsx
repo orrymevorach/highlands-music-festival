@@ -4,13 +4,10 @@ import {
   useElements,
   PaymentElement,
 } from '@stripe/react-stripe-js';
-import Router, { useRouter } from 'next/router';
-import { destroyCookie } from 'nookies';
+import { useRouter } from 'next/router';
 
-export default function CheckoutForm({ paymentIntent, customerId }) {
+export default function CheckoutForm({ paymentIntent }) {
   const router = useRouter();
-  const [name, setName] = useState('');
-  const [email, setEmail] = useState('');
   const [errorMessage, setErrorMessage] = useState(null);
 
   const stripe = useStripe();
@@ -23,10 +20,11 @@ export default function CheckoutForm({ paymentIntent, customerId }) {
       return;
     }
 
+    // Collect $100 payment
     const { error, paymentIntent: paymentResult } = await stripe.confirmPayment(
       {
         elements,
-        redirect: 'if_required',
+        redirect: 'if_required', // stop redirect on payment success so that we can create a subscription
       }
     );
 
@@ -35,41 +33,27 @@ export default function CheckoutForm({ paymentIntent, customerId }) {
       return;
     }
 
-    const res = await fetch('/api/create-subscription', {
+    // Create subscription, $100 monthyl payments starting on May 1
+    const subscriptionRequestStatus = await fetch('/api/create-subscription', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
       },
       body: JSON.stringify({
-        name,
-        email,
-        customerId,
+        customerId: paymentIntent.customer,
       }),
     }).then(res => res.json());
-    console.log('res', res);
-    console.log('status', paymentResult.status);
-    if (paymentResult.status === 'succeeded' && res === 200) {
-      destroyCookie(null, 'paymentIntentId');
+
+    if (
+      paymentResult.status === 'succeeded' &&
+      subscriptionRequestStatus === 200
+    ) {
       router.push('/order-confirmation');
     }
   };
 
   return (
     <form onSubmit={handleSubmit}>
-      {/* <AddressElement options={{ mode: 'billing' }} /> */}
-
-      <input
-        type="text"
-        value={name}
-        onChange={e => setName(e.target.value)}
-        placeholder="Name"
-      />
-      <input
-        type="email"
-        value={email}
-        onChange={e => setEmail(e.target.value)}
-        placeholder="Email"
-      />
       <PaymentElement clientSecret={paymentIntent.client_secret} />
       <button disabled={!stripe}>Submit</button>
       {errorMessage && <div>{errorMessage}</div>}
