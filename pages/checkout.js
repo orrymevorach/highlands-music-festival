@@ -3,43 +3,47 @@ import { Elements } from '@stripe/react-stripe-js';
 import { loadStripe } from '@stripe/stripe-js';
 import CheckoutForm from 'components/checkout-form';
 import CreateUser from 'components/checkout-form/create-user';
+import {
+  useCancelPaymentIntent,
+  useCreatePaymentIntent,
+  useGetStripeCustomer,
+} from 'components/checkout-form/hooks';
 
 const stripePromise = loadStripe(
   process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY
 );
 
 export default function CheckoutPage() {
-  const [user, setUser] = useState(null);
-  const [paymentIntentResponse, setPaymentIntentResponse] = useState(null);
-  useEffect(() => {
-    const getPaymentIntent = async () => {
-      const response = await fetch('/api/create-payment-intent', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({ user }),
-      }).then(res => res.json());
+  const [orderDetails, setOrderDetails] = useState({
+    user: {
+      name: '',
+      email: '',
+    },
+    quantity: '',
+  });
 
-      setPaymentIntentResponse(response);
-    };
-    if (user && !paymentIntentResponse) {
-      getPaymentIntent();
-    }
-  }, [user, paymentIntentResponse]);
+  const customer = useGetStripeCustomer({ user: orderDetails.user });
+  const paymentIntent = useCreatePaymentIntent({
+    customer,
+    quantity: orderDetails.quantity,
+  });
+  useCancelPaymentIntent({ paymentIntent });
 
-  if (!user) return <CreateUser setUser={setUser} />;
+  if (!orderDetails.user.name)
+    return <CreateUser setOrderDetails={setOrderDetails} />;
 
-  if (!paymentIntentResponse) return;
-
-  const { paymentIntent } = paymentIntentResponse;
+  if (!paymentIntent) return;
 
   const options = {
     clientSecret: paymentIntent.client_secret,
   };
   return (
     <Elements stripe={stripePromise} options={options}>
-      <CheckoutForm paymentIntent={paymentIntent} user={user} />
+      <CheckoutForm
+        paymentIntent={paymentIntent}
+        user={orderDetails.user}
+        quantity={orderDetails.quantity}
+      />
     </Elements>
   );
 }

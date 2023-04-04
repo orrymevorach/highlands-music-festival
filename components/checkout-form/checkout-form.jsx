@@ -6,7 +6,7 @@ import {
 } from '@stripe/react-stripe-js';
 import { useRouter } from 'next/router';
 
-export default function CheckoutForm({ paymentIntent }) {
+export default function CheckoutForm({ paymentIntent, quantity }) {
   const router = useRouter();
   const [errorMessage, setErrorMessage] = useState(null);
 
@@ -41,6 +41,7 @@ export default function CheckoutForm({ paymentIntent }) {
       },
       body: JSON.stringify({
         customerId: paymentIntent.customer,
+        quantity,
       }),
     }).then(res => res.json());
 
