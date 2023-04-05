@@ -1,0 +1,33 @@
+@import '@variables';
+
+.dropdownContainer {
+  display: flex;
+  align-items: center;
+  font-family: 'Neue Haas Regular';
+  label {
+    color: $black;
+  }
+  .dropdown {
+    height: 40px;
+    width: 60px;
+    background-color: $white;
+    border-radius: 5px;
+  }
+}
+
+.times {
+  margin-left: 10px;
+  margin-right: 20px;
+}
+
+.button {
+  background-color: $darkGreen;
+  color: $white;
+  border: none;
+  padding: 10px;
+  margin-top: 20px;
+  font-family: 'Neue Haas Regular';
+  font-size: 16px;
+  border-radius: 5px;
+  cursor: pointer;
+}

@@ -5,6 +5,7 @@ import {
   PaymentElement,
 } from '@stripe/react-stripe-js';
 import { useRouter } from 'next/router';
+import styles from './checkout-form.module.scss';
 
 export default function CheckoutForm({ paymentIntent, quantity }) {
   const router = useRouter();
@@ -56,7 +57,9 @@ export default function CheckoutForm({ paymentIntent, quantity }) {
   return (
     <form onSubmit={handleSubmit}>
       <PaymentElement clientSecret={paymentIntent.client_secret} />
-      <button disabled={!stripe}>Submit</button>
+      <button className={styles.payNow} disabled={!stripe}>
+        Pay Now
+      </button>
       {errorMessage && <div>{errorMessage}</div>}
     </form>
   );

@@ -1,0 +1,20 @@
+@import '@variables';
+
+.highlands {
+  font-family: 'Neue Haas Medium';
+  font-size: 24px;
+  margin-bottom: 50px;
+}
+.layoutContainer {
+  display: flex;
+  background-color: white;
+}
+
+.left {
+  width: 66%;
+  padding: 100px 30px 100px 100px;
+  min-height: 100vh;
+}
+.right {
+  width: 33.3%;
+}

@@ -8,7 +8,7 @@ export default async function handler(req, res) {
       const paymentIntent = await stripe.paymentIntents.create({
         customer: customer.id,
         setup_future_usage: 'off_session',
-        amount: 10000 * quantity,
+        amount: Math.round(10000 * 1.13 * quantity),
         currency: 'cad',
         automatic_payment_methods: {
           enabled: true,
