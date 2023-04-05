@@ -24,7 +24,7 @@ export default async function handler(req, res) {
           {
             items: [
               {
-                price: 'price_1MtGYRAzwwMUcbvF5qRBNn8g',
+                price: 'price_1MtQgrAzwwMUcbvFiW0HUqcr',
                 quantity: parseInt(quantity),
               },
             ],
