@@ -10,8 +10,7 @@
     "deployPreview": "git branch -d preview-environment && git push -d origin preview-environment && git checkout -b preview-environment && git push --set-upstream origin preview-environment"
   },
   "dependencies": {
-    "@emotion/react": "^11.10.6",
-    "@emotion/styled": "^11.10.6",
+    "@apollo/client": "^3.7.11",
     "@formspree/react": "^2.4.1",
     "@fortawesome/fontawesome-svg-core": "^6.1.1",
     "@fortawesome/free-brands-svg-icons": "^6.1.1",
