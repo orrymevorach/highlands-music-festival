@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import styles from './payment.module.scss';
 import { Elements } from '@stripe/react-stripe-js';
 import CheckoutForm from 'components/checkout/payment/checkout-form';
@@ -11,7 +11,6 @@ const stripePromise = loadStripe(
 
 export default function Payment() {
   const { paymentIntent, user, quantity } = useCheckoutContext();
-  if (!paymentIntent) return;
   const options = {
     clientSecret: paymentIntent.client_secret,
   };

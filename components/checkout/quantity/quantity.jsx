@@ -6,7 +6,7 @@ import Loader from 'components/loader';
 
 export default function Quantity() {
   const [dropdownQuantity, setDropdownQuantity] = useState('');
-  const { quantity, setQuantity } = useCheckoutContext();
+  const { setQuantity } = useCheckoutContext();
   const [isLoading, setIsLoading] = useState(false);
 
   function handleSubmit(e) {
@@ -18,7 +18,6 @@ export default function Quantity() {
     }, 500);
   }
 
-  if (quantity) return;
   if (isLoading) return <Loader centerInContainer />;
   return (
     <form onSubmit={e => handleSubmit(e)}>

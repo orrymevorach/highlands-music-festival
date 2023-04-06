@@ -17,6 +17,6 @@ export default function useCreatePaymentIntent({ customer, quantity }) {
     if (customer && !paymentIntent) {
       createPaymentIntent();
     }
-  }, [customer, paymentIntent]);
+  }, [customer, paymentIntent, quantity]);
   return paymentIntent;
 }

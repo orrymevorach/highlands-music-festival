@@ -5,7 +5,7 @@ import { useCheckoutContext } from 'context/checkout-context';
 import Loader from 'components/loader/loader';
 
 export default function User() {
-  const { user, setUser, quantity } = useCheckoutContext();
+  const { user, setUser } = useCheckoutContext();
   const [firstName, setFirstName] = useState('');
   const [lastName, setLastName] = useState('');
   const [email, setEmail] = useState('');
@@ -22,7 +22,6 @@ export default function User() {
       });
     }, 500);
   };
-  if (!quantity) return;
   if (isLoading) return <Loader centerInContainer />;
 
   const hasUser = user.name && user.email;
