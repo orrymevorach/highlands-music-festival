@@ -10,7 +10,7 @@ export default function useCheckout() {
     name: '',
     email: '',
   });
-  const [quantity, setQuantity] = useState(0);
+  const [quantity, setQuantity] = useState('');
 
   const customer = useGetStripeCustomer({ user });
   const paymentIntent = useCreatePaymentIntent({

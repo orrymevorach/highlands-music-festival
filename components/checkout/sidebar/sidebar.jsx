@@ -15,7 +15,7 @@ const getOrderSummaryLineItems = ({
   total,
 }) => [
   {
-    label: `${quantity} x General Admission`,
+    label: `${quantity ? `${quantity} x ` : ''}General Admission`,
     price: ticketPrice,
   },
   {
