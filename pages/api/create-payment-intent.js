@@ -3,12 +3,12 @@ const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY);
 export default async function handler(req, res) {
   if (req.method === 'POST') {
     try {
-      const { customer, quantity } = req.body;
+      const { customer, quantity, initialPaymentAmount } = req.body;
       console.log('Creating payment intent...');
       const paymentIntent = await stripe.paymentIntents.create({
         customer: customer.id,
         setup_future_usage: 'off_session',
-        amount: Math.round(10000 * 1.13 * quantity),
+        amount: Math.round(initialPaymentAmount * 100 * 1.13 * quantity),
         currency: 'cad',
         automatic_payment_methods: {
           enabled: true,

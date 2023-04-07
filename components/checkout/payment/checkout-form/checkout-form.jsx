@@ -6,10 +6,12 @@ import {
 } from '@stripe/react-stripe-js';
 import { useRouter } from 'next/router';
 import styles from './checkout-form.module.scss';
+import { useCheckoutContext } from 'context/checkout-context';
 
 export default function CheckoutForm({ paymentIntent, quantity }) {
   const router = useRouter();
   const [errorMessage, setErrorMessage] = useState(null);
+  const { priceModel } = useCheckoutContext();
 
   const stripe = useStripe();
   const elements = useElements();
@@ -43,6 +45,7 @@ export default function CheckoutForm({ paymentIntent, quantity }) {
       body: JSON.stringify({
         customerId: paymentIntent.customer,
         quantity,
+        priceModel,
       }),
     }).then(res => res.json());
 

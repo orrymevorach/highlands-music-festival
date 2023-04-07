@@ -2,11 +2,6 @@ import styles from './sidebar.module.scss';
 import { useCheckoutContext } from 'context/checkout-context';
 import clsx from 'clsx';
 
-const discount = {
-  name: 'Early Bird Discount',
-  price: 100,
-};
-
 const getOrderSummaryLineItems = ({
   quantity,
   ticketPrice,
@@ -68,19 +63,28 @@ export const formatPrice = number => {
 };
 
 export default function Sidebar() {
-  const { quantity, paymentIntent } = useCheckoutContext();
+  const {
+    quantity,
+    paymentIntent,
+    priceModel: { discountName, discountAmount, initialPaymentAmount },
+  } = useCheckoutContext();
 
-  const ticketPrice = Math.round(
-    (paymentIntent?.amount / 100 / 1.13) * 4 + discount.price * quantity
-  );
-  const subtotal = ticketPrice - discount.price * quantity;
+  const amount = paymentIntent
+    ? paymentIntent.amount / 100 / 1.13
+    : initialPaymentAmount;
+
+  const ticketPrice = Math.round(amount * 4 + discountAmount * quantity);
+  const subtotal = ticketPrice - discountAmount * quantity;
   const tax = subtotal * 0.13;
   const total = subtotal + tax;
   const orderSummaryLineItems = getOrderSummaryLineItems({
     quantity,
     ticketPrice,
     subtotal,
-    discount,
+    discount: {
+      name: discountName,
+      price: discountAmount,
+    },
     total,
   });
   return (
@@ -93,10 +97,11 @@ export default function Sidebar() {
             return (
               <div key={`border-${index}`} className={styles.border}></div>
             );
+          if (!price) return;
           return (
             <div key={label} className={clsx(styles.row, bold && styles.bold)}>
               <p>{label}:</p>
-              <p>{paymentIntent ? formatPrice(price) : '--'}</p>
+              <p>{quantity ? formatPrice(price) : '--'}</p>
             </div>
           );
         })}

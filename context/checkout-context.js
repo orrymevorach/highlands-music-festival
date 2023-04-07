@@ -7,8 +7,8 @@ export const useCheckoutContext = () => {
   return useContext(CheckoutContext);
 };
 
-export const CheckoutProvider = ({ children }) => {
-  const checkout = useCheckout();
+export const CheckoutProvider = ({ children, priceModel }) => {
+  const checkout = useCheckout({ priceModel });
   return (
     <CheckoutContext.Provider value={checkout}>
       {children}

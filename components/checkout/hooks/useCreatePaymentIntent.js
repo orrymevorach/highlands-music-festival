@@ -1,6 +1,10 @@
 import { useState, useEffect } from 'react';
 
-export default function useCreatePaymentIntent({ customer, quantity }) {
+export default function useCreatePaymentIntent({
+  customer,
+  quantity,
+  initialPaymentAmount,
+}) {
   const [paymentIntent, setPaymentIntent] = useState(null);
   useEffect(() => {
     const createPaymentIntent = async () => {
@@ -9,7 +13,7 @@ export default function useCreatePaymentIntent({ customer, quantity }) {
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify({ customer, quantity }),
+        body: JSON.stringify({ customer, quantity, initialPaymentAmount }),
       }).then(res => res.json());
 
       setPaymentIntent(paymentIntentResponse);

@@ -2,13 +2,23 @@ import React from 'react';
 import { CheckoutProvider } from 'context/checkout-context';
 import Layout from 'components/checkout/layout';
 import Container from 'components/checkout/container';
+import { getPriceModel } from 'graphql/contentful-lib';
 
-export default function CheckoutPage() {
+export default function CheckoutPage({ priceModel }) {
   return (
-    <CheckoutProvider>
+    <CheckoutProvider priceModel={priceModel}>
       <Layout>
         <Container />
       </Layout>
     </CheckoutProvider>
   );
+}
+
+export async function getServerSideProps() {
+  const priceModel = await getPriceModel();
+  return {
+    props: {
+      priceModel,
+    },
+  };
 }

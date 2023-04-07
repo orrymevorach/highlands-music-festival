@@ -1,34 +1,38 @@
 const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY);
 
-const getMayFirst = () => {
-  let mayFirst = new Date();
-  mayFirst.setFullYear(2023);
-  mayFirst.setMonth(4);
-  mayFirst.setDate(1);
-
-  mayFirst = Math.floor(mayFirst / 1000);
-
-  return mayFirst;
+export const convertDateToTimestamp = startDate => {
+  const [year, month, day] = startDate.split('T')[0].split('-');
+  let date = new Date();
+  date.setFullYear(year);
+  date.setMonth(month - 1);
+  date.setDate(day);
+  return date;
 };
 
 export default async function handler(req, res) {
   if (req.method === 'POST') {
     try {
-      const { customerId, quantity } = req.body;
+      const { customerId, quantity, priceModel } = req.body;
+
+      const {
+        subscriptionId,
+        subscriptionStartDate,
+        numberOfSubscriptionIterations,
+      } = priceModel;
 
       const schedule = await stripe.subscriptionSchedules.create({
         customer: customerId,
-        start_date: getMayFirst(),
+        start_date: convertDateToTimestamp(subscriptionStartDate),
         end_behavior: 'release',
         phases: [
           {
             items: [
               {
-                price: 'price_1MtQgrAzwwMUcbvFiW0HUqcr',
+                price: subscriptionId,
                 quantity: parseInt(quantity),
               },
             ],
-            iterations: 3,
+            iterations: numberOfSubscriptionIterations,
           },
         ],
       });

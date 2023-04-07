@@ -1,4 +1,4 @@
-// import { gql } from '@apollo/client';
+import { gql } from '@apollo/client';
 
 // export const GET_FEATURE_FLAG = gql`
 //   query getFeatureFlag {
@@ -9,3 +9,18 @@
 //     }
 //   }
 // `;
+
+export const GET_PRICE_MODEL = gql`
+  query GetPriceModel {
+    priceModelCollection {
+      items {
+        subscriptionId
+        initialPaymentAmount
+        subscriptionStartDate
+        numberOfSubscriptionIterations
+        discountName
+        discountAmount
+      }
+    }
+  }
+`;
