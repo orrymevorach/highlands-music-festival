@@ -4,6 +4,8 @@ import Image from 'next/image';
 import Logo from 'public/rainbow.png';
 import styles from './order-confirmation.module.scss';
 import clsx from 'clsx';
+import Link from 'next/link';
+import { faChevronLeft } from '@fortawesome/free-solid-svg-icons';
 
 const SuccessMessage = ({ customer }) => {
   return (
@@ -33,6 +35,11 @@ export default function OrderConfirmation({ customer, orderDetails = {} }) {
   const isOrderSuccessful = orderDetails.status === 'succeeded';
   return (
     <div className={styles.orderConfirmationContainer}>
+      <Link href="/" className={styles.backLink}>
+        <FontAwesomeIcon icon={faChevronLeft} />
+        <FontAwesomeIcon icon={faChevronLeft} />
+        <span>Back to home page</span>
+      </Link>
       <Image
         src={Logo}
         alt="Highlands Music Festival logo"

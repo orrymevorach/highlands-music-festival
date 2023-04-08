@@ -13,8 +13,8 @@ export default function CheckoutContainer() {
       {isPaymentIntentExpired && (
         <Takeover disableClose classNames={styles.takeover}>
           <p>
-            Checkout session has expired. Please <a href="/checkout">refresh</a>{' '}
-            to start over.
+            Checkout session has expired. Click <a href="/checkout">here</a> to
+            start again.
           </p>
         </Takeover>
       )}

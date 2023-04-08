@@ -53,12 +53,7 @@ export default function CheckoutForm({ paymentIntent, quantity }) {
       paymentResult.status === 'succeeded' &&
       subscriptionRequestStatus === 200
     ) {
-      router.push({
-        pathname: '/order-confirmation',
-        query: {
-          payment_intent: paymentResult.id,
-        },
-      });
+      window.location = `/order-confirmation?payment_intent=${paymentResult.id}`;
     }
   };
 

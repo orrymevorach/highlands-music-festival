@@ -2,7 +2,7 @@ import { useEffect } from 'react';
 
 const cancelPaymentIntent = async ({ paymentIntent, setPaymentIntent }) => {
   const isPaymentIntentExpired = paymentIntent?.status === 'canceled';
-  if (isPaymentIntentExpired) return;
+  if (isPaymentIntentExpired || !paymentIntent) return;
   const cancelledPaymentIntent = await fetch('/api/cancel-payment-intent', {
     method: 'POST',
     headers: {
@@ -28,6 +28,10 @@ export default function useCancelPaymentIntent({
         setPaymentIntent,
       })
     );
+
+    return () => {
+      window.removeEventListener('unload', () => cancelPaymentIntent({}));
+    };
   }, [paymentIntent]);
 
   // Cancel payment intent after fifteen minutes

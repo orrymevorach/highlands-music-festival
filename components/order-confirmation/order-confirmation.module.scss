@@ -4,13 +4,16 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
+  height: 100vh;
+  position: relative;
 }
 
 .logo {
   width: 200px;
   object-fit: contain;
   height: auto;
-  margin: 50px 0;
+  margin-bottom: 50px;
 }
 
 .checkMark {
@@ -33,5 +36,16 @@
   margin-bottom: 20px;
   &Small {
     font-size: 20px;
+  }
+}
+
+.backLink {
+  position: absolute;
+  top: 50px;
+  left: 50px;
+  color: $darkGreen;
+  font-family: 'Neue Haas Regular';
+  span {
+    margin-left: 10px;
   }
 }
