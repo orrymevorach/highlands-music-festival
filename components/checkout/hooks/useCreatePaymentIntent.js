@@ -3,9 +3,9 @@ import { useEffect } from 'react';
 export default function useCreatePaymentIntent({
   customer,
   quantity,
-  initialPaymentAmount,
   paymentIntent,
   setPaymentIntent,
+  priceModel,
 }) {
   useEffect(() => {
     const createPaymentIntent = async () => {
@@ -14,7 +14,7 @@ export default function useCreatePaymentIntent({
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify({ customer, quantity, initialPaymentAmount }),
+        body: JSON.stringify({ customer, quantity, priceModel }),
       }).then(res => res.json());
 
       setPaymentIntent(paymentIntentResponse);

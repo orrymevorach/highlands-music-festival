@@ -3,8 +3,9 @@ const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY);
 export default async function handler(req, res) {
   if (req.method === 'POST') {
     try {
-      const { customer, quantity, initialPaymentAmount } = req.body;
+      const { customer, quantity, priceModel } = req.body;
       console.log('Creating payment intent...');
+      const { initialPaymentAmount } = priceModel;
       const paymentIntent = await stripe.paymentIntents.create({
         customer: customer.id,
         setup_future_usage: 'off_session',
@@ -13,6 +14,11 @@ export default async function handler(req, res) {
         automatic_payment_methods: {
           enabled: true,
         },
+        metadata: {
+          quantity,
+          ...priceModel,
+        },
+        receipt_email: customer.email,
         // saves card for future subscription payments
         payment_method_options: {
           card: {

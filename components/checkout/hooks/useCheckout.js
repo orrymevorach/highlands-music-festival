@@ -17,9 +17,9 @@ export default function useCheckout({ priceModel }) {
   useCreatePaymentIntent({
     customer,
     quantity,
-    initialPaymentAmount: priceModel.initialPaymentAmount,
     paymentIntent,
     setPaymentIntent,
+    priceModel,
   });
   useCancelPaymentIntent({ paymentIntent, setPaymentIntent });
   return {
