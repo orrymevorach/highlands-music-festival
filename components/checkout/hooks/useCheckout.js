@@ -6,6 +6,7 @@ import {
 } from 'components/checkout/hooks';
 
 export default function useCheckout({ priceModel }) {
+  const [paymentIntent, setPaymentIntent] = useState(null);
   const [user, setUser] = useState({
     name: '',
     email: '',
@@ -13,12 +14,14 @@ export default function useCheckout({ priceModel }) {
   const [quantity, setQuantity] = useState('');
 
   const customer = useGetStripeCustomer({ user });
-  const paymentIntent = useCreatePaymentIntent({
+  useCreatePaymentIntent({
     customer,
     quantity,
     initialPaymentAmount: priceModel.initialPaymentAmount,
+    paymentIntent,
+    setPaymentIntent,
   });
-  useCancelPaymentIntent({ paymentIntent });
+  useCancelPaymentIntent({ paymentIntent, setPaymentIntent });
   return {
     user,
     setUser,

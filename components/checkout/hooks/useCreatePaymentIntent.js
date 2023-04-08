@@ -1,11 +1,12 @@
-import { useState, useEffect } from 'react';
+import { useEffect } from 'react';
 
 export default function useCreatePaymentIntent({
   customer,
   quantity,
   initialPaymentAmount,
+  paymentIntent,
+  setPaymentIntent,
 }) {
-  const [paymentIntent, setPaymentIntent] = useState(null);
   useEffect(() => {
     const createPaymentIntent = async () => {
       const paymentIntentResponse = await fetch('/api/create-payment-intent', {

@@ -36,6 +36,11 @@
   margin-top: 40px;
 }
 
+.discount {
+  font-family: 'Neue Haas Medium';
+  color: $darkGreen;
+}
+
 @media screen and (max-width: $mobile) {
   .sidebar {
     padding: 50px 20px;

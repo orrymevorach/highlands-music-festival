@@ -59,11 +59,13 @@ export default function CheckoutForm({ paymentIntent, quantity }) {
 
   return (
     <form onSubmit={handleSubmit}>
+      {errorMessage && (
+        <div className={styles.errorMessage}>{errorMessage}</div>
+      )}
       <PaymentElement clientSecret={paymentIntent.client_secret} />
       <button className={styles.payNow} disabled={!stripe}>
         Pay Now
       </button>
-      {errorMessage && <div>{errorMessage}</div>}
     </form>
   );
 }
