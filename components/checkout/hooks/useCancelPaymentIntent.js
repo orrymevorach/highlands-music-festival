@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 
-const cancelPaymentIntent = async ({ paymentIntent, setPaymentIntent }) => {
+const cancelPaymentIntent = async ({ paymentIntent, dispatch, actions }) => {
   const isPaymentIntentExpired = paymentIntent?.status === 'canceled';
   if (isPaymentIntentExpired || !paymentIntent) return;
   const cancelledPaymentIntent = await fetch('/api/cancel-payment-intent', {
@@ -11,12 +11,16 @@ const cancelPaymentIntent = async ({ paymentIntent, setPaymentIntent }) => {
     keepalive: true, // Required to complete request after tab close
     body: JSON.stringify({ paymentIntent }),
   }).then(res => res.json());
-  setPaymentIntent(cancelledPaymentIntent);
+  dispatch({
+    type: actions.CANCEL_PAYMENT_INTENT,
+    paymentIntent: cancelledPaymentIntent,
+  });
 };
 
 export default function useCancelPaymentIntent({
   paymentIntent,
-  setPaymentIntent,
+  dispatch,
+  actions,
 }) {
   // Cancel payment intent if user closes tab
   useEffect(() => {
@@ -25,7 +29,8 @@ export default function useCancelPaymentIntent({
     window.addEventListener('unload', () =>
       cancelPaymentIntent({
         paymentIntent,
-        setPaymentIntent,
+        dispatch,
+        actions,
       })
     );
 
@@ -42,7 +47,8 @@ export default function useCancelPaymentIntent({
       setTimeout(() => {
         cancelPaymentIntent({
           paymentIntent,
-          setPaymentIntent,
+          dispatch,
+          actions,
         });
       }, fifteenMinutes);
     }

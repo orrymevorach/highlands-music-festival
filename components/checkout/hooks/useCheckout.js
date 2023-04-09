@@ -1,27 +1,59 @@
-import { useState } from 'react';
+import { useReducer } from 'react';
 import { useCancelPaymentIntent } from 'components/checkout/hooks';
 
-export default function useCheckout({ priceModel }) {
-  const [customer, setCustomer] = useState(null);
-  const [paymentIntent, setPaymentIntent] = useState(null);
-  const [quantity, setQuantity] = useState('');
-  const [isLoading, setIsLoading] = useState(false);
-  const [pricing, setPricing] = useState(null);
+const initialState = {
+  quantity: null,
+  customer: null,
+  paymentIntent: null,
+  pricing: null,
+};
 
-  useCancelPaymentIntent({ paymentIntent, setPaymentIntent });
+const actions = {
+  SET_QUANTITY: 'SET_QUANTITY',
+  SET_PAYMENT_INTENT: 'SET_PAYMENT_INTENT',
+  CANCEL_PAYMENT_INTENT: 'CANCEL_PAYMENT_INTENT',
+};
+const { SET_QUANTITY, SET_PAYMENT_INTENT, CANCEL_PAYMENT_INTENT } = actions;
+
+const reducer = (state, action) => {
+  switch (action.type) {
+    case SET_QUANTITY:
+      return {
+        ...state,
+        quantity: action.quantity,
+        pricing: action.pricing,
+      };
+    case SET_PAYMENT_INTENT:
+      return {
+        ...state,
+        paymentIntent: action.paymentIntent,
+        customer: action.customer,
+        pricing: action.pricing,
+      };
+    case CANCEL_PAYMENT_INTENT:
+      return {
+        ...state,
+        paymentIntent: action.paymentIntent,
+      };
+    default:
+      return state;
+  }
+};
+
+export default function useCheckout({ priceModel }) {
+  const [state, dispatch] = useReducer(reducer, initialState);
+  const { quantity, customer, paymentIntent, pricing } = state;
+
+  useCancelPaymentIntent({ paymentIntent, dispatch, actions });
   return {
     customer,
-    setCustomer,
     paymentIntent,
-    setPaymentIntent,
     quantity,
-    setQuantity,
-    isLoading,
-    setIsLoading,
     priceData: {
       ...priceModel,
       ...pricing,
     },
-    setPricing,
+    dispatch,
+    actions,
   };
 }

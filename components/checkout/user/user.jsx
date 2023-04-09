@@ -4,20 +4,15 @@ import Input from '@mui/joy/Input';
 import { useCheckoutContext } from 'context/checkout-context';
 import { getStripeCustomer, createPaymentIntent } from 'lib/stripe-lib';
 import { calculatePricing } from '../checkout-utils';
+import Loader from 'components/loader';
 
 export default function User() {
-  const {
-    customer,
-    setCustomer,
-    setPaymentIntent,
-    quantity,
-    priceData,
-    setIsLoading,
-    setPricing,
-  } = useCheckoutContext();
+  const { customer, quantity, priceData, dispatch, actions } =
+    useCheckoutContext();
   const [firstName, setFirstName] = useState('');
   const [lastName, setLastName] = useState('');
   const [email, setEmail] = useState('');
+  const [isLoading, setIsLoading] = useState(false);
 
   const handleSubmit = async e => {
     e.preventDefault();
@@ -32,17 +27,22 @@ export default function User() {
       quantity,
       priceData,
     });
-    setCustomer(customer);
-    setPaymentIntent(paymentIntent);
     const pricing = calculatePricing({
       initialTicketPrice: paymentIntent.amount / 100 / 1.13,
       priceData,
       quantity,
     });
-    setPricing(pricing);
-
+    dispatch({
+      type: actions.SET_PAYMENT_INTENT,
+      customer,
+      pricing,
+      paymentIntent,
+    });
     setIsLoading(false);
   };
+
+  if (isLoading) return <Loader centerInContainer />;
+
   if (customer) {
     return (
       <div className={styles.submittedUserContainer}>

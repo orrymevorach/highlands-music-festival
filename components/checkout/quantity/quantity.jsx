@@ -3,26 +3,32 @@ import { InputLabel, MenuItem, Select } from '@mui/material';
 import { useState } from 'react';
 import { useCheckoutContext } from 'context/checkout-context';
 import { calculatePricing } from '../checkout-utils';
+import Loader from 'components/loader';
 
 export default function Quantity() {
   const [dropdownQuantity, setDropdownQuantity] = useState('');
-  const { setQuantity, setIsLoading, setPricing, priceData } =
-    useCheckoutContext();
+  const { priceData, dispatch, actions } = useCheckoutContext();
+  const [isLoading, setIsLoading] = useState(false);
 
   function handleSubmit(e) {
     e.preventDefault();
     setIsLoading(true);
     setTimeout(() => {
       setIsLoading(false);
-      setQuantity(dropdownQuantity);
       const pricing = calculatePricing({
         quantity: dropdownQuantity,
         priceData,
         initialTicketPrice: priceData.initialPaymentAmount * dropdownQuantity,
       });
-      setPricing(pricing);
+      dispatch({
+        type: actions.SET_QUANTITY,
+        quantity: dropdownQuantity,
+        pricing,
+      });
     }, 500);
   }
+
+  if (isLoading) return <Loader centerInContainer />;
 
   return (
     <form onSubmit={e => handleSubmit(e)}>
