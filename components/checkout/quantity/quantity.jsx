@@ -2,11 +2,12 @@ import styles from './quantity.module.scss';
 import { InputLabel, MenuItem, Select } from '@mui/material';
 import { useState } from 'react';
 import { useCheckoutContext } from 'context/checkout-context';
-import Loader from 'components/loader';
+import { calculatePricing } from '../checkout-utils';
 
 export default function Quantity() {
   const [dropdownQuantity, setDropdownQuantity] = useState('');
-  const { setQuantity, setIsLoading } = useCheckoutContext();
+  const { setQuantity, setIsLoading, setPricing, priceData } =
+    useCheckoutContext();
 
   function handleSubmit(e) {
     e.preventDefault();
@@ -14,6 +15,12 @@ export default function Quantity() {
     setTimeout(() => {
       setIsLoading(false);
       setQuantity(dropdownQuantity);
+      const pricing = calculatePricing({
+        quantity: dropdownQuantity,
+        priceData,
+        initialTicketPrice: priceData.initialPaymentAmount * dropdownQuantity,
+      });
+      setPricing(pricing);
     }, 500);
   }
 

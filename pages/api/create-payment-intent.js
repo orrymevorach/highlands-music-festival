@@ -3,20 +3,21 @@ const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY);
 export default async function handler(req, res) {
   if (req.method === 'POST') {
     try {
-      const { customer, quantity, priceModel } = req.body;
+      const { customer, quantity, priceData } = req.body;
       console.log('Creating payment intent...');
-      const { initialPaymentAmount } = priceModel;
+      const { installmentAmount } = priceData;
+
       const paymentIntent = await stripe.paymentIntents.create({
         customer: customer.id,
         setup_future_usage: 'off_session',
-        amount: Math.round(initialPaymentAmount * 100 * 1.13 * quantity),
+        amount: Math.round(installmentAmount * 100),
         currency: 'cad',
         automatic_payment_methods: {
           enabled: true,
         },
         metadata: {
           quantity,
-          ...priceModel,
+          ...priceData,
         },
         receipt_email: customer.email,
         // saves card for future subscription payments

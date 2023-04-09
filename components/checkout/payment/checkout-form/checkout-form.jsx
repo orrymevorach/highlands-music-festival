@@ -13,7 +13,7 @@ import { faSpinner } from '@fortawesome/free-solid-svg-icons';
 export default function CheckoutForm() {
   const [isLoading, setIsLoading] = useState(false);
   const [errorMessage, setErrorMessage] = useState(null);
-  const { priceModel, quantity, paymentIntent } = useCheckoutContext();
+  const { priceData, quantity, paymentIntent } = useCheckoutContext();
 
   const stripe = useStripe();
   const elements = useElements();
@@ -42,7 +42,7 @@ export default function CheckoutForm() {
     // Create subscription, $100 monthyl payments starting on May 1
     const subscriptionResponse = await createSubscription({
       paymentIntent,
-      priceModel,
+      priceData,
       quantity,
     });
 

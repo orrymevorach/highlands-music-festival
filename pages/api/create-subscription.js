@@ -12,13 +12,13 @@ export const convertDateToTimestamp = startDate => {
 export default async function handler(req, res) {
   if (req.method === 'POST') {
     try {
-      const { customerId, quantity, priceModel } = req.body;
+      const { customerId, quantity, priceData } = req.body;
 
       const {
         subscriptionId,
         subscriptionStartDate,
         numberOfSubscriptionIterations,
-      } = priceModel;
+      } = priceData;
 
       const schedule = await stripe.subscriptionSchedules.create({
         customer: customerId,

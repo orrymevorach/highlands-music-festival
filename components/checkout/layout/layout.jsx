@@ -1,5 +1,5 @@
 import styles from './layout.module.scss';
-import Sidebar from '../sidebar';
+import OrderSummary from '../order-summary';
 import Image from 'next/image';
 import Logo from 'public/Logo-1200px-No-Bkgd-min.png';
 import clsx from 'clsx';
@@ -20,7 +20,7 @@ export default function Layout({ children }) {
         {children}
       </div>
       <div className={styles.right}>
-        <Sidebar />
+        <OrderSummary />
       </div>
     </div>
   );

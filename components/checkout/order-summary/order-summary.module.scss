@@ -1,6 +1,6 @@
 @import '@variables';
 
-.sidebar {
+.orderSummary {
   background-color: #fafafa;
   padding: 100px 30px;
   position: sticky;
@@ -9,7 +9,7 @@
   min-height: 100vh;
 }
 
-.orderSummary {
+.title {
   font-family: 'Neue Haas Medium';
   font-size: 18px;
 }
@@ -42,7 +42,7 @@
 }
 
 @media screen and (max-width: $mobile) {
-  .sidebar {
+  .orderSummary {
     padding: 50px 20px;
   }
 }

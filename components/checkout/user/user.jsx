@@ -2,8 +2,8 @@ import styles from './user.module.scss';
 import { useState } from 'react';
 import Input from '@mui/joy/Input';
 import { useCheckoutContext } from 'context/checkout-context';
-import Loader from 'components/loader/loader';
 import { getStripeCustomer, createPaymentIntent } from 'lib/stripe-lib';
+import { calculatePricing } from '../checkout-utils';
 
 export default function User() {
   const {
@@ -11,8 +11,9 @@ export default function User() {
     setCustomer,
     setPaymentIntent,
     quantity,
-    priceModel,
+    priceData,
     setIsLoading,
+    setPricing,
   } = useCheckoutContext();
   const [firstName, setFirstName] = useState('');
   const [lastName, setLastName] = useState('');
@@ -29,10 +30,17 @@ export default function User() {
     const paymentIntent = await createPaymentIntent({
       customer,
       quantity,
-      priceModel,
+      priceData,
     });
     setCustomer(customer);
     setPaymentIntent(paymentIntent);
+    const pricing = calculatePricing({
+      initialTicketPrice: paymentIntent.amount / 100 / 1.13,
+      priceData,
+      quantity,
+    });
+    setPricing(pricing);
+
     setIsLoading(false);
   };
   if (customer) {

@@ -6,6 +6,7 @@ export default function useCheckout({ priceModel }) {
   const [paymentIntent, setPaymentIntent] = useState(null);
   const [quantity, setQuantity] = useState('');
   const [isLoading, setIsLoading] = useState(false);
+  const [pricing, setPricing] = useState(null);
 
   useCancelPaymentIntent({ paymentIntent, setPaymentIntent });
   return {
@@ -15,8 +16,12 @@ export default function useCheckout({ priceModel }) {
     setPaymentIntent,
     quantity,
     setQuantity,
-    priceModel,
     isLoading,
     setIsLoading,
+    priceData: {
+      ...priceModel,
+      ...pricing,
+    },
+    setPricing,
   };
 }
