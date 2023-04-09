@@ -4,10 +4,12 @@ import Payment from 'components/checkout/payment';
 import { useCheckoutContext } from 'context/checkout-context';
 import Takeover from 'components/takeover';
 import styles from './container.module.scss';
+import Loader from 'components/loader/loader';
 
 export default function CheckoutContainer() {
-  const { quantity, paymentIntent } = useCheckoutContext();
+  const { quantity, paymentIntent, isLoading } = useCheckoutContext();
   const isPaymentIntentExpired = paymentIntent?.status === 'canceled';
+  if (isLoading) return <Loader centerInContainer />;
   return (
     <div>
       {isPaymentIntentExpired && (

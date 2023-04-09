@@ -1,34 +1,22 @@
 import { useState } from 'react';
-import {
-  useCancelPaymentIntent,
-  useCreatePaymentIntent,
-  useGetStripeCustomer,
-} from 'components/checkout/hooks';
+import { useCancelPaymentIntent } from 'components/checkout/hooks';
 
 export default function useCheckout({ priceModel }) {
+  const [customer, setCustomer] = useState(null);
   const [paymentIntent, setPaymentIntent] = useState(null);
-  const [user, setUser] = useState({
-    name: '',
-    email: '',
-  });
   const [quantity, setQuantity] = useState('');
+  const [isLoading, setIsLoading] = useState(false);
 
-  const customer = useGetStripeCustomer({ user });
-  useCreatePaymentIntent({
-    customer,
-    quantity,
-    paymentIntent,
-    setPaymentIntent,
-    priceModel,
-  });
   useCancelPaymentIntent({ paymentIntent, setPaymentIntent });
   return {
-    user,
-    setUser,
     customer,
+    setCustomer,
     paymentIntent,
+    setPaymentIntent,
     quantity,
     setQuantity,
     priceModel,
+    isLoading,
+    setIsLoading,
   };
 }

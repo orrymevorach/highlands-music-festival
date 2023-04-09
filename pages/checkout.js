@@ -2,7 +2,7 @@ import React from 'react';
 import { CheckoutProvider } from 'context/checkout-context';
 import Layout from 'components/checkout/layout';
 import Container from 'components/checkout/container';
-import { getPriceModel } from 'graphql/contentful-lib';
+import { getPriceModel } from 'lib/contentful-lib';
 
 export default function CheckoutPage({ priceModel }) {
   return (

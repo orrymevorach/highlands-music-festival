@@ -3,39 +3,49 @@ import { useState } from 'react';
 import Input from '@mui/joy/Input';
 import { useCheckoutContext } from 'context/checkout-context';
 import Loader from 'components/loader/loader';
+import { getStripeCustomer, createPaymentIntent } from 'lib/stripe-lib';
 
 export default function User() {
-  const { user, setUser } = useCheckoutContext();
+  const {
+    customer,
+    setCustomer,
+    setPaymentIntent,
+    quantity,
+    priceModel,
+    setIsLoading,
+  } = useCheckoutContext();
   const [firstName, setFirstName] = useState('');
   const [lastName, setLastName] = useState('');
   const [email, setEmail] = useState('');
-  const [isLoading, setIsLoading] = useState(false);
 
-  const handleSubmit = e => {
+  const handleSubmit = async e => {
     e.preventDefault();
     setIsLoading(true);
-    setTimeout(() => {
-      setIsLoading(false);
-      setUser({
-        name: `${firstName} ${lastName}`,
-        email,
-      });
-    }, 500);
+    const user = {
+      name: `${firstName} ${lastName}`,
+      email: email,
+    };
+    const customer = await getStripeCustomer({ user });
+    const paymentIntent = await createPaymentIntent({
+      customer,
+      quantity,
+      priceModel,
+    });
+    setCustomer(customer);
+    setPaymentIntent(paymentIntent);
+    setIsLoading(false);
   };
-  if (isLoading) return <Loader centerInContainer />;
-
-  const hasUser = user.name && user.email;
-  if (hasUser) {
+  if (customer) {
     return (
       <div className={styles.submittedUserContainer}>
         <p className={styles.contactInformation}>Contact Information:</p>
         <p className={styles.name}>
           <span className={styles.left}>Name:</span>
-          <span className={styles.right}>{user.name}</span>
+          <span className={styles.right}>{customer.name}</span>
         </p>
         <p className={styles.email}>
           <span className={styles.left}>Email:</span>
-          <span className={styles.right}>{user.email}</span>
+          <span className={styles.right}>{customer.email}</span>
         </p>
       </div>
     );

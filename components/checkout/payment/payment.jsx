@@ -10,18 +10,14 @@ const stripePromise = loadStripe(
 );
 
 export default function Payment() {
-  const { paymentIntent, user, quantity } = useCheckoutContext();
+  const { paymentIntent } = useCheckoutContext();
   const options = {
     clientSecret: paymentIntent.client_secret,
   };
   return (
     <div>
       <Elements stripe={stripePromise} options={options}>
-        <CheckoutForm
-          paymentIntent={paymentIntent}
-          user={user}
-          quantity={quantity}
-        />
+        <CheckoutForm />
       </Elements>
     </div>
   );

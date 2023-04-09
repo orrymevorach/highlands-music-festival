@@ -4,14 +4,16 @@ import {
   useElements,
   PaymentElement,
 } from '@stripe/react-stripe-js';
-import { useRouter } from 'next/router';
 import styles from './checkout-form.module.scss';
 import { useCheckoutContext } from 'context/checkout-context';
+import { createSubscription } from 'lib/stripe-lib';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faSpinner } from '@fortawesome/free-solid-svg-icons';
 
-export default function CheckoutForm({ paymentIntent, quantity }) {
-  const router = useRouter();
+export default function CheckoutForm() {
+  const [isLoading, setIsLoading] = useState(false);
   const [errorMessage, setErrorMessage] = useState(null);
-  const { priceModel } = useCheckoutContext();
+  const { priceModel, quantity, paymentIntent } = useCheckoutContext();
 
   const stripe = useStripe();
   const elements = useElements();
@@ -22,6 +24,7 @@ export default function CheckoutForm({ paymentIntent, quantity }) {
     if (!stripe || !elements) {
       return;
     }
+    setIsLoading(true);
 
     // Collect $100 payment
     const { error, paymentIntent: paymentResult } = await stripe.confirmPayment(
@@ -37,22 +40,14 @@ export default function CheckoutForm({ paymentIntent, quantity }) {
     }
 
     // Create subscription, $100 monthyl payments starting on May 1
-    const subscriptionRequestStatus = await fetch('/api/create-subscription', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({
-        customerId: paymentIntent.customer,
-        quantity,
-        priceModel,
-      }),
-    }).then(res => res.json());
+    const subscriptionResponse = await createSubscription({
+      paymentIntent,
+      priceModel,
+      quantity,
+    });
 
-    if (
-      paymentResult.status === 'succeeded' &&
-      subscriptionRequestStatus === 200
-    ) {
+    if (paymentResult.status === 'succeeded' && subscriptionResponse === 200) {
+      setIsLoading(false);
       window.location = `/order-confirmation?payment_intent=${paymentResult.id}`;
     }
   };
@@ -64,7 +59,11 @@ export default function CheckoutForm({ paymentIntent, quantity }) {
       )}
       <PaymentElement clientSecret={paymentIntent.client_secret} />
       <button className={styles.payNow} disabled={!stripe}>
-        Pay Now
+        {isLoading ? (
+          <FontAwesomeIcon icon={faSpinner} className={styles.spinnerIcon} />
+        ) : (
+          'Pay Now'
+        )}
       </button>
     </form>
   );
