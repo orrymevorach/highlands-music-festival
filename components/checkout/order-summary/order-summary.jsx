@@ -45,11 +45,14 @@ export default function OrderSummary() {
           ''
         )}
         {promoCode && (
-          <LineItem
-            label={`${promoCode} Promotion`}
-            price={`-${promoAmount}`}
-            className={styles.discount}
-          />
+          <>
+            <LineItem
+              label={`${promoCode} Promotion`}
+              price={`-${promoAmount}`}
+              className={styles.discount}
+            />
+            <p className={styles.promoSubtext}>(Applied to first instalment)</p>
+          </>
         )}
         <Border />
         <LineItem label="Subtotal" price={subtotal} />

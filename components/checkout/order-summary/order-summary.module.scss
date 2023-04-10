@@ -39,6 +39,12 @@
 .discount {
   font-family: 'Neue Haas Medium';
   color: $darkGreen;
+  margin: 15px 0;
+}
+
+.promoSubtext {
+  font-size: 14px;
+  margin-top: -13px;
 }
 
 @media screen and (max-width: $mobile) {
