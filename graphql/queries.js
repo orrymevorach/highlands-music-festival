@@ -15,11 +15,11 @@ export const GET_PRICE_MODEL = gql`
     priceModelCollection {
       items {
         subscriptionId
-        initialPaymentAmount
+        firstInstalmentPerUnitBeforeTax
         subscriptionStartDate
         numberOfSubscriptionIterations
         discountName
-        discountAmount
+        discountAmountPerUnit
       }
     }
   }

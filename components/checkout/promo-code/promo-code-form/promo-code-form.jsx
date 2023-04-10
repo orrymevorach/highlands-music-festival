@@ -19,23 +19,25 @@ export default function PromoCodeForm() {
   const handleSubmit = async e => {
     e.preventDefault();
     setIsLoading(true);
-    const { promoCodeData, paymentIntent: updatedPaymentIntent } =
-      await applyPromoCode({
-        promoCode,
-        customer,
-        paymentIntent,
-      });
+    const {
+      promoCodeData,
+      paymentIntent: updatedPaymentIntent,
+      error,
+    } = await applyPromoCode({
+      promoCode,
+      customer,
+      paymentIntent,
+    });
 
-    if (promoCodeData.error) {
+    if (error) {
       setIsLoading(false);
-      setErrorMessage(promoCodeData.error.message);
+      setErrorMessage(error.message);
     } else {
       const pricing = calculatePricing({
-        initialTicketPrice: priceData.initialTicketPrice,
         priceData,
         quantity,
         promoAmount: promoCodeData.coupon.amount_off,
-        firstInstallment: updatedPaymentIntent.amount / 100,
+        firstInstalmentTotalAfterTax: updatedPaymentIntent.amount / 100,
       });
       setErrorMessage('');
       setIsLoading(false);
@@ -46,13 +48,19 @@ export default function PromoCodeForm() {
       });
     }
   };
+
+  const handleSetPromoCode = e => {
+    setErrorMessage('');
+    setPromoCode(e.target.value);
+  };
+
   return (
     <form onSubmit={e => handleSubmit(e)} className={styles.promoCode}>
       {errorMessage && <ErrorMessage message={errorMessage} />}
       <Input
         type="text"
         value={promoCode}
-        onChange={e => setPromoCode(e.target.value)}
+        onChange={e => handleSetPromoCode(e)}
         placeholder="Voucher Code (optional)"
         fullWidth
       />

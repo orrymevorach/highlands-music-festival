@@ -5,12 +5,12 @@ export default async function handler(req, res) {
     try {
       const { customer, quantity, priceData } = req.body;
       console.log('Creating payment intent...');
-      const { installmentAmount } = priceData;
+      const { subscriptionInstallmentAmount } = priceData;
 
       const paymentIntent = await stripe.paymentIntents.create({
         customer: customer.id,
         setup_future_usage: 'off_session',
-        amount: Math.round(installmentAmount * 100),
+        amount: Math.round(subscriptionInstallmentAmount * 100),
         currency: 'cad',
         automatic_payment_methods: {
           enabled: true,

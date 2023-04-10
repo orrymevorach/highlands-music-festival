@@ -28,7 +28,7 @@ export default function UserForm() {
       priceData,
     });
     const pricing = calculatePricing({
-      initialTicketPrice: paymentIntent.amount / 100 / 1.13,
+      ticketPrice: paymentIntent.amount / 100 / 1.13,
       priceData,
       quantity,
     });

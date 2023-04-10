@@ -18,6 +18,7 @@ export default async function handler(req, res) {
             message: 'Promo code not found.',
           },
         });
+        return;
       }
       if (selectedPromoCode.customer !== customer.id) {
         res.status(401).json({
@@ -26,20 +27,24 @@ export default async function handler(req, res) {
             message: 'This promotion code is not valid for this user.',
           },
         });
+        return;
       }
 
       const { amount: originalAmount, metadata } = paymentIntent;
+      const amount = Math.round(
+        (originalAmount / 1.13 - selectedPromoCode.coupon.amount_off) * 1.13
+      );
       const updatedMetadata = {
         ...metadata,
         promoCode: selectedPromoCode.code,
         promoAmount: selectedPromoCode.coupon.amount_off / 100,
+        firstInstalmentTotalAfterTax: amount / 100,
       };
+
       const updatedPaymentIntent = await stripe.paymentIntents.update(
         paymentIntent.id,
         {
-          amount: Math.round(
-            (originalAmount / 1.13 - selectedPromoCode.coupon.amount_off) * 1.13
-          ),
+          amount,
           metadata: updatedMetadata,
         }
       );

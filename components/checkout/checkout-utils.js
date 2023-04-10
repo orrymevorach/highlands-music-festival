@@ -18,39 +18,47 @@ export const getMonth = ({ subscriptionStartDate, iteration = 0 }) => {
   return mapIndexToMonth[parseInt(monthIndex) + iteration];
 };
 
-const calculateInstallments = ({ total, firstInstallment }) => {
-  if (!firstInstallment) return total / 4;
-  return (total - firstInstallment) / 3;
+const calculateInstallments = ({ total, firstInstalmentTotalAfterTax }) => {
+  if (!firstInstalmentTotalAfterTax) return total / 4;
+  return (total - firstInstalmentTotalAfterTax) / 3;
+};
+
+const getTicketPrice = ({ priceData, ticketPrice, quantity }) => {
+  if (!ticketPrice) return priceData.ticketPrice;
+  return Math.round(
+    ticketPrice * 4 + priceData.discountAmountPerUnit * quantity
+  );
 };
 
 export function calculatePricing({
-  initialTicketPrice,
+  ticketPrice,
   priceData,
   quantity,
   promoAmount = 0,
-  firstInstallment,
+  firstInstalmentTotalAfterTax,
 }) {
-  const ticketPrice = Math.round(
-    initialTicketPrice * 4 + priceData.discountAmount * quantity
-  );
+  ticketPrice = getTicketPrice({ priceData, ticketPrice, quantity });
   promoAmount = promoAmount / 100; // CONVERT FROM CENTS TO DOLLARS
   const subtotal =
-    ticketPrice - promoAmount - priceData.discountAmount * quantity;
+    ticketPrice - promoAmount - priceData.discountAmountPerUnit * quantity;
   const tax = subtotal * 0.13;
   const total = subtotal + tax;
-  const discountTotal = priceData.discountAmount * quantity;
-  const installmentAmount = calculateInstallments({ total, firstInstallment });
+  const discountTotal = priceData.discountAmountPerUnit * quantity;
+  const subscriptionInstallmentAmount = calculateInstallments({
+    total,
+    firstInstalmentTotalAfterTax,
+  });
 
   return {
     ...priceData,
-    initialTicketPrice,
     ticketPrice,
     subtotal,
     tax,
     total,
     discountTotal,
-    installmentAmount,
+    subscriptionInstallmentAmount,
     promoAmount,
-    firstInstallment: firstInstallment || installmentAmount,
+    firstInstalmentTotalAfterTax:
+      firstInstalmentTotalAfterTax || subscriptionInstallmentAmount,
   };
 }

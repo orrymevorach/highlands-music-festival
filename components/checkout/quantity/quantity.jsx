@@ -19,7 +19,8 @@ export default function Quantity() {
       const pricing = calculatePricing({
         quantity: dropdownQuantity,
         priceData,
-        initialTicketPrice: priceData.initialPaymentAmount * dropdownQuantity,
+        ticketPrice:
+          priceData.firstInstalmentPerUnitBeforeTax * dropdownQuantity,
       });
       dispatch({
         type: actions.SET_QUANTITY,
