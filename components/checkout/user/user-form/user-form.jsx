@@ -1,14 +1,14 @@
-import styles from './user.module.scss';
+import styles from './user-form.module.scss';
 import { useState } from 'react';
 import Input from '@mui/joy/Input';
 import { useCheckoutContext } from 'context/checkout-context';
 import { getStripeCustomer, createPaymentIntent } from 'lib/stripe-lib';
-import { calculatePricing } from '../checkout-utils';
+import { calculatePricing } from 'components/checkout/checkout-utils';
 import Loader from 'components/loader';
+import { SubmitButton } from 'components/checkout/checkout-shared-components';
 
-export default function User() {
-  const { customer, quantity, priceData, dispatch, actions } =
-    useCheckoutContext();
+export default function UserForm() {
+  const { quantity, priceData, dispatch, actions } = useCheckoutContext();
   const [firstName, setFirstName] = useState('');
   const [lastName, setLastName] = useState('');
   const [email, setEmail] = useState('');
@@ -43,21 +43,6 @@ export default function User() {
 
   if (isLoading) return <Loader centerInContainer />;
 
-  if (customer) {
-    return (
-      <div className={styles.submittedUserContainer}>
-        <p className={styles.contactInformation}>Contact Information:</p>
-        <p className={styles.name}>
-          <span className={styles.left}>Name:</span>
-          <span className={styles.right}>{customer.name}</span>
-        </p>
-        <p className={styles.email}>
-          <span className={styles.left}>Email:</span>
-          <span className={styles.right}>{customer.email}</span>
-        </p>
-      </div>
-    );
-  }
   return (
     <form onSubmit={e => handleSubmit(e)}>
       <p className={styles.contactInformation}>Contact Information</p>
@@ -90,9 +75,7 @@ export default function User() {
         required
       />
 
-      <button className={styles.button} type="submit">
-        Submit
-      </button>
+      <SubmitButton>Submit</SubmitButton>
     </form>
   );
 }

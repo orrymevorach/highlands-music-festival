@@ -6,14 +6,21 @@ const initialState = {
   customer: null,
   paymentIntent: null,
   pricing: null,
+  promoCode: '',
 };
 
 const actions = {
   SET_QUANTITY: 'SET_QUANTITY',
   SET_PAYMENT_INTENT: 'SET_PAYMENT_INTENT',
   CANCEL_PAYMENT_INTENT: 'CANCEL_PAYMENT_INTENT',
+  APPLY_PROMO_CODE: 'APPLY_PROMO_CODE',
 };
-const { SET_QUANTITY, SET_PAYMENT_INTENT, CANCEL_PAYMENT_INTENT } = actions;
+const {
+  SET_QUANTITY,
+  SET_PAYMENT_INTENT,
+  CANCEL_PAYMENT_INTENT,
+  APPLY_PROMO_CODE,
+} = actions;
 
 const reducer = (state, action) => {
   switch (action.type) {
@@ -35,6 +42,12 @@ const reducer = (state, action) => {
         ...state,
         paymentIntent: action.paymentIntent,
       };
+    case APPLY_PROMO_CODE:
+      return {
+        ...state,
+        promoCode: action.promoCode,
+        pricing: action.pricing,
+      };
     default:
       return state;
   }
@@ -42,10 +55,12 @@ const reducer = (state, action) => {
 
 export default function useCheckout({ priceModel }) {
   const [state, dispatch] = useReducer(reducer, initialState);
-  const { quantity, customer, paymentIntent, pricing } = state;
+  const { quantity, customer, paymentIntent, pricing, promoCode } = state;
 
   useCancelPaymentIntent({ paymentIntent, dispatch, actions });
   return {
+    dispatch,
+    actions,
     customer,
     paymentIntent,
     quantity,
@@ -53,7 +68,6 @@ export default function useCheckout({ priceModel }) {
       ...priceModel,
       ...pricing,
     },
-    dispatch,
-    actions,
+    promoCode,
   };
 }

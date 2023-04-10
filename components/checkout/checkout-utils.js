@@ -18,22 +18,32 @@ export const getMonth = ({ subscriptionStartDate, iteration = 0 }) => {
   return mapIndexToMonth[parseInt(monthIndex) + iteration];
 };
 
-export function calculatePricing({ initialTicketPrice, priceData, quantity }) {
+export function calculatePricing({
+  initialTicketPrice,
+  priceData,
+  quantity,
+  promoAmount = 0,
+}) {
   const ticketPrice = Math.round(
     initialTicketPrice * 4 + priceData.discountAmount * quantity
   );
-  const subtotal = ticketPrice - priceData.discountAmount * quantity;
+  promoAmount = promoAmount / 100; // CONVERT FROM CENTS TO DOLLARS
+  const subtotal =
+    ticketPrice - promoAmount - priceData.discountAmount * quantity;
   const tax = subtotal * 0.13;
   const total = subtotal + tax;
   const discountTotal = priceData.discountAmount * quantity;
   const installmentAmount = total / 4;
 
   return {
+    ...priceData,
+    initialTicketPrice,
     ticketPrice,
     subtotal,
     tax,
     total,
     discountTotal,
     installmentAmount,
+    promoAmount,
   };
 }

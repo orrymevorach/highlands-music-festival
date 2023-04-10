@@ -1,5 +1,4 @@
 import React from 'react';
-import styles from './payment.module.scss';
 import { Elements } from '@stripe/react-stripe-js';
 import CheckoutForm from 'components/checkout/payment/checkout-form';
 import { loadStripe } from '@stripe/stripe-js';

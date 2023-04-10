@@ -1,0 +1,24 @@
+@import '@variables';
+
+.contactInformation {
+  margin-bottom: 20px;
+  font-family: 'Neue Haas Regular';
+}
+
+.nameContainer {
+  display: flex;
+  width: 100%;
+}
+
+.firstName {
+  margin-right: 5px;
+}
+
+.lastName {
+  margin-left: 5px;
+}
+
+.firstName,
+.lastName {
+  margin-bottom: 10px;
+}

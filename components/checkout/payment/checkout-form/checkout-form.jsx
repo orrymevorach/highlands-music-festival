@@ -4,11 +4,12 @@ import {
   useElements,
   PaymentElement,
 } from '@stripe/react-stripe-js';
-import styles from './checkout-form.module.scss';
 import { useCheckoutContext } from 'context/checkout-context';
 import { createSubscription } from 'lib/stripe-lib';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faSpinner } from '@fortawesome/free-solid-svg-icons';
+import {
+  ErrorMessage,
+  SubmitButton,
+} from 'components/checkout/checkout-shared-components';
 
 export default function CheckoutForm() {
   const [isLoading, setIsLoading] = useState(false);
@@ -54,17 +55,11 @@ export default function CheckoutForm() {
 
   return (
     <form onSubmit={handleSubmit}>
-      {errorMessage && (
-        <div className={styles.errorMessage}>{errorMessage}</div>
-      )}
+      {errorMessage && <ErrorMessage message={errorMessage} />}
       <PaymentElement clientSecret={paymentIntent.client_secret} />
-      <button className={styles.payNow} disabled={!stripe}>
-        {isLoading ? (
-          <FontAwesomeIcon icon={faSpinner} className={styles.spinnerIcon} />
-        ) : (
-          'Pay Now'
-        )}
-      </button>
+      <SubmitButton isDisabled={!stripe} isLoading={isLoading}>
+        Pay Now
+      </SubmitButton>
     </form>
   );
 }

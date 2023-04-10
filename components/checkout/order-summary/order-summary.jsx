@@ -17,13 +17,14 @@ export default function OrderSummary() {
       tax,
       installmentAmount,
       numberOfSubscriptionIterations,
+      promoAmount,
     },
+    promoCode,
   } = useCheckoutContext();
 
   const numberOfSubscriptionIterationsAsArray = Array.from(
     Array(numberOfSubscriptionIterations)
   );
-
   return (
     <div className={clsx(styles.orderSummary, styles.bodyCopy)}>
       <div>
@@ -33,10 +34,19 @@ export default function OrderSummary() {
           label={`${quantity ? `${quantity} x ` : ''}General Admission`}
           price={ticketPrice}
         />
-        {discountName && (
+        {discountName && discountTotal ? (
           <LineItem
             label={discountName}
-            price={discountTotal}
+            price={`-${discountTotal}`}
+            className={styles.discount}
+          />
+        ) : (
+          ''
+        )}
+        {promoCode && (
+          <LineItem
+            label={`${promoCode} Promotion`}
+            price={`-${promoAmount}`}
             className={styles.discount}
           />
         )}

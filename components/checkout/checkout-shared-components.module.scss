@@ -1,27 +1,19 @@
 @import '@variables';
 
-.payNow {
+.button {
   background-color: $darkGreen;
   color: $white;
   border: none;
-  padding: 10px;
+  padding: 10px 20px;
   margin-top: 20px;
   font-family: 'Neue Haas Regular';
   font-size: 16px;
   border-radius: 5px;
+  min-width: 100px;
   cursor: pointer;
-  width: 100px;
-}
-
-.errorMessage {
-  color: red;
-  font-family: 'Neue Haas Regular';
-  font-size: 16px;
-  margin-bottom: 15px;
-}
-
-.spinnerIcon {
-  animation: rotate 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
+  .spinnerIcon {
+    animation: rotate 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
+  }
 }
 
 @keyframes rotate {
@@ -31,4 +23,11 @@
   100% {
     transform: rotate(360deg);
   }
+}
+
+.errorMessage {
+  color: red;
+  font-family: 'Neue Haas Regular';
+  font-size: 16px;
+  margin-bottom: 15px;
 }

@@ -4,6 +4,7 @@ import { useState } from 'react';
 import { useCheckoutContext } from 'context/checkout-context';
 import { calculatePricing } from '../checkout-utils';
 import Loader from 'components/loader';
+import { SubmitButton } from 'components/checkout/checkout-shared-components';
 
 export default function Quantity() {
   const [dropdownQuantity, setDropdownQuantity] = useState('');
@@ -54,9 +55,7 @@ export default function Quantity() {
           <MenuItem value={8}>8</MenuItem>
         </Select>
       </div>
-      <button className={styles.button} type="submit">
-        Continue
-      </button>
+      <SubmitButton>Continue</SubmitButton>
     </form>
   );
 }

@@ -1,13 +1,17 @@
 import Quantity from 'components/checkout/quantity';
-import User from 'components/checkout/user';
+import UserForm from 'components/checkout/user/user-form';
 import Payment from 'components/checkout/payment';
 import { useCheckoutContext } from 'context/checkout-context';
 import Takeover from 'components/takeover';
 import styles from './container.module.scss';
 import Loader from 'components/loader/loader';
+import PromoCodeForm from 'components/checkout/promo-code/promo-code-form';
+import UserDetails from 'components/checkout/user/user-details';
+import PromoCodeSuccess from 'components/checkout/promo-code/promo-code-success';
 
 export default function CheckoutContainer() {
-  const { quantity, paymentIntent, isLoading } = useCheckoutContext();
+  const { quantity, paymentIntent, isLoading, promoCode, customer } =
+    useCheckoutContext();
   const isPaymentIntentExpired = paymentIntent?.status === 'canceled';
   if (isLoading) return <Loader centerInContainer />;
   return (
@@ -21,8 +25,16 @@ export default function CheckoutContainer() {
         </Takeover>
       )}
       {!quantity && <Quantity />}
-      {!!quantity && <User />}
-      {paymentIntent && !isPaymentIntentExpired && <Payment />}
+      {!!quantity && !customer ? <UserForm /> : ''}
+      {customer && <UserDetails />}
+
+      {paymentIntent && !isPaymentIntentExpired && (
+        <>
+          {!promoCode && <PromoCodeForm />}
+          {promoCode && <PromoCodeSuccess />}
+          <Payment />
+        </>
+      )}
     </div>
   );
 }
