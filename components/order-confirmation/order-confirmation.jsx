@@ -18,6 +18,7 @@ const SuccessMessage = ({ customer }) => {
       <p className={clsx(styles.bodyCopy, styles.bodyCopySmall)}>
         A confirmation email has been sent to {customer.email}.
       </p>
+      {/* Pulver - this is where you can add links to social after a ticket has been purchased */}
     </>
   );
 };

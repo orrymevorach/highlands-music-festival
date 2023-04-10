@@ -11,6 +11,9 @@ const cancelPaymentIntent = async ({ paymentIntent, dispatch, actions }) => {
     keepalive: true, // Required to complete request after tab close
     body: JSON.stringify({ paymentIntent }),
   }).then(res => res.json());
+
+  // Pulver - this is where you can add code to be executed when a checkout session expires
+
   dispatch({
     type: actions.CANCEL_PAYMENT_INTENT,
     paymentIntent: cancelledPaymentIntent,
