@@ -28,24 +28,24 @@ export default async function handler(req, res) {
         });
       }
 
-      // const { amount: originalAmount, metadata } = paymentIntent;
-      // const updatedMetadata = {
-      //   ...metadata,
-      //   promoCode: selectedPromoCode.code,
-      //   promoAmount: selectedPromoCode.coupon.amount_off / 100,
-      // };
-      // const updatedPaymentIntent = await stripe.paymentIntents.update(
-      //   paymentIntent.id,
-      //   {
-      //     amount: Math.round(
-      //       (originalAmount / 1.13 - selectedPromoCode.coupon.amount_off) * 1.13
-      //     ),
-      //     metadata: updatedMetadata,
-      //   }
-      // );
+      const { amount: originalAmount, metadata } = paymentIntent;
+      const updatedMetadata = {
+        ...metadata,
+        promoCode: selectedPromoCode.code,
+        promoAmount: selectedPromoCode.coupon.amount_off / 100,
+      };
+      const updatedPaymentIntent = await stripe.paymentIntents.update(
+        paymentIntent.id,
+        {
+          amount: Math.round(
+            (originalAmount / 1.13 - selectedPromoCode.coupon.amount_off) * 1.13
+          ),
+          metadata: updatedMetadata,
+        }
+      );
       const response = {
         promoCodeData: selectedPromoCode,
-        // paymentIntent: updatedPaymentIntent,
+        paymentIntent: updatedPaymentIntent,
       };
       res.status(200).json(response);
     } catch (err) {

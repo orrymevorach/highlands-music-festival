@@ -18,6 +18,7 @@ export default function OrderSummary() {
       installmentAmount,
       numberOfSubscriptionIterations,
       promoAmount,
+      firstInstallment,
     },
     promoCode,
   } = useCheckoutContext();
@@ -55,7 +56,7 @@ export default function OrderSummary() {
         <LineItem label="HST (13%)" price={tax} />
         <Border />
         <LineItem label="Total" price={total} isBold />
-        <LineItem label="Due Today" price={installmentAmount} isBold />
+        <LineItem label="Due Today" price={firstInstallment} isBold />
         {numberOfSubscriptionIterationsAsArray.map((_, index) => {
           const month = getMonth({ subscriptionStartDate, iteration: index });
           return (

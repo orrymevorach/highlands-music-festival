@@ -19,11 +19,12 @@ export default function PromoCodeForm() {
   const handleSubmit = async e => {
     e.preventDefault();
     setIsLoading(true);
-    const { promoCodeData } = await applyPromoCode({
-      promoCode,
-      customer,
-      paymentIntent,
-    });
+    const { promoCodeData, paymentIntent: updatedPaymentIntent } =
+      await applyPromoCode({
+        promoCode,
+        customer,
+        paymentIntent,
+      });
 
     if (promoCodeData.error) {
       setIsLoading(false);
@@ -34,6 +35,7 @@ export default function PromoCodeForm() {
         priceData,
         quantity,
         promoAmount: promoCodeData.coupon.amount_off,
+        firstInstallment: updatedPaymentIntent.amount / 100,
       });
       setErrorMessage('');
       setIsLoading(false);
