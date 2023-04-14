@@ -16,6 +16,8 @@ const CommitteeMember = ({ name, jobTitle, image }) => {
             quality={50}
             width={image.width}
             height={image.height}
+            placeholder="blur"
+            blurDataURL={image.url}
           />
         )}
       </div>
