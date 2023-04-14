@@ -23,7 +23,7 @@ const CommitteeMember = ({ name, jobTitle, image }) => {
       </div>
       <div className={styles.textContainer}>
         <p className={styles.subHeadingHeavy}>{name}</p>
-        <p className={styles.bodyCopy}>{jobTitle}</p>
+        {jobTitle && <p className={styles.bodyCopy}>{jobTitle}</p>}
       </div>
     </div>
   );
