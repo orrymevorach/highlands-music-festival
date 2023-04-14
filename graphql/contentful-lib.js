@@ -1,5 +1,5 @@
-// import { client } from './apollo-config';
-// import { GET_FEATURE_FLAG } from './queries';
+import { client } from './apollo-config';
+import { GET_COMMITTEE_MEMBERS } from './queries';
 
 // export const getFeatureFlags = async () => {
 //   const { data } = await client.query({
@@ -7,3 +7,10 @@
 //   });
 //   return data.featureFlagCollection.items;
 // };
+
+export const getCommitteeMembers = async () => {
+  const { data } = await client.query({
+    query: GET_COMMITTEE_MEMBERS,
+  });
+  return data.galleryCommitteeMembersCollection.items[0];
+};
