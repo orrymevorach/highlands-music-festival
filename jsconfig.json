@@ -1,0 +1,15 @@
+{
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "components": ["components/"],
+      "@variables": ["styles/variables.module.scss"],
+      "@animations": ["styles/animations.module.scss"],
+      "@global": ["styles/globals.module.scss"],
+      "context": ["context/"],
+      "hooks": ["hooks/"],
+      "utils": ["utils/"],
+      "public": ["public/"]
+    }
+  }
+}
