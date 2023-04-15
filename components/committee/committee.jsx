@@ -38,7 +38,7 @@ export default function Committee({
     <Layout>
       <main>
         <div className={styles.committeePage}>
-          <h1 className={styles.heading}>Founding Members</h1>
+          <h1 className={styles.heading}>Co-Creators</h1>
           <div className={styles.committeeMembers}>
             {foundingMembers.map(committeeMemberData => (
               <CommitteeMember
