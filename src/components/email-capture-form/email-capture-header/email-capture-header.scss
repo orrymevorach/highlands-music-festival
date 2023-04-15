@@ -1,0 +1,64 @@
+@import '@colors';
+@import '@vars';
+
+.emailCaptureHeader {
+  .emailCaptureHeaderContainer {
+    animation-duration: 0.8s;
+    animation-timing-function: ease-in;
+    position: fixed;
+    top: 0;
+    box-shadow: 0px 0px 10px 1px $darkGreen;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 90;
+    background-color: $darkGreen;
+    font-family: 'Tan Aesop', 'Arial', sans-serif;
+    padding: 13px 60px;
+    line-height: 1.7;
+    .column {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      color: $beige;
+      width: 50%;
+      font-size: 14px;
+    }
+  }
+  .thankYou {
+    font-size: 20px;
+    margin: 15px 0;
+    font-family: 'Tan Aesop', 'Arial', sans-serif;
+  }
+  .emailCaptureCloseButton {
+    top: 13px;
+  }
+}
+@media screen and (max-width: $tablet) {
+  .emailCaptureHeader {
+    .emailCaptureHeaderContainer {
+      .column {
+        font-size: 12px;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: $mobile) {
+  .emailCaptureHeader {
+    .emailCaptureHeaderContainer {
+      padding: 20px;
+      flex-direction: column;
+      bottom: 0;
+      top: auto;
+      .column {
+        width: 100%;
+        margin-bottom: 10px;
+      }
+      .columnCopy {
+        padding-right: 30px;
+      }
+    }
+  }
+}
