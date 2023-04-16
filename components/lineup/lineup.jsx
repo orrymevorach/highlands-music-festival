@@ -2,7 +2,7 @@ import styles from './lineup.module.scss';
 import Image from 'next/image';
 import clsx from 'clsx';
 import PastLineupDropdown from './past-lineup-dropdown';
-import { useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import Artists from './artists';
 import Headliners from './headliners';
 import Announcement from './announcement';
@@ -10,6 +10,11 @@ import Announcement from './announcement';
 export default function Lineup({ headlinerFeatureFlag = false }) {
   const [year, setYear] = useState('');
   const lineupRef = useRef();
+  useEffect(() => {
+    if (year && lineupRef) {
+      lineupRef.current.scrollIntoView();
+    }
+  }, [year, lineupRef]);
   return (
     <>
       {headlinerFeatureFlag && <Announcement />}

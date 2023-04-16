@@ -1,12 +1,11 @@
 import clsx from 'clsx';
 import Image from 'next/image';
 import styles from './headliners.module.scss';
-import { lineupRow, heading } from '../lineup.module.scss';
 
 export default function Headliners() {
   return (
-    <div className={clsx(lineupRow, styles.headlineRow)}>
-      <p className={heading}>
+    <div className={styles.headlineRow}>
+      <p className={clsx(styles.heading, styles.headliner)}>
         Busty <br />
         and <br />
         the <br />
@@ -19,7 +18,7 @@ export default function Headliners() {
         className={styles.headlineSun}
         quality={10}
       />
-      <p className={heading}>
+      <p className={clsx(styles.heading, styles.headliner)}>
         The <br /> Brook <br /> & the <br /> Bluff
       </p>
     </div>

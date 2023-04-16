@@ -30,17 +30,6 @@
   margin-top: 200px;
 }
 
-// Shared style for headliners and artists
-.lineupRow {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  & > .artist:last-of-type + img {
-    display: none;
-  }
-}
-
 @media screen and (max-width: 1200px) {
   .container {
     width: 100%;
@@ -50,28 +39,15 @@
 }
 
 @media screen and (max-width: 750px) {
-  .container {
-    margin-top: 50px;
+  .lineupContainer {
+    margin-top: 100px;
   }
-
-  .lineupHeading {
-    margin-bottom: 40px;
+  .lineupBackground {
+    top: 100px;
   }
   div.dropdown {
     width: 70%;
     display: flex;
     margin: 0 auto;
-  }
-  .lineupBackground {
-    object-fit: cover;
-  }
-  .lineupContainer {
-    margin-top: 100px;
-  }
-}
-
-@media screen and (max-width: 560px) {
-  .lineupBackground {
-    height: 60%;
   }
 }
