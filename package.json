@@ -8,7 +8,7 @@
     "start": "next start",
     "lint": "next lint",
     "deployPreview": "git branch -d preview-environment && git push -d origin preview-environment && git checkout -b preview-environment && git push --set-upstream origin preview-environment",
-    "prebuild": "contentful --space-id 2qat04pzhx4f space environment delete --environment-id staging && contentful --space-id 2qat04pzhx4f space environment create --name staging --environment-id staging --source master"
+    "prebuild": "contentful login --management-token CONTENTFUL_MANAGEMENT_TOKEN && contentful --space-id 2qat04pzhx4f space environment delete --environment-id staging && contentful --space-id 2qat04pzhx4f space environment create --name staging --environment-id staging --source master"
   },
   "dependencies": {
     "@apollo/client": "^3.7.11",
