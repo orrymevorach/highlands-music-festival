@@ -34,6 +34,7 @@ export default function Lineup({ headlinerFeatureFlag = false }) {
               className={styles.lineupBackground}
               width={1184}
               height={620}
+              quality={10}
             />
             <Headliners />
             <Artists />
