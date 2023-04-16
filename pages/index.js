@@ -1,6 +1,8 @@
 import Home from 'components/home';
 import Head from 'components/head';
 import { EmailCaptureProvider } from 'context/email-capture-context';
+import { getPageLoadData } from 'graphql/contentful-lib';
+import { PAGE_SLUGS } from 'utils/constants';
 
 export default function Index() {
   return (
@@ -9,4 +11,16 @@ export default function Index() {
       <Home />
     </EmailCaptureProvider>
   );
+}
+
+export async function getStaticProps() {
+  const pageLoadData = await getPageLoadData({
+    url: PAGE_SLUGS.HOME,
+  });
+
+  return {
+    props: {
+      ...pageLoadData,
+    },
+  };
 }
