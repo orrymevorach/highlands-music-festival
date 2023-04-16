@@ -1,7 +1,6 @@
 import Image from 'next/image';
 import styles from './artists.module.scss';
 import clsx from 'clsx';
-import { lineupRow } from '../lineup.module.scss';
 
 const lineup = [
   'Ada Lea',
@@ -39,7 +38,7 @@ export default function Artists() {
     <>
       {chunkedLineup.map((chunkedRow, index) => {
         return (
-          <div key={`${chunkedRow[0]}-${index}`} className={lineupRow}>
+          <div key={`${chunkedRow[0]}-${index}`} className={styles.artistRow}>
             {chunkedRow.map((artist, index) => {
               const isLastArtistInRow = index === chunkedRow.length - 1;
               return (

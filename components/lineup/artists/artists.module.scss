@@ -17,11 +17,20 @@
   margin: 0 10px;
 }
 
+.artistRow {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 @media screen and (max-width: 1200px) {
   .lineupSun {
-    width: 40px;
-    height: 40px;
-    padding-top: 5px;
+    width: 30px;
+    height: 30px;
+    margin: 5px 5px 0;
+  }
+  .artist {
+    font-size: 16px;
   }
 }
 
@@ -29,25 +38,18 @@
   .lineupSun {
     width: 30px;
     height: 30px;
-    &.headlineSun {
-      margin: 0 20px;
-      width: 60px;
-      height: 60px;
-    }
   }
 }
 
 @media screen and (max-width: 560px) {
-  .artistContainer {
-    padding: 0 25px;
-  }
   .artist {
     font-size: 12px;
     margin: 8px 0;
   }
   .lineupSun {
-    width: 20px;
-    height: 20px;
-    margin: 0 2px;
+    width: 15px;
+    height: 15px;
+    margin: 0 5px;
+    padding: 0;
   }
 }
