@@ -1,7 +1,8 @@
 @import '@variables';
 
-.lineupContainer {
+.container {
   position: relative;
+  padding: 0 20px;
   @include wrapper;
   &::after {
     content: '';
@@ -15,20 +16,20 @@
 
 .lineupBackground {
   width: 100%;
-  height: 100%;
+  height: 80%;
   opacity: 0.2;
   background: none;
   position: absolute !important;
-  top: 0;
+  top: 200px;
   left: 50%;
   transform: translateX(-50%);
 }
 
-.headlineRow {
-  margin-bottom: 20px;
-  color: $darkGreen;
+.lineupContainer {
+  margin-top: 200px;
 }
 
+// Shared style for headliners and artists
 .lineupRow {
   display: flex;
   align-items: center;
@@ -39,64 +40,29 @@
   }
 }
 
-.artistContainer {
-  display: flex;
-  align-items: center;
-}
-
-.artist {
-  font-size: 20px;
-  color: $mediumGreen;
-}
-
-.lineupSun {
-  width: 50px;
-  height: 50px;
-  margin: 0 10px;
-  &.headlineSun {
-    margin: 0 50px;
-    width: 80px;
-    height: 80px;
-  }
-}
-
 @media screen and (max-width: 1200px) {
-  .lineupContainer {
+  .container {
     width: 100%;
     overflow: hidden;
     padding: 0 10px;
   }
-  .lineupSun {
-    width: 40px;
-    height: 40px;
-    padding-top: 5px;
-  }
 }
 
 @media screen and (max-width: 750px) {
-  .artist {
-    font-size: 16px;
-    margin: 8px 0;
+  .lineupBackground {
+    height: 80%;
+    top: 200px;
   }
-  .lineupSun {
-    width: 30px;
-    height: 30px;
-    &.headlineSun {
-      margin: 0 20px;
-      width: 60px;
-      height: 60px;
-    }
+  .lineupContainer {
+    margin-top: 100px;
   }
 }
 
 @media screen and (max-width: 560px) {
-  .artist {
-    font-size: 12px;
-    margin: 8px 0;
+  .lineupBackground {
+    height: 60%;
   }
-  .lineupSun {
-    width: 20px;
-    height: 20px;
-    margin: 0 2px;
+  .lineupContainer {
+    margin-top: 100px;
   }
 }
