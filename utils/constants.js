@@ -22,4 +22,5 @@ export const PAGE_SLUGS = {
   COMMITTEE: '/committee',
   FAQ: '/faq',
   CHECKOUT: '/checkout',
+  ORDER_CONFIRMATION: '/order-confirmation',
 };
