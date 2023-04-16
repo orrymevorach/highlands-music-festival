@@ -1,6 +1,8 @@
 @import '@variables';
 
 .emailCaptureHeader {
+  position: relative;
+  z-index: 1001;
   .emailCaptureHeaderContainer {
     animation-duration: 0.8s;
     animation-timing-function: ease-in;

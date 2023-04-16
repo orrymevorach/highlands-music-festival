@@ -17,3 +17,13 @@ export const cookies = {
 export const FEATURE_FLAGS = {
   WILD_RIVERS_ANNOUNCEMENT: 'Wild Rivers Announcement',
 };
+
+export const PAGE_SLUGS = {
+  HOME: '/',
+  ABOUT: '/about',
+  LINEUP_AND_SCHEDULE: '/lineup-and-schedule',
+  LOCATION_AND_ACCOMMODATION: '/location-and-accommodation',
+  ACTIVITIES: '/activities',
+  COMMITTEE: '/committee',
+  FAQ: '/faq',
+};

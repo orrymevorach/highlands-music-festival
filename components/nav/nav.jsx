@@ -8,39 +8,7 @@ import { faHome } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faInstagram } from '@fortawesome/free-brands-svg-icons';
 import { colors } from 'utils/constants';
-
-const links = [
-  {
-    to: '/about',
-    text: 'About',
-  },
-  {
-    to: '/lineup-and-schedule',
-    text: 'Lineup & Schedule',
-  },
-  // {
-  //   to: 'https://www.eventbrite.ca/e/highlands-music-festival-tickets-353399967817',
-  //   to: 'https://www.eventbrite.ca/e/highlands-music-festival-tickets-525480736027?utm-campaig[…]utm-medium=discovery&utm-term=listing&utm-source=cp&aff=escb',
-  //   text: 'Buy Tickets',
-  //   isAnchor: true,
-  // },
-  {
-    to: '/location-and-accommodation',
-    text: 'Location & Accommodation',
-  },
-  {
-    to: '/activities',
-    text: 'Activities',
-  },
-  {
-    to: '/committee',
-    text: 'Who We Are',
-  },
-  {
-    to: '/faq',
-    text: 'FAQ',
-  },
-];
+import { useNavContext } from 'context/nav-context';
 
 const HomeIcon = () => {
   return (
@@ -70,6 +38,7 @@ const InstagramIcon = () => {
 };
 
 const Nav = ({ hamburgerMenuColor = '' }) => {
+  const navData = useNavContext() || [];
   const [isOpen, setIsOpen] = useState(false);
   const [pathname, setPathname] = useState('');
   const { isMobile, isDesktop, isTablet } = useWindowSize();
@@ -96,15 +65,9 @@ const Nav = ({ hamburgerMenuColor = '' }) => {
         <nav className={styles.nav}>
           <ul className={styles.navList}>
             <HomeIcon />
-            {links.map(({ to, text, isAnchor = false }) => (
-              <li key={to} className={clsx(to === pathname && styles.active)}>
-                {isAnchor ? (
-                  <a href={to} target="_blank" rel="noreferrer">
-                    {text}
-                  </a>
-                ) : (
-                  <Link href={to}>{text}</Link>
-                )}
+            {navData.map(({ url, label }) => (
+              <li key={url} className={clsx(url === pathname && styles.active)}>
+                <Link href={url}>{label}</Link>
               </li>
             ))}
             <InstagramIcon />

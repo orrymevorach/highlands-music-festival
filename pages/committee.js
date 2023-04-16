@@ -2,6 +2,8 @@ import Committee from 'components/committee';
 import Head from 'components/head';
 import { EmailCaptureProvider } from 'context/email-capture-context';
 import { getCommitteeMembers } from 'graphql/contentful-lib';
+import { getPageLoadData } from 'graphql/contentful-lib';
+import { PAGE_SLUGS } from 'utils/constants';
 
 export default function CommitteePage({ committeeMembers }) {
   return (
@@ -14,9 +16,13 @@ export default function CommitteePage({ committeeMembers }) {
 
 export async function getStaticProps() {
   const committeeMembers = await getCommitteeMembers();
+  const pageLoadData = await getPageLoadData({
+    url: PAGE_SLUGS.COMMITTEE,
+  });
   return {
     props: {
       committeeMembers,
+      ...pageLoadData,
     },
   };
 }

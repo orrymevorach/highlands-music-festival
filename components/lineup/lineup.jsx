@@ -22,7 +22,7 @@ export default function Lineup({ headlinerFeatureFlag = false }) {
               styles.lineupHeading
             )}
           >
-            Stay tuned for 2024 Lineup Announcements
+            Stay tuned for 2024 lineup announcements
           </h2>
         )}
         <PastLineupDropdown year={year} setYear={setYear} />
