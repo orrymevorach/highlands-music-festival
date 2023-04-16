@@ -25,7 +25,11 @@ export default function Lineup({ headlinerFeatureFlag = false }) {
             Stay tuned for 2024 lineup announcements
           </h2>
         )}
-        <PastLineupDropdown year={year} setYear={setYear} />
+        <PastLineupDropdown
+          year={year}
+          setYear={setYear}
+          classNames={styles.dropdown}
+        />
         {year && (
           <div className={styles.lineupContainer} ref={lineupRef}>
             <Image

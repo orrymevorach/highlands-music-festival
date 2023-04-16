@@ -1,9 +1,14 @@
 import styles from './past-lineup-dropdown.module.scss';
 import { FormControl, MenuItem, Select, InputLabel } from '@mui/material';
+import clsx from 'clsx';
 
-export default function PastLineupDropdown({ year, setYear }) {
+export default function PastLineupDropdown({ year, setYear, classNames = '' }) {
   return (
-    <FormControl hiddenLabel fullWidth className={styles.dropdown}>
+    <FormControl
+      hiddenLabel
+      fullWidth
+      className={clsx(styles.dropdown, classNames)}
+    >
       <InputLabel id="demo-simple-select-label">See past lineups</InputLabel>
       <Select
         labelId="demo-simple-select-label"
