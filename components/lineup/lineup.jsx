@@ -12,7 +12,7 @@ export default function Lineup() {
   return (
     <div className={styles.container}>
       <h2 className={clsx(styles.heading, styles.center, styles.lineupHeading)}>
-        Stay tuned for 2024 Lineup Announcements
+        Stay tuned for 2024 lineup announcements
       </h2>
       <PastLineupDropdown year={year} setYear={setYear} />
       {year && (
