@@ -2,6 +2,8 @@ import styles from './home.module.scss';
 import { imgPath, colors } from 'utils/constants';
 import Layout from 'components/layout';
 import { useWindowSize } from 'hooks';
+import HeadlinerAnnouncement from 'components/announcement';
+import useAnimateAnnouncement from 'components/announcement/useAnimateAnnouncement';
 
 const TopRow = () => (
   <div className={styles.topRow}>
@@ -44,24 +46,31 @@ const Video = () => {
 
 export default function Home() {
   const { isMobile } = useWindowSize();
+  const { showAnnouncement, setShowAnnouncement } = useAnimateAnnouncement();
   return (
-    <div className={styles.homePageContainer}>
-      <Layout hasPaddingBottom={false} hamburgerMenuColor={colors.beige}>
-        <main>
-          <h1 className={styles.h1}>Highlands Music Festival</h1>
-          <div className={styles.videoContainer}>
-            <div className={styles.imageContainer}>
-              <img
-                src={`${imgPath}/Logo-1200px-Neutral.png`}
-                alt="Highlands Music Festival logo"
-                className={styles.logo}
-              />
-              <TopRow />
-            </div>
-            {!isMobile && <Video />}
-          </div>
-        </main>
-      </Layout>
-    </div>
+    <>
+      {showAnnouncement ? (
+        <HeadlinerAnnouncement setShowAnnouncement={setShowAnnouncement} />
+      ) : (
+        <div className={styles.homePageContainer}>
+          <Layout hasPaddingBottom={false} hamburgerMenuColor={colors.beige}>
+            <main>
+              <h1 className={styles.h1}>Highlands Music Festival</h1>
+              <div className={styles.videoContainer}>
+                <div className={styles.imageContainer}>
+                  <img
+                    src={`${imgPath}/Logo-1200px-Neutral.png`}
+                    alt="Highlands Music Festival logo"
+                    className={styles.logo}
+                  />
+                  <TopRow />
+                </div>
+                {!isMobile && <Video />}
+              </div>
+            </main>
+          </Layout>
+        </div>
+      )}
+    </>
   );
 }
