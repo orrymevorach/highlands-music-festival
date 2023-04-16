@@ -11,6 +11,11 @@ export const colors = {
 
 export const cookies = {
   emailCaptureCookie: 'emailCaptureCookie',
+  headlinerOne: 'headlinerOne',
+};
+
+export const FEATURE_FLAGS = {
+  WILD_RIVERS_ANNOUNCEMENT: 'Wild Rivers Announcement',
 };
 
 export const PAGE_SLUGS = {

@@ -6,12 +6,16 @@ import {
   GET_NAVIGATION_BAR,
 } from './queries';
 
-// export const getFeatureFlags = async () => {
-//   const { data } = await client.query({
-//     query: GET_FEATURE_FLAG,
-//   });
-//   return data.featureFlagCollection.items;
-// };
+export const getFeatureFlags = async ({ name }) => {
+  const { data } = await client.query({
+    query: GET_FEATURE_FLAG,
+    variables: {
+      name,
+    },
+    fetchPolicy: 'no-cache',
+  });
+  return data.featureFlagCollection.items;
+};
 
 export const getCommitteeMembers = async () => {
   const { data } = await client.query({
@@ -23,6 +27,7 @@ export const getCommitteeMembers = async () => {
 const getNavigationBar = async () => {
   const { data } = await client.query({
     query: GET_NAVIGATION_BAR,
+    fetchPolicy: 'no-cache',
   });
   return data.navigationBarCollection.items[0].pageCollection.items;
 };
@@ -33,6 +38,7 @@ const getIsPagePublished = async ({ url }) => {
     variables: {
       url,
     },
+    fetchPolicy: 'no-cache',
   });
   const isPagePublished =
     data?.pageCollection?.items && data?.pageCollection?.items.length > 0;
