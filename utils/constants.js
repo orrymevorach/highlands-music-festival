@@ -12,3 +12,13 @@ export const colors = {
 export const cookies = {
   emailCaptureCookie: 'emailCaptureCookie',
 };
+
+export const PAGE_SLUGS = {
+  HOME: '/',
+  ABOUT: '/about',
+  LINEUP_AND_SCHEDULE: '/lineup-and-schedule',
+  LOCATION_AND_ACCOMMODATION: '/location-and-accommodation',
+  ACTIVITIES: '/activities',
+  COMMITTEE: '/committee',
+  FAQ: '/faq',
+};

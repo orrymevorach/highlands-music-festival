@@ -12,7 +12,7 @@ import { COMMITTEE_MEMBER_FRAGMENT } from './fragments';
 // `;
 
 export const GET_COMMITTEE_MEMBERS = gql`
-  query {
+  query GetCommitteeMembers {
     galleryCommitteeMembersCollection(
       where: { queryTitle: "Committee Members Gallery" }
       limit: 1
@@ -32,4 +32,29 @@ export const GET_COMMITTEE_MEMBERS = gql`
     }
   }
   ${COMMITTEE_MEMBER_FRAGMENT}
+`;
+
+export const GET_NAVIGATION_BAR = gql`
+  query GetNavigationBar {
+    navigationBarCollection(where: { title: "HOME_NAVIGATION_BAR" }) {
+      items {
+        pageCollection {
+          items {
+            label
+            url
+          }
+        }
+      }
+    }
+  }
+`;
+
+export const GET_IS_PAGE_PUBLISHED = gql`
+  query GetIsPagePublished($url: String!) {
+    pageCollection(where: { url: $url }) {
+      items {
+        label
+      }
+    }
+  }
 `;

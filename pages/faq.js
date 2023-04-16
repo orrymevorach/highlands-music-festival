@@ -1,6 +1,8 @@
 import Faq from 'components/faq/faq';
 import Head from 'components/head';
 import { EmailCaptureProvider } from 'context/email-capture-context';
+import { getPageLoadData } from 'graphql/contentful-lib';
+import { PAGE_SLUGS } from 'utils/constants';
 
 const FAQPage = () => {
   return (
@@ -11,3 +13,14 @@ const FAQPage = () => {
   );
 };
 export default FAQPage;
+
+export async function getStaticProps() {
+  const pageLoadData = await getPageLoadData({
+    url: PAGE_SLUGS.FAQ,
+  });
+  return {
+    props: {
+      ...pageLoadData,
+    },
+  };
+}
