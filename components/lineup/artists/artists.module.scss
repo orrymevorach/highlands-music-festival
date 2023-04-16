@@ -1,0 +1,50 @@
+@import '@variables';
+
+.artistContainer {
+  display: flex;
+  align-items: center;
+  z-index: 1000;
+}
+
+.artist {
+  font-size: 20px;
+  color: $mediumGreen;
+}
+
+.lineupSun {
+  width: 50px;
+  height: 50px;
+  margin: 0 10px;
+}
+
+@media screen and (max-width: 1200px) {
+  .lineupSun {
+    width: 40px;
+    height: 40px;
+    padding-top: 5px;
+  }
+}
+
+@media screen and (max-width: 750px) {
+  .lineupSun {
+    width: 30px;
+    height: 30px;
+    &.headlineSun {
+      margin: 0 20px;
+      width: 60px;
+      height: 60px;
+    }
+  }
+}
+
+@media screen and (max-width: 560px) {
+  .artist {
+    font-size: 12px;
+    margin: 8px 0;
+  }
+  .lineupSun {
+    width: 20px;
+    height: 20px;
+    margin: 0 2px;
+  }
+}
