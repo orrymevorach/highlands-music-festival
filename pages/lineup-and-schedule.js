@@ -3,7 +3,10 @@ import Schedule from 'components/schedule';
 import Lineup from 'components/lineup';
 import Layout from 'components/layout';
 import { EmailCaptureProvider } from 'context/email-capture-context';
-const LineupAndSchedule = () => {
+import { getPageLoadData } from 'lib/contentful-lib';
+import { PAGE_SLUGS } from 'utils/constants';
+
+export default function LineupAndSchedule() {
   return (
     <EmailCaptureProvider>
       <Head />
@@ -15,5 +18,15 @@ const LineupAndSchedule = () => {
       </Layout>
     </EmailCaptureProvider>
   );
-};
-export default LineupAndSchedule;
+}
+export async function getStaticProps() {
+  const pageLoadData = await getPageLoadData({
+    url: PAGE_SLUGS.LINEUP_AND_SCHEDULE,
+  });
+
+  return {
+    props: {
+      ...pageLoadData,
+    },
+  };
+}

@@ -9,6 +9,11 @@ const nextConfig = {
         hostname: 'highlands-music-festival.s3.ca-central-1.amazonaws.com',
         port: '',
       },
+      {
+        protocol: 'https',
+        hostname: 'images.ctfassets.net',
+        port: '',
+      },
     ],
   },
 };
