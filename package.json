@@ -9,7 +9,7 @@
     "lint": "next lint",
     "deployPreview": "git branch -d preview-environment && git push -d origin preview-environment && git checkout -b preview-environment && git push --set-upstream origin preview-environment",
     "deployStaging": "git branch -d staging && git push -d origin staging && git checkout -b staging && git push --set-upstream origin staging",
-    "contentfulEnvironment": "sh ./prebuild.sh"
+    "createContentfulEnvironment": "sh ./prebuild.sh"
   },
   "dependencies": {
     "@apollo/client": "^3.7.11",
