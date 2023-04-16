@@ -38,3 +38,8 @@ a {
 img {
   display: block;
 }
+
+html,
+body {
+  scroll-behavior: smooth;
+}
