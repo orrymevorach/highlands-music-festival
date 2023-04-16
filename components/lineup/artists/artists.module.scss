@@ -38,6 +38,9 @@
 }
 
 @media screen and (max-width: 560px) {
+  .artistContainer {
+    padding: 0 25px;
+  }
   .artist {
     font-size: 12px;
     margin: 8px 0;
