@@ -5,6 +5,9 @@
   color: $darkGreen;
   z-index: 1000;
   position: relative;
+  @media screen and (max-width: $mobile) {
+    padding: 0 25px;
+  }
 }
 
 .headlineSun {
