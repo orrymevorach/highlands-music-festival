@@ -2,21 +2,11 @@ import styles from './home.module.scss';
 import { imgPath, colors } from 'utils/constants';
 import Layout from 'components/layout';
 import { useWindowSize } from 'hooks';
-import HeadlinerAnnouncement from 'components/announcement';
-import useAnimateAnnouncement from 'components/announcement/useAnimateAnnouncement';
+import AnnouncementTakeover from 'components/announcement-takeover';
+import useAnimateAnnouncement from 'components/announcement-takeover/useAnimateAnnouncement';
 
 const TopRow = () => (
   <div className={styles.topRow}>
-    {/* <h2 className={styles.date">Septemeber 30 - October 2</h2>
-    <p className={styles.ticketsAvailable">2022 tickets are now available</p>
-    <a
-      href="https://www.eventbrite.ca/e/highlands-music-festival-tickets-353399967817"
-      className={styles.buyNowButton"
-      target="_blank"
-      rel="noreferrer"
-    >
-      Buy Now
-    </a> */}
     <div>
       <p className={styles.ticketsAvailable}>Tickets on sale soon!</p>
       <p className={styles.ticketsAvailable}>
@@ -39,18 +29,18 @@ const Video = () => {
         loop
         playsInline
       ></video>
-      {/* <div className={styles.videoOverlay"></div> */}
+      <div className={styles.videoOverlay}></div>
     </>
   );
 };
 
-export default function Home() {
+export default function Home({ headlinerFeatureFlag = false }) {
   const { isMobile } = useWindowSize();
-  const { showAnnouncement, setShowAnnouncement } = useAnimateAnnouncement();
+  const { showAnnouncement, closeAnnouncement } = useAnimateAnnouncement();
   return (
     <>
-      {showAnnouncement ? (
-        <HeadlinerAnnouncement setShowAnnouncement={setShowAnnouncement} />
+      {showAnnouncement && headlinerFeatureFlag ? (
+        <AnnouncementTakeover closeAnnouncement={closeAnnouncement} />
       ) : (
         <div className={styles.homePageContainer}>
           <Layout hasPaddingBottom={false} hamburgerMenuColor={colors.beige}>
