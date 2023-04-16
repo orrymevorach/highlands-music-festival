@@ -7,10 +7,5 @@ export const useNavContext = () => {
 };
 
 export const NavProvider = ({ children, navData = [] }) => {
-  const filteredNavData = navData.filter(({ url }) => url !== '/');
-  return (
-    <NavContext.Provider value={filteredNavData}>
-      {children}
-    </NavContext.Provider>
-  );
+  return <NavContext.Provider value={navData}>{children}</NavContext.Provider>;
 };
