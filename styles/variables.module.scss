@@ -3,12 +3,17 @@
 $darkGreen: #33421b;
 $white: #fff;
 $yellow: #f1ead7;
+$darkYellow: #dac075;
 $beige: #f1ead7;
 $mediumGreen: #83885c;
 $black: #2f2f2f;
 
 $tablet: 1000px;
 $mobile: 850px;
+
+$fontPrimary: 'Tan Aesop', 'Arial', sans-serif;
+$fontSecondaryBold: 'Neue Haas Bold', 'Arial', sans-serif;
+$fontSecondary: 'Neue Haas Medium';
 
 .row {
   display: flex;

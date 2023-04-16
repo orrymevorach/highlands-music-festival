@@ -1,0 +1,23 @@
+@import '@variables';
+
+.announcementContainer {
+  background-color: $darkGreen;
+  text-align: center;
+  padding: 35px 0;
+  color: $beige;
+  font-family: $fontSecondary;
+  margin-bottom: 50px;
+}
+
+.headliner {
+  font-family: $fontPrimary;
+  color: $darkYellow;
+  font-size: 50px;
+}
+
+.justAnnounced {
+  margin-bottom: 40px;
+  font-size: 25px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
