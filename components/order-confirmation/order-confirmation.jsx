@@ -1,7 +1,7 @@
 import { faCheckCircle } from '@fortawesome/free-regular-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Image from 'next/image';
-import Logo from 'public/rainbow.png';
+import Logo from 'public/rainbow-min.png';
 import styles from './order-confirmation.module.scss';
 import clsx from 'clsx';
 import Link from 'next/link';
