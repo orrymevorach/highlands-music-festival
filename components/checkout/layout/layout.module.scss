@@ -1,0 +1,34 @@
+@import '@variables';
+
+.highlands {
+  margin-bottom: 50px;
+}
+.layoutContainer {
+  display: flex;
+  background-color: white;
+}
+
+.left {
+  width: 66%;
+  padding: 100px 30px 100px 100px;
+  min-height: 100vh;
+}
+.right {
+  width: 33.3%;
+  min-height: 100vh;
+}
+
+@media screen and (max-width: $mobile) {
+  .layoutContainer {
+    flex-direction: column;
+  }
+  .left,
+  .right {
+    width: 100%;
+    min-height: auto;
+    padding: 0;
+  }
+  .left {
+    padding: 80px 25px;
+  }
+}

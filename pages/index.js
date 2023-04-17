@@ -1,7 +1,7 @@
 import Home from 'components/home';
 import Head from 'components/head';
 import { EmailCaptureProvider } from 'context/email-capture-context';
-import { getFeatureFlags, getPageLoadData } from 'graphql/contentful-lib';
+import { getFeatureFlags, getPageLoadData } from 'lib/contentful-lib';
 import { FEATURE_FLAGS, PAGE_SLUGS } from 'utils/constants';
 
 export default function Index({ headlinerFeatureFlag = false }) {

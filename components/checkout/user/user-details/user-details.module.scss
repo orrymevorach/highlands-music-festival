@@ -1,0 +1,12 @@
+@import '@variables';
+
+.userDetails {
+  border: 1px solid rgba($black, 0.2);
+  border-radius: 5px;
+  padding: 20px;
+  font-family: 'Neue Haas Light';
+  margin-bottom: 50px;
+  .left {
+    margin-right: 10px;
+  }
+}

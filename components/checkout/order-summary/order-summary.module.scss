@@ -1,0 +1,54 @@
+@import '@variables';
+
+.orderSummary {
+  background-color: #fafafa;
+  padding: 100px 30px;
+  position: sticky;
+  width: 100%;
+  top: 0;
+  min-height: 100vh;
+}
+
+.title {
+  font-family: 'Neue Haas Medium';
+  font-size: 18px;
+}
+
+.row {
+  display: flex;
+  justify-content: space-between;
+  margin: 10px 0;
+}
+
+.border {
+  border-bottom: 1px solid rgba(black, 0.2);
+  margin: 30px 0;
+}
+
+.bold {
+  font-size: 18px;
+  font-family: 'Neue Haas Medium';
+  margin-bottom: 30px;
+}
+
+.asterisk {
+  font-size: 14px;
+  margin-top: 40px;
+}
+
+.discount {
+  font-family: 'Neue Haas Medium';
+  color: $darkGreen;
+  margin: 15px 0;
+}
+
+.promoSubtext {
+  font-size: 14px;
+  margin-top: -13px;
+}
+
+@media screen and (max-width: $mobile) {
+  .orderSummary {
+    padding: 50px 20px;
+  }
+}

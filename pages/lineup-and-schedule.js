@@ -3,7 +3,7 @@ import Schedule from 'components/schedule';
 import Lineup from 'components/lineup';
 import Layout from 'components/layout';
 import { EmailCaptureProvider } from 'context/email-capture-context';
-import { getFeatureFlags, getPageLoadData } from 'graphql/contentful-lib';
+import { getFeatureFlags, getPageLoadData } from 'lib/contentful-lib';
 import { FEATURE_FLAGS, PAGE_SLUGS } from 'utils/constants';
 
 export default function LineupAndSchedule({ headlinerFeatureFlag = false }) {

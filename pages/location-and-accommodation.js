@@ -2,7 +2,7 @@ import LocationAndAccommodation from 'components/location-and-accommodation';
 import Head from 'components/head';
 import { EmailCaptureProvider } from 'context/email-capture-context';
 import { PAGE_SLUGS } from 'utils/constants';
-import { getPageLoadData } from 'graphql/contentful-lib';
+import { getPageLoadData } from 'lib/contentful-lib';
 
 export default function LocationAndAccommodationPage() {
   return (

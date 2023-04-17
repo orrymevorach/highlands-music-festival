@@ -1,0 +1,12 @@
+@import '@variables';
+
+.takeover {
+  p {
+    font-family: 'Neue Haas Medium';
+  }
+  a {
+    color: $darkGreen;
+    text-decoration: underline;
+    display: inline-block;
+  }
+}

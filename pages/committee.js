@@ -1,8 +1,8 @@
 import Committee from 'components/committee';
 import Head from 'components/head';
 import { EmailCaptureProvider } from 'context/email-capture-context';
-import { getCommitteeMembers } from 'graphql/contentful-lib';
-import { getPageLoadData } from 'graphql/contentful-lib';
+import { getCommitteeMembers } from 'lib/contentful-lib';
+import { getPageLoadData } from 'lib/contentful-lib';
 import { PAGE_SLUGS } from 'utils/constants';
 
 export default function CommitteePage({ committeeMembers }) {

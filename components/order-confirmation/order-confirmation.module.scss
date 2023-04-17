@@ -1,0 +1,51 @@
+@import '@variables';
+
+.orderConfirmationContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  position: relative;
+}
+
+.logo {
+  width: 200px;
+  object-fit: contain;
+  height: auto;
+  margin-bottom: 50px;
+}
+
+.checkMark {
+  color: $darkGreen;
+  background-color: $beige;
+  border-radius: 50%;
+}
+
+.orderConfirmed {
+  font-size: 50px;
+  font-family: 'Neue Haas Medium';
+  color: $darkGreen;
+  margin: 30px 50px;
+}
+
+.bodyCopy {
+  font-size: 30px;
+  font-family: 'Neue Haas Regular';
+  color: $darkGreen;
+  margin-bottom: 20px;
+  &Small {
+    font-size: 20px;
+  }
+}
+
+.backLink {
+  position: absolute;
+  top: 50px;
+  left: 50px;
+  color: $darkGreen;
+  font-family: 'Neue Haas Regular';
+  span {
+    margin-left: 10px;
+  }
+}
