@@ -19,6 +19,13 @@ export default async function handler(req, res) {
         subscriptionStartDate,
         numberOfSubscriptionIterations,
       } = priceData;
+      console.log('Creating subscription plan...');
+
+      if (!subscriptionId) {
+        console.log('No subscription ID, no subscription created...');
+        res.send(200);
+        return;
+      }
 
       const schedule = await stripe.subscriptionSchedules.create({
         customer: customerId,
@@ -36,6 +43,7 @@ export default async function handler(req, res) {
           },
         ],
       });
+      console.log('Subscription plan created successfuly...');
       res.send(200);
     } catch (err) {
       res.status(err.statusCode || 500).json(err.message);

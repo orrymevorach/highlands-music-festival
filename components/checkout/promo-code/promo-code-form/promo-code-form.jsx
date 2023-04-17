@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import styles from './promo-code-form.module.scss';
 import { useCheckoutContext } from 'context/checkout-context';
 import Input from '@mui/joy/Input';
-import { applyPromoCode } from 'lib/stripe-lib';
+import { applyChampionsPromoCode, applyPromoCode } from 'lib/stripe-lib';
 import { calculatePricing } from 'components/checkout/checkout-utils';
 import {
   ErrorMessage,
@@ -16,9 +16,31 @@ export default function PromoCodeForm() {
   const { actions, dispatch, customer, priceData, quantity, paymentIntent } =
     useCheckoutContext();
 
-  const handleSubmit = async e => {
-    e.preventDefault();
-    setIsLoading(true);
+  const handleChampionsPromo = async () => {
+    const {
+      promoCodeData,
+      paymentIntent: updatedPaymentIntent,
+      error,
+    } = await applyChampionsPromoCode({
+      promoCode,
+      customer,
+      paymentIntent,
+    });
+    if (error) {
+      setIsLoading(false);
+      setErrorMessage(error.message);
+    } else {
+      setErrorMessage('');
+      setIsLoading(false);
+      dispatch({
+        type: actions.APPLY_CHAMPIONS_PROMO,
+        promoCode: promoCodeData.code,
+        pricing: updatedPaymentIntent.metadata,
+      });
+    }
+  };
+
+  const handlePromo = async () => {
     const {
       promoCodeData,
       paymentIntent: updatedPaymentIntent,
@@ -47,6 +69,16 @@ export default function PromoCodeForm() {
         pricing,
       });
     }
+  };
+
+  const handleSubmit = async e => {
+    e.preventDefault();
+    setIsLoading(true);
+    if (promoCode.includes('CHAMPION')) {
+      await handleChampionsPromo();
+      return;
+    }
+    await handlePromo();
   };
 
   const handleSetPromoCode = e => {

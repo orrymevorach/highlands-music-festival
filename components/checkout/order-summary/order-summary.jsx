@@ -45,38 +45,40 @@ export default function OrderSummary() {
           ''
         )}
         {promoCode && (
-          <>
-            <LineItem
-              label={`${promoCode} Promotion`}
-              price={`-${promoAmount}`}
-              className={styles.discount}
-            />
-            <p className={styles.promoSubtext}>(Applied to first instalment)</p>
-          </>
+          <LineItem
+            label={`${promoCode} Promotion`}
+            price={promoAmount ? `-${promoAmount}` : ''}
+            className={styles.discount}
+          />
         )}
         <Border />
         <LineItem label="Subtotal" price={subtotal} />
         <LineItem label="HST (13%)" price={tax} />
         <Border />
         <LineItem label="Total" price={total} isBold />
-        <LineItem
-          label="Due Today"
-          price={firstInstalmentTotalAfterTax}
-          isBold
-        />
-        {numberOfSubscriptionIterationsAsArray.map((_, index) => {
-          const month = getMonth({ subscriptionStartDate, iteration: index });
-          return (
-            <LineItem
-              key={month}
-              label={`Due ${month} 1*`}
-              price={subscriptionInstallmentAmount}
-            />
-          );
-        })}
-        <p className={styles.asterisk}>
-          *Future payments will automatically be charged to your credit card
-        </p>
+        {subscriptionInstallmentAmount && (
+          <LineItem
+            label="Due Today"
+            price={firstInstalmentTotalAfterTax}
+            isBold
+          />
+        )}
+        {subscriptionInstallmentAmount &&
+          numberOfSubscriptionIterationsAsArray.map((_, index) => {
+            const month = getMonth({ subscriptionStartDate, iteration: index });
+            return (
+              <LineItem
+                key={month}
+                label={`Due ${month} 1*`}
+                price={subscriptionInstallmentAmount}
+              />
+            );
+          })}
+        {subscriptionInstallmentAmount && (
+          <p className={styles.asterisk}>
+            *Future payments will automatically be charged to your credit card
+          </p>
+        )}
       </div>
     </div>
   );

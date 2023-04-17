@@ -14,12 +14,14 @@ const actions = {
   SET_PAYMENT_INTENT: 'SET_PAYMENT_INTENT',
   CANCEL_PAYMENT_INTENT: 'CANCEL_PAYMENT_INTENT',
   APPLY_PROMO_CODE: 'APPLY_PROMO_CODE',
+  APPLY_CHAMPIONS_PROMO: 'APPLY_CHAMPIONS_PROMO',
 };
 const {
   SET_QUANTITY,
   SET_PAYMENT_INTENT,
   CANCEL_PAYMENT_INTENT,
   APPLY_PROMO_CODE,
+  APPLY_CHAMPIONS_PROMO,
 } = actions;
 
 const reducer = (state, action) => {
@@ -47,6 +49,23 @@ const reducer = (state, action) => {
         ...state,
         promoCode: action.promoCode,
         pricing: action.pricing,
+      };
+    case APPLY_CHAMPIONS_PROMO:
+      return {
+        ...state,
+        promoCode: action.promoCode,
+        quantity: 1,
+        pricing: {
+          ...action.pricing,
+          promoAmount: null,
+          discountAmountPerUnit: '',
+          discountName: '',
+          discountTotal: '',
+          subscriptionId: '',
+          subscriptionStartDate: '',
+          subscriptionInstallmentAmount: '',
+          numberOfSubscriptionIterations: 0,
+        },
       };
     default:
       return state;

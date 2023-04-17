@@ -13,8 +13,8 @@ export const GET_FEATURE_FLAG = gql`
 `;
 
 export const GET_PRICE_MODEL = gql`
-  query GetPriceModel {
-    priceModelCollection {
+  query GetPriceModel($audience: String) {
+    priceModelCollection(where: { audience: $audience }) {
       items {
         subscriptionId
         firstInstalmentPerUnitBeforeTax
