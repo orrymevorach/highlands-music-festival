@@ -27,7 +27,7 @@ export default function Lineup({ headlinerFeatureFlag = false }) {
               styles.lineupHeading
             )}
           >
-            Stay tuned for 2024 lineup announcements
+            Stay tuned for 2023 lineup announcements
           </h2>
         )}
         <PastLineupDropdown

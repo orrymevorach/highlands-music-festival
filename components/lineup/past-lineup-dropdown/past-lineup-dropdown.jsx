@@ -17,7 +17,7 @@ export default function PastLineupDropdown({ year, setYear, classNames = '' }) {
         label="Age"
         onChange={e => setYear(e.target.value)}
       >
-        <MenuItem value={2023}>2023</MenuItem>
+        <MenuItem value={2022}>2022</MenuItem>
         <MenuItem value={''}>Reset</MenuItem>
       </Select>
     </FormControl>
