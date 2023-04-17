@@ -20,7 +20,11 @@ export default async function handler(req, res) {
         });
         return;
       }
-      if (selectedPromoCode.customer !== customer.id) {
+
+      if (
+        selectedPromoCode.customer &&
+        selectedPromoCode.customer !== customer.id
+      ) {
         res.status(401).json({
           error: {
             status: 401,
