@@ -1,18 +1,16 @@
 import Image from 'next/image';
-import Logo from 'public/Logo-1200px-No-Bkgd-min.png';
+import Rainbow from 'public/rainbow.png';
 import styles from './404.module.scss';
 
 export default function PageNotFound() {
   return (
     <div className={styles.pageNotFoundContainer}>
       <Image
-        src={Logo}
+        src={Rainbow}
         alt="Highlands Music Festival logo"
-        // className={styles.aboutLogo}
+        className={styles.logo}
         priority
         quality={10}
-        width={500}
-        height={130}
       />
       <h2 className={styles.title}>404: Page Not Found</h2>
       <p className={styles.text}>

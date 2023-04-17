@@ -15,7 +15,7 @@ export default function CheckoutPage({ priceModel }) {
   );
 }
 
-export async function getServerSideProps() {
+export async function getStaticProps() {
   const priceModel = await getPriceModel({
     audience: PRICE_MODEL_AUDIENCES.SITE_WIDE,
   });
