@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-export $(cat .env)
+export $(cat .env.local)
 
 
 contentful login --managementToken $CONTENTFUL_MANAGEMENT_TOKEN
