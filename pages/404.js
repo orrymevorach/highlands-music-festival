@@ -1,5 +1,5 @@
 import Image from 'next/image';
-import Rainbow from 'public/rainbow.png';
+import Rainbow from 'public/rainbow-min.png';
 import styles from './404.module.scss';
 
 export default function PageNotFound() {
