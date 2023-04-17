@@ -29,3 +29,8 @@ export const PAGE_SLUGS = {
   CHECKOUT: '/checkout',
   ORDER_CONFIRMATION: '/order-confirmation',
 };
+
+export const PRICE_MODEL_AUDIENCES = {
+  SITE_WIDE: 'SITE_WIDE',
+  CHAMPIONS: 'CHAMPIONS',
+};
