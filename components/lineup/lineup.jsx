@@ -7,7 +7,10 @@ import Artists from './artists';
 import Headliners from './headliners';
 import Announcement from './announcement';
 
-export default function Lineup({ headlinerFeatureFlag = false }) {
+export default function Lineup({
+  headlinerFeatureFlag = false,
+  headliners = [],
+}) {
   const [year, setYear] = useState('');
   const lineupRef = useRef();
   useEffect(() => {
@@ -17,7 +20,7 @@ export default function Lineup({ headlinerFeatureFlag = false }) {
   }, [year, lineupRef]);
   return (
     <>
-      {headlinerFeatureFlag && <Announcement />}
+      {headlinerFeatureFlag && <Announcement headliners={headliners} />}
       <div className={styles.container}>
         {!headlinerFeatureFlag && (
           <h2

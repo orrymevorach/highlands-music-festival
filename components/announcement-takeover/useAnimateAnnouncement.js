@@ -18,7 +18,7 @@ export default function useAnimationAnnouncement() {
     } else {
       setTimeout(() => {
         closeAnnouncement();
-      }, 6500);
+      }, 7500);
     }
   }, []);
 

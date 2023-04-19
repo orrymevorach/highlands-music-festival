@@ -2,7 +2,10 @@ import styles from './announcement-takeover.module.scss';
 import { CloseButton } from 'components/icons/icons';
 import clsx from 'clsx';
 
-export default function AnnouncementTakeover({ closeAnnouncement = () => {} }) {
+export default function AnnouncementTakeover({
+  closeAnnouncement = () => {},
+  headliners,
+}) {
   return (
     <div className={styles.announcement}>
       <div
@@ -10,10 +13,34 @@ export default function AnnouncementTakeover({ closeAnnouncement = () => {} }) {
       >
         <CloseButton dark handleClick={closeAnnouncement} />
         <p className={styles.lineOne}>Announcing:</p>
-        <p className={styles.artist}>
-          <span>WiILD</span>
-          <span>RIVERS</span>
-        </p>
+        {/* These animation only work for headliners with 2 words. animation-delay changes must be done manually in scss file  */}
+        {headliners.map((headliner, index) => {
+          const words = headliner.split(' ');
+          const isLastHeadliner = headliners.length === index + 1;
+          return (
+            <>
+              <p
+                key={headliner}
+                className={clsx(styles.artist, styles[`artist${index + 1}`])}
+              >
+                {words.map(word => (
+                  <span>{word}</span>
+                ))}
+              </p>
+              {!isLastHeadliner && (
+                <p
+                  key={headliner}
+                  className={clsx(
+                    styles.artist,
+                    styles[`artistAnd${index + 1}`]
+                  )}
+                >
+                  <span>&</span>
+                </p>
+              )}
+            </>
+          );
+        })}
       </div>
     </div>
   );

@@ -3,16 +3,26 @@ import Schedule from 'components/schedule';
 import Lineup from 'components/lineup';
 import Layout from 'components/layout';
 import { EmailCaptureProvider } from 'context/email-capture-context';
-import { getFeatureFlags, getPageLoadData } from 'lib/contentful-lib';
+import {
+  getFeatureFlags,
+  getHeadliners,
+  getPageLoadData,
+} from 'lib/contentful-lib';
 import { FEATURE_FLAGS, PAGE_SLUGS } from 'utils/constants';
 
-export default function LineupAndSchedule({ headlinerFeatureFlag = false }) {
+export default function LineupAndSchedule({
+  headlinerFeatureFlag = false,
+  headliners = [],
+}) {
   return (
     <EmailCaptureProvider>
       <Head />
       <Layout>
         <main>
-          <Lineup headlinerFeatureFlag={headlinerFeatureFlag} />
+          <Lineup
+            headlinerFeatureFlag={headlinerFeatureFlag}
+            headliners={headliners}
+          />
           <Schedule />
         </main>
       </Layout>
@@ -21,17 +31,21 @@ export default function LineupAndSchedule({ headlinerFeatureFlag = false }) {
 }
 
 export async function getStaticProps() {
+  const headlinersResponse = await getHeadliners();
+  const headliners = headlinersResponse.map(({ name }) => name);
+
   const pageLoadData = await getPageLoadData({
     url: PAGE_SLUGS.LINEUP_AND_SCHEDULE,
   });
 
   const featureFlags = await getFeatureFlags({
-    name: FEATURE_FLAGS.WILD_RIVERS_ANNOUNCEMENT,
+    name: FEATURE_FLAGS.HEADLINER_ANNOUNCEMENT,
   });
   const headlinerFeatureFlag = featureFlags[0].value;
 
   return {
     props: {
+      headliners,
       headlinerFeatureFlag,
       ...pageLoadData,
     },

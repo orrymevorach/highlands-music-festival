@@ -1,9 +1,23 @@
 import styles from './announcement.module.scss';
-export default function Announcement() {
+import clsx from 'clsx';
+
+export default function Announcement({ headliners }) {
   return (
     <div className={styles.announcementContainer}>
       <p className={styles.justAnnounced}>Just annonuced:</p>
-      <p className={styles.headliner}>Wild Rivers</p>
+      <div className={styles.headlinersContainer}>
+        {headliners.map((headliner, index) => {
+          const isLastHeadliner = headliners.length === index + 1;
+          return (
+            <>
+              <p className={styles.headliner}>{headliner}</p>
+              {!isLastHeadliner && (
+                <p className={clsx(styles.headliner, styles.and)}>&</p>
+              )}
+            </>
+          );
+        })}
+      </div>
     </div>
   );
 }
