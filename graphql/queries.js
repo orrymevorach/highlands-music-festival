@@ -74,3 +74,17 @@ export const GET_IS_PAGE_PUBLISHED = gql`
     }
   }
 `;
+
+export const GET_HEADLINERS = gql`
+  query GetHeadliners {
+    lineupCollection(where: { title: "2023_LINEUP" }) {
+      items {
+        headlinersCollection {
+          items {
+            name
+          }
+        }
+      }
+    }
+  }
+`;

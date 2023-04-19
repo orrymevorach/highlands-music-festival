@@ -12,7 +12,7 @@
 .headliner {
   font-family: $fontPrimary;
   color: $darkYellow;
-  font-size: 50px;
+  font-size: 40px;
 }
 
 .justAnnounced {
@@ -20,4 +20,13 @@
   font-size: 25px;
   text-transform: uppercase;
   letter-spacing: 1px;
+}
+
+.headlinersContainer {
+  display: flex;
+  justify-content: center;
+}
+
+.and {
+  margin: 0 30px;
 }

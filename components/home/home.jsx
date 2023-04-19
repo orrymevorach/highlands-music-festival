@@ -34,13 +34,19 @@ const Video = () => {
   );
 };
 
-export default function Home({ headlinerFeatureFlag = false }) {
+export default function Home({
+  headlinerFeatureFlag = false,
+  headliners = [],
+}) {
   const { isMobile } = useWindowSize();
   const { showAnnouncement, closeAnnouncement } = useAnimateAnnouncement();
   return (
     <>
       {showAnnouncement && headlinerFeatureFlag ? (
-        <AnnouncementTakeover closeAnnouncement={closeAnnouncement} />
+        <AnnouncementTakeover
+          closeAnnouncement={closeAnnouncement}
+          headliners={headliners}
+        />
       ) : (
         <div className={styles.homePageContainer}>
           <Layout hasPaddingBottom={false} hamburgerMenuColor={colors.beige}>

@@ -15,7 +15,7 @@ export const cookies = {
 };
 
 export const FEATURE_FLAGS = {
-  WILD_RIVERS_ANNOUNCEMENT: 'Wild Rivers Announcement',
+  HEADLINER_ANNOUNCEMENT: 'HEADLINER_ANNOUNCEMENT',
 };
 
 export const PAGE_SLUGS = {
