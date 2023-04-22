@@ -24,23 +24,14 @@ export default function App({ Component, pageProps }) {
         id="google-analytics"
         strategy="afterInteractive"
         dangerouslySetInnerHTML={{
-          __html: `window.dataLayer = window.dataLayer || [];
-          
-          function gtag(){
-            if(${process.env.NODE_ENV === 'development'}) {
-              console.log('true, is development, quitting');
-              return;
-            }
-            console.log('is production, gtag doing stuff')
-            dataLayer.push(arguments);
-          }
-          gtag('js', new Date());
-          gtag('config', '${
-            process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS_MEASUREMENT_ID
-          }', {
-            page_path: window.location.pathname,
-          });
-          ;`,
+          __html: `
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', '${process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS_MEASUREMENT_ID}', {
+              page_path: window.location.pathname,
+            });
+          `,
         }}
       />
 
