@@ -4,10 +4,13 @@ import { config } from '@fortawesome/fontawesome-svg-core';
 import PageNotFound from './404';
 import { NavProvider } from 'context/nav-context';
 import Script from 'next/script';
+import { useGoogleAnalytics } from 'lib/google-analytics-lib';
+
 config.autoAddCss = false;
 
 export default function App({ Component, pageProps }) {
   const { isPagePublished, navData } = pageProps;
+  useGoogleAnalytics();
   if (!isPagePublished) return <PageNotFound />;
 
   return (
