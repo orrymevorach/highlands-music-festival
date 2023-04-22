@@ -2,6 +2,7 @@ import Head from 'next/head';
 import { imgPath } from 'utils/constants';
 
 export default function Meta({ title = '' }) {
+  const tabTitle = `Highlands Music Festival ${title ? `| ${title}` : ''}`;
   return (
     <Head>
       <meta charSet="utf-8" />
@@ -9,7 +10,7 @@ export default function Meta({ title = '' }) {
         name="description"
         content="Highlands Music Festival is a music festival taking place at Camp Walden in Palmer Rapids, Ontario, between Thursday, September 28th - Sunday, October 1st, 2023"
       />
-      <title>Highlands Music Festival {title ? `| ${title}` : ''}</title>
+      <title>{tabTitle}</title>
       <link rel="icon" href={`${imgPath}/favicon.png`} />
       <meta
         name="keywords"

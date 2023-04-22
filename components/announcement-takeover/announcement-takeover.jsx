@@ -24,7 +24,7 @@ export default function AnnouncementTakeover({
                 className={clsx(styles.artist, styles[`artist${index + 1}`])}
               >
                 {words.map(word => (
-                  <span>{word}</span>
+                  <span key={word}>{word}</span>
                 ))}
               </p>
               {!isLastHeadliner && (
