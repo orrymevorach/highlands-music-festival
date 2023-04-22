@@ -26,9 +26,16 @@ export default function App({ Component, pageProps }) {
         dangerouslySetInnerHTML={{
           __html: `
             window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
+            function gtag(){
+              if(${process.env.NODE_ENV === 'development'}) {
+                return;
+              }
+              dataLayer.push(arguments);
+            }
             gtag('js', new Date());
-            gtag('config', '${process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS_MEASUREMENT_ID}', {
+            gtag('config', '${
+              process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS_MEASUREMENT_ID
+            }', {
               page_path: window.location.pathname,
             });
           `,
