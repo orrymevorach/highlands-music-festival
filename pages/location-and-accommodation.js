@@ -7,7 +7,7 @@ import { getPageLoadData } from 'lib/contentful-lib';
 export default function LocationAndAccommodationPage() {
   return (
     <EmailCaptureProvider>
-      <Head />
+      <Head title="Location & Accommodation" />
       <LocationAndAccommodation />
     </EmailCaptureProvider>
   );

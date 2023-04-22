@@ -16,7 +16,7 @@ export default function LineupAndSchedule({
 }) {
   return (
     <EmailCaptureProvider>
-      <Head />
+      <Head title="Lineup & Schedule" />
       <Layout>
         <main>
           <Lineup

@@ -9,7 +9,8 @@
     "lint": "next lint",
     "deployPreview": "git branch -d preview-environment && git push -d origin preview-environment && git checkout -b preview-environment && git push --set-upstream origin preview-environment",
     "deployStaging": "git branch -d staging && git push -d origin staging && git checkout -b staging && git push --set-upstream origin staging",
-    "createContentfulEnvironment": "sh ./prebuild.sh"
+    "createContentfulEnvironment": "sh ./prebuild.sh",
+    "postbuild": "next-sitemap"
   },
   "dependencies": {
     "@apollo/client": "^3.7.11",
@@ -21,8 +22,8 @@
     "@fortawesome/free-regular-svg-icons": "^6.1.1",
     "@fortawesome/free-solid-svg-icons": "^6.1.1",
     "@fortawesome/react-fontawesome": "^0.1.18",
-    "@mui/joy": "^5.0.0-alpha.74",
     "@mui/base": "^5.0.0-alpha.125",
+    "@mui/joy": "^5.0.0-alpha.74",
     "@mui/material": "^5.12.0",
     "@next/font": "13.2.4",
     "@react-google-maps/api": "^2.18.1",
@@ -34,6 +35,7 @@
     "eslint-config-next": "13.2.4",
     "js-cookie": "^3.0.1",
     "next": "^13.2.4",
+    "next-sitemap": "^4.0.7",
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "react-helmet": "^6.1.0",

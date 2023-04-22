@@ -7,7 +7,7 @@ import { PAGE_SLUGS } from 'utils/constants';
 export default function AboutPage() {
   return (
     <EmailCaptureProvider>
-      <Head />
+      <Head title="Activities" />
       <Activities />
     </EmailCaptureProvider>
   );

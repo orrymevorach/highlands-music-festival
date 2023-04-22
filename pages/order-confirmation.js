@@ -1,9 +1,15 @@
 import OrderConfirmation from 'components/order-confirmation';
 import { getPageLoadData } from 'lib/contentful-lib';
 import { PAGE_SLUGS } from 'utils/constants';
+import Head from 'components/head';
 
 export default function CommitteePage({ customer, orderDetails }) {
-  return <OrderConfirmation customer={customer} orderDetails={orderDetails} />;
+  return (
+    <>
+      <Head title="Order Confirmed!" />
+      <OrderConfirmation customer={customer} orderDetails={orderDetails} />
+    </>
+  );
 }
 
 export const getServerSideProps = async context => {

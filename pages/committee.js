@@ -8,7 +8,7 @@ import { PAGE_SLUGS } from 'utils/constants';
 export default function CommitteePage({ committeeMembers }) {
   return (
     <EmailCaptureProvider>
-      <Head />
+      <Head title="Committee" />
       <Committee committeeMembers={committeeMembers} />
     </EmailCaptureProvider>
   );

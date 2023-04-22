@@ -7,7 +7,7 @@ import { PAGE_SLUGS } from 'utils/constants';
 const FAQPage = () => {
   return (
     <EmailCaptureProvider>
-      <Head />
+      <Head title="FAQ" />
       <Faq />
     </EmailCaptureProvider>
   );

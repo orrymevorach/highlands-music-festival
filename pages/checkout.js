@@ -4,10 +4,12 @@ import Layout from 'components/checkout/layout';
 import Container from 'components/checkout/container';
 import { getPriceModel, getPageLoadData } from 'lib/contentful-lib';
 import { PAGE_SLUGS, PRICE_MODEL_AUDIENCES } from 'utils/constants';
+import Head from 'components/head';
 
 export default function CheckoutPage({ priceModel }) {
   return (
     <CheckoutProvider priceModel={priceModel}>
+      <Head title="Buy Tickets" />
       <Layout>
         <Container />
       </Layout>

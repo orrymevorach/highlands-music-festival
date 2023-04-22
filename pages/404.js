@@ -1,10 +1,12 @@
 import Image from 'next/image';
 import Rainbow from 'public/rainbow-min.png';
 import styles from './404.module.scss';
+import Head from 'components/head';
 
 export default function PageNotFound() {
   return (
     <div className={styles.pageNotFoundContainer}>
+      <Head />
       <Image
         src={Rainbow}
         alt="Highlands Music Festival logo"

@@ -1,0 +1,9 @@
+# *
+User-agent: *
+Allow: /
+
+# Host
+Host: https://highlandsmusicfestival.ca
+
+# Sitemaps
+Sitemap: https://highlandsmusicfestival.ca/sitemap.xml
