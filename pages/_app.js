@@ -27,7 +27,7 @@ export default function App({ Component, pageProps }) {
           __html: `
             window.dataLayer = window.dataLayer || [];
             function gtag(){
-              if(${process.env.NODE_ENV === 'development'}) {
+              if(${process.env.NODE_ENV !== 'production'}) {
                 return;
               }
               dataLayer.push(arguments);
