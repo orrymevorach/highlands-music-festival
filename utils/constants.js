@@ -28,9 +28,10 @@ export const PAGE_SLUGS = {
   FAQ: '/faq',
   CHECKOUT: '/checkout',
   ORDER_CONFIRMATION: '/order-confirmation',
+  BUY_TICKETS: '/buy-tickets',
 };
 
-export const PRICE_MODEL_AUDIENCES = {
+export const PRICE_MODEL_IDS = {
   SITE_WIDE: 'SITE_WIDE',
   CHAMPIONS: 'CHAMPIONS',
 };

@@ -1,5 +1,8 @@
 import { useReducer } from 'react';
-import { useCancelPaymentIntent } from 'components/checkout/hooks';
+import {
+  useCancelPaymentIntent,
+  usetSetPriceModelBasedOnRoute,
+} from 'components/checkout/hooks';
 
 const initialState = {
   quantity: null,
@@ -9,7 +12,8 @@ const initialState = {
   promoCode: '',
 };
 
-const actions = {
+export const actions = {
+  SET_SINGLE_PAYMENT: 'SET_SINGLE_PAYMENT',
   SET_QUANTITY: 'SET_QUANTITY',
   SET_PAYMENT_INTENT: 'SET_PAYMENT_INTENT',
   CANCEL_PAYMENT_INTENT: 'CANCEL_PAYMENT_INTENT',
@@ -22,10 +26,22 @@ const {
   CANCEL_PAYMENT_INTENT,
   APPLY_PROMO_CODE,
   APPLY_CHAMPIONS_PROMO,
+  SET_SINGLE_PAYMENT,
 } = actions;
 
 const reducer = (state, action) => {
   switch (action.type) {
+    case SET_SINGLE_PAYMENT:
+      return {
+        ...state,
+        pricing: {
+          ...state.pricing,
+          subscriptionId: '',
+          subscriptionStartDate: '',
+          subscriptionInstallmentAmount: '',
+          numberOfSubscriptionIterations: 0,
+        },
+      };
     case SET_QUANTITY:
       return {
         ...state,
@@ -37,7 +53,6 @@ const reducer = (state, action) => {
         ...state,
         paymentIntent: action.paymentIntent,
         customer: action.customer,
-        pricing: action.pricing,
       };
     case CANCEL_PAYMENT_INTENT:
       return {
@@ -76,6 +91,7 @@ export default function useCheckout({ priceModel }) {
   const [state, dispatch] = useReducer(reducer, initialState);
   const { quantity, customer, paymentIntent, pricing, promoCode } = state;
 
+  usetSetPriceModelBasedOnRoute({ dispatch });
   useCancelPaymentIntent({ paymentIntent, dispatch, actions });
   return {
     dispatch,

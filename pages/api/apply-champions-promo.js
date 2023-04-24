@@ -1,5 +1,5 @@
 import { getPriceModel } from 'lib/contentful-lib';
-import { PRICE_MODEL_AUDIENCES } from 'utils/constants';
+import { PRICE_MODEL_IDS } from 'utils/constants';
 
 const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY);
 
@@ -34,7 +34,7 @@ export default async function handler(req, res) {
       }
 
       const championsPriceModel = await getPriceModel({
-        audience: PRICE_MODEL_AUDIENCES.CHAMPIONS,
+        priceModelId: PRICE_MODEL_IDS.CHAMPIONS,
       });
 
       const amount = Math.round(

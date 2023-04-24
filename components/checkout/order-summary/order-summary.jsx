@@ -56,14 +56,15 @@ export default function OrderSummary() {
         <LineItem label="HST (13%)" price={tax} />
         <Border />
         <LineItem label="Total" price={total} isBold />
-        {subscriptionInstallmentAmount && (
+        {quantity && subscriptionInstallmentAmount && (
           <LineItem
             label="Due Today"
             price={firstInstalmentTotalAfterTax}
             isBold
           />
         )}
-        {subscriptionInstallmentAmount &&
+        {quantity &&
+          subscriptionInstallmentAmount &&
           numberOfSubscriptionIterationsAsArray.map((_, index) => {
             const month = getMonth({ subscriptionStartDate, iteration: index });
             return (
@@ -74,7 +75,7 @@ export default function OrderSummary() {
               />
             );
           })}
-        {subscriptionInstallmentAmount && (
+        {quantity && subscriptionInstallmentAmount && (
           <p className={styles.asterisk}>
             *Future payments will automatically be charged to your credit card
           </p>

@@ -3,9 +3,8 @@ import { useState } from 'react';
 import Input from '@mui/joy/Input';
 import { useCheckoutContext } from 'context/checkout-context';
 import { getStripeCustomer, createPaymentIntent } from 'lib/stripe-lib';
-import { calculatePricing } from 'components/checkout/checkout-utils';
 import Loader from 'components/loader';
-import { SubmitButton } from 'components/checkout/checkout-shared-components';
+import Button from 'components/shared/button';
 
 export default function UserForm() {
   const { quantity, priceData, dispatch, actions } = useCheckoutContext();
@@ -22,20 +21,22 @@ export default function UserForm() {
       email: email,
     };
     const customer = await getStripeCustomer({ user });
+    const hasSubscription = !!priceData.subscriptionInstallmentAmount;
+    const amount = hasSubscription
+      ? priceData.subscriptionInstallmentAmount
+      : priceData.total;
+    const metadata = {
+      ...priceData,
+      quantity,
+    };
     const paymentIntent = await createPaymentIntent({
       customer,
-      quantity,
-      priceData,
-    });
-    const pricing = calculatePricing({
-      ticketPrice: paymentIntent.amount / 100 / 1.13,
-      priceData,
-      quantity,
+      amount,
+      metadata,
     });
     dispatch({
       type: actions.SET_PAYMENT_INTENT,
       customer,
-      pricing,
       paymentIntent,
     });
     setIsLoading(false);
@@ -75,7 +76,7 @@ export default function UserForm() {
         required
       />
 
-      <SubmitButton>Submit</SubmitButton>
+      <Button>Submit</Button>
     </form>
   );
 }

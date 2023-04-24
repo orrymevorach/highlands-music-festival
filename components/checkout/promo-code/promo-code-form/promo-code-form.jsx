@@ -4,10 +4,8 @@ import { useCheckoutContext } from 'context/checkout-context';
 import Input from '@mui/joy/Input';
 import { applyChampionsPromoCode, applyPromoCode } from 'lib/stripe-lib';
 import { calculatePricing } from 'components/checkout/checkout-utils';
-import {
-  ErrorMessage,
-  SubmitButton,
-} from 'components/checkout/checkout-shared-components';
+import { ErrorMessage } from 'components/checkout/checkout-shared-components';
+import Button from 'components/shared/button';
 
 export default function PromoCodeForm() {
   const [promoCode, setPromoCode] = useState('');
@@ -58,8 +56,8 @@ export default function PromoCodeForm() {
       const pricing = calculatePricing({
         priceData,
         quantity,
-        promoAmount: promoCodeData.coupon.amount_off,
-        firstInstalmentTotalAfterTax: updatedPaymentIntent.amount / 100,
+        promoAmount: promoCodeData.coupon.amount_off / 100, // CONVERT CENTS TO DOLLARS
+        promoPaymentIntent: updatedPaymentIntent,
       });
       setErrorMessage('');
       setIsLoading(false);
@@ -96,7 +94,7 @@ export default function PromoCodeForm() {
         placeholder="Voucher Code (optional)"
         fullWidth
       />
-      <SubmitButton isLoading={isLoading}>Apply Voucher</SubmitButton>
+      <Button isLoading={isLoading}>Apply Voucher</Button>
     </form>
   );
 }

@@ -18,35 +18,30 @@ export const getMonth = ({ subscriptionStartDate, iteration = 0 }) => {
   return mapIndexToMonth[parseInt(monthIndex) + iteration];
 };
 
-const calculateInstallments = ({ total, firstInstalmentTotalAfterTax }) => {
-  if (!firstInstalmentTotalAfterTax) return total / 4;
-  return (total - firstInstalmentTotalAfterTax) / 3;
-};
-
-const getTicketPrice = ({ priceData, ticketPrice, quantity }) => {
-  if (!ticketPrice) return priceData.ticketPrice;
-  return Math.round(
-    ticketPrice * 4 + priceData.discountAmountPerUnit * quantity
-  );
+const getFirstInstallment = ({ priceData, promoPaymentIntent }) => {
+  if (promoPaymentIntent) return promoPaymentIntent.amount / 100; // the calculation for the first instalment happens in apply-promo-code
+  return priceData.firstInstalmentTotalAfterTax;
 };
 
 export function calculatePricing({
-  ticketPrice,
   priceData,
   quantity,
   promoAmount = 0,
-  firstInstalmentTotalAfterTax,
+  promoPaymentIntent,
 }) {
-  ticketPrice = getTicketPrice({ priceData, ticketPrice, quantity });
-  promoAmount = promoAmount / 100; // CONVERT FROM CENTS TO DOLLARS
+  const ticketPrice = Math.round(
+    priceData.firstInstalmentPerUnitBeforeTax * 4 * quantity
+  );
   const subtotal =
     ticketPrice - promoAmount - priceData.discountAmountPerUnit * quantity;
   const tax = subtotal * 0.13;
   const total = subtotal + tax;
   const discountTotal = priceData.discountAmountPerUnit * quantity;
-  const subscriptionInstallmentAmount = calculateInstallments({
-    total,
-    firstInstalmentTotalAfterTax,
+
+  // Only changes if there is a promo
+  const firstInstalmentTotalAfterTax = getFirstInstallment({
+    priceData,
+    promoPaymentIntent,
   });
 
   return {
@@ -56,9 +51,7 @@ export function calculatePricing({
     tax,
     total,
     discountTotal,
-    subscriptionInstallmentAmount,
     promoAmount,
-    firstInstalmentTotalAfterTax:
-      firstInstalmentTotalAfterTax || subscriptionInstallmentAmount,
+    firstInstalmentTotalAfterTax,
   };
 }

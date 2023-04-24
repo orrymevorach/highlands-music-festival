@@ -2,8 +2,9 @@ import React from 'react';
 import { CheckoutProvider } from 'context/checkout-context';
 import Layout from 'components/checkout/layout';
 import Container from 'components/checkout/container';
-import { getPriceModel, getPageLoadData } from 'lib/contentful-lib';
-import { PAGE_SLUGS, PRICE_MODEL_AUDIENCES } from 'utils/constants';
+import { getPageLoadData } from 'lib/contentful-lib';
+import { getPriceModel } from 'lib/stripe-lib';
+import { PAGE_SLUGS } from 'utils/constants';
 import Head from 'components/head';
 
 export default function CheckoutPage({ priceModel }) {
@@ -18,12 +19,11 @@ export default function CheckoutPage({ priceModel }) {
 }
 
 export async function getStaticProps() {
-  const priceModel = await getPriceModel({
-    audience: PRICE_MODEL_AUDIENCES.SITE_WIDE,
-  });
   const pageLoadData = await getPageLoadData({
     url: PAGE_SLUGS.CHECKOUT,
   });
+  const { priceModel } = await getPriceModel();
+
   return {
     props: {
       priceModel,

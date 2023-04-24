@@ -6,10 +6,8 @@ import {
 } from '@stripe/react-stripe-js';
 import { useCheckoutContext } from 'context/checkout-context';
 import { createSubscription } from 'lib/stripe-lib';
-import {
-  ErrorMessage,
-  SubmitButton,
-} from 'components/checkout/checkout-shared-components';
+import { ErrorMessage } from 'components/checkout/checkout-shared-components';
+import Button from 'components/shared/button';
 
 export default function CheckoutForm() {
   const [isLoading, setIsLoading] = useState(false);
@@ -57,9 +55,9 @@ export default function CheckoutForm() {
     <form onSubmit={handleSubmit}>
       {errorMessage && <ErrorMessage message={errorMessage} />}
       <PaymentElement clientSecret={paymentIntent.client_secret} />
-      <SubmitButton isDisabled={!stripe} isLoading={isLoading}>
+      <Button isDisabled={!stripe} isLoading={isLoading}>
         Pay Now
-      </SubmitButton>
+      </Button>
     </form>
   );
 }
