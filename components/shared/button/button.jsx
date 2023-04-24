@@ -2,6 +2,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSpinner } from '@fortawesome/free-solid-svg-icons';
 import styles from './button.module.scss';
 import Link from 'next/link';
+import clsx from 'clsx';
 
 const ButtonContents = ({ isLoading, children }) => {
   return (
@@ -21,10 +22,11 @@ export default function Button({
   isDisabled = false,
   href = null,
   handleClick = null,
+  classNames = '',
 }) {
   if (href) {
     return (
-      <Link href={href} className={styles.button}>
+      <Link href={href} className={clsx(styles.button, classNames)}>
         {children}
       </Link>
     );
@@ -32,7 +34,7 @@ export default function Button({
   if (handleClick) {
     return (
       <button
-        className={styles.button}
+        className={clsx(styles.button, classNames)}
         disabled={isDisabled}
         onClick={handleClick}
       >
@@ -41,7 +43,11 @@ export default function Button({
     );
   }
   return (
-    <button className={styles.button} type="submit" disabled={isDisabled}>
+    <button
+      className={clsx(styles.button, classNames)}
+      type="submit"
+      disabled={isDisabled}
+    >
       <ButtonContents isLoading={isLoading}>{children}</ButtonContents>
     </button>
   );

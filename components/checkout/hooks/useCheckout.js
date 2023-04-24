@@ -39,7 +39,8 @@ const reducer = (state, action) => {
           subscriptionId: '',
           subscriptionStartDate: '',
           subscriptionInstallmentAmount: '',
-          numberOfSubscriptionIterations: 0,
+          numberOfSubscriptionIterations: '',
+          firstInstalmentTotalAfterTax: '',
         },
       };
     case SET_QUANTITY:

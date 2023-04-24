@@ -18,9 +18,19 @@ export const getMonth = ({ subscriptionStartDate, iteration = 0 }) => {
   return mapIndexToMonth[parseInt(monthIndex) + iteration];
 };
 
-const getFirstInstallment = ({ priceData, promoPaymentIntent }) => {
-  if (promoPaymentIntent) return promoPaymentIntent.amount / 100; // the calculation for the first instalment happens in apply-promo-code
-  return priceData.firstInstalmentTotalAfterTax;
+const getInstallmentData = ({ priceData, promoPaymentIntent, quantity }) => {
+  if (promoPaymentIntent)
+    return {
+      // the calculation for the first instalment happens in apply-promo-code
+      firstInstalmentTotalAfterTax: promoPaymentIntent.amount / 100,
+    };
+
+  return {
+    firstInstalmentTotalAfterTax:
+      priceData.firstInstalmentTotalAfterTax * quantity, // This field only applies to subscription flow, it is empty if on single payment flow
+    subscriptionInstallmentAmount:
+      priceData.firstInstalmentTotalAfterTax * quantity,
+  };
 };
 
 export function calculatePricing({
@@ -39,9 +49,10 @@ export function calculatePricing({
   const discountTotal = priceData.discountAmountPerUnit * quantity;
 
   // Only changes if there is a promo
-  const firstInstalmentTotalAfterTax = getFirstInstallment({
+  const installmentData = getInstallmentData({
     priceData,
     promoPaymentIntent,
+    quantity,
   });
 
   return {
@@ -52,6 +63,6 @@ export function calculatePricing({
     total,
     discountTotal,
     promoAmount,
-    firstInstalmentTotalAfterTax,
+    ...installmentData,
   };
 }

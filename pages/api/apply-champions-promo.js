@@ -47,7 +47,7 @@ export default async function handler(req, res) {
         ...metadata,
         promoCode: selectedPromoCode.code,
         promoAmount: null,
-        firstInstalmentTotalAfterTax: amount / 100,
+        firstInstalmentTotalAfterTax: '',
         discountAmountPerUnit: '',
         discountName: '',
         discountTotal: '',
