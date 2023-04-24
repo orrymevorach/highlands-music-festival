@@ -3,7 +3,7 @@ const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY);
 export default async function handler(req, res) {
   if (req.method === 'POST') {
     try {
-      const { promoCode, customer, paymentIntent } = req.body;
+      const { promoCode, customer, paymentIntent, quantity } = req.body;
 
       const promotionCodes = await stripe.promotionCodes.list({
         limit: 3,
@@ -36,12 +36,14 @@ export default async function handler(req, res) {
 
       const { amount: originalAmount, metadata } = paymentIntent;
       const amount = Math.round(
-        (originalAmount / 1.13 - selectedPromoCode.coupon.amount_off) * 1.13
+        (originalAmount / 1.13 -
+          selectedPromoCode.coupon.amount_off * quantity) *
+          1.13
       );
       const updatedMetadata = {
         ...metadata,
         promoCode: selectedPromoCode.code,
-        promoAmount: selectedPromoCode.coupon.amount_off / 100,
+        promoAmount: (selectedPromoCode.coupon.amount_off / 100) * quantity,
         firstInstalmentTotalAfterTax: amount / 100,
       };
 

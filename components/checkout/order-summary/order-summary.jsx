@@ -46,7 +46,7 @@ export default function OrderSummary() {
         )}
         {promoCode && (
           <LineItem
-            label={`${promoCode} Promotion`}
+            label={`${promoCode} Promotion x ${quantity}`}
             price={promoAmount ? `-${promoAmount}` : ''}
             className={styles.discount}
           />

@@ -47,6 +47,7 @@ export default function PromoCodeForm() {
       promoCode,
       customer,
       paymentIntent,
+      quantity,
     });
 
     if (error) {
@@ -56,7 +57,7 @@ export default function PromoCodeForm() {
       const pricing = calculatePricing({
         priceData,
         quantity,
-        promoAmount: promoCodeData.coupon.amount_off / 100, // CONVERT CENTS TO DOLLARS
+        promoAmount: (promoCodeData.coupon.amount_off / 100) * quantity, // CONVERT CENTS TO DOLLARS
         promoPaymentIntent: updatedPaymentIntent,
       });
       setErrorMessage('');
