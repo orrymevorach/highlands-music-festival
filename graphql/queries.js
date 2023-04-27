@@ -17,7 +17,7 @@ export const GET_PRICE_MODEL = gql`
     priceModelCollection(where: { priceModelId: $priceModelId }) {
       items {
         subscriptionId
-        firstInstalmentPerUnitBeforeTax
+        ticketPrice
         subscriptionStartDate
         numberOfSubscriptionIterations
         discountName

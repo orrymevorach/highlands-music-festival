@@ -37,9 +37,7 @@ export default async function handler(req, res) {
         priceModelId: PRICE_MODEL_IDS.CHAMPIONS,
       });
 
-      const amount = Math.round(
-        championsPriceModel?.firstInstalmentPerUnitBeforeTax * 100 * 1.13
-      );
+      const amount = Math.round(championsPriceModel?.ticketPrice * 100 * 1.13);
 
       const { metadata } = paymentIntent;
 
@@ -54,11 +52,11 @@ export default async function handler(req, res) {
         subscriptionId: '',
         subscriptionStartDate: '',
         subscriptionInstallmentAmount: '',
-        subtotal: championsPriceModel?.firstInstalmentPerUnitBeforeTax,
-        tax: championsPriceModel?.firstInstalmentPerUnitBeforeTax * 0.13,
+        subtotal: championsPriceModel?.ticketPrice,
+        tax: championsPriceModel?.ticketPrice * 0.13,
         total: amount / 100,
         numberOfSubscriptionIterations: 0,
-        ticketPrice: championsPriceModel?.firstInstalmentPerUnitBeforeTax,
+        ticketPrice: championsPriceModel?.ticketPrice,
         quantity: 1,
       };
 
