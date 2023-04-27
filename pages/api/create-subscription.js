@@ -6,13 +6,14 @@ export const convertDateToTimestamp = startDate => {
   date.setFullYear(year);
   date.setMonth(month - 1);
   date.setDate(day);
+  date.setHours(12, 0, 0, 0);
   return date;
 };
 
 export default async function handler(req, res) {
   if (req.method === 'POST') {
     try {
-      const { customerId, quantity, priceData } = req.body;
+      const { customerId, quantity, priceData, paymentMethodId } = req.body;
 
       const {
         subscriptionId,
@@ -30,7 +31,11 @@ export default async function handler(req, res) {
       const schedule = await stripe.subscriptionSchedules.create({
         customer: customerId,
         start_date: convertDateToTimestamp(subscriptionStartDate),
-        end_behavior: 'release',
+        end_behavior: 'cancel',
+        default_settings: {
+          collection_method: 'charge_automatically',
+          default_payment_method: paymentMethodId,
+        },
         phases: [
           {
             items: [
@@ -39,7 +44,7 @@ export default async function handler(req, res) {
                 quantity: parseInt(quantity),
               },
             ],
-            iterations: numberOfSubscriptionIterations,
+            iterations: parseFloat(numberOfSubscriptionIterations),
           },
         ],
       });

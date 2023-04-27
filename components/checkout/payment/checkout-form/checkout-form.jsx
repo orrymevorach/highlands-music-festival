@@ -38,11 +38,12 @@ export default function CheckoutForm() {
       return;
     }
 
-    // Create subscription, $100 monthyl payments starting on May 1
+    // Create subscription
     const subscriptionResponse = await createSubscription({
-      paymentIntent,
       priceData,
       quantity,
+      customerId: paymentIntent.customer,
+      paymentMethodId: paymentResult.payment_method,
     });
 
     if (paymentResult.status === 'succeeded' && subscriptionResponse === 200) {
