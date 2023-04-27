@@ -22,7 +22,7 @@ const getInstallmentsProps = ({
     installments: 'true',
   },
   details: [
-    `4 payments of $${Math.round(
+    `${numberOfSubscriptionIterations + 1} payments of $${Math.round(
       subscriptionInstallmentAmount / 1.13
     )}, spread across ${numberOfSubscriptionIterations} months`,
     'No interest charge for future payments',
