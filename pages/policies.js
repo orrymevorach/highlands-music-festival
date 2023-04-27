@@ -1,28 +1,31 @@
 import Head from 'components/head';
+import Layout from 'components/layout/layout';
+import Policies from 'components/policies/policies';
 import { EmailCaptureProvider } from 'context/email-capture-context';
+import { getCommitteeMembers } from 'lib/contentful-lib';
 import { getPageLoadData } from 'lib/contentful-lib';
 import { PAGE_SLUGS } from 'utils/constants';
-import BuyTickets from 'components/buy-tickets';
-import { getPriceModel } from 'lib/stripe-lib';
 
-export default function BuyTicketsPage({ priceModel }) {
+export default function CommitteePage({ committeeMembers }) {
   return (
     <EmailCaptureProvider>
-      <Head />
-      <BuyTickets priceModel={priceModel} />
+      <Head title="Policies" />
+      <Layout>
+        <Policies />
+      </Layout>
     </EmailCaptureProvider>
   );
 }
 
 export async function getStaticProps() {
+  const committeeMembers = await getCommitteeMembers();
   const pageLoadData = await getPageLoadData({
-    url: PAGE_SLUGS.BUY_TICKETS,
+    url: PAGE_SLUGS.COMMITTEE,
   });
-  const { priceModel } = await getPriceModel();
   return {
     props: {
+      committeeMembers,
       ...pageLoadData,
-      priceModel,
     },
   };
 }

@@ -26,6 +26,7 @@ export default function OrderSummary() {
   const numberOfSubscriptionIterationsAsArray = Array.from(
     Array(numberOfSubscriptionIterations)
   );
+
   return (
     <div className={clsx(styles.orderSummary, styles.bodyCopy)}>
       <div>
@@ -55,12 +56,13 @@ export default function OrderSummary() {
         <LineItem label="Subtotal" price={subtotal} />
         <LineItem label="HST (13%)" price={tax} />
         <Border />
-        <LineItem label="Total" price={total} isBold />
+        <LineItem label="Total" price={total} isBold shouldAddCanadianDollars />
         {quantity && !!subscriptionInstallmentAmount && (
           <LineItem
             label="Due Today"
             price={firstInstalmentTotalAfterTax}
             isBold
+            shouldAddCanadianDollars
           />
         )}
         {quantity &&
@@ -72,6 +74,7 @@ export default function OrderSummary() {
                 key={month}
                 label={`Due ${month} 1*`}
                 price={subscriptionInstallmentAmount}
+                shouldAddCanadianDollars
               />
             );
           })}

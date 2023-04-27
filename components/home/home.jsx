@@ -5,6 +5,19 @@ import { useWindowSize } from 'hooks';
 import AnnouncementTakeover from 'components/announcement-takeover';
 import useAnimateAnnouncement from 'components/announcement-takeover/useAnimateAnnouncement';
 
+// const lat = 45.2049779;
+//   const long = -77.4446768;
+//   const heading = 245;
+//   const apiKey = process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY;
+// <iframe
+//                 width="800"
+//                 height="450"
+//                 // style="border:0"
+//                 loading="lazy"
+//                 allowfullscreen
+//                 referrerpolicy="no-referrer-when-downgrade"
+//                 src={`https://www.google.com/maps/embed/v1/streetview?key=${apiKey}&location=${lat},${long}&heading=${heading}`}
+//               ></iframe>
 const TopRow = () => (
   <div className={styles.topRow}>
     <div>

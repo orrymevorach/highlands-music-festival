@@ -1,0 +1,31 @@
+@import '@variables';
+
+.policies {
+  width: 800px;
+  display: block;
+  margin: 0 auto;
+  h1 {
+    margin-bottom: 30px;
+  }
+  h2 {
+    margin-bottom: 10px;
+  }
+  h1,
+  h2 {
+    color: $darkGreen;
+    font-family: $fontSecondaryBold;
+  }
+
+  p {
+    font-family: $fontSecondaryLight;
+    margin-bottom: 30px;
+  }
+}
+
+@media screen and (max-width: $mobile) {
+  .policies {
+    margin-top: 40px;
+    width: 100%;
+    padding: 0 20px;
+  }
+}

@@ -35,7 +35,7 @@ const getInstallmentData = ({ priceData, promoPaymentIntent, quantity }) => {
 
 export function calculatePricing({
   priceData,
-  quantity,
+  quantity = 1,
   promoAmount = 0,
   promoPaymentIntent,
 }) {

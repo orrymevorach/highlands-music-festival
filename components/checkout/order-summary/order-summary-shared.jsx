@@ -12,11 +12,25 @@ export const formatPrice = number => {
   }).format(number);
 };
 
-export const LineItem = ({ label, price, isBold, className }) => {
+const addCanadianDollars = price => `${price} CAD`;
+
+export const LineItem = ({
+  label,
+  price,
+  isBold,
+  className,
+  shouldAddCanadianDollars,
+}) => {
+  if (price) {
+    price = formatPrice(price);
+  }
+  if (price && shouldAddCanadianDollars) {
+    price = addCanadianDollars(price);
+  }
   return (
     <div className={clsx(styles.row, isBold && styles.bold, className)}>
       <p>{label}:</p>
-      <p>{price ? formatPrice(price) : '--'}</p>
+      <p>{price || '--'}</p>
     </div>
   );
 };

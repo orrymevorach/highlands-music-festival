@@ -6,14 +6,19 @@ import { getPageLoadData } from 'lib/contentful-lib';
 import { getPriceModel } from 'lib/stripe-lib';
 import { PAGE_SLUGS } from 'utils/constants';
 import Head from 'components/head';
+import Legal from 'components/checkout/legal';
+import { useWindowSize } from 'hooks';
 
 export default function CheckoutPage({ priceModel }) {
+  const { isMobile } = useWindowSize();
   return (
     <CheckoutProvider priceModel={priceModel}>
       <Head title="Buy Tickets" />
       <Layout>
         <Container />
+        {!isMobile && <Legal />}
       </Layout>
+      {isMobile && <Legal />}
     </CheckoutProvider>
   );
 }

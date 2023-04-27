@@ -50,5 +50,6 @@
 @media screen and (max-width: $mobile) {
   .orderSummary {
     padding: 50px 20px;
+    min-height: auto;
   }
 }

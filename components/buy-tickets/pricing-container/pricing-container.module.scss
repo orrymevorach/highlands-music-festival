@@ -1,0 +1,57 @@
+@import '@variables';
+
+.pricingContainer {
+  width: 500px;
+  font-family: $fontSecondary;
+  margin: 0 20px;
+  border: 1px solid $darkGreen;
+  padding: 20px 30px 30px;
+  border-radius: 3px;
+}
+
+.detailsContainer {
+  color: $darkGreen;
+}
+
+.button {
+  display: block;
+  margin: 0 auto;
+  text-align: center;
+  font-size: 18px;
+}
+
+.checkMark {
+  margin-right: 8px;
+}
+
+.price {
+  text-align: center;
+  color: $darkGreen;
+  font-size: 30px;
+  font-family: $fontSecondaryBold;
+  &.discount {
+    text-decoration: line-through;
+    margin-top: 20px;
+    color: red;
+    font-family: $fontSecondary;
+    font-size: 26px;
+  }
+  &.regularPrice {
+    margin: 30px 0;
+  }
+}
+
+.discountName {
+  text-align: center;
+  color: $darkGreen;
+  font-size: 16px;
+  font-family: $fontSecondaryBold;
+  margin-bottom: 40px;
+}
+
+@media screen and (max-width: $mobile) {
+  .pricingContainer {
+    margin-top: 50px;
+    width: 100%;
+  }
+}
