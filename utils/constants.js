@@ -29,6 +29,7 @@ export const PAGE_SLUGS = {
   CHECKOUT: '/checkout',
   ORDER_CONFIRMATION: '/order-confirmation',
   BUY_TICKETS: '/buy-tickets',
+  POLICIES: '/policies',
 };
 
 export const PRICE_MODEL_IDS = {

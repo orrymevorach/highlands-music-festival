@@ -20,7 +20,7 @@ export default function CommitteePage({ committeeMembers }) {
 export async function getStaticProps() {
   const committeeMembers = await getCommitteeMembers();
   const pageLoadData = await getPageLoadData({
-    url: PAGE_SLUGS.COMMITTEE,
+    url: PAGE_SLUGS.POLICIES,
   });
   return {
     props: {
