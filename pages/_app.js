@@ -5,13 +5,23 @@ import PageNotFound from './404';
 import { NavProvider } from 'context/nav-context';
 import Script from 'next/script';
 import { useGoogleAnalytics } from 'lib/google-analytics-lib';
+import PasswordProtectionTakeover from 'components/password-protection-takeover/password-protection-takeover';
+import { useState } from 'react';
 
 config.autoAddCss = false;
 
 export default function App({ Component, pageProps }) {
-  const { isPagePublished, navData } = pageProps;
+  const { isPagePublished, navData, isPasswordProtected } = pageProps;
+  const [showPasswordProtectionTakeover, setShowPasswordProtectionTakeover] =
+    useState(true);
   useGoogleAnalytics();
   if (!isPagePublished) return <PageNotFound />;
+  if (isPasswordProtected && showPasswordProtectionTakeover)
+    return (
+      <PasswordProtectionTakeover
+        setShowPasswordProtectionTakeover={setShowPasswordProtectionTakeover}
+      />
+    );
 
   return (
     <>

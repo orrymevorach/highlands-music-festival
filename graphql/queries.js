@@ -70,6 +70,7 @@ export const GET_IS_PAGE_PUBLISHED = gql`
     pageCollection(where: { url: $url }) {
       items {
         label
+        isPasswordProtected
       }
     }
   }
