@@ -8,11 +8,13 @@ import { useCheckoutContext } from 'context/checkout-context';
 import { createSubscription } from 'lib/stripe-lib';
 import { ErrorMessage } from 'components/checkout/checkout-shared-components';
 import Button from 'components/shared/button';
+import { useForm } from '@formspree/react';
 
 export default function CheckoutForm() {
   const [isLoading, setIsLoading] = useState(false);
   const [errorMessage, setErrorMessage] = useState(null);
   const { priceData, quantity, paymentIntent } = useCheckoutContext();
+  const [_, triggerConfirmationEmail] = useForm('mbjeqeep');
 
   const stripe = useStripe();
   const elements = useElements();
@@ -47,6 +49,7 @@ export default function CheckoutForm() {
     });
 
     if (paymentResult.status === 'succeeded' && subscriptionResponse === 200) {
+      triggerConfirmationEmail(event);
       setIsLoading(false);
       window.location = `/order-confirmation?payment_intent=${paymentResult.id}`;
     }
@@ -54,6 +57,13 @@ export default function CheckoutForm() {
 
   return (
     <form onSubmit={handleSubmit}>
+      <input
+        type="email"
+        name="email"
+        style={{ display: 'none' }}
+        value={paymentIntent.receipt_email}
+        readOnly
+      />
       {errorMessage && <ErrorMessage message={errorMessage} />}
       <PaymentElement clientSecret={paymentIntent.client_secret} />
       <Button isDisabled={!stripe} isLoading={isLoading}>
