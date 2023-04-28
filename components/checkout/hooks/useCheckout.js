@@ -49,8 +49,8 @@ const reducer = (state, action) => {
           subscriptionInstallmentAmount: '',
           numberOfSubscriptionIterations: '',
           firstInstalmentTotalAfterTax: '',
-          paymentIntent: 'single',
         },
+        paymentType: 'single',
       };
     case SET_QUANTITY:
       return {
@@ -99,7 +99,8 @@ const reducer = (state, action) => {
 
 export default function useCheckout({ priceModel }) {
   const [state, dispatch] = useReducer(reducer, initialState);
-  const { quantity, customer, paymentIntent, pricing, promoCode } = state;
+  const { quantity, customer, paymentIntent, pricing, promoCode, paymentType } =
+    state;
 
   usetSetPriceModelBasedOnRoute({ dispatch });
   useCancelPaymentIntent({ paymentIntent, dispatch, actions });
@@ -114,5 +115,6 @@ export default function useCheckout({ priceModel }) {
       ...pricing,
     },
     promoCode,
+    paymentType,
   };
 }
