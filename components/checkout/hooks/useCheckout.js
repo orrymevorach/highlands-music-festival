@@ -10,10 +10,12 @@ const initialState = {
   paymentIntent: null,
   pricing: null,
   promoCode: '',
+  paymentType: null,
 };
 
 export const actions = {
   SET_SINGLE_PAYMENT: 'SET_SINGLE_PAYMENT',
+  SET_SUBSCRIPTION_PAYMENT: 'SET_SUBSCRIPTION_PAYMENT',
   SET_QUANTITY: 'SET_QUANTITY',
   SET_PAYMENT_INTENT: 'SET_PAYMENT_INTENT',
   CANCEL_PAYMENT_INTENT: 'CANCEL_PAYMENT_INTENT',
@@ -27,10 +29,16 @@ const {
   APPLY_PROMO_CODE,
   APPLY_CHAMPIONS_PROMO,
   SET_SINGLE_PAYMENT,
+  SET_SUBSCRIPTION_PAYMENT,
 } = actions;
 
 const reducer = (state, action) => {
   switch (action.type) {
+    case SET_SUBSCRIPTION_PAYMENT:
+      return {
+        ...state,
+        paymentType: 'subscription',
+      };
     case SET_SINGLE_PAYMENT:
       return {
         ...state,
@@ -41,6 +49,7 @@ const reducer = (state, action) => {
           subscriptionInstallmentAmount: '',
           numberOfSubscriptionIterations: '',
           firstInstalmentTotalAfterTax: '',
+          paymentIntent: 'single',
         },
       };
     case SET_QUANTITY:

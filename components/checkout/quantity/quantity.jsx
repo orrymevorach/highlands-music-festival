@@ -1,6 +1,6 @@
 import styles from './quantity.module.scss';
 import { InputLabel, MenuItem, Select } from '@mui/material';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useCheckoutContext } from 'context/checkout-context';
 import { calculatePricing } from '../checkout-utils';
 import Loader from 'components/loader';
@@ -11,6 +11,18 @@ export default function Quantity() {
   const { priceData, dispatch, actions } = useCheckoutContext();
   const [isLoading, setIsLoading] = useState(false);
 
+  // This is temporary until we add quantity back
+  useEffect(() => {
+    const pricing = calculatePricing({
+      quantity: 1,
+      priceData,
+    });
+    dispatch({
+      type: actions.SET_QUANTITY,
+      quantity: 1,
+      pricing,
+    });
+  }, []);
   function handleSubmit(e) {
     e.preventDefault();
     setIsLoading(true);
@@ -29,6 +41,7 @@ export default function Quantity() {
   }
 
   if (isLoading) return <Loader centerInContainer />;
+  return; // This is temporary until we add quantity back
 
   return (
     <form onSubmit={e => handleSubmit(e)}>

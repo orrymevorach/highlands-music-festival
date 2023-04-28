@@ -21,6 +21,7 @@ export default function OrderSummary() {
       firstInstalmentTotalAfterTax,
     },
     promoCode,
+    paymentType,
   } = useCheckoutContext();
 
   const numberOfSubscriptionIterationsAsArray = Array.from(
@@ -57,7 +58,7 @@ export default function OrderSummary() {
         <LineItem label="HST (13%)" price={tax} />
         <Border />
         <LineItem label="Total" price={total} isBold shouldAddCanadianDollars />
-        {quantity && !!subscriptionInstallmentAmount && (
+        {paymentType && !!subscriptionInstallmentAmount && (
           <LineItem
             label="Due Today"
             price={firstInstalmentTotalAfterTax}
@@ -65,7 +66,7 @@ export default function OrderSummary() {
             shouldAddCanadianDollars
           />
         )}
-        {quantity &&
+        {paymentType &&
           !!subscriptionInstallmentAmount &&
           numberOfSubscriptionIterationsAsArray.map((_, index) => {
             const month = getMonth({ subscriptionStartDate, iteration: index });
@@ -78,7 +79,7 @@ export default function OrderSummary() {
               />
             );
           })}
-        {quantity && !!subscriptionInstallmentAmount && (
+        {paymentType && !!subscriptionInstallmentAmount && (
           <p className={styles.asterisk}>
             *Future payments will automatically be charged to your credit card
           </p>

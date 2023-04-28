@@ -5,7 +5,7 @@ export default function UserDetails() {
   const { customer } = useCheckoutContext();
   return (
     <div className={styles.userDetails}>
-      <p className={styles.contactInformation}>Contact Information:</p>
+      <p className={styles.contactInformation}>Guest Information:</p>
       <p className={styles.name}>
         <span className={styles.left}>Name:</span>
         <span className={styles.right}>{customer.name}</span>

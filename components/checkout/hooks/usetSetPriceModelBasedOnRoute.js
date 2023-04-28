@@ -7,6 +7,8 @@ export default function usetSetPriceModelBasedOnRoute({ dispatch }) {
   useEffect(() => {
     if (query.installments && query.installments === 'false') {
       dispatch({ type: actions.SET_SINGLE_PAYMENT });
+    } else {
+      dispatch({ type: actions.SET_SUBSCRIPTION_PAYMENT });
     }
   }, [query.installments]);
 }

@@ -46,7 +46,7 @@ export default function UserForm() {
 
   return (
     <form onSubmit={e => handleSubmit(e)}>
-      <p className={styles.contactInformation}>Contact Information</p>
+      <p className={styles.contactInformation}>Guest Information</p>
       <div className={styles.nameContainer}>
         <Input
           type="text"
