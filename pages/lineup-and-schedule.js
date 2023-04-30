@@ -2,7 +2,7 @@ import Head from 'components/head';
 import Schedule from 'components/schedule';
 import Lineup from 'components/lineup';
 import Layout from 'components/layout';
-import { EmailCaptureProvider } from 'context/email-capture-context';
+import { useEmailCaptureContext } from 'context/email-capture-context';
 import {
   getFeatureFlags,
   getHeadliners,
@@ -13,9 +13,12 @@ import { FEATURE_FLAGS, PAGE_SLUGS } from 'utils/constants';
 export default function LineupAndSchedule({
   headlinerFeatureFlag = false,
   headliners = [],
+  showEmailCapture,
 }) {
+  const { setShowEmailCapture } = useEmailCaptureContext();
+  setShowEmailCapture(showEmailCapture);
   return (
-    <EmailCaptureProvider>
+    <>
       <Head title="Lineup & Schedule" />
       <Layout>
         <main>
@@ -26,7 +29,7 @@ export default function LineupAndSchedule({
           <Schedule />
         </main>
       </Layout>
-    </EmailCaptureProvider>
+    </>
   );
 }
 

@@ -2,8 +2,6 @@
 
 .highlands {
   margin-bottom: 50px;
-  width: 100%;
-  height: auto;
 }
 .layoutContainer {
   display: flex;
@@ -23,6 +21,10 @@
 }
 
 @media screen and (max-width: $mobile) {
+  .highlands {
+    width: 100%;
+    height: auto;
+  }
   .layoutContainer {
     flex-direction: column;
   }

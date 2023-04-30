@@ -1,15 +1,17 @@
 import Activities from 'components/activities';
 import Head from 'components/head';
-import { EmailCaptureProvider } from 'context/email-capture-context';
+import { useEmailCaptureContext } from 'context/email-capture-context';
 import { getPageLoadData } from 'lib/contentful-lib';
 import { PAGE_SLUGS } from 'utils/constants';
 
-export default function AboutPage() {
+export default function AboutPage({ showEmailCapture }) {
+  const { setShowEmailCapture } = useEmailCaptureContext();
+  setShowEmailCapture(showEmailCapture);
   return (
-    <EmailCaptureProvider>
+    <>
       <Head title="Activities" />
       <Activities />
-    </EmailCaptureProvider>
+    </>
   );
 }
 export async function getStaticProps() {

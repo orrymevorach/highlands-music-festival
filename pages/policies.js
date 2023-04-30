@@ -1,30 +1,29 @@
 import Head from 'components/head';
 import Layout from 'components/layout/layout';
 import Policies from 'components/policies/policies';
-import { EmailCaptureProvider } from 'context/email-capture-context';
-import { getCommitteeMembers } from 'lib/contentful-lib';
+import { useEmailCaptureContext } from 'context/email-capture-context';
 import { getPageLoadData } from 'lib/contentful-lib';
 import { PAGE_SLUGS } from 'utils/constants';
 
-export default function CommitteePage({ committeeMembers }) {
+export default function Policies({ showEmailCapture }) {
+  const { setShowEmailCapture } = useEmailCaptureContext();
+  setShowEmailCapture(showEmailCapture);
   return (
-    <EmailCaptureProvider>
+    <>
       <Head title="Policies" />
       <Layout>
         <Policies />
       </Layout>
-    </EmailCaptureProvider>
+    </>
   );
 }
 
 export async function getStaticProps() {
-  const committeeMembers = await getCommitteeMembers();
   const pageLoadData = await getPageLoadData({
     url: PAGE_SLUGS.POLICIES,
   });
   return {
     props: {
-      committeeMembers,
       ...pageLoadData,
     },
   };

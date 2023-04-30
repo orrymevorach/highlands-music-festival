@@ -1,16 +1,18 @@
 import Committee from 'components/committee';
 import Head from 'components/head';
-import { EmailCaptureProvider } from 'context/email-capture-context';
+import { useEmailCaptureContext } from 'context/email-capture-context';
 import { getCommitteeMembers } from 'lib/contentful-lib';
 import { getPageLoadData } from 'lib/contentful-lib';
 import { PAGE_SLUGS } from 'utils/constants';
 
-export default function CommitteePage({ committeeMembers }) {
+export default function CommitteePage({ committeeMembers, showEmailCapture }) {
+  const { setShowEmailCapture } = useEmailCaptureContext();
+  setShowEmailCapture(showEmailCapture);
   return (
-    <EmailCaptureProvider>
+    <>
       <Head title="Committee" />
       <Committee committeeMembers={committeeMembers} />
-    </EmailCaptureProvider>
+    </>
   );
 }
 

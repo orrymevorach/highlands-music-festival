@@ -7,6 +7,7 @@ import Script from 'next/script';
 import { useGoogleAnalytics } from 'lib/google-analytics-lib';
 import PasswordProtectionTakeover from 'components/password-protection-takeover/password-protection-takeover';
 import { useState } from 'react';
+import { EmailCaptureProvider } from 'context/email-capture-context';
 
 config.autoAddCss = false;
 
@@ -24,7 +25,7 @@ export default function App({ Component, pageProps }) {
     );
 
   return (
-    <>
+    <EmailCaptureProvider>
       <Script
         async
         src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS_MEASUREMENT_ID}`}
@@ -55,6 +56,6 @@ export default function App({ Component, pageProps }) {
       <NavProvider navData={navData}>
         <Component {...pageProps} />
       </NavProvider>
-    </>
+    </EmailCaptureProvider>
   );
 }

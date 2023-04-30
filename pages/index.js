@@ -1,6 +1,6 @@
 import Home from 'components/home';
 import Head from 'components/head';
-import { EmailCaptureProvider } from 'context/email-capture-context';
+import { useEmailCaptureContext } from 'context/email-capture-context';
 import {
   getFeatureFlags,
   getHeadliners,
@@ -8,15 +8,21 @@ import {
 } from 'lib/contentful-lib';
 import { FEATURE_FLAGS, PAGE_SLUGS } from 'utils/constants';
 
-export default function Index({ headlinerFeatureFlag = false, headliners }) {
+export default function Index({
+  headlinerFeatureFlag = false,
+  headliners,
+  showEmailCapture,
+}) {
+  const { setShowEmailCapture } = useEmailCaptureContext();
+  setShowEmailCapture(showEmailCapture);
   return (
-    <EmailCaptureProvider>
+    <>
       <Head />
       <Home
         headlinerFeatureFlag={headlinerFeatureFlag}
         headliners={headliners}
       />
-    </EmailCaptureProvider>
+    </>
   );
 }
 

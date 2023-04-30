@@ -16,6 +16,7 @@ export const cookies = {
 
 export const FEATURE_FLAGS = {
   HEADLINER_ANNOUNCEMENT: 'HEADLINER_ANNOUNCEMENT',
+  SHOW_EMAIL_CAPTURE: 'SHOW_EMAIL_CAPTURE',
 };
 
 export const PAGE_SLUGS = {

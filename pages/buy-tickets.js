@@ -1,16 +1,18 @@
 import Head from 'components/head';
-import { EmailCaptureProvider } from 'context/email-capture-context';
+import { useEmailCaptureContext } from 'context/email-capture-context';
 import { getPageLoadData } from 'lib/contentful-lib';
 import { PAGE_SLUGS } from 'utils/constants';
 import BuyTickets from 'components/buy-tickets';
 import { getPriceModel } from 'lib/stripe-lib';
 
-export default function BuyTicketsPage({ priceModel }) {
+export default function BuyTicketsPage({ priceModel, showEmailCapture }) {
+  const { setShowEmailCapture } = useEmailCaptureContext();
+  setShowEmailCapture(showEmailCapture);
   return (
-    <EmailCaptureProvider>
+    <>
       <Head />
       <BuyTickets priceModel={priceModel} />
-    </EmailCaptureProvider>
+    </>
   );
 }
 

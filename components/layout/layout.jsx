@@ -9,17 +9,17 @@ export default function Layout({
   hasPaddingBottom = true,
   hamburgerMenuColor = 'black',
 }) {
-  const { hasSubmittedForm } = useEmailCaptureContext();
+  const { hasSubmittedForm, showEmailCapture } = useEmailCaptureContext();
   return (
     <div
       className={clsx(
         hasPaddingBottom ? styles.layout : '',
-        hasSubmittedForm ? '' : styles.layoutMarginTop
+        hasSubmittedForm || !showEmailCapture ? '' : styles.layoutMarginTop
       )}
     >
       <Nav hamburgerMenuColor={hamburgerMenuColor} />
       {children}
-      <EmailCaptureHeader />
+      {showEmailCapture && <EmailCaptureHeader />}
     </div>
   );
 }
