@@ -16,7 +16,8 @@
   justify-content: center;
   padding: 50px 0;
   position: relative;
-  li {
+  li,
+  .buyTickets {
     font-family: 'Neue Haas Light', 'Arial', sans-serif;
     font-style: normal;
     padding: 0 25px;
@@ -43,13 +44,20 @@
   }
 }
 
+.navList .buyTickets {
+  margin-top: -9px;
+  margin-left: 20px;
+  font-family: 'Neue Haas', 'Arial', sans-serif;
+  padding: 15px 30px;
+}
+
 .homeIcon {
   margin-right: 15px;
 }
 
 .instagramIcon {
   position: absolute;
-  right: -100px;
+  right: -80px;
   top: 50px;
 }
 
@@ -66,6 +74,9 @@
   .homeIcon {
     margin-right: 0px;
   }
+  .navList .buyTickets {
+    margin-top: -12px !important;
+  }
 }
 
 @media (max-width: 956px) {
@@ -74,6 +85,9 @@
     a {
       font-size: 14px;
     }
+  }
+  .navList .buyTickets {
+    font-size: 14px;
   }
 }
 
@@ -120,6 +134,14 @@
     position: static;
     margin-top: 15px;
   }
+  .navList .buyTickets {
+    display: block;
+    font-size: 22px;
+    margin: 0 0 30px;
+    position: relative;
+    top: 20px;
+    width: 180px;
+  }
 }
 
 @media screen and (orientation: landscape) and (max-width: $mobile) {
@@ -134,5 +156,13 @@
     a {
       font-size: 14px;
     }
+  }
+  .navList .buyTickets {
+    display: block;
+    font-size: 14px;
+    margin: 0 0 30px;
+    position: relative;
+    top: 20px;
+    width: 140px;
   }
 }

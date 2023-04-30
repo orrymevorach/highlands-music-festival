@@ -9,6 +9,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faInstagram } from '@fortawesome/free-brands-svg-icons';
 import { colors } from 'utils/constants';
 import { useNavContext } from 'context/nav-context';
+import Button from 'components/shared/button/button';
 
 const HomeIcon = () => {
   return (
@@ -65,11 +66,24 @@ const Nav = ({ hamburgerMenuColor = '' }) => {
         <nav className={styles.nav}>
           <ul className={styles.navList}>
             <HomeIcon />
-            {navData.map(({ url, label }) => (
-              <li key={url} className={clsx(url === pathname && styles.active)}>
-                <Link href={url}>{label}</Link>
-              </li>
-            ))}
+            {navData.map(({ url, label }) => {
+              const isBuyTicketsButton = label === 'Buy Tickets';
+              if (isBuyTicketsButton) {
+                return (
+                  <Button href={url} classNames={styles.buyTickets}>
+                    {label}
+                  </Button>
+                );
+              }
+              return (
+                <li
+                  key={url}
+                  className={clsx(url === pathname && styles.active)}
+                >
+                  <Link href={url}>{label}</Link>
+                </li>
+              );
+            })}
             <InstagramIcon />
           </ul>
         </nav>
