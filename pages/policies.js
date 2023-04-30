@@ -5,7 +5,7 @@ import { useEmailCaptureContext } from 'context/email-capture-context';
 import { getPageLoadData } from 'lib/contentful-lib';
 import { PAGE_SLUGS } from 'utils/constants';
 
-export default function Policies({ showEmailCapture }) {
+export default function PoliciesPage({ showEmailCapture }) {
   const { setShowEmailCapture } = useEmailCaptureContext();
   setShowEmailCapture(showEmailCapture);
   return (
