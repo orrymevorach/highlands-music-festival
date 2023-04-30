@@ -49,3 +49,32 @@
     margin-left: 10px;
   }
 }
+
+@media screen and (max-width: $mobile) {
+  .orderConfirmationContainer {
+    padding: 0 20px;
+  }
+  .logo {
+    margin-top: 0px;
+    width: 140px;
+    margin-bottom: 0;
+  }
+  .orderConfirmed {
+    font-size: 24px;
+    svg {
+      margin-left: 10px;
+    }
+  }
+  .bodyCopy {
+    font-size: 16px;
+  }
+  .orderConfirmed {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .backLink {
+    left: 20px;
+    top: 40px;
+  }
+}
