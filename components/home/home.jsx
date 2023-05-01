@@ -4,6 +4,7 @@ import Layout from 'components/layout';
 import { useWindowSize } from 'hooks';
 import AnnouncementTakeover from 'components/announcement-takeover';
 import useAnimateAnnouncement from 'components/announcement-takeover/useAnimateAnnouncement';
+import Button from 'components/shared/button/button';
 
 // const lat = 45.2049779;
 //   const long = -77.4446768;
@@ -20,13 +21,20 @@ import useAnimateAnnouncement from 'components/announcement-takeover/useAnimateA
 //               ></iframe>
 const TopRow = () => (
   <div className={styles.topRow}>
-    <div>
-      <p className={styles.ticketsAvailable}>Tickets on sale now!</p>
+    <h2 className={styles.date}>Septemeber 28 - October 1</h2>
+    <p className={styles.ticketsAvailable}>2023 tickets are now available</p>
+    <Button href="/buy-tickets" classNames={styles.buyNowButton}>
+      Buy Now
+    </Button>
+
+    {/* <div> */}
+    {/* <p className={styles.ticketsAvailable}>Tickets on sale now!</p> *
+      <Button>Buy Tickets!</Button>
       <p className={styles.ticketsAvailable}>
         September 28th - October 1st, 2023
       </p>
-      <p className={styles.ticketsAvailable}>Camp Walden, ON</p>
-    </div>
+      <p className={styles.ticketsAvailable}>Camp Walden, ON</p> */}
+    {/* </div> */}
   </div>
 );
 
