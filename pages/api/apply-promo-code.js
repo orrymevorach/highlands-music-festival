@@ -6,7 +6,9 @@ export default async function handler(req, res) {
       const { promoCode, customer, paymentIntent, quantity } = req.body;
 
       const promotionCodes = await stripe.promotionCodes.list({
-        limit: 3,
+        limit: 100,
+        active: true,
+        code: promoCode,
       });
       const selectedPromoCode = promotionCodes.data.find(
         ({ code }) => code === promoCode
