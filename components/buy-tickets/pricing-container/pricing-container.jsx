@@ -5,7 +5,7 @@ import clsx from 'clsx';
 import styles from './pricing-container.module.scss';
 
 const inclusions = [
-  'Access to 20 concerts over the course of the weekend',
+  'Access to 18 performances over the course of the weekend',
   'All meals and snacks starting from Thursday dinner to Sunday brunch',
   'Your own bed',
   'A shared cabin with up to 12 people',
