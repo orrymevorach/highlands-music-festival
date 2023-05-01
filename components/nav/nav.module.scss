@@ -16,7 +16,7 @@
   justify-content: center;
   padding: 50px 0;
   position: relative;
-  li,
+  .link,
   .buyTickets {
     font-family: 'Neue Haas Light', 'Arial', sans-serif;
     font-style: normal;
@@ -45,7 +45,8 @@
 }
 
 .navList .buyTickets {
-  margin-top: -9px;
+  position: relative;
+  top: 5px;
   margin-left: 20px;
   font-family: 'Neue Haas', 'Arial', sans-serif;
   padding: 15px 30px;
@@ -65,7 +66,7 @@
   .instagramIcon {
     position: static;
   }
-  .navList li {
+  .navList .link {
     padding: 0 15px;
     a {
       font-size: 16px;
@@ -75,12 +76,13 @@
     margin-right: 0px;
   }
   .navList .buyTickets {
-    margin-top: -12px !important;
+    margin: 0 20px !important;
+    top: 0;
   }
 }
 
 @media (max-width: 956px) {
-  .navList li {
+  .navList .link {
     padding: 0 12px;
     a {
       font-size: 14px;
@@ -88,6 +90,7 @@
   }
   .navList .buyTickets {
     font-size: 14px;
+    top: 2px;
   }
 }
 
@@ -102,7 +105,7 @@
     overflow-y: hidden;
     .navList {
       flex-direction: column;
-      li {
+      .link {
         padding: 5px 0;
         &:hover a:after {
           display: none;
@@ -137,9 +140,7 @@
   .navList .buyTickets {
     display: block;
     font-size: 22px;
-    margin: 0 0 30px;
-    position: relative;
-    top: 20px;
+    margin: 10px 0 !important;
     width: 180px;
   }
 }
@@ -151,7 +152,7 @@
     overflow-y: visible;
     position: absolute;
   }
-  .nav .navList li {
+  .nav .navList .link {
     padding: 2px 0;
     a {
       font-size: 14px;
@@ -161,8 +162,6 @@
     display: block;
     font-size: 14px;
     margin: 0 0 30px;
-    position: relative;
-    top: 20px;
     width: 140px;
   }
 }

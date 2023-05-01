@@ -11,9 +11,9 @@ import { colors } from 'utils/constants';
 import { useNavContext } from 'context/nav-context';
 import Button from 'components/shared/button/button';
 
-const HomeIcon = () => {
+const HomeIcon = ({ setIsOpen }) => {
   return (
-    <li className={styles.homeIcon}>
+    <li className={styles.homeIcon} onClick={() => setIsOpen(false)}>
       <Link href="/">
         <FontAwesomeIcon icon={faHome} color={colors.darkGreen} size="xl" />
       </Link>
@@ -65,20 +65,26 @@ const Nav = ({ hamburgerMenuColor = '' }) => {
       {showNav ? (
         <nav className={styles.nav}>
           <ul className={styles.navList}>
-            <HomeIcon />
+            <HomeIcon setIsOpen={setIsOpen} />
             {navData.map(({ url, label }) => {
               const isBuyTicketsButton = label === 'Buy Tickets';
               if (isBuyTicketsButton) {
                 return (
-                  <Button href={url} classNames={styles.buyTickets}>
-                    {label}
-                  </Button>
+                  <li>
+                    <Button href={url} classNames={styles.buyTickets}>
+                      {label}
+                    </Button>
+                  </li>
                 );
               }
               return (
                 <li
                   key={url}
-                  className={clsx(url === pathname && styles.active)}
+                  className={clsx(
+                    url === pathname && styles.active,
+                    styles.link
+                  )}
+                  onClick={() => setIsOpen(false)}
                 >
                   <Link href={url}>{label}</Link>
                 </li>
