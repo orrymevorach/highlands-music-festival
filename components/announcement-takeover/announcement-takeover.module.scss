@@ -51,6 +51,9 @@
     // &:nth-child(2) {
     // animation: fadeIn 0.8s forwards cubic-bezier(0.11, 0, 0.5, 0);
     // }
+    &.lastWord {
+      margin-right: 0;
+    }
   }
 }
 
@@ -67,6 +70,7 @@
   // &:nth-child(1) {
   animation-delay: 3s;
   font-size: 30px;
+  margin: 0;
   // }
 }
 
@@ -91,5 +95,20 @@
 @keyframes fadeOut {
   100% {
     opacity: 0;
+  }
+}
+
+@media screen and (max-width: $mobile) {
+  .headlinerAnnouncementContainer {
+    padding: 0 20px;
+  }
+  .lineOne {
+    font-size: 18px;
+  }
+  .artist {
+    margin: 0;
+    span {
+      font-size: 25px;
+    }
   }
 }
