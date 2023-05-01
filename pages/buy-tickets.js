@@ -10,7 +10,7 @@ export default function BuyTicketsPage({ priceModel, showEmailCapture }) {
   setShowEmailCapture(showEmailCapture);
   return (
     <>
-      <Head />
+      <Head title="Buy Tickets" />
       <BuyTickets priceModel={priceModel} />
     </>
   );

@@ -13,7 +13,7 @@ export default function CheckoutPage({ priceModel }) {
   const { isMobile } = useWindowSize();
   return (
     <CheckoutProvider priceModel={priceModel}>
-      <Head title="Buy Tickets" />
+      <Head title="Checkout" />
       <Layout>
         <Container />
         {!isMobile && <Legal />}
