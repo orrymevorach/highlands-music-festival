@@ -5,6 +5,7 @@ import { useWindowSize } from 'hooks';
 import AnnouncementTakeover from 'components/announcement-takeover';
 import useAnimateAnnouncement from 'components/announcement-takeover/useAnimateAnnouncement';
 import Button from 'components/shared/button/button';
+import Link from 'next/link';
 
 // const lat = 45.2049779;
 //   const long = -77.4446768;
@@ -22,7 +23,13 @@ import Button from 'components/shared/button/button';
 const TopRow = () => (
   <div className={styles.topRow}>
     <h2 className={styles.date}>September 28 - October 1</h2>
-    <p className={styles.ticketsAvailable}>2023 tickets are now available</p>
+    <div className={styles.middle}>
+      <p className={styles.ticketsAvailable}>2023 tickets are now available</p>
+      <p className={styles.link}>
+        <Link href="/buy-tickets">Click here</Link> to see what's included in
+        the ticket price
+      </p>
+    </div>
     <Button href="/buy-tickets" classNames={styles.buyNowButton}>
       Buy Now
     </Button>
@@ -71,8 +78,9 @@ export default function Home({
       ) : (
         <div className={styles.homePageContainer}>
           <Layout hasPaddingBottom={false} hamburgerMenuColor={colors.beige}>
-            <main>
+            <main className={styles.mainContent}>
               <h1 className={styles.h1}>Highlands Music Festival</h1>
+              <TopRow />
               <div className={styles.videoContainer}>
                 <div className={styles.imageContainer}>
                   <img
@@ -80,7 +88,6 @@ export default function Home({
                     alt="Highlands Music Festival logo"
                     className={styles.logo}
                   />
-                  <TopRow />
                 </div>
                 {!isMobile && <Video />}
               </div>

@@ -4,6 +4,16 @@ import { faCheck, faDollarSign } from '@fortawesome/free-solid-svg-icons';
 import clsx from 'clsx';
 import styles from './pricing-container.module.scss';
 
+const inclusions = [
+  'Access to 20 concerts over the course of the weekend',
+  'All meals and snacks starting from Thursday dinner to Sunday brunch',
+  'Your own bed',
+  'A shared cabin with up to 12 people',
+  'Access to all camp activites',
+];
+
+const availableForPurchase = ['Alcohol', 'Merch', 'More to come!'];
+
 const Price = ({ ticketPrice, strikethroughPrice, discountText }) => {
   const hasDiscount = !!strikethroughPrice;
   return (
@@ -23,10 +33,28 @@ const Price = ({ ticketPrice, strikethroughPrice, discountText }) => {
   );
 };
 
+const List = ({ listItems = [], subheading }) => {
+  return (
+    <>
+      {subheading && <p className={styles.pricingSubheading}>{subheading}</p>}
+      <ul className={styles.detailsContainer}>
+        {listItems.map(detail => {
+          return (
+            <li key={detail} className={styles.detail}>
+              <FontAwesomeIcon icon={faCheck} className={styles.checkMark} />{' '}
+              <p>{detail}</p>
+            </li>
+          );
+        })}
+      </ul>
+    </>
+  );
+};
+
 export default function PricingContainer({
   buttonText,
   query,
-  details,
+  details = [],
   pricing,
 }) {
   const { ticketPrice, discountName, subtotal } = pricing;
@@ -45,18 +73,16 @@ export default function PricingContainer({
         strikethroughPrice={strikethroughPrice}
         discountText={discountName}
       />
-      <ul className={styles.detailsContainer}>
-        {details.map(detail => {
-          return (
-            <li key={detail}>
-              <p>
-                <FontAwesomeIcon icon={faCheck} className={styles.checkMark} />{' '}
-                {detail}
-              </p>
-            </li>
-          );
-        })}
-      </ul>
+
+      <List listItems={details} />
+      <List
+        listItems={inclusions}
+        subheading="Included in the price of your ticket:"
+      />
+      <List
+        listItems={availableForPurchase}
+        subheading="Available for purchase"
+      />
     </div>
   );
 }

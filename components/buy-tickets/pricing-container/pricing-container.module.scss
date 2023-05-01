@@ -20,8 +20,14 @@
   font-size: 18px;
 }
 
+.detail {
+  display: flex;
+}
+
 .checkMark {
   margin-right: 8px;
+  position: relative;
+  top: 4px;
 }
 
 .price {
@@ -47,6 +53,14 @@
   font-size: 16px;
   font-family: $fontSecondaryBold;
   margin-bottom: 40px;
+}
+
+.pricingSubheading {
+  margin: 20px 0;
+  font-family: $fontSecondaryBold;
+  font-size: 16px;
+  color: $darkGreen;
+  text-decoration: underline;
 }
 
 @media screen and (max-width: $mobile) {
