@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import {
   useStripe,
   useElements,
@@ -14,7 +14,9 @@ export default function CheckoutForm() {
   const [isLoading, setIsLoading] = useState(false);
   const [errorMessage, setErrorMessage] = useState(null);
   const { priceData, quantity, paymentIntent } = useCheckoutContext();
-  const [_, triggerConfirmationEmail] = useForm('mbjeqeep');
+  const [formState, triggerConfirmationEmail] = useForm('mbjeqeep');
+  const [successfulPaymentIntentId, setSuccessfulPaymentIntentId] =
+    useState(null);
 
   const stripe = useStripe();
   const elements = useElements();
@@ -51,10 +53,17 @@ export default function CheckoutForm() {
 
     if (paymentResult.status === 'succeeded' && subscriptionResponse === 200) {
       triggerConfirmationEmail(event);
-      setIsLoading(false);
-      window.location = `/order-confirmation?payment_intent=${paymentResult.id}`;
+      setSuccessfulPaymentIntentId(paymentResult.id);
     }
   };
+
+  // To ensure that re-direct happens after order confirmation email is triggered
+  useEffect(() => {
+    if (formState.succeeded === true && successfulPaymentIntentId) {
+      setIsLoading(false);
+      window.location = `/order-confirmation?payment_intent=${successfulPaymentIntentId}`;
+    }
+  }, [formState, successfulPaymentIntentId]);
 
   return (
     <form onSubmit={handleSubmit}>
