@@ -36,6 +36,7 @@ export default function CheckoutForm() {
     );
 
     if (error) {
+      setIsLoading(false);
       setErrorMessage(error.message);
       return;
     }

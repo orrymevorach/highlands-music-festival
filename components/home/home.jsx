@@ -21,7 +21,7 @@ import useAnimateAnnouncement from 'components/announcement-takeover/useAnimateA
 const TopRow = () => (
   <div className={styles.topRow}>
     <div>
-      <p className={styles.ticketsAvailable}>Tickets on sale soon!</p>
+      <p className={styles.ticketsAvailable}>Tickets on sale now!</p>
       <p className={styles.ticketsAvailable}>
         September 28th - October 1st, 2023
       </p>
