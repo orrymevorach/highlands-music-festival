@@ -21,7 +21,7 @@ import Button from 'components/shared/button/button';
 //               ></iframe>
 const TopRow = () => (
   <div className={styles.topRow}>
-    <h2 className={styles.date}>Septemeber 28 - October 1</h2>
+    <h2 className={styles.date}>September 28 - October 1</h2>
     <p className={styles.ticketsAvailable}>2023 tickets are now available</p>
     <Button href="/buy-tickets" classNames={styles.buyNowButton}>
       Buy Now
