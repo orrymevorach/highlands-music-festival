@@ -44,6 +44,9 @@
   .toby {
     transform: scale(2.5) translate(25px, -20px);
   }
+  .isabelle {
+    object-fit: cover !important;
+  }
   @media screen and (max-width: $tablet) {
     width: 100%;
     .committeeMembers {
