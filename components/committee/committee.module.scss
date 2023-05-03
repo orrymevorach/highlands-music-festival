@@ -50,19 +50,7 @@
     }
     .imageContainer {
       width: 400px;
-      max-height: 500px;
-      height: auto;
-    }
-    .sammy,
-    .josh,
-    .toby {
-      transform: scale(1) translate(0, 0);
-    }
-    .danielle {
-      transform: scale(1.5) translate(0px, 0px);
-    }
-    .orry {
-      transform: scale(2.1) translate(30px, -30px);
+      height: 450px;
     }
   }
   @media screen and (max-width: $mobile) {
