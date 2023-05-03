@@ -14,8 +14,10 @@ export const COMMITTEE_MEMBER_FRAGMENT = gql`
     name
     jobTitle
     image {
-      ...ImageFields
+      url(transform: { width: 850 })
+      width
+      height
+      description
     }
   }
-  ${IMAGE_FRAGMENT}
 `;
