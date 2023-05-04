@@ -14,7 +14,7 @@ export default function Meta({ title = '' }) {
       <link rel="icon" href={`${imgPath}/favicon.png`} />
       <meta
         name="keywords"
-        content="Highlands Music Festival, music festival, Bancroft, Ontario, Toronto, Palmer Rapids, summer camp"
+        content="Highlands Music Festival, music festival, festival, Bancroft, Ontario, Toronto, Palmer Rapids, summer camp, 2023"
       />
     </Head>
   );

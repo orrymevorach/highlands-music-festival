@@ -83,7 +83,7 @@ export default function LocationAndAccommodation() {
 
           <Image
             src={MapOfCamp}
-            alt=""
+            alt="Map of Highlands Music Festival"
             className={styles.mapOfCamp}
             quality={50}
             width={1520}

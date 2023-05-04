@@ -22,17 +22,12 @@ export default function Lineup({
     <>
       {headlinerFeatureFlag && <Announcement headliners={headliners} />}
       <div className={styles.container}>
-        {!headlinerFeatureFlag && (
-          <h2
-            className={clsx(
-              styles.heading,
-              styles.center,
-              styles.lineupHeading
-            )}
-          >
-            Stay tuned for 2023 lineup announcements
-          </h2>
-        )}
+        <h1
+          className={clsx(styles.heading, styles.center, styles.lineupHeading)}
+        >
+          Stay tuned for more 2023 lineup announcements
+        </h1>
+
         <PastLineupDropdown
           year={year}
           setYear={setYear}

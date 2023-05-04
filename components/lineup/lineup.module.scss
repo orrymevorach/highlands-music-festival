@@ -30,6 +30,11 @@
   margin-top: 200px;
 }
 
+.lineupHeading {
+  font-size: 28px;
+  margin-bottom: 30px;
+}
+
 @media screen and (max-width: 1200px) {
   .container {
     width: 100%;
@@ -44,6 +49,7 @@
   }
   .lineupHeading {
     margin-bottom: 50px;
+    font-size: 18px;
   }
   .lineupContainer {
     margin-top: 70px;
