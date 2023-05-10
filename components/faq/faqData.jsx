@@ -158,9 +158,9 @@ export const faq = [
           </li>
         </List>
         <p>
-          We will all be together on Friday and Saturday night to hear our
-          headliners. On Saturday all day it’s a musical choose your own
-          adventure. Then join us for a special closing Highland Harmony on
+          We will all be together on Thursday, Friday, and Saturday night to
+          hear our headliners. On Saturday all day it’s a musical choose your
+          own adventure. Then join us for a special closing Highland Harmony on
           Sunday before departure!
         </p>
       </div>
@@ -259,7 +259,7 @@ export const faq = [
   {
     question: 'When is check out?',
     answer:
-      'Arrival on Friday is between the hours of 4:00 pm - 6:30 pm. The formal program will end at 1:00 pm on Sunday, but guests will be asked to leave the site no later than 4:00 pm.',
+      'Arrival on Thursday is between the hours of 4:00 pm - 6:30 pm. The formal program will end at 1:00 pm on Sunday, but guests will be asked to leave the site no later than 4:00 pm.',
   },
   {
     question:
