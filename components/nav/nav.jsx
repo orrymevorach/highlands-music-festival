@@ -70,7 +70,7 @@ const Nav = ({ hamburgerMenuColor = '' }) => {
               const isBuyTicketsButton = label === 'Buy Tickets';
               if (isBuyTicketsButton) {
                 return (
-                  <li>
+                  <li key={label}>
                     <Button href={url} classNames={styles.buyTickets}>
                       {label}
                     </Button>

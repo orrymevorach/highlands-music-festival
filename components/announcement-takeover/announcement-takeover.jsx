@@ -18,13 +18,10 @@ export default function AnnouncementTakeover({
           const words = headliner.split(' ');
           const isLastHeadliner = headliners.length === index + 1;
           return (
-            <>
-              <p
-                key={headliner}
-                className={clsx(styles.artist, styles[`artist${index + 1}`])}
-              >
-                {words.map((word, index) => {
-                  const isLastWord = index === words.length - 1;
+            <div key={headliner}>
+              <p className={clsx(styles.artist, styles[`artist${index + 1}`])}>
+                {words.map((word, wordIndex) => {
+                  const isLastWord = wordIndex === words.length - 1;
                   return (
                     <span
                       className={clsx(isLastWord && styles.lastWord)}
@@ -37,7 +34,7 @@ export default function AnnouncementTakeover({
               </p>
               {!isLastHeadliner && (
                 <p
-                  key={headliner}
+                  key={`&-${index}`}
                   className={clsx(
                     styles.artist,
                     styles[`artistAnd${index + 1}`]
@@ -46,7 +43,7 @@ export default function AnnouncementTakeover({
                   <span>&</span>
                 </p>
               )}
-            </>
+            </div>
           );
         })}
       </div>
