@@ -1,0 +1,53 @@
+@import '@variables';
+
+/* Start of React Masonry CSS */
+
+// https://github.com/paulcollett/react-masonry-css
+.my-masonry-grid {
+  display: -webkit-box; /* Not needed if autoprefixing */
+  display: -ms-flexbox; /* Not needed if autoprefixing */
+  display: flex;
+  position: relative;
+  // margin-left: -30px; /* gutter size offset */
+}
+.my-masonry-grid_column {
+  // padding-left: 30px; /* gutter size */
+  background-clip: padding-box;
+}
+/* End of React Masonry CSS */
+
+.tile {
+  position: relative;
+}
+
+.tileOverlay {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.text {
+  position: absolute;
+  font-family: $fontPrimary;
+  font-size: 30px;
+  text-align: center;
+  color: $beige;
+  padding: 0 10px;
+}
+
+.image {
+  width: 100%;
+  object-fit: cover;
+  height: auto;
+  padding: 1px;
+}
+
+@media screen and (max-width: $tablet) {
+  .text {
+    font-size: 20px;
+  }
+}
