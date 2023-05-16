@@ -1,4 +1,5 @@
-export { default as swimTower } from 'public/2022 EVENT PHOTOS/swimTower.JPEG';
+export { default as swimTower } from 'public/2022 EVENT PHOTOS/swimTower.jpg';
+export { default as musicSign } from 'public/2022 EVENT PHOTOS/music-sign.jpg';
 export { default as waterfront } from 'public/2022 EVENT PHOTOS/waterfront.jpg';
 export { default as flagpole } from 'public/2022 EVENT PHOTOS/flagpole.jpg';
 export { default as amphiteatreShow } from 'public/2022 EVENT PHOTOS/amphiteatre-show.jpg';
@@ -6,9 +7,8 @@ export { default as backyard } from 'public/2022 EVENT PHOTOS/backyard.jpg';
 export { default as pinkVibes } from 'public/2022 EVENT PHOTOS/pink-vibes.jpg';
 export { default as bonfire } from 'public/2022 EVENT PHOTOS/bonfire.jpg';
 export { default as brookBluffNight } from 'public/2022 EVENT PHOTOS/brook-night.jpg';
-export { default as concertDay } from 'public/2022 EVENT PHOTOS/concert-day.JPEG';
 export { default as concertNight } from 'public/2022 EVENT PHOTOS/concert-night.jpg';
-export { default as musicSign } from 'public/2022 EVENT PHOTOS/music-sign.JPEG';
+export { default as concertDay } from 'public/2022 EVENT PHOTOS/concert-day.jpg';
 export { default as photographer } from 'public/2022 EVENT PHOTOS/photographer.jpg';
 export { default as stageNight } from 'public/2022 EVENT PHOTOS/stage-night.jpg';
 export { default as rosie } from 'public/2022 EVENT PHOTOS/rosie.jpg';
