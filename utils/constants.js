@@ -31,7 +31,7 @@ export const PAGE_SLUGS = {
   ORDER_CONFIRMATION: '/order-confirmation',
   BUY_TICKETS: '/buy-tickets',
   POLICIES: '/policies',
-  GALLERY: 'gallery',
+  GALLERY: '/gallery',
 };
 
 export const PRICE_MODEL_IDS = {
