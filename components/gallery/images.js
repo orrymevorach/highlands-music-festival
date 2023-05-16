@@ -9,7 +9,7 @@ export { default as bonfire } from 'public/2022 EVENT PHOTOS/bonfire.jpg';
 export { default as brookBluffNight } from 'public/2022 EVENT PHOTOS/brook-night.jpg';
 export { default as concertNight } from 'public/2022 EVENT PHOTOS/concert-night.jpg';
 export { default as concertDay } from 'public/2022 EVENT PHOTOS/concert-day.jpg';
-export { default as photographer } from 'public/2022 EVENT PHOTOS/photographer.jpg';
+export { default as photographer } from 'public/2022 EVENT PHOTOS/photographer-1.jpg';
 export { default as stageNight } from 'public/2022 EVENT PHOTOS/stage-night.jpg';
 export { default as rosie } from 'public/2022 EVENT PHOTOS/rosie.jpg';
 export { default as chicken } from 'public/2022 EVENT PHOTOS/chicken.jpeg';
