@@ -6,7 +6,8 @@ import { useWindowSize } from 'hooks';
 import clsx from 'clsx';
 
 const Tile = ({ src, text, videoSrc, shouldRotate = false }) => {
-  shouldRotate = shouldRotate && process.env === 'production' ? true : false;
+  shouldRotate = !!shouldRotate && process.env === 'production' ? true : false;
+  console.log('process.env', process.env);
   return (
     <div className={styles.tile}>
       {text && (
