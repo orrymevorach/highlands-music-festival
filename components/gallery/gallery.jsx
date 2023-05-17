@@ -44,6 +44,7 @@ export default function Gallery() {
       columnClassName={styles['my-masonry-grid_column']}
     >
       <Tile src={images.bonfire} text="Big Ass Bonfire" />
+      <Tile src={images.concertNight} />
       <Tile src={images.flagpole} text="Immaculate Vibes" />
 
       <Tile
