@@ -23,10 +23,10 @@ const Tile = ({ src, text, videoSrc }) => {
           playsInline
         ></video>
       ) : (
-        <Image
+        <img
           src={src}
           className={clsx(styles.image)}
-          quality={65}
+          // quality={65}
           alt={text || ''}
         />
       )}
@@ -43,7 +43,11 @@ export default function Gallery() {
   };
   const numberOfColumns = mapDeviceToColumns[device];
   return (
-    <>
+    <Masonry
+      breakpointCols={numberOfColumns}
+      className={styles['my-masonry-grid']}
+      columnClassName={styles['my-masonry-grid_column']}
+    >
       <Tile src={images.bonfire} text="Big Ass Bonfire" />
       <Tile src={images.flagpole} text="Immaculate Vibes" />
 
@@ -74,6 +78,6 @@ export default function Gallery() {
       <Tile src={images.waterfront} />
       <Tile src={images.stageNight} />
       <Tile src={images.foliage} text="Fall Foliage" />
-    </>
+    </Masonry>
   );
 }
