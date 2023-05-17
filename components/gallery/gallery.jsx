@@ -1,5 +1,7 @@
 import styles from './gallery.module.scss';
 import Masonry from 'react-masonry-css';
+import Image from 'next/image';
+import * as images from './images';
 import { useWindowSize } from 'hooks';
 import clsx from 'clsx';
 
@@ -21,7 +23,7 @@ const Tile = ({ src, text, videoSrc }) => {
           playsInline
         ></video>
       ) : (
-        <img src={src} className={clsx(styles.image)} alt={text || ''} />
+        <Image src={src} className={clsx(styles.image)} alt={text || ''} />
       )}
     </div>
   );
@@ -41,40 +43,36 @@ export default function Gallery() {
       className={styles['my-masonry-grid']}
       columnClassName={styles['my-masonry-grid_column']}
     >
-      <Tile src="./2022 EVENT PHOTOS/bonfire.jpg" text="Big Ass Bonfire" />
-      <Tile src={'./2022 EVENT PHOTOS/concert-night.jpg'} />
-      <Tile src={'./2022 EVENT PHOTOS/flagpole.jpg'} text="Immaculate Vibes" />
+      <Tile src={images.bonfire} text="Big Ass Bonfire" />
+      <Tile src={images.flagpole} text="Immaculate Vibes" />
 
       <Tile
         videoSrc="https://highlands-music-festival.s3.ca-central-1.amazonaws.com/busty.mov"
         text="Late Night Funk"
       />
 
-      <Tile src={'./2022 EVENT PHOTOS/pink-vibes.jpg'} />
-      <Tile src={'./2022 EVENT PHOTOS/backyard.jpg'} />
-      <Tile src={'./2022 EVENT PHOTOS/cabin.jpeg'} text="Slumber Party" />
-      <Tile src={'./2022 EVENT PHOTOS/concert-day.jpg'} />
+      <Tile src={images.pinkVibes} />
+      <Tile src={images.backyard} />
+      <Tile src={images.cabin} text="Slumber Party" />
+      <Tile src={images.concertDay} />
 
-      <Tile src={'./2022 EVENT PHOTOS/amphitheatre-show.jpg'} />
-      <Tile src={'./2022 EVENT PHOTOS/poutine.jpg'} text="Midnight Poutine" />
-      <Tile src={'./2022 EVENT PHOTOS/photographer.jpg'} />
-      <Tile src={'./2022 EVENT PHOTOS/swimTower.jpg'} text="Epic Waterfront" />
+      <Tile src={images.amphiteatreShow} />
+      <Tile src={images.poutine} text="Midnight Poutine" />
+      <Tile src={images.photographer} />
+      <Tile src={images.swimTower} text="Epic Waterfront" />
       <Tile
         videoSrc="https://highlands-music-festival.s3.ca-central-1.amazonaws.com/fire.mov"
         text="VIP Seating"
       />
 
-      <Tile src={'./2022 EVENT PHOTOS/music-sign.jpg'} />
-      <Tile
-        src={'./2022 EVENT PHOTOS/chicken.jpeg'}
-        text="Chicken Finger Rave"
-      />
-      <Tile src={'./2022 EVENT PHOTOS/rosie.jpg'} text="PJ Dance Party" />
+      <Tile src={images.musicSign} />
+      <Tile src={images.chicken} text="Chicken Finger Rave" />
+      <Tile src={images.rosie} text="PJ Dance Party" />
 
-      <Tile src={'./2022 EVENT PHOTOS/brook-night.jpg'} />
-      <Tile src={'./2022 EVENT PHOTOS/waterfront.jpg'} />
-      <Tile src={'./2022 EVENT PHOTOS/stage-night.jpg'} />
-      <Tile src={'./2022 EVENT PHOTOS/foliage.jpg'} text="Fall Foliage" />
+      <Tile src={images.brookBluffNight} />
+      <Tile src={images.waterfront} />
+      <Tile src={images.stageNight} />
+      <Tile src={images.foliage} text="Fall Foliage" />
     </Masonry>
   );
 }
