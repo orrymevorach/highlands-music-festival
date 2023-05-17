@@ -4,7 +4,7 @@ import { calculatePricing } from 'components/checkout/checkout-utils';
 import PricingContainer from './pricing-container';
 
 const fullPriceProps = {
-  buttonText: 'Pay Full Price',
+  buttonText: 'Pay Full Amount',
   query: {
     installments: 'false',
   },
