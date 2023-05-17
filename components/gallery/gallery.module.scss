@@ -44,7 +44,7 @@
   object-fit: cover;
   height: auto;
   padding: 1px;
-  .rotate {
+  &.rotate {
     transform: rotate(90deg);
   }
 }
