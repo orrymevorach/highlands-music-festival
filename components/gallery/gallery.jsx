@@ -23,12 +23,7 @@ const Tile = ({ src, text, videoSrc }) => {
           playsInline
         ></video>
       ) : (
-        <img
-          src={src}
-          className={clsx(styles.image)}
-          // quality={65}
-          alt={text || ''}
-        />
+        <Image src={src} className={clsx(styles.image)} alt={text || ''} />
       )}
     </div>
   );
