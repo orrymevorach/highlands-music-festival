@@ -44,6 +44,9 @@
   object-fit: cover;
   height: auto;
   padding: 1px;
+  .rotate {
+    transform: rotate(90deg);
+  }
 }
 
 @media screen and (max-width: $tablet) {

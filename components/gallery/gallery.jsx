@@ -3,8 +3,10 @@ import Masonry from 'react-masonry-css';
 import Image from 'next/image';
 import * as images from './images';
 import { useWindowSize } from 'hooks';
+import clsx from 'clsx';
 
-const Tile = ({ src, text, videoSrc }) => {
+const Tile = ({ src, text, videoSrc, shouldRotate = false }) => {
+  shouldRotate = shouldRotate && process.env === 'production' ? true : false;
   return (
     <div className={styles.tile}>
       {text && (
@@ -24,7 +26,7 @@ const Tile = ({ src, text, videoSrc }) => {
       ) : (
         <Image
           src={src}
-          className={styles.image}
+          className={clsx(styles.image, shouldRotate && styles.rotate)}
           quality={65}
           alt={text || ''}
         />
@@ -48,7 +50,7 @@ export default function Gallery() {
       columnClassName={styles['my-masonry-grid_column']}
     >
       <Tile src={images.bonfire} text="Big Ass Bonfire" />
-      <Tile src={images.concertNight} />
+      <Tile src={images.concertNight} shouldRotate />
       <Tile src={images.flagpole} text="Immaculate Vibes" />
 
       <Tile
