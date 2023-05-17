@@ -5,6 +5,7 @@ import clsx from 'clsx';
 import Image from 'next/image';
 import MapOfCamp from 'public/map-dark.jpg';
 import Cabin from 'public/cabin.jpeg';
+import FadeSlider from 'components/shared/sliders/fade-slider';
 
 const packingList = [
   { packingItem: 'Single bed fitted/flat sheet ' },
@@ -19,75 +20,124 @@ const packingList = [
   { packingItem: 'Device chargers (regular or portable)' },
 ];
 
+const iframeData = [
+  { name: 'Walden Swim Docks', lat: 45.2044181, long: -77.4447824 },
+  {
+    name: 'Canoe and Sail Docks',
+    lat: 45.2049779,
+    long: -77.4446768,
+    heading: 245,
+  },
+  { name: 'The Amphitheatre', lat: 45.2040309, long: -77.444126, heading: 48 },
+  {
+    name: 'Camper Cabin',
+    imgSrc:
+      'https://www.campwalden.ca/wp-content/uploads/2023/03/360-cabin-interior-1.jpg',
+  },
+  {
+    name: 'Ski Docks',
+    imgSrc:
+      'https://www.campwalden.ca/wp-content/uploads/2023/03/360-ski-docks-1.jpg',
+  },
+  {
+    name: 'Far Raft',
+    imgSrc:
+      'https://www.campwalden.ca/wp-content/uploads/2023/03/360-far-raft-1.jpg',
+  },
+  {
+    name: 'Main Field',
+    imgSrc:
+      'https://www.campwalden.ca/wp-content/uploads/2023/03/360-main-field-1.jpg',
+  },
+  {
+    name: "Lovers' Lane",
+    imgSrc:
+      'https://www.campwalden.ca/wp-content/uploads/2023/03/360-lovers-lane-1.jpg',
+  },
+  {
+    name: 'The Climbing Wall',
+    iframeSrc:
+      'https://tours.829llc.com/2017/walden/vtour_1/tour.html?startscene=0&html5=only&onstart=skin_hideskin();removelayer(skin_btn_show);removelayer(skin_title)&autorotate.enabled=false',
+  },
+  {
+    name: 'On the Water',
+    iframeSrc:
+      'https://tours.829llc.com/2017/walden/vtour_1/tour.html?startscene=2&html5=only&onstart=skin_hideskin();removelayer(skin_btn_show);removelayer(skin_title)&autorotate.enabled=false',
+  },
+  {
+    name: 'The Basketball Court',
+    iframeSrc:
+      'https://tours.829llc.com/2017/walden/vtour_1/tour.html?startscene=7&html5=only&onstart=skin_hideskin();removelayer(skin_btn_show);removelayer(skin_title)&autorotate.enabled=false',
+  },
+  {
+    name: 'The Dining Hall',
+    iframeSrc:
+      'https://tours.829llc.com/2017/walden/vtour_1/tour.html?startscene=13&html5=only&onstart=skin_hideskin();removelayer(skin_btn_show);removelayer(skin_title)&autorotate.enabled=false',
+  },
+  {
+    name: 'The Swim Docks',
+    iframeSrc:
+      'https://tours.829llc.com/2017/walden/vtour_1/tour.html?startscene=14&html5=only&onstart=skin_hideskin();removelayer(skin_btn_show);removelayer(skin_title)&autorotate.enabled=false',
+  },
+  {
+    name: 'The Comin Unit',
+    iframeSrc:
+      'https://tours.829llc.com/2017/walden/vtour_1/tour.html?startscene=17&html5=only&onstart=skin_hideskin();removelayer(skin_btn_show);removelayer(skin_title)&autorotate.enabled=false',
+  },
+  {
+    name: 'The Tennis Courts',
+    iframeSrc:
+      'https://tours.829llc.com/2017/walden/vtour_1/tour.html?startscene=31&html5=only&onstart=skin_hideskin();removelayer(skin_btn_show);removelayer(skin_title)&autorotate.enabled=false',
+  },
+];
+
 export default function LocationAndAccommodation() {
+  const apiKey = process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY;
   return (
     <Layout>
       <main>
         <div className={styles.locationAccommodationWrapper}>
-          <div
-            className={clsx(styles.row, styles.locationAccommodationHeading)}
-          >
-            <h2 className={styles.heading}>Location</h2>
-            <h2 className={styles.heading}>& Accommodation</h2>
-          </div>
-          <div className={styles.row}>
-            <div className={styles.location}>
-              <GoogleMap />
-              <p className={clsx(styles.locationLineOne, styles.bodyCopy)}>
-                Camp Walden is located in the beautiful Haliburton Highlands
-              </p>
-              <p className={clsx(styles.locationAddress, styles.bodyCopy)}>
-                38483 Highway 28
-              </p>
-              <p className={clsx(styles.locationAddress, styles.bodyCopy)}>
-                Palmer Rapids, Ontario
-              </p>
-              <p className={clsx(styles.locationAddress, styles.bodyCopy)}>
-                K0J 2E0 (45.2,-77.44)
-              </p>
-            </div>
-            <div className={styles.accommodation}>
-              <div className={styles.imageContainer}>
-                <Image priority src={Cabin} quality={50} width={970} />
-              </div>
-
-              <p className={clsx(styles.accommodationLineOne, styles.bodyCopy)}>
-                Cabins vary in size and features. Some have private bathrooms
-                and sinks on the porch while others don’t. Cabin information
-                will be available as you purchase your tickets.
-              </p>
-              {/* <p className={styles.bodyCopy">
-                When purchasing a single{' '}
-                <span className={styles.bodyCopyBold">
-                  ticket, or tickets for your group,
-                </span>{' '}
-                select one of the cabins listed. Each cabin will have a max
-                capacity of 12 people.
-              </p> */}
-            </div>
-          </div>
-          <div className={styles.row}>
-            <div className={styles.packingContainerLineOne}>
-              <p className={clsx(styles.bodyCopyMedium, styles.col1Par3)}>
-                We recommend checking out our suggested packing list
-              </p>
-            </div>
-            <ul className={styles.packingContainerLineTwo}>
-              {packingList.map(({ packingItem }) => (
-                <li key={packingItem} className={styles.packingListItem}>
-                  <p className={styles.bodyCopy}>{packingItem}</p>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          <Image
-            src={MapOfCamp}
-            alt="Map of Highlands Music Festival"
-            className={styles.mapOfCamp}
-            quality={50}
-            width={1520}
-          />
+          <FadeSlider data={iframeData}>
+            {iframeData.map(
+              ({ name, lat, long, heading = 245, iframeSrc, imgSrc }) => {
+                if (lat && long) {
+                  return (
+                    <div key={name}>
+                      {name}
+                      <iframe
+                        width="800"
+                        height="450"
+                        // style="border:0"
+                        loading="lazy"
+                        allowFullScreen
+                        referrerPolicy="no-referrer-when-downgrade"
+                        src={`https://www.google.com/maps/embed/v1/streetview?key=${apiKey}&location=${lat},${long}&heading=${heading}`}
+                      ></iframe>
+                    </div>
+                  );
+                }
+                if (iframeSrc) {
+                  return (
+                    <div key={name}>
+                      {name}
+                      <iframe
+                        width="800"
+                        height="450"
+                        // style="border:0"
+                        loading="lazy"
+                        allowFullScreen
+                        referrerPolicy="no-referrer-when-downgrade"
+                        src={iframeSrc}
+                      ></iframe>
+                    </div>
+                  );
+                }
+                if (imgSrc) {
+                  return <img src={imgSrc} alt={name} key={name} />;
+                }
+              }
+            )}
+          </FadeSlider>
         </div>
       </main>
     </Layout>
