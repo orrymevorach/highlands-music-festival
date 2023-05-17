@@ -5,10 +5,7 @@ import * as images from './images';
 import { useWindowSize } from 'hooks';
 import clsx from 'clsx';
 
-const Tile = ({ src, text, videoSrc, shouldRotate = false }) => {
-  shouldRotate =
-    !!shouldRotate && process.env.NODE_ENV === 'production' ? true : false;
-  console.log('process.env', process.env.NODE_ENV);
+const Tile = ({ src, text, videoSrc }) => {
   return (
     <div className={styles.tile}>
       {text && (
@@ -28,7 +25,7 @@ const Tile = ({ src, text, videoSrc, shouldRotate = false }) => {
       ) : (
         <Image
           src={src}
-          className={clsx(styles.image, shouldRotate && styles.rotate)}
+          className={clsx(styles.image)}
           quality={65}
           alt={text || ''}
         />
@@ -46,13 +43,8 @@ export default function Gallery() {
   };
   const numberOfColumns = mapDeviceToColumns[device];
   return (
-    <Masonry
-      breakpointCols={numberOfColumns}
-      className={styles['my-masonry-grid']}
-      columnClassName={styles['my-masonry-grid_column']}
-    >
+    <>
       <Tile src={images.bonfire} text="Big Ass Bonfire" />
-      <Tile src={images.concertNight} shouldRotate />
       <Tile src={images.flagpole} text="Immaculate Vibes" />
 
       <Tile
@@ -82,6 +74,6 @@ export default function Gallery() {
       <Tile src={images.waterfront} />
       <Tile src={images.stageNight} />
       <Tile src={images.foliage} text="Fall Foliage" />
-    </Masonry>
+    </>
   );
 }
