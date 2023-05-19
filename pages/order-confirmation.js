@@ -19,12 +19,22 @@ export const getServerSideProps = async context => {
 
   const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY);
   const { payment_intent } = context.query;
+
   const getPaymentIntent = async () => {
     try {
-      const paymentIntent = await stripe.paymentIntents.retrieve(
-        payment_intent
-      );
+      const paymentIntent = await stripe.paymentIntents.retrieve(payment_intent);
+
+      if (paymentIntent && paymentIntent.status === 'succeeded') {
+        // send a POST request to the Zapier webhook URL
+        await fetch('https://hooks.zapier.com/hooks/catch/427340/36fxw8z/', { 
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ paymentIntent }),  // include any data you want to send to Zapier
+        });
+      }
+
       return paymentIntent;
+
     } catch (error) {
       console.log(error);
     }
@@ -36,7 +46,9 @@ export const getServerSideProps = async context => {
       props: {},
     };
   }
-  const customer = await stripe.customers.retrieve(paymentIntent?.customer);
+
+  const customer = await stripe.customers.retrieve(paymentIntent.customer);
+
   return {
     props: {
       customer,
