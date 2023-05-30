@@ -76,7 +76,7 @@ export const faq = [
   {
     question: 'So do I need cash?',
     answer:
-      'In addition to the booze, there’s some cool artists’ merch for sale.  Have a physical credit card handy to support the shopping bug.',
+      'In addition to the booze, there’s some cool artists’ merch for sale, as well as a vendor marketplace.  Have a physical credit card handy to support the shopping bug.',
   },
   {
     question: 'What should I pack? ',
@@ -265,7 +265,7 @@ export const faq = [
     question:
       'What is the cancellation policy? Is there a ticket refund policy?',
     answer:
-      'Tickets are non-refundable and non-transferable except by special permission. Ticket-holders who wish to transfer their ticket should contact info@highlandsmusicfestival.ca.',
+      'Tickets are non-refundable. Ticket-holders who wish to transfer their ticket should contact info@highlandsmusicfestival.ca.',
   },
   {
     question: 'What is the COVID philosophy?',
