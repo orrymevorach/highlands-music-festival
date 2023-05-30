@@ -2,6 +2,7 @@ import Layout from 'components/layout';
 import styles from './buy-tickets.module.scss';
 import { calculatePricing } from 'components/checkout/checkout-utils';
 import PricingContainer from './pricing-container';
+import Link from 'next/link';
 
 const fullPriceProps = {
   buttonText: 'Pay Full Amount',
@@ -35,6 +36,16 @@ export default function BuyTickets({ priceModel }) {
     pricing;
   return (
     <Layout>
+      <div className={styles.announcement}>
+        <p className={styles.aboutText}>About Cabin Reservations:</p>
+        <p>
+          Cabin and bed reservations are important to us! Closer to the
+          festival, all attendees who purchased tickets will have an opportunity
+          to reserve a spot in a cabin with their friends. For more information
+          on cabin reservations and other frequently asked questions,{' '}
+          <Link href="/faq">click here</Link>.
+        </p>
+      </div>
       <div className={styles.buyTickets}>
         <PricingContainer {...fullPriceProps} pricing={pricing} />
         <PricingContainer

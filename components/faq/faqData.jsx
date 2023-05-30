@@ -54,6 +54,11 @@ export const faq = [
   //   ),
   // },
   {
+    question: 'Am I guaranteed to sleep in a cabin with my friends?',
+    answer:
+      "Cabin and bed reservations are important to us! Once you've secured your Highlands ticket, keep an eye out for an email from us closer to the festival to submit your grouping requests! Our cabins can hold up to 12 people. For those of you interested in buying a full cabin, please be sure that all 12 tickets have been purchased and at least 1 person in your party makes the grouping request when the form is sent out. For our solo travellers and smaller groups out there, have no fear we will ensure your needs are met as well!",
+  },
+  {
     question: 'What are the cabins like?',
     answer:
       'Our cabins are cozy and rustic. There are four walls covered in five decades of camper’s names and memories.  Every cabin has windows, and an A-line tin roof to provide shelter from any storm.  Cabins have beds, running water and a bathroom but there is no central air or heat. In short, they’re simple and perfect.',
