@@ -110,7 +110,7 @@ export default function About() {
             </div>
             <div className={styles.aboutColumn}>
               <p className={clsx(styles.bodyCopy, styles.col2, styles.par3)}>
-                Founded by its 9-person Co-Creator-Team, Highlands is a two-
+                Founded by its 9-person Co-Creator-Team, Highlands is a three-
                 night Folk Music getaway celebrating the musical talent of many
                 youthful Folk (and Folk’ish!) performances on its 3 stage setup
                 at Camp Walden this September 28 - October 1. Camp-style meals
