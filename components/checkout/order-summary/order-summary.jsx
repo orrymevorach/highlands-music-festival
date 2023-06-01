@@ -2,7 +2,7 @@ import styles from './order-summary.module.scss';
 import { useCheckoutContext } from 'context/checkout-context';
 import clsx from 'clsx';
 import { Border, LineItem } from './order-summary-shared';
-import { getMonth } from '../checkout-utils';
+import { getDateData } from '../checkout-utils';
 
 export default function OrderSummary() {
   const {
@@ -73,11 +73,14 @@ export default function OrderSummary() {
         )}
         {isSubscription &&
           numberOfSubscriptionIterationsAsArray.map((_, index) => {
-            const month = getMonth({ subscriptionStartDate, iteration: index });
+            const { month, day } = getDateData({
+              subscriptionStartDate,
+              iteration: index,
+            });
             return (
               <LineItem
                 key={month}
-                label={`Due ${month} 1*`}
+                label={`Due ${month} ${day}*`}
                 price={subscriptionInstallmentAmount}
                 shouldAddCanadianDollars
               />
