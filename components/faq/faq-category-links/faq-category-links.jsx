@@ -1,6 +1,8 @@
+import { useWindowSize } from 'hooks';
 import styles from './faq-category-links.module.scss';
 
 export default function FaqCategoriesLinks({ categoryData }) {
+  const { isDesktop } = useWindowSize();
   return (
     <div className={styles.categoryLinks}>
       {categoryData.map(({ categoryName }, index) => {
@@ -8,7 +10,7 @@ export default function FaqCategoriesLinks({ categoryData }) {
         return (
           <a className={styles.categoryLink} href={`#${categoryName}`}>
             {categoryName}
-            {!isLast && <span className={styles.border}>|</span>}
+            {!isLast && isDesktop && <span className={styles.border}>|</span>}
           </a>
         );
       })}

@@ -36,6 +36,7 @@
   color: $mediumGreen;
   svg {
     margin-left: 10px;
+    width: 15px;
   }
   &:hover {
     text-decoration: underline;
@@ -50,5 +51,9 @@
 @media screen and (max-width: $tablet) {
   .column {
     width: 100%;
+    padding-right: 0;
+  }
+  .question {
+    font-size: 18px;
   }
 }

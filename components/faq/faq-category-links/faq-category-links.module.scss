@@ -7,6 +7,7 @@
 .categoryLink {
   color: $darkGreen;
   font-family: $fontSecondaryLight;
+  font-size: 17px;
   .border {
     padding: 0 10px;
   }
@@ -15,5 +16,11 @@
 @media screen and (max-width: $tablet) {
   .categoryLinks {
     margin: 0;
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+  }
+  .categoryLink {
+    font-size: 15px;
   }
 }
