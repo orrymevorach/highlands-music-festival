@@ -1,0 +1,19 @@
+@import '@variables';
+
+.categoryLinks {
+  margin: 40px 0;
+}
+
+.categoryLink {
+  color: $darkGreen;
+  font-family: $fontSecondaryLight;
+  .border {
+    padding: 0 10px;
+  }
+}
+
+@media screen and (max-width: $tablet) {
+  .categoryLinks {
+    margin: 0;
+  }
+}

@@ -21,3 +21,12 @@ export const COMMITTEE_MEMBER_FRAGMENT = gql`
     }
   }
 `;
+
+export const FAQ_FRAGMENT = gql`
+  fragment FaqFields on Faq {
+    question
+    answer {
+      json
+    }
+  }
+`;

@@ -1,0 +1,21 @@
+@import '@variables';
+
+.richText {
+  font-size: 14px;
+  font-family: $fontSecondaryLight;
+}
+
+.link {
+  color: black;
+  font-family: $fontSecondaryBold;
+  &:active {
+    color: black;
+  }
+}
+
+.unorderedList {
+  list-style: disc;
+  li {
+    margin: 5px 0px 5px 15px;
+  }
+}

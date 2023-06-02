@@ -1,5 +1,5 @@
 import { gql } from '@apollo/client';
-import { COMMITTEE_MEMBER_FRAGMENT } from './fragments';
+import { COMMITTEE_MEMBER_FRAGMENT, FAQ_FRAGMENT } from './fragments';
 
 export const GET_FEATURE_FLAG = gql`
   query getFeatureFlag($name: String) {
@@ -88,4 +88,44 @@ export const GET_HEADLINERS = gql`
       }
     }
   }
+`;
+
+export const GET_FAQ_PAGE = gql`
+  query GetFaqPage {
+    faqPageCollection(where: { title: "FAQ Page" }) {
+      items {
+        arrivalDepartureCollection(limit: 15) {
+          items {
+            ...FaqFields
+          }
+        }
+        festivalOperationsCollection(limit: 15) {
+          items {
+            ...FaqFields
+          }
+        }
+        accommodationsPackingCollection(limit: 15) {
+          items {
+            ...FaqFields
+          }
+        }
+        foodBeverageCollection(limit: 15) {
+          items {
+            ...FaqFields
+          }
+        }
+        ticketsCollection(limit: 15) {
+          items {
+            ...FaqFields
+          }
+        }
+        musicEntertainmentCollection(limit: 15) {
+          items {
+            ...FaqFields
+          }
+        }
+      }
+    }
+  }
+  ${FAQ_FRAGMENT}
 `;
