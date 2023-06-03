@@ -12,7 +12,7 @@ export default function Announcement({ headliners }) {
             <>
               <p className={styles.headliner}>{headliner}</p>
               {!isLastHeadliner && (
-                <p className={clsx(styles.headliner, styles.and)}>&</p>
+                <p className={clsx(styles.headliner, styles.and)}>|</p>
               )}
             </>
           );
