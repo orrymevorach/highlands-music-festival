@@ -1,0 +1,15 @@
+@import '@animations';
+
+.hide {
+  display: none;
+}
+
+.fadeIn {
+  display: block;
+  animation: fadeIn 800ms;
+}
+
+.fadeOut {
+  animation: fadeOut 800ms;
+  animation-delay: 4200ms;
+}

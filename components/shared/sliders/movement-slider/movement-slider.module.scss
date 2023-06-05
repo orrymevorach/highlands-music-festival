@@ -1,0 +1,19 @@
+@import '@variables';
+
+.outerContainer {
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+  z-index: 100;
+}
+
+.innerContainer {
+  display: flex;
+  transition: 0.7s;
+}
+
+@media screen and (max-width: $tablet) {
+  .outerContainer {
+    padding-bottom: 30px;
+  }
+}

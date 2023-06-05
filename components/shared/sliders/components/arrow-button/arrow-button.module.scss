@@ -1,0 +1,48 @@
+@import '@variables';
+
+.leftButton,
+.rightButton {
+  position: absolute;
+  background-color: $darkGreen;
+  color: white;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  padding: 12px 15px;
+  top: 40%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 200;
+  svg {
+    position: relative;
+    z-index: 201;
+    color: $white;
+  }
+}
+
+$buttonPosition: 150px;
+.leftButton {
+  left: $buttonPosition;
+}
+.rightButton {
+  right: $buttonPosition;
+}
+
+.variantLeftButton {
+  left: 15px;
+}
+
+.variantRightButton {
+  right: 15px;
+}
+
+@media screen and (max-width: $tablet) {
+  $buttonPosition: 10px;
+  .leftButton {
+    left: $buttonPosition;
+  }
+  .rightButton {
+    right: $buttonPosition;
+  }
+}
