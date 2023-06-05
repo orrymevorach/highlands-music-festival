@@ -28,7 +28,7 @@ export default function FaqCategories({ categoryData }) {
     <div className={styles.categoryContainer}>
       {categoryData.map(({ categoryName, questions }) => {
         return (
-          <div className={styles.column}>
+          <div className={styles.column} key={categoryName}>
             <p id={categoryName} className={styles.categoryHeading}>
               {categoryName}
             </p>

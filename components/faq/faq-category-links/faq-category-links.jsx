@@ -8,7 +8,11 @@ export default function FaqCategoriesLinks({ categoryData }) {
       {categoryData.map(({ categoryName }, index) => {
         const isLast = index + 1 === categoryData.length;
         return (
-          <a className={styles.categoryLink} href={`#${categoryName}`}>
+          <a
+            className={styles.categoryLink}
+            href={`#${categoryName}`}
+            key={`${categoryName}-links`}
+          >
             {categoryName}
             {!isLast && isDesktop && <span className={styles.border}>|</span>}
           </a>
