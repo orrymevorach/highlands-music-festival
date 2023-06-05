@@ -9,11 +9,13 @@ import { createSubscription } from 'lib/stripe-lib';
 import { ErrorMessage } from 'components/checkout/checkout-shared-components';
 import Button from 'components/shared/button';
 import { useForm } from '@formspree/react';
+import { addTicketToAirtable } from 'lib/airtable-lib';
 
 export default function CheckoutForm() {
   const [isLoading, setIsLoading] = useState(false);
   const [errorMessage, setErrorMessage] = useState(null);
-  const { priceData, quantity, paymentIntent } = useCheckoutContext();
+  const { priceData, quantity, paymentIntent, customer, promoCode } =
+    useCheckoutContext();
   const [formState, triggerConfirmationEmail] = useForm('mbjeqeep');
   const [successfulPaymentIntentId, setSuccessfulPaymentIntentId] =
     useState(null);
@@ -51,7 +53,23 @@ export default function CheckoutForm() {
       paymentMethodId: paymentResult.payment_method,
     });
 
-    if (paymentResult.status === 'succeeded' && subscriptionResponse === 200) {
+    const airtableResponse = await addTicketToAirtable({
+      amount: paymentResult.amount / 100,
+      paymentIntentId: paymentResult.id,
+      name: customer.name,
+      emailAddress: customer.email,
+      discountCode: promoCode,
+    });
+    console.log('airtableResponse', airtableResponse);
+
+    const isAirtableSuccessful =
+      airtableResponse.insert_ticketPurchasesDevelopmentMode;
+
+    if (
+      paymentResult.status === 'succeeded' &&
+      subscriptionResponse === 200 &&
+      isAirtableSuccessful
+    ) {
       triggerConfirmationEmail(event);
       setSuccessfulPaymentIntentId(paymentResult.id);
     }
