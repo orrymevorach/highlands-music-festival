@@ -60,7 +60,6 @@ export default function CheckoutForm() {
       emailAddress: customer.email,
       discountCode: promoCode,
     });
-    console.log('airtableResponse', airtableResponse);
 
     const isAirtableSuccessful =
       airtableResponse.insert_ticketPurchasesDevelopmentMode;
