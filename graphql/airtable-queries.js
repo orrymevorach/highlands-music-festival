@@ -11,7 +11,7 @@ export const INSERT_TICKET = gql`
     $emailAddress: String
     $environment: String
   ) {
-    insert_ticketPurchasesDevelopmentMode(
+    insert_ticketPurchases(
       name: $name
       fullName: $fullName
       paymentIntent: $paymentIntent
