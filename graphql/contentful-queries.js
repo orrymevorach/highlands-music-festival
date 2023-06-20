@@ -1,5 +1,8 @@
 import { gql } from '@apollo/client';
-import { COMMITTEE_MEMBER_FRAGMENT, FAQ_FRAGMENT } from './fragments';
+import {
+  COMMITTEE_MEMBER_FRAGMENT,
+  FAQ_FRAGMENT,
+} from './contentful-fragments';
 
 export const GET_FEATURE_FLAG = gql`
   query getFeatureFlag($name: String) {
