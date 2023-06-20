@@ -61,8 +61,7 @@ export default function CheckoutForm() {
       discountCode: promoCode,
     });
 
-    const isAirtableSuccessful =
-      airtableResponse.insert_ticketPurchasesDevelopmentMode;
+    const isAirtableSuccessful = airtableResponse.insert_ticketPurchases;
 
     if (
       paymentResult.status === 'succeeded' &&
