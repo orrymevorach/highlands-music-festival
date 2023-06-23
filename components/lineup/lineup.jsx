@@ -6,11 +6,18 @@ import { useEffect, useRef, useState } from 'react';
 import Artists from './artists';
 import Headliners from './headliners';
 import Announcement from './announcement';
+import ArtistTiles from './artist-tiles';
+import GreenSun from 'public/green-sun.png';
 
-export default function Lineup({
-  headlinerFeatureFlag = false,
-  headliners = [],
-}) {
+const Heading = ({ children }) => (
+  <div className={styles.headingContainer}>
+    <Image src={GreenSun} className={styles.sun} />
+    <h2 className={clsx(styles.heading, styles.lineupHeading)}>{children}</h2>
+    <Image src={GreenSun} className={styles.sun} />
+  </div>
+);
+
+export default function Lineup({ headlinerFeatureFlag = false, lineup = [] }) {
   const [year, setYear] = useState('');
   const lineupRef = useRef();
   useEffect(() => {
@@ -18,16 +25,24 @@ export default function Lineup({
       lineupRef.current.scrollIntoView();
     }
   }, [year, lineupRef]);
+
+  const headliners = lineup.headlinersCollection.items;
+
   return (
     <>
-      {headlinerFeatureFlag && <Announcement headliners={headliners} />}
-      <div className={styles.container}>
-        <h1
-          className={clsx(styles.heading, styles.center, styles.lineupHeading)}
-        >
-          Stay tuned for more 2023 lineup announcements
-        </h1>
+      {headlinerFeatureFlag ? (
+        <>
+          <Announcement headliners={headliners} />
+          <Heading>Stay tuned for more 2023 lineup announcements</Heading>
+        </>
+      ) : (
+        <>
+          <Heading>2023 Lineup</Heading>
+          <ArtistTiles lineup={lineup} />
+        </>
+      )}
 
+      <div className={styles.container}>
         <PastLineupDropdown
           year={year}
           setYear={setYear}

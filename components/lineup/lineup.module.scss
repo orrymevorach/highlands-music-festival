@@ -30,9 +30,23 @@
   margin-top: 200px;
 }
 
+.headingContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .lineupHeading {
   font-size: 28px;
   margin-bottom: 30px;
+}
+
+.sun {
+  width: 40px;
+  height: auto;
+  margin: 0 30px;
+  position: relative;
+  top: -8px;
 }
 
 @media screen and (max-width: 1200px) {

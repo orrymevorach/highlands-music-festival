@@ -5,14 +5,14 @@ import Layout from 'components/layout';
 import { useEmailCaptureContext } from 'context/email-capture-context';
 import {
   getFeatureFlags,
-  getHeadliners,
+  getLineup,
   getPageLoadData,
 } from 'lib/contentful-lib';
 import { FEATURE_FLAGS, PAGE_SLUGS } from 'utils/constants';
 
 export default function LineupAndSchedule({
   headlinerFeatureFlag = false,
-  headliners = [],
+  lineup = [],
   showEmailCapture,
 }) {
   const { setShowEmailCapture } = useEmailCaptureContext();
@@ -22,10 +22,7 @@ export default function LineupAndSchedule({
       <Head title="Lineup & Schedule" />
       <Layout>
         <main>
-          <Lineup
-            headlinerFeatureFlag={headlinerFeatureFlag}
-            headliners={headliners}
-          />
+          <Lineup headlinerFeatureFlag={headlinerFeatureFlag} lineup={lineup} />
           {/* <Schedule /> */}
         </main>
       </Layout>
@@ -34,8 +31,7 @@ export default function LineupAndSchedule({
 }
 
 export async function getStaticProps() {
-  const headlinersResponse = await getHeadliners();
-  const headliners = headlinersResponse.map(({ name }) => name);
+  const lineup = await getLineup();
 
   const pageLoadData = await getPageLoadData({
     url: PAGE_SLUGS.LINEUP_AND_SCHEDULE,
@@ -48,7 +44,7 @@ export async function getStaticProps() {
 
   return {
     props: {
-      headliners,
+      lineup,
       headlinerFeatureFlag,
       ...pageLoadData,
     },

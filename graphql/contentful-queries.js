@@ -2,6 +2,7 @@ import { gql } from '@apollo/client';
 import {
   COMMITTEE_MEMBER_FRAGMENT,
   FAQ_FRAGMENT,
+  IMAGE_FRAGMENT,
 } from './contentful-fragments';
 
 export const GET_FEATURE_FLAG = gql`
@@ -79,18 +80,30 @@ export const GET_IS_PAGE_PUBLISHED = gql`
   }
 `;
 
-export const GET_HEADLINERS = gql`
-  query GetHeadliners {
+export const GET_LINEUP = gql`
+  query GetLineup {
     lineupCollection(where: { title: "2023_LINEUP" }) {
       items {
-        headlinersCollection {
+        headlinersCollection(limit: 5) {
           items {
             name
+            image {
+              ...ImageFields
+            }
+          }
+        }
+        artistsCollection(limit: 20) {
+          items {
+            name
+            image {
+              ...ImageFields
+            }
           }
         }
       }
     }
   }
+  ${IMAGE_FRAGMENT}
 `;
 
 export const GET_FAQ_PAGE = gql`
