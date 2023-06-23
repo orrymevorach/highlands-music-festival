@@ -11,9 +11,9 @@ import GreenSun from 'public/green-sun.png';
 
 const Heading = ({ children }) => (
   <div className={styles.headingContainer}>
-    <Image src={GreenSun} className={styles.sun} />
+    <Image src={GreenSun} className={styles.sun} quality={10} />
     <h2 className={clsx(styles.heading, styles.lineupHeading)}>{children}</h2>
-    <Image src={GreenSun} className={styles.sun} />
+    <Image src={GreenSun} className={styles.sun} quality={10} />
   </div>
 );
 
