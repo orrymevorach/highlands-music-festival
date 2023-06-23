@@ -20,6 +20,7 @@ const Tile = ({ name, image }) => {
           width={image.width}
           height={image.height}
           className={styles.image}
+          quality={50}
         />
       )}
     </div>
