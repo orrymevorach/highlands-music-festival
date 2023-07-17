@@ -1,7 +1,7 @@
 let nodemailer = require('nodemailer');
 
 export default async function handler(req, res) {
-  const { paymentIntentId } = req.body;
+  const { paymentIntentId, emailAddress } = req.body;
 
   let transporter = nodemailer.createTransport({
     host: 'smtp.mailgun.org',
@@ -14,7 +14,7 @@ export default async function handler(req, res) {
 
   await transporter.sendMail({
     from: 'Highlands Music Festival noreply@highlandsmusicfestival.ca',
-    to: 'orry.mevorach@gmail.com',
+    to: emailAddress,
     subject: 'Cabin Reservation Credentials',
     html: `
     <div>

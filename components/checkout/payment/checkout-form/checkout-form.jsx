@@ -64,6 +64,7 @@ export default function CheckoutForm() {
 
     const mailgunResponse = await sendCabinReservationEmail({
       paymentIntentId: paymentResult.id,
+      emailAddress: customer.email,
     });
 
     const isAirtableSuccessful = airtableResponse.insert_ticketPurchases;
