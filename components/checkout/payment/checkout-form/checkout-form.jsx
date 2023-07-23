@@ -10,6 +10,7 @@ import { ErrorMessage } from 'components/checkout/checkout-shared-components';
 import Button from 'components/shared/button';
 import { useForm } from '@formspree/react';
 import { addTicketToAirtable } from 'lib/airtable-lib';
+import { sendCabinReservationEmail } from 'lib/mailgun';
 
 export default function CheckoutForm() {
   const [isLoading, setIsLoading] = useState(false);
@@ -59,6 +60,11 @@ export default function CheckoutForm() {
       name: customer.name,
       emailAddress: customer.email,
       discountCode: promoCode,
+    });
+
+    const mailgunResponse = await sendCabinReservationEmail({
+      paymentIntentId: paymentResult.id,
+      emailAddress: customer.email,
     });
 
     const isAirtableSuccessful = airtableResponse.insert_ticketPurchases;
