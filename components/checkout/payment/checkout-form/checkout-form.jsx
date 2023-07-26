@@ -58,7 +58,7 @@ export default function CheckoutForm() {
       amount: paymentResult.amount / 100,
       paymentIntentId: paymentResult.id,
       name: customer.name,
-      emailAddress: customer.email,
+      emailAddress: customer.email.toLowerCase(),
       discountCode: promoCode,
     });
 
@@ -67,7 +67,7 @@ export default function CheckoutForm() {
       emailAddress: customer.email,
     });
 
-    const isAirtableSuccessful = airtableResponse.insert_ticketPurchases;
+    const isAirtableSuccessful = airtableResponse.isSuccess;
 
     if (
       paymentResult.status === 'succeeded' &&

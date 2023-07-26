@@ -25,8 +25,8 @@ let base = Airtable.base('appsVLTJBkSew9M4y');
 
 async function run() {
   console.log('Starting script...');
-  base('Ticket Purchases (development mode)')
-    // base('Ticket Purchases')
+  // base('Ticket Purchases')
+  base('Ticket Purchases (development mode)') // dev mode
     .select({
       view: 'Grid view',
     })
