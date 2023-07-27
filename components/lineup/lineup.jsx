@@ -40,7 +40,9 @@ export default function Lineup({ headlinerFeatureFlag = false, lineup = [] }) {
           <Heading>
             <p>
               2023 Lineup{' '}
-              <span className={styles.comingSoon}>(more coming soon...)</span>
+              <span className={styles.comingSoon}>
+                (schedule coming soon...)
+              </span>
             </p>
           </Heading>
           <ArtistTiles lineup={lineup} />
