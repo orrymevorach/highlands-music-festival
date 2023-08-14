@@ -2,10 +2,12 @@ import Gallery from 'components/gallery/gallery';
 import Head from 'components/head';
 import Layout from 'components/layout/layout';
 import { useEmailCaptureContext } from 'context/email-capture-context';
+import { useFacebookPixel } from 'hooks';
 import { getPageLoadData } from 'lib/contentful-lib';
 import { PAGE_SLUGS, colors } from 'utils/constants';
 
 export default function GalleryPage({ showEmailCapture }) {
+  useFacebookPixel();
   const { setShowEmailCapture } = useEmailCaptureContext();
   setShowEmailCapture(showEmailCapture);
   return (

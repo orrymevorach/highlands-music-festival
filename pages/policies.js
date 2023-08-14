@@ -2,10 +2,12 @@ import Head from 'components/head';
 import Layout from 'components/layout/layout';
 import Policies from 'components/policies/policies';
 import { useEmailCaptureContext } from 'context/email-capture-context';
+import { useFacebookPixel } from 'hooks';
 import { getPageLoadData } from 'lib/contentful-lib';
 import { PAGE_SLUGS } from 'utils/constants';
 
 export default function PoliciesPage({ showEmailCapture }) {
+  useFacebookPixel();
   const { setShowEmailCapture } = useEmailCaptureContext();
   setShowEmailCapture(showEmailCapture);
   return (

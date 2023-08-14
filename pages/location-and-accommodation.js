@@ -3,8 +3,10 @@ import Head from 'components/head';
 import { useEmailCaptureContext } from 'context/email-capture-context';
 import { PAGE_SLUGS } from 'utils/constants';
 import { getPageLoadData } from 'lib/contentful-lib';
+import { useFacebookPixel } from 'hooks';
 
 export default function LocationAndAccommodationPage({ showEmailCapture }) {
+  useFacebookPixel();
   const { setShowEmailCapture } = useEmailCaptureContext();
   setShowEmailCapture(showEmailCapture);
   return (

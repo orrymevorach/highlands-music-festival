@@ -7,12 +7,14 @@ import {
   getPageLoadData,
 } from 'lib/contentful-lib';
 import { FEATURE_FLAGS, PAGE_SLUGS } from 'utils/constants';
+import { useFacebookPixel } from 'hooks';
 
 export default function Index({
   headlinerFeatureFlag = false,
   headliners,
   showEmailCapture,
 }) {
+  useFacebookPixel();
   const { setShowEmailCapture } = useEmailCaptureContext();
   setShowEmailCapture(showEmailCapture);
   return (

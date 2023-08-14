@@ -8,8 +8,9 @@ import { PAGE_SLUGS } from 'utils/constants';
 import Head from 'components/head';
 import Legal from 'components/checkout/legal';
 import { useWindowSize } from 'hooks';
-
+import { useFacebookPixel } from 'hooks';
 export default function CheckoutPage({ priceModel }) {
+  useFacebookPixel();
   const { isMobile } = useWindowSize();
   return (
     <CheckoutProvider priceModel={priceModel}>

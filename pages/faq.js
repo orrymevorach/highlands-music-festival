@@ -1,10 +1,12 @@
 import Faq from 'components/faq/faq';
 import Head from 'components/head';
 import { useEmailCaptureContext } from 'context/email-capture-context';
+import { useFacebookPixel } from 'hooks';
 import { getFaqPage, getPageLoadData } from 'lib/contentful-lib';
 import { PAGE_SLUGS } from 'utils/constants';
 
 const FAQPage = ({ showEmailCapture, faqData }) => {
+  useFacebookPixel();
   const { setShowEmailCapture } = useEmailCaptureContext();
   setShowEmailCapture(showEmailCapture);
   return (

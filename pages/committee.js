@@ -1,11 +1,13 @@
 import Committee from 'components/committee';
 import Head from 'components/head';
 import { useEmailCaptureContext } from 'context/email-capture-context';
+import { useFacebookPixel } from 'hooks';
 import { getCommitteeMembers } from 'lib/contentful-lib';
 import { getPageLoadData } from 'lib/contentful-lib';
 import { PAGE_SLUGS } from 'utils/constants';
 
 export default function CommitteePage({ committeeMembers, showEmailCapture }) {
+  useFacebookPixel();
   const { setShowEmailCapture } = useEmailCaptureContext();
   setShowEmailCapture(showEmailCapture);
   return (

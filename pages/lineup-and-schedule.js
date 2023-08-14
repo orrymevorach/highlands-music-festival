@@ -9,12 +9,14 @@ import {
   getPageLoadData,
 } from 'lib/contentful-lib';
 import { FEATURE_FLAGS, PAGE_SLUGS } from 'utils/constants';
+import { useFacebookPixel } from 'hooks';
 
 export default function LineupAndSchedule({
   headlinerFeatureFlag = false,
   lineup = [],
   showEmailCapture,
 }) {
+  useFacebookPixel();
   const { setShowEmailCapture } = useEmailCaptureContext();
   setShowEmailCapture(showEmailCapture);
   return (
