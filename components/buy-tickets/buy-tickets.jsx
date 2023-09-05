@@ -34,6 +34,10 @@ export default function BuyTickets({ priceModel }) {
   const pricing = calculatePricing({ priceData: priceModel });
   const { subscriptionInstallmentAmount, numberOfSubscriptionIterations } =
     pricing;
+
+  // This happens in September
+  const isSubscriptionPaymentsEnabled =
+    priceModel.numberOfSubscriptionIterations !== 0;
   return (
     <Layout>
       <div className={styles.announcement}>
@@ -48,13 +52,15 @@ export default function BuyTickets({ priceModel }) {
       </div>
       <div className={styles.buyTickets}>
         <PricingContainer {...fullPriceProps} pricing={pricing} />
-        <PricingContainer
-          {...getInstallmentsProps({
-            subscriptionInstallmentAmount,
-            numberOfSubscriptionIterations,
-          })}
-          pricing={pricing}
-        />
+        {isSubscriptionPaymentsEnabled && (
+          <PricingContainer
+            {...getInstallmentsProps({
+              subscriptionInstallmentAmount,
+              numberOfSubscriptionIterations,
+            })}
+            pricing={pricing}
+          />
+        )}
       </div>
     </Layout>
   );

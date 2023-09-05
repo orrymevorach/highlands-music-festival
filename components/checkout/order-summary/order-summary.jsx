@@ -83,10 +83,12 @@ export default function OrderSummary() {
               />
             );
           })}
-        {isSubscription && (
+        {isSubscription && numberOfSubscriptionIterations !== 0 ? (
           <p className={styles.asterisk}>
             *Future payments will automatically be charged to your credit card
           </p>
+        ) : (
+          ''
         )}
       </div>
     </div>
