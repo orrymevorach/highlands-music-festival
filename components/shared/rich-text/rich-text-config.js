@@ -1,5 +1,5 @@
 import styles from './rich-text.module.scss';
-import { BLOCKS, INLINES } from '@contentful/rich-text-types';
+import { BLOCKS, INLINES, MARKS } from '@contentful/rich-text-types';
 
 export const sharedRichTextConfig = {
   renderNode: {
@@ -18,6 +18,9 @@ export const sharedRichTextConfig = {
 
     [BLOCKS.OL_LIST]: (node, children) => (
       <ol className={styles.orderedList}>{children}</ol>
+    ),
+    [MARKS.UNDERLINE]: (node, children) => (
+      <p className={styles.underline}>{children}</p>
     ),
   },
   renderText: text => {

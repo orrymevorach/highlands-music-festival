@@ -11,6 +11,7 @@ export default function Faq({ data }) {
     foodBeverageCollection: 'Food & Beverage',
     ticketsCollection: 'Tickets',
     musicEntertainmentCollection: 'Music & Entertainment',
+    healthAndSafetyCollection: 'Heath & Safety',
   };
 
   const categoryData = Object.entries(data).reduce((acc, curr) => {

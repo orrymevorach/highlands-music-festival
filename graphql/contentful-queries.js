@@ -140,6 +140,11 @@ export const GET_FAQ_PAGE = gql`
             ...FaqFields
           }
         }
+        healthAndSafetyCollection(limit: 15) {
+          items {
+            ...FaqFields
+          }
+        }
       }
     }
   }
