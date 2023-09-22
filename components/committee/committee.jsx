@@ -56,6 +56,20 @@ export default function Committee({
               />
             ))}
           </div>
+          <p className={styles.summary}>
+            At the peak of the pandemic... and at the worst possible time,
+            Pulver gave Sol (one of the owners of Camp Walden) an idea. Sol
+            stewed on it for too long until finally it took hold. Sol turned his
+            attention to putting an all-star team of dedicated young people
+            together... not to work for Highlands but to Co-Create it! Sol
+            texted Sammy. Sammy got really excited which showed Sol that Pulver
+            wasn’t so crazy after-all. Danielle and Amanda who work with Sol
+            insisted we call Orry and Brooke. Sol grabbed capable cousin’s Toby
+            and Josh which made our 9-person co-creator team complete! People
+            said… “if you build it, they will come.” But Sol called Corey to
+            help that along! Early Bird tickets sold fast, Josh had a baby, and
+            here we are… ready for the 2nd Annual Highlands Music Festival!
+          </p>
         </div>
       </main>
     </Layout>
