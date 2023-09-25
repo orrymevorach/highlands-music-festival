@@ -17,6 +17,7 @@ const packingList = [
   { packingItem: 'Toiletries' },
   { packingItem: 'Flashlight & batteries' },
   { packingItem: 'Device chargers (regular or portable)' },
+  { packingItem: 'Power bar' },
 ];
 
 export default function LocationAndAccommodation() {
