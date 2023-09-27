@@ -66,6 +66,24 @@
   right: -90px;
 }
 
+.poster {
+  width: 500px;
+  height: auto;
+  margin-bottom: 50px;
+}
+
+.posterLarge {
+  width: 550px;
+  height: auto;
+  margin-bottom: 50px;
+}
+
+.row {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 @media screen and (max-width: 1250px) {
   .scheduleRow {
     font-size: 12px;
@@ -76,6 +94,13 @@
 }
 
 @media (max-width: $tablet) {
+  .poster {
+    width: 100%;
+  }
+  .posterLarge {
+    width: 120%;
+  }
+
   .scheduleContainer,
   .scheduleRow {
     display: flex;

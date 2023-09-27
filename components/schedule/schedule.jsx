@@ -5,13 +5,21 @@ import schedule from './schedule.json';
 import { useWindowSize } from 'hooks';
 import clsx from 'clsx';
 import Image from 'next/image';
+import largeMusic from 'public/LARGE-MUSIC.jpg';
+import scheduleOne from 'public/scheduleOne.jpg';
+import scheduleTwo from 'public/scheduleTwo.jpg';
 
 const Schedule = () => {
   const { isDesktop } = useWindowSize();
   return (
     <div className={styles.scheduleWrapper}>
       <h2 className={clsx(styles.heading, styles.scheduleHeading)}>Schedule</h2>
-      <div className={styles.scheduleContainer}>
+      <div className={styles.row}>
+        <Image src={largeMusic} className={styles.poster} />
+        <Image src={scheduleOne} className={styles.posterLarge} />
+        <Image src={scheduleTwo} className={styles.posterLarge} />
+      </div>
+      {/* <div className={styles.scheduleContainer}>
         {schedule.map(({ dayOfWeek, dailySchedule }) => (
           <div key={dayOfWeek} className={styles.thirdColumn}>
             <p className={clsx(styles.scheduleDate, styles.subHeadingHeavy)}>
@@ -72,7 +80,7 @@ const Schedule = () => {
             )}
           </div>
         ))}
-      </div>
+      </div> */}
     </div>
   );
 };

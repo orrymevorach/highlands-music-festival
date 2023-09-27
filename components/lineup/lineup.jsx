@@ -40,16 +40,16 @@ export default function Lineup({ headlinerFeatureFlag = false, lineup = [] }) {
           <Heading>
             <p>
               2023 Lineup{' '}
-              <span className={styles.comingSoon}>
+              {/* <span className={styles.comingSoon}>
                 (schedule coming soon...)
-              </span>
+              </span> */}
             </p>
           </Heading>
           <ArtistTiles lineup={lineup} />
         </>
       )}
 
-      <div className={styles.container}>
+      {/* <div className={styles.container}>
         <PastLineupDropdown
           year={year}
           setYear={setYear}
@@ -69,7 +69,7 @@ export default function Lineup({ headlinerFeatureFlag = false, lineup = [] }) {
             <Artists />
           </div>
         )}
-      </div>
+      </div> */}
     </>
   );
 }
