@@ -8,16 +8,14 @@ import { useCheckoutContext } from 'context/checkout-context';
 import { createSubscription } from 'lib/stripe-lib';
 import { ErrorMessage } from 'components/checkout/checkout-shared-components';
 import Button from 'components/shared/button';
-import { useForm } from '@formspree/react';
 import { addTicketToAirtable } from 'lib/airtable-lib';
-import { sendCabinReservationEmail } from 'lib/mailgun';
+import { sendCabinReservationEmail, sendConfirmationEmail } from 'lib/mailgun';
 
 export default function CheckoutForm() {
   const [isLoading, setIsLoading] = useState(false);
   const [errorMessage, setErrorMessage] = useState(null);
   const { priceData, quantity, paymentIntent, customer, promoCode } =
     useCheckoutContext();
-  const [formState, triggerConfirmationEmail] = useForm('mbjeqeep');
   const [successfulPaymentIntentId, setSuccessfulPaymentIntentId] =
     useState(null);
 
@@ -62,10 +60,11 @@ export default function CheckoutForm() {
       discountCode: promoCode,
     });
 
-    const mailgunResponse = await sendCabinReservationEmail({
-      paymentIntentId: paymentResult.id,
-      emailAddress: customer.email,
-    });
+    // TEMPORARILY REMOVING FOR SUPER EARLY BIRD
+    // const mailgunResponse = await sendCabinReservationEmail({
+    //   paymentIntentId: paymentResult.id,
+    //   emailAddress: customer.email,
+    // });
 
     const isAirtableSuccessful = airtableResponse.isSuccess;
 
@@ -74,18 +73,20 @@ export default function CheckoutForm() {
       subscriptionResponse === 200 &&
       isAirtableSuccessful
     ) {
-      triggerConfirmationEmail(event);
+      const mailgunConfirmationEmailResponse = await sendConfirmationEmail({
+        emailAddress: customer.email,
+      });
       setSuccessfulPaymentIntentId(paymentResult.id);
     }
   };
 
   // To ensure that re-direct happens after order confirmation email is triggered
   useEffect(() => {
-    if (formState.succeeded === true && successfulPaymentIntentId) {
+    if (successfulPaymentIntentId) {
       setIsLoading(false);
       window.location = `/order-confirmation?payment_intent=${successfulPaymentIntentId}`;
     }
-  }, [formState, successfulPaymentIntentId]);
+  }, [successfulPaymentIntentId]);
 
   return (
     <form onSubmit={handleSubmit}>

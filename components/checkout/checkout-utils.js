@@ -14,8 +14,10 @@ const mapIndexToMonth = {
 };
 
 export const getMonth = ({ subscriptionStartDate, iteration = 0 }) => {
-  const [_, monthIndex] = subscriptionStartDate.split('-');
-  return mapIndexToMonth[parseInt(monthIndex) + iteration];
+  let [_, monthIndex] = subscriptionStartDate.split('-');
+  let monthInNumbers = parseInt(monthIndex) + iteration;
+  if (monthInNumbers > 12) monthInNumbers = 1;
+  return mapIndexToMonth[monthInNumbers];
 };
 
 const getInstallmentData = ({ priceData, promoPaymentIntent, quantity }) => {

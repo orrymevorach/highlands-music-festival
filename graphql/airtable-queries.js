@@ -9,9 +9,8 @@ export const INSERT_TICKET = gql`
     $discountCode: String
     $amount: Float
     $emailAddress: String
-    $environment: String
   ) {
-    insert_ticketPurchases(
+    insert_ticketPurchases2024(
       name: $name
       fullName: $fullName
       paymentIntent: $paymentIntent
@@ -19,7 +18,6 @@ export const INSERT_TICKET = gql`
       discountCode: $discountCode
       amount: $amount
       emailAddress: $emailAddress
-      environment: $environment
     ) {
       id
     }
@@ -35,7 +33,6 @@ export const INSERT_TICKET_DEVELOPMENT_MODE = gql`
     $discountCode: String
     $amount: Float
     $emailAddress: String
-    $environment: String
   ) {
     insert_ticketPurchasesDevelopmentMode(
       name: $name
@@ -45,7 +42,6 @@ export const INSERT_TICKET_DEVELOPMENT_MODE = gql`
       discountCode: $discountCode
       amount: $amount
       emailAddress: $emailAddress
-      environment: $environment
     ) {
       id
     }
