@@ -30,8 +30,8 @@ export default function CheckoutContainer() {
 
       {paymentIntent && !isPaymentIntentExpired && (
         <>
-          {!promoCode && <PromoCodeForm />}
-          {promoCode && <PromoCodeSuccess />}
+          {/* {!promoCode && <PromoCodeForm />} */}
+          {/* {promoCode && <PromoCodeSuccess />} */}
           <Payment />
         </>
       )}

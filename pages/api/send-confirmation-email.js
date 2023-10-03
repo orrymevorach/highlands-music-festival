@@ -15,7 +15,7 @@ export default async function handler(req, res) {
   await transporter.sendMail({
     from: 'Highlands Music Festival noreply@highlandsmusicfestival.ca',
     to: emailAddress,
-    subject: 'Congratulations – you’re headed to the Highlands in 2024!',
+    subject: 'Congratulations – you’re headed to the Highlands!',
     html: `
 
 
@@ -23,6 +23,7 @@ export default async function handler(req, res) {
 
     <div>
         <h2>Congratulations – you’re headed to the Highlands!</h2>
+        <p>Thank you for being a trailblazer! You're support means the world to us, and we are thrilled that you are joining us again in 2024.</p>
         <p>If you chose to pay for your ticket(s) in instalments your credit card will automatically be charged according to your payment schedule.</p>
         <p>If you chose to pay in full, you're good to go!</p>
         <p>Closer to the festival we will send you a link to register for your cabin, as well as a full registration form where you can indicate any dietary needs, and much more.</p>
