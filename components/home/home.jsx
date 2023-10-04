@@ -23,7 +23,7 @@ export default function Home({
           <Layout hasPaddingBottom={false} hamburgerMenuColor={colors.beige}>
             <main className={styles.mainContent}>
               <h1 className={styles.h1}>Highlands Music Festival</h1>
-              <TopRow />
+              {/* <TopRow /> */}
               <Video />
             </main>
           </Layout>

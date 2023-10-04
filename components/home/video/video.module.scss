@@ -43,6 +43,39 @@
   // margin-top: 75px;
 }
 
+.thankYou {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  z-index: 6;
+  height: 100%;
+  color: white;
+}
+
+.thankYouLogo {
+  width: 600px;
+  margin-bottom: 70px;
+}
+
+.thankYouHeading {
+  font-size: 28px;
+  font-family: $fontPrimary;
+  margin-top: 8px;
+}
+
+.thankYouText {
+  font-size: 22px;
+  font-family: $fontPrimary;
+  margin: 15px 0 0;
+}
+
+.thankYouTextDate {
+  margin-top: 30px;
+}
+
 @media screen and (max-width: 1200px) {
   .videoContainer {
     height: 460px;
