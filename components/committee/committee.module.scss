@@ -32,13 +32,27 @@
       }
     }
   }
-
-  .summary {
-    font-family: $fontSecondaryLight;
-    width: 700px;
+  .readOurStoryButton {
+    font-family: $fontSecondary;
+    background: none;
+    border: none;
+    font-size: 16px;
+    color: $darkGreen;
+    margin: 30px auto;
     display: block;
-    margin: 0 auto;
+    .underline {
+      text-decoration: underline;
+    }
   }
+  .takeover {
+    width: 800px;
+    .storyHeading {
+      font-family: $fontPrimary;
+      font-size: 32px;
+      margin-bottom: 30px;
+    }
+  }
+
   @media screen and (max-width: $tablet) {
     width: 100%;
     .committeeMembers {
@@ -77,9 +91,8 @@
       margin-bottom: 50px;
       padding: 0 10px;
     }
-    .summary {
+    .takeover {
       width: 100%;
-      padding: 0 15px;
     }
   }
 }

@@ -43,3 +43,7 @@ html,
 body {
   scroll-behavior: smooth;
 }
+
+button {
+  cursor: pointer;
+}

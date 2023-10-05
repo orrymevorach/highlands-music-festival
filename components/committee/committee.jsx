@@ -2,6 +2,8 @@ import Layout from '../layout';
 import styles from './committee.module.scss';
 import Image from 'next/image';
 import clsx from 'clsx';
+import Takeover from 'components/takeover/takeover';
+import { useState } from 'react';
 
 const CommitteeMember = ({ name, jobTitle, image }) => {
   const firstName = name?.split(' ')[0].toLowerCase();
@@ -34,11 +36,42 @@ export default function Committee({
     friendsOfHighlandsCollection: { items: friendsOfHighlands },
   },
 }) {
+  const [showTakeover, setShowTakeover] = useState(false);
   return (
     <Layout>
       <main>
         <div className={styles.committeePage}>
+          {showTakeover && (
+            <Takeover
+              modalClassNames={styles.takeover}
+              handleClose={() => setShowTakeover(false)}
+            >
+              <h2 className={styles.storyHeading}>How Highlands Was Created</h2>
+              <p>
+                At the peak of the pandemic... and at the worst possible time,
+                Pulver gave Sol (one of the owners of Camp Walden) an idea. Sol
+                stewed on it for too long until finally it took hold. Sol turned
+                his attention to putting an all-star team of dedicated young
+                people together... not to work for Highlands but to Co-Create
+                it! Sol texted Sammy. Sammy got really excited which showed Sol
+                that Pulver wasn’t so crazy after-all. Danielle and Amanda who
+                work with Sol insisted we call Orry and Brooke. Sol grabbed
+                capable cousin’s Toby and Josh which made our 9-person
+                co-creator team complete! People said… “if you build it, they
+                will come.” But Sol called Corey to help that along! Early Bird
+                tickets sold fast, Josh had a baby, and here we are… ready for
+                the 2nd Annual Highlands Music Festival!
+              </p>
+            </Takeover>
+          )}
           <h1 className={styles.heading}>Co-Creators</h1>
+          <button
+            className={styles.readOurStoryButton}
+            onClick={() => setShowTakeover(true)}
+          >
+            <span className={styles.underline}>Click here</span> to read our
+            story
+          </button>
           <div className={styles.committeeMembers}>
             {foundingMembers.map(committeeMemberData => (
               <CommitteeMember
@@ -56,20 +89,6 @@ export default function Committee({
               />
             ))}
           </div>
-          <p className={styles.summary}>
-            At the peak of the pandemic... and at the worst possible time,
-            Pulver gave Sol (one of the owners of Camp Walden) an idea. Sol
-            stewed on it for too long until finally it took hold. Sol turned his
-            attention to putting an all-star team of dedicated young people
-            together... not to work for Highlands but to Co-Create it! Sol
-            texted Sammy. Sammy got really excited which showed Sol that Pulver
-            wasn’t so crazy after-all. Danielle and Amanda who work with Sol
-            insisted we call Orry and Brooke. Sol grabbed capable cousin’s Toby
-            and Josh which made our 9-person co-creator team complete! People
-            said… “if you build it, they will come.” But Sol called Corey to
-            help that along! Early Bird tickets sold fast, Josh had a baby, and
-            here we are… ready for the 2nd Annual Highlands Music Festival!
-          </p>
         </div>
       </main>
     </Layout>
