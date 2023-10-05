@@ -8,6 +8,7 @@ export const INSERT_TICKET = gql`
     $discountCode: String
     $amount: Float
     $emailAddress: String
+    $fullTicketPrice: Float
   ) {
     insert_ticketPurchases2024(
       name: $name
@@ -16,6 +17,7 @@ export const INSERT_TICKET = gql`
       discountCode: $discountCode
       amount: $amount
       emailAddress: $emailAddress
+      fullTicketPrice: $fullTicketPrice
     ) {
       id
     }

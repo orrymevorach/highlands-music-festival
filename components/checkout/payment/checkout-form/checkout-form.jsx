@@ -58,6 +58,7 @@ export default function CheckoutForm() {
       name: customer.name,
       emailAddress: customer.email.toLowerCase(),
       discountCode: promoCode,
+      fullTicketPrice: priceData.total,
     });
 
     // TEMPORARILY REMOVING FOR SUPER EARLY BIRD
