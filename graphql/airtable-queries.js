@@ -3,7 +3,6 @@ import { gql } from '@apollo/client';
 export const INSERT_TICKET = gql`
   mutation InserTicket(
     $name: String
-    $fullName: String
     $paymentIntent: String
     $status: String
     $discountCode: String
@@ -12,7 +11,6 @@ export const INSERT_TICKET = gql`
   ) {
     insert_ticketPurchases2024(
       name: $name
-      fullName: $fullName
       paymentIntent: $paymentIntent
       status: $status
       discountCode: $discountCode
@@ -27,7 +25,6 @@ export const INSERT_TICKET = gql`
 export const INSERT_TICKET_DEVELOPMENT_MODE = gql`
   mutation InserTicket(
     $name: String
-    $fullName: String
     $paymentIntent: String
     $status: String
     $discountCode: String
@@ -36,7 +33,6 @@ export const INSERT_TICKET_DEVELOPMENT_MODE = gql`
   ) {
     insert_ticketPurchasesDevelopmentMode(
       name: $name
-      fullName: $fullName
       paymentIntent: $paymentIntent
       status: $status
       discountCode: $discountCode
