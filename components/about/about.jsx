@@ -32,7 +32,7 @@ export default function About() {
             height={150}
           />
           <h3 className={clsx(styles.aboutDate, styles.subheading)}>
-            Thursday, September 28th - Sunday, October 1st, 2023
+            Thursday, September 26th - 29th, 2024
           </h3>
           {!isMobile && (
             <Image
@@ -113,8 +113,8 @@ export default function About() {
                 Founded by its 9-person Co-Creator-Team, Highlands is a three-
                 night Folk Music getaway celebrating the musical talent of many
                 youthful Folk (and Folk’ish!) performances on its 3 stage setup
-                at Camp Walden this September 28 - October 1. Camp-style meals
-                and basic accommodations are provided as part of the one-price-
+                at Camp Walden this September 26 - 29. Camp-style meals and
+                basic accommodations are provided as part of the one-price-
                 fits-all ticket format. With an intentional capacity of just
                 500, the weekend is, by design, meant to be an intimate
                 gathering of music lovers looking to reconnect with the

@@ -5,10 +5,10 @@ import Button from 'components/shared/button/button';
 export default function TopRow() {
   return (
     <div className={styles.topRow}>
-      <h2 className={styles.date}>September 28 - October 1</h2>
+      <h2 className={styles.date}>September 26 - 29</h2>
       <div className={styles.middle}>
         <p className={styles.ticketsAvailable}>
-          2023 tickets are now available
+          2024 tickets are now available
         </p>
         <p className={styles.link}>
           <Link href="/buy-tickets">Click here</Link> to see what's included in

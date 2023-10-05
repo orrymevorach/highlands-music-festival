@@ -8,13 +8,13 @@ export default function Meta({ title = '' }) {
       <meta charSet="utf-8" />
       <meta
         name="description"
-        content="Highlands Music Festival is a music festival taking place at Camp Walden in Palmer Rapids, Ontario, between Thursday, September 28th - Sunday, October 1st, 2023"
+        content="Highlands Music Festival is a music festival taking place at Camp Walden in Palmer Rapids, Ontario, between Thursday September 26th - 29th, 2024"
       />
       <title>{tabTitle}</title>
       <link rel="icon" href={`${imgPath}/favicon.png`} />
       <meta
         name="keywords"
-        content="Highlands Music Festival, music festival, festival, Bancroft, Ontario, Toronto, Palmer Rapids, summer camp, 2023"
+        content="Highlands Music Festival, music festival, festival, Bancroft, Ontario, Toronto, Palmer Rapids, summer camp, 2023, 2024"
       />
     </Head>
   );
