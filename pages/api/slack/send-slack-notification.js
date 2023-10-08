@@ -28,14 +28,8 @@ export default async function handler(req, res) {
     // Count number of tickets
     const numberOfTickets = recordsFilteredByTicketStatus.length;
 
-    // Calculate ticket revenue and convert to dollar amount
-    const revenue = recordsFilteredByTicketStatus.reduce((acc, curr) => {
-      return acc + curr.fields['Full Ticket Price'];
-    }, 0);
-    const dollarAmount = amountToDollar.format(revenue);
-
     // Create message and send as slack notification
-    const message = `*<!channel>, a ticket to Highlands has been purchased!*\nAttendee: ${name}\nEmail: ${email}\nDiscount Code: ${discountCode}\n\nNumber of tickets sold: ${numberOfTickets}\nApproximate ticket revenue: ${dollarAmount}`;
+    const message = `*<!channel>, a ticket to Highlands has been purchased!*\nAttendee: ${name}\nEmail: ${email}\nDiscount Code: ${discountCode}\n\nNumber of tickets sold: ${numberOfTickets}`;
     await web.chat.postMessage({
       channel: '#notifications_tickets',
       text: message,
