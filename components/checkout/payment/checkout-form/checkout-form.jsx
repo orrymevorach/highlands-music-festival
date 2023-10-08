@@ -10,6 +10,7 @@ import { ErrorMessage } from 'components/checkout/checkout-shared-components';
 import Button from 'components/shared/button';
 import { addTicketToAirtable } from 'lib/airtable-lib';
 import { sendCabinReservationEmail, sendConfirmationEmail } from 'lib/mailgun';
+import { sendSlackNotification } from 'lib/slack-lib';
 
 export default function CheckoutForm() {
   const [isLoading, setIsLoading] = useState(false);
@@ -52,11 +53,14 @@ export default function CheckoutForm() {
       paymentMethodId: paymentResult.payment_method,
     });
 
+    const name = customer.name;
+    const email = customer.email.toLowerCase();
+
     const airtableResponse = await addTicketToAirtable({
       amount: paymentResult.amount / 100,
       paymentIntentId: paymentResult.id,
-      name: customer.name,
-      emailAddress: customer.email.toLowerCase(),
+      name,
+      emailAddress: email,
       discountCode: promoCode,
       fullTicketPrice: priceData.total,
     });
@@ -75,7 +79,12 @@ export default function CheckoutForm() {
       isAirtableSuccessful
     ) {
       const mailgunConfirmationEmailResponse = await sendConfirmationEmail({
-        emailAddress: customer.email,
+        emailAddress: email,
+      });
+      const slackNotificationResponse = await sendSlackNotification({
+        name,
+        email,
+        discountCode: promoCode,
       });
       setSuccessfulPaymentIntentId(paymentResult.id);
     }
