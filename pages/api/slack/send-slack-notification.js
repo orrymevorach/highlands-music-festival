@@ -6,8 +6,8 @@ require('dotenv').config({ path: '.env.local' });
 
 // Airtable Config
 var base = new Airtable({
-  apiKey: AIRTABLE_PERSONAL_ACCESS_TOKEN,
-}).base(AIRTABLE_BASE);
+  apiKey: process.env.AIRTABLE_PERSONAL_ACCESS_TOKEN,
+}).base(process.env.AIRTABLE_BASE);
 
 // Slack Config
 const web = new WebClient(process.env.SLACK_OAUTH_TOKEN);
