@@ -81,14 +81,16 @@ export default function CheckoutForm() {
       const mailgunConfirmationEmailResponse = await sendConfirmationEmail({
         emailAddress: email,
       });
-      try {
-        const slackNotificationResponse = await sendSlackNotification({
-          name,
-          email,
-          discountCode: promoCode,
-        });
-      } catch (error) {
-        console.log(error);
+      if (process.env.NODE_ENV === 'production') {
+        try {
+          const slackNotificationResponse = await sendSlackNotification({
+            name,
+            email,
+            discountCode: promoCode,
+          });
+        } catch (error) {
+          console.log(error);
+        }
       }
       setSuccessfulPaymentIntentId(paymentResult.id);
     }
