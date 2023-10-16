@@ -1,0 +1,29 @@
+@import '@variables';
+
+.inputContainer {
+  font-family: $fontSecondary;
+}
+
+.input {
+  width: 300px;
+}
+
+.label {
+  display: block;
+  font-size: 16px;
+  margin-bottom: 5px;
+}
+
+.error {
+  color: red;
+  font-size: 16px;
+  margin-bottom: 10px;
+  font-family: $fontSecondaryLight;
+}
+
+@media screen and (max-width: $mobile) {
+  .inputContainer,
+  .input {
+    width: 100%;
+  }
+}

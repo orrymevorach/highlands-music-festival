@@ -32,6 +32,7 @@ export const PAGE_SLUGS = {
   BUY_TICKETS: '/buy-tickets',
   POLICIES: '/policies',
   GALLERY: '/gallery',
+  ARTIST_SUBMISSIONS: '/artist-submissions',
 };
 
 export const PRICE_MODEL_IDS = {
