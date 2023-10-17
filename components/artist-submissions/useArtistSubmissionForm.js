@@ -2,9 +2,9 @@ import { useReducer } from 'react';
 
 const actions = {
   SET_STAGE: 'SET_STAGE',
+  SET_EMAIL: 'SET_EMAIL',
   SET_NAME: 'SET_NAME',
-  SET_DROPDOWN: 'SET_DROPDOWN',
-  SET_TEXTAREA: 'SET_TEXTAREA',
+  SET_MESSAGE: 'SET_MESSAGE',
 };
 
 const stages = {
@@ -13,33 +13,34 @@ const stages = {
 };
 
 const initialState = {
+  email: '',
   name: '',
-  dropdown: '',
-  textarea: '',
+  message: '',
+  stage: stages.FILL_OUT_FORM,
 };
 
 const reducer = (state, action) => {
-  const { SET_STAGE, SET_NAME, SET_DROPDOWN, SET_TEXTAREA } = actions;
+  const { SET_STAGE, SET_NAME, SET_MESSAGE, SET_EMAIL } = actions;
   switch (action.type) {
     case SET_STAGE:
       return {
         ...state,
         stage: action.stage,
       };
+    case SET_EMAIL:
+      return {
+        ...state,
+        email: action.email,
+      };
     case SET_NAME:
       return {
         ...state,
         name: action.name,
       };
-    case SET_DROPDOWN:
+    case SET_MESSAGE:
       return {
         ...state,
-        dropdown: action.dropdown,
-      };
-    case SET_TEXTAREA:
-      return {
-        ...state,
-        textarea: action.textarea,
+        message: action.message,
       };
   }
 };

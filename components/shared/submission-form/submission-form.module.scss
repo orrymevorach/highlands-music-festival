@@ -16,7 +16,7 @@
 .input,
 .textarea,
 label.inputLabel {
-  font-family: $fontSecondary;
+  font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
   color: black;
   margin-bottom: 7px;
   text-wrap: wrap;
@@ -24,6 +24,7 @@ label.inputLabel {
   background-color: rgba(0, 0, 0, 0);
   border-radius: 4px;
   border-color: #c0baab;
+  font-size: 16px;
 }
 
 .textarea {

@@ -30,7 +30,7 @@ export default async function handler(req, res) {
         <p>For now, we invite you to visit us at <a href="www.highlandsmusicfestival.ca">www.highlandsmusicfestival.ca</a> and follow us <a href="https://www.instagram.com/highlandsmusicfestival/">@highlandsmusicfestival</a> for all event details and announcements! Check out our helpful FAQ page <a href="www.highlandsmusicfestival.ca/faq">here.</a></p>
         <p>If you have any questions at all please feel free to reach out on socials or emails us at info@highlandsmusicfestival.ca.</p>
         <p>The countdown is ON.</p>
-        <img src="https://reservations.highlandsmusicfestival.ca/_next/image?url=%2F_next%2Fstatic%2Fmedia%2FLogo-1200px-No-Bkgd-min.effb0614.png&w=3840&q=75" style="width:300px;" }} />
+        <img src="https://highlandsmusicfestival.ca/_next/image?url=%2F_next%2Fstatic%2Fmedia%2FLogo-1200px-No-Bkgd-min.effb0614.png&w=640&q=10" style="width:300px;" }} />
       </div>
     `,
   });

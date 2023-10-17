@@ -5,34 +5,24 @@ import styles from './submission-form.module.scss';
 export default function SubmissionForm({
   formConfig,
   handleSubmit = () => {},
-  stage = '',
-  confirmationText = '',
-  stages = {},
+  isLoading = false,
 }) {
   const handleSubmitForm = e => {
     e.preventDefault();
     handleSubmit();
   };
-  if (!stage || stage === stages.FILL_OUT_FORM)
-    return (
-      <form action="#" className={styles.container} onSubmit={handleSubmitForm}>
-        {formConfig.map((elementConfig, index) => {
-          return (
-            <GetFormElement
-              key={`${index}-submission-form`}
-              {...elementConfig}
-            />
-          );
-        })}
 
-        <Button classNames={styles.submitButton}>Continue</Button>
-      </form>
-    );
+  return (
+    <form action="#" className={styles.container} onSubmit={handleSubmitForm}>
+      {formConfig.map((elementConfig, index) => {
+        return (
+          <GetFormElement key={`${index}-submission-form`} {...elementConfig} />
+        );
+      })}
 
-  if (stage === stages.CONFIRMATION)
-    return (
-      <div className={styles.confirmationContainer}>
-        <p className={styles.confirmationText}>{confirmationText}</p>
-      </div>
-    );
+      <Button classNames={styles.submitButton} isLoading={isLoading}>
+        Continue
+      </Button>
+    </form>
+  );
 }
