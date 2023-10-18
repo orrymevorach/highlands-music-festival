@@ -25,7 +25,7 @@ export default async function handler(req, res) {
 
   await transporter.sendMail({
     from: 'Highlands Music Festival noreply@highlandsmusicfestival.ca',
-    to: 'sammy@highlandsmusicfestival.ca',
+    to: 'sammy@eyesandearsagency.com',
     subject: 'Artist Submission',
     html: `
     <div style="width:550px;margin:0 auto;display:block">
