@@ -55,6 +55,8 @@ label.inputLabel {
 .requiredText {
   margin: 20px 0 50px 220px;
   font-size: 12px;
+  color: rgba(0, 0, 0, 0.6);
+  font-family: $fontSecondaryLight;
   .asterisk {
     color: red;
   }
@@ -65,8 +67,12 @@ label.inputLabel {
     width: 100%;
   }
   .input,
+  .textarea,
   label.inputLabel {
     font-size: 18px;
     width: 300px !important;
+  }
+  .requiredText {
+    margin: 20px 0 50px 0px;
   }
 }
