@@ -9,15 +9,22 @@ export default function CheckIn() {
         <div className={styles.textContainer}>
           <h2 className={styles.title}>Artist Submissions</h2>
           <p className={styles.text}>
-            Use this form to submit to the Highlands Music Festival. We accept
-            artist submissions year-round, however submissions must be received
-            by December 15 in order to be considered for the following year's
-            Festival.
+            Welcome to the Highlands Music Festival Artist Submission form!
           </p>
           <p className={styles.text}>
-            2024 dates are September 26-29. Due to the high volume of
-            submissions we receive, only successful applicants will be notified.
-            We aim to notify successful applicants by April 15.
+            We accept submissions all year round, however submissions must be
+            received by January 31 in order to be considered for the following
+            year’s Festival.
+          </p>
+          <p className={styles.text}>
+            HMF 2024 will take place on Sept 26-29. We will notify you with any
+            further questions or confirmation. Please be patient as we receive a
+            high volume of submissions.
+          </p>
+          <p className={styles.text}>
+            Please note: HMF takes place at Camp Walden approximately 3 hours
+            away from Toronto and 2 from Ottawa, and we do not provide
+            transportation.
           </p>
 
           <ArtistSubmissionForm />

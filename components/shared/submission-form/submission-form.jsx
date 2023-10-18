@@ -14,6 +14,10 @@ export default function SubmissionForm({
 
   return (
     <form action="#" className={styles.container} onSubmit={handleSubmitForm}>
+      <p className={styles.requiredText}>
+        Fields marked with an <span className={styles.asterisk}>*</span> are
+        required
+      </p>
       {formConfig.map((elementConfig, index) => {
         return (
           <GetFormElement key={`${index}-submission-form`} {...elementConfig} />

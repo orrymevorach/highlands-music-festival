@@ -30,6 +30,12 @@ label.inputLabel {
 .textarea {
   padding: 8.5px 14px; // to match default MUI input padding
 }
+.wordCount {
+  font-size: 14px;
+  position: absolute;
+  bottom: -10px;
+  right: 0;
+}
 
 .input {
   &::placeholder {
@@ -43,6 +49,15 @@ label.inputLabel {
 
 .formFieldContainer {
   margin-bottom: 50px;
+  position: relative;
+}
+
+.requiredText {
+  margin: 20px 0 50px 220px;
+  font-size: 12px;
+  .asterisk {
+    color: red;
+  }
 }
 
 @media screen and (max-width: $mobile) {

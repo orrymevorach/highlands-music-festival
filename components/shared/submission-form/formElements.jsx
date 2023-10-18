@@ -1,6 +1,7 @@
 import styles from './submission-form.module.scss';
 import { InputLabel, MenuItem, Select, TextareaAutosize } from '@mui/material';
 import Input from '../input/input';
+import { useState } from 'react';
 
 export default function GetFormElement({
   type,
@@ -12,14 +13,22 @@ export default function GetFormElement({
   placeholder = '',
   minRows = 1,
   required = false,
+  maxWordCount = null,
 }) {
+  const [wordCount, setWordCount] = useState(0); // used for textarea
+  const Label = ({ id, label }) => {
+    return (
+      <InputLabel className={styles.inputLabel} id={id}>
+        {label}
+        {required && <span style={{ color: 'red' }}>*</span>}
+      </InputLabel>
+    );
+  };
   switch (type) {
     case 'dropdown':
       return (
         <div className={styles.formFieldContainer}>
-          <InputLabel className={styles.inputLabel} id={id}>
-            {label}
-          </InputLabel>
+          <Label label={label} id={id} required={required} />
           <Select
             required={required}
             id={`${id}-label`}
@@ -40,9 +49,7 @@ export default function GetFormElement({
     case 'text':
       return (
         <div className={styles.formFieldContainer}>
-          <InputLabel className={styles.inputLabel} id={id}>
-            {label}
-          </InputLabel>
+          <Label label={label} id={id} required={required} />
           <Input
             handleChange={e => handleChange(e.target.value)}
             placeholder={placeholder}
@@ -55,16 +62,22 @@ export default function GetFormElement({
     case 'textarea':
       return (
         <div className={styles.formFieldContainer}>
-          <InputLabel className={styles.inputLabel} id={id}>
-            {label}
-          </InputLabel>
+          <Label label={label} id={id} required={required} />
           <TextareaAutosize
             value={value}
-            onChange={handleChange}
+            onChange={e => {
+              setWordCount(e.target.value.split(' ').length);
+              handleChange(e.target.value);
+            }}
             minRows={minRows}
             className={styles.textarea}
             required={required}
           />
+          {maxWordCount && (
+            <p className={styles.wordCount}>
+              {wordCount}/{maxWordCount}
+            </p>
+          )}
         </div>
       );
   }

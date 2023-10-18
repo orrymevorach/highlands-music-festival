@@ -2,9 +2,17 @@ import { useReducer } from 'react';
 
 const actions = {
   SET_STAGE: 'SET_STAGE',
-  SET_EMAIL: 'SET_EMAIL',
-  SET_NAME: 'SET_NAME',
-  SET_MESSAGE: 'SET_MESSAGE',
+  SET_CONTACT_NAME: 'SET_CONTACT_NAME',
+  SET_ARTIST_NAME: 'SET_ARTIST_NAME',
+  SET_CONTACT_EMAIL: 'SET_CONTACT_EMAIL',
+  SET_CONTACT_PHONE: 'SET_CONTACT_PHONE',
+  SET_CITY: 'SET_CITY',
+  SET_WEBSITE: 'SET_WEBSITE',
+  SET_SOCIAL_PAGE: 'SET_SOCIAL_PAGE',
+  SET_ABOUT: 'SET_ABOUT',
+  SET_AUDIO_EXAMPLE_1: 'SET_AUDIO_EXAMPLE_1',
+  SET_AUDIO_EXAMPLE_2: 'SET_AUDIO_EXAMPLE_2',
+  SET_AUDIO_EXAMPLE_3: 'SET_AUDIO_EXAMPLE_3',
 };
 
 const stages = {
@@ -13,34 +21,96 @@ const stages = {
 };
 
 const initialState = {
-  email: '',
-  name: '',
-  message: '',
   stage: stages.FILL_OUT_FORM,
+  contactName: '',
+  artistName: '',
+  contactEmail: '',
+  contactPhone: '',
+  city: '',
+  website: '',
+  socialPage: '',
+  about: '',
+  audioExampleOne: '',
+  audioExampleTwo: '',
+  audioExampleThree: '',
 };
 
 const reducer = (state, action) => {
-  const { SET_STAGE, SET_NAME, SET_MESSAGE, SET_EMAIL } = actions;
+  const {
+    SET_STAGE,
+    SET_CONTACT_NAME,
+    SET_ARTIST_NAME,
+    SET_CONTACT_EMAIL,
+    SET_CONTACT_PHONE,
+    SET_CITY,
+    SET_WEBSITE,
+    SET_SOCIAL_PAGE,
+    SET_ABOUT,
+    SET_AUDIO_EXAMPLE_1,
+    SET_AUDIO_EXAMPLE_2,
+    SET_AUDIO_EXAMPLE_3,
+  } = actions;
   switch (action.type) {
     case SET_STAGE:
       return {
         ...state,
         stage: action.stage,
       };
-    case SET_EMAIL:
+
+    case SET_CONTACT_NAME:
       return {
         ...state,
-        email: action.email,
+        contactName: action.contactName,
       };
-    case SET_NAME:
+    case SET_ARTIST_NAME:
       return {
         ...state,
-        name: action.name,
+        artistName: action.artistName,
       };
-    case SET_MESSAGE:
+    case SET_CONTACT_EMAIL:
       return {
         ...state,
-        message: action.message,
+        contactEmail: action.contactEmail,
+      };
+    case SET_CONTACT_PHONE:
+      return {
+        ...state,
+        contactPhone: action.contactPhone,
+      };
+    case SET_CITY:
+      return {
+        ...state,
+        city: action.city,
+      };
+    case SET_WEBSITE:
+      return {
+        ...state,
+        website: action.website,
+      };
+    case SET_SOCIAL_PAGE:
+      return {
+        ...state,
+        socialPage: action.socialPage,
+      };
+    case SET_ABOUT:
+      return {
+        ...state,
+        about: action.about,
+      };
+    case SET_AUDIO_EXAMPLE_1:
+      return {
+        ...state,
+        audioExampleOne: action.audioExampleOne,
+      };
+    case SET_AUDIO_EXAMPLE_2:
+      return {
+        ...state,
+        audioExampleTwo: action.audioExampleTwo,
+      };
+    case SET_AUDIO_EXAMPLE_3:
+      return {
+        ...state,
+        audioExampleThree: action.audioExampleThree,
       };
   }
 };
