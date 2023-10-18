@@ -70,8 +70,10 @@ label.inputLabel {
   .textarea,
   label.inputLabel {
     font-size: 18px;
-    width: 300px !important;
-    text-overflow: initial;
+    width: 100% !important;
+    padding: 0 15px;
+    text-wrap: wrap;
+    white-space: normal;
   }
   .requiredText {
     margin: 20px 0 50px 0px;
