@@ -42,8 +42,9 @@ const Nav = ({ hamburgerMenuColor = '' }) => {
   const navData = useNavContext() || [];
   const [isOpen, setIsOpen] = useState(false);
   const [pathname, setPathname] = useState('');
-  const { isMobile, isDesktop, isTablet } = useWindowSize();
-  const showNav = isDesktop || isTablet || (isMobile && isOpen);
+  const { width } = useWindowSize();
+  const isMobile = width < 1150;
+  const showNav = !isMobile || (isMobile && isOpen);
 
   useEffect(() => {
     const body = document.getElementsByTagName('body')[0];
@@ -94,11 +95,13 @@ const Nav = ({ hamburgerMenuColor = '' }) => {
           </ul>
         </nav>
       ) : null}
-      <HamburgerMenu
-        isOpen={isOpen}
-        setIsOpen={setIsOpen}
-        hamburgerMenuColor={hamburgerMenuColor}
-      />
+      {isMobile && (
+        <HamburgerMenu
+          isOpen={isOpen}
+          setIsOpen={setIsOpen}
+          hamburgerMenuColor={hamburgerMenuColor}
+        />
+      )}
     </>
   );
 };

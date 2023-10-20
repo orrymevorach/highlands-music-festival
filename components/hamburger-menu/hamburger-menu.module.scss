@@ -2,7 +2,6 @@
 
 .hamburgerMenu {
   z-index: 10;
-  display: none;
   width: 30px;
   height: 20px;
   position: absolute;
@@ -77,10 +76,4 @@
   top: 18px;
   width: 0%;
   left: 50%;
-}
-
-@media (max-width: $mobile) {
-  .hamburgerMenu {
-    display: block;
-  }
 }
