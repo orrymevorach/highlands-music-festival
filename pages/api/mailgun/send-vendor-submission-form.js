@@ -1,7 +1,8 @@
 let nodemailer = require('nodemailer');
+require('dotenv').config({ path: '.env.local' });
 
 export default async function handler(req, res) {
-  const { fields } = req.body;
+  const { fields, recId } = req.body;
 
   let transporter = nodemailer.createTransport({
     host: 'smtp.mailgun.org',
@@ -31,6 +32,10 @@ export default async function handler(req, res) {
     <div style="width:550px;margin:0 auto;display:block">
         <h2 style="font-family:Open Sans,Helvetica Neue,Helvetica,Arial,sans-serif;font-size:24px">New Vendor Submission for Highlands!</h2>
         ${fieldData}
+        <div>
+          <a href="${process.env.NEXT_PUBLIC_BASE_URL}/api/vendors/accept-vendor-submission-form?recId=${recId}&status=Accepted" style="background-color:#33421b;color:white;padding:12px 20px;border-radius:3px;text-decoration:none;display:inline-block;text-align:center;font-size:18px;margin:20px 20px 0 0;">Accept Vendor</button>
+          <a href="${process.env.NEXT_PUBLIC_BASE_URL}/api/vendors/accept-vendor-submission-form?recId=${recId}&status=Rejected" style="background-color:red;color:white;padding:12px 20px;border-radius:3px;text-decoration:none;display:inline-block;text-align:center;font-size:18px;margin:20px 20px 0 0;">Reject Vendor</button>
+        </div>
         <img src="https://highlandsmusicfestival.ca/_next/image?url=%2F_next%2Fstatic%2Fmedia%2FLogo-1200px-No-Bkgd-min.effb0614.png&w=640&q=10" style="width:300px;margin-top:40px;" }} />
       </div>
     `,

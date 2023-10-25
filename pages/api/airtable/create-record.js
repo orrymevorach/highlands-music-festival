@@ -1,5 +1,5 @@
+import { transformFields } from 'lib/airtable-lib';
 const Airtable = require('airtable');
-import { toCamelCase } from 'utils/utils';
 
 require('dotenv').config({ path: '.env.local' });
 
@@ -7,18 +7,6 @@ require('dotenv').config({ path: '.env.local' });
 var airtableBase = new Airtable({
   apiKey: process.env.AIRTABLE_PERSONAL_ACCESS_TOKEN,
 }).base(process.env.AIRTABLE_BASE);
-
-export const transformFields = ({ record }) => {
-  let transformedFieldsObj = {};
-  const entries = Object.entries(record.fields);
-  for (let i = 0; i < entries.length; i++) {
-    const [key, value] = entries[i];
-    const transformedKey = toCamelCase(key);
-    transformedFieldsObj[transformedKey] = value;
-    transformedFieldsObj.id = record.id;
-  }
-  return transformedFieldsObj;
-};
 
 export default async function handler(req, res) {
   if (req.method === 'POST') {

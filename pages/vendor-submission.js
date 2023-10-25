@@ -19,7 +19,7 @@ export default function VendorSubmissionsPage({ showEmailCapture }) {
 
 export async function getStaticProps() {
   const pageLoadData = await getPageLoadData({
-    url: PAGE_SLUGS.VENDOR_SUBMISSIONS,
+    url: PAGE_SLUGS.VENDOR_SUBMISSION,
   });
   return {
     props: {
