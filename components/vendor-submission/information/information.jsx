@@ -8,7 +8,7 @@ export default function Information({ heading, text, listItems = [] }) {
       {listItems.length > 0 && (
         <ul>
           {listItems.map(item => (
-            <li className={styles.listItem}>
+            <li key={item} className={styles.listItem}>
               <p>{item}</p>
             </li>
           ))}
