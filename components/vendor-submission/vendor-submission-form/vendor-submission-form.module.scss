@@ -7,3 +7,65 @@
   color: $darkGreen;
   padding: 0 10px;
 }
+
+.logo {
+  width: 500px;
+  height: auto;
+  padding-top: 50px;
+}
+
+.vendorFormPageContainer {
+  background-color: #9dab9f;
+  width: 1280px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.marketplaceContainer {
+  display: flex;
+  align-items: flex-start;
+  margin: 50px 0 60px 60px;
+}
+
+.marketplaceText {
+  color: $beige;
+  font-family: $fontPrimary;
+  font-size: 30px;
+  margin-left: 10px;
+}
+
+// Form elements
+$width: 600px;
+.formContainer {
+  width: $width !important;
+  max-width: $width !important;
+  align-items: flex-start;
+}
+.inputContainer {
+  margin-bottom: 15px;
+  display: flex;
+  align-items: center;
+  width: 100% !important;
+}
+
+.input {
+  background-color: white;
+  border: none;
+  width: 100% !important;
+}
+
+label.label {
+  font-family: $fontSecondaryLight !important;
+  font-size: 20px !important;
+  width: 120px !important;
+}
+
+.button {
+  background-color: #c4b29a;
+  color: $black;
+  font-family: $fontSecondary;
+  font-size: 20px;
+  align-self: center;
+}

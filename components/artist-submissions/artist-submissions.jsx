@@ -4,8 +4,8 @@ import ArtistSubmissionForm from './artist-submission-form';
 
 export default function ArtistSubmission() {
   return (
-    <main>
-      <Layout>
+    <Layout>
+      <main>
         <div className={styles.textContainer}>
           <h2 className={styles.title}>Artist Submissions</h2>
           <p className={styles.text}>
@@ -29,7 +29,7 @@ export default function ArtistSubmission() {
 
           <ArtistSubmissionForm />
         </div>
-      </Layout>
-    </main>
+      </main>
+    </Layout>
   );
 }

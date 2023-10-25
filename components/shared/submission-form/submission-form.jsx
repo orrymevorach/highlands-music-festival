@@ -1,11 +1,18 @@
 import Button from '../button/button';
 import GetFormElement from './formElements';
 import styles from './submission-form.module.scss';
+import clsx from 'clsx';
 
 export default function SubmissionForm({
   formConfig,
   handleSubmit = () => {},
   isLoading = false,
+  formContainerClassNames = '',
+  inputClassNames = '',
+  labelClassNames = '',
+  inputContainerClassNames = '',
+  buttonClassNames = '',
+  requiredPosition = 'top',
 }) {
   const handleSubmitForm = e => {
     e.preventDefault();
@@ -13,19 +20,41 @@ export default function SubmissionForm({
   };
 
   return (
-    <form action="#" className={styles.container} onSubmit={handleSubmitForm}>
-      <p className={styles.requiredText}>
-        Fields marked with an <span className={styles.asterisk}>*</span> are
-        required
-      </p>
+    <form
+      action="#"
+      className={clsx(styles.container, formContainerClassNames)}
+      onSubmit={handleSubmitForm}
+    >
+      {requiredPosition === 'top' && (
+        <p className={styles.requiredText}>
+          Fields marked with an <span className={styles.asterisk}>*</span> are
+          required
+        </p>
+      )}
+
       {formConfig.map((elementConfig, index) => {
         return (
-          <GetFormElement key={`${index}-submission-form`} {...elementConfig} />
+          <GetFormElement
+            key={`${index}-submission-form`}
+            {...elementConfig}
+            inputClassNames={inputClassNames}
+            labelClassNames={labelClassNames}
+            inputContainerClassNames={inputContainerClassNames}
+          />
         );
       })}
+      {requiredPosition === 'bottom' && (
+        <p className={styles.requiredText}>
+          Fields marked with an <span className={styles.asterisk}>*</span> are
+          required
+        </p>
+      )}
 
-      <Button classNames={styles.submitButton} isLoading={isLoading}>
-        Continue
+      <Button
+        classNames={clsx(styles.submitButton, buttonClassNames)}
+        isLoading={isLoading}
+      >
+        Submit
       </Button>
     </form>
   );

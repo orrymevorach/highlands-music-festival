@@ -146,11 +146,13 @@ export default function ArtistSubmissionForm() {
   return (
     <>
       {stage === stages.FILL_OUT_FORM && (
-        <SubmissionForm
-          formConfig={formConfig}
-          handleSubmit={handleSubmit}
-          isLoading={isLoading}
-        />
+        <div className={styles.formContainer}>
+          <SubmissionForm
+            formConfig={formConfig}
+            handleSubmit={handleSubmit}
+            isLoading={isLoading}
+          />
+        </div>
       )}
       {stage === stages.CONFIRMATION && (
         <div>

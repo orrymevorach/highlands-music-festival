@@ -1,0 +1,28 @@
+@import '@variables';
+
+$width: 600px;
+.informationContainer {
+  width: $width;
+  margin-bottom: 20px;
+}
+.informationHeading {
+  background-color: #c4b29a;
+  font-family: $fontSecondaryBold;
+  width: $width;
+  padding: 5px 10px;
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.text,
+.listItem {
+  font-family: $fontSecondary;
+  color: $black;
+  font-family: $fontSecondaryLight;
+  margin: 3px 0 3px 25px;
+  font-size: 18px;
+}
+
+.listItem {
+  list-style: disc;
+}

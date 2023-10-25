@@ -2,6 +2,7 @@ import styles from './submission-form.module.scss';
 import { InputLabel, MenuItem, Select, TextareaAutosize } from '@mui/material';
 import Input from '../input/input';
 import { useState } from 'react';
+import clsx from 'clsx';
 
 export default function GetFormElement({
   type,
@@ -14,11 +15,14 @@ export default function GetFormElement({
   minRows = 1,
   required = false,
   maxWordCount = null,
+  inputClassNames = '',
+  labelClassNames = '',
+  inputContainerClassNames = '',
 }) {
   const [wordCount, setWordCount] = useState(0); // used for textarea
   const Label = ({ id, label }) => {
     return (
-      <InputLabel className={styles.inputLabel} id={id}>
+      <InputLabel className={clsx(styles.inputLabel, labelClassNames)} id={id}>
         {label}
         {required && <span style={{ color: 'red' }}>*</span>}
       </InputLabel>
@@ -48,13 +52,15 @@ export default function GetFormElement({
       );
     case 'text':
       return (
-        <div className={styles.formFieldContainer}>
+        <div
+          className={clsx(styles.formFieldContainer, inputContainerClassNames)}
+        >
           <Label label={label} id={id} required={required} />
           <Input
             handleChange={e => handleChange(e.target.value)}
             placeholder={placeholder}
             value={value}
-            classNames={styles.input}
+            classNames={clsx(styles.input, inputClassNames)}
             required={required}
           />
         </div>
