@@ -2,7 +2,7 @@ import Layout from 'components/layout';
 import styles from './artist-submissions.module.scss';
 import ArtistSubmissionForm from './artist-submission-form';
 
-export default function CheckIn() {
+export default function ArtistSubmission() {
   return (
     <main>
       <Layout>

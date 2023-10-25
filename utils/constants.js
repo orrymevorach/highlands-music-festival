@@ -33,6 +33,7 @@ export const PAGE_SLUGS = {
   POLICIES: '/policies',
   GALLERY: '/gallery',
   ARTIST_SUBMISSIONS: '/artist-submissions',
+  VENDOR_SUBMISSIONS: '/vendor-submissions',
 };
 
 export const PRICE_MODEL_IDS = {

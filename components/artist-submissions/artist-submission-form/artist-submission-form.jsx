@@ -1,5 +1,5 @@
 import SubmissionForm from 'components/shared/submission-form/submission-form';
-import useArtistSubmissionFormReducer from '../useArtistSubmissionForm';
+import useArtistSubmissionFormReducer from './useArtistSubmissionForm';
 import { sendArtistSubmissionForm } from 'lib/mailgun';
 import { createRecord } from 'lib/airtable-lib';
 import { useState } from 'react';

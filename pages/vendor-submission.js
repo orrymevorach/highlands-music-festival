@@ -1,0 +1,29 @@
+import Head from 'components/head';
+import VendorSubmission from 'components/vendor-submission';
+import { useEmailCaptureContext } from 'context/email-capture-context';
+import { useFacebookPixel } from 'hooks';
+import { getPageLoadData } from 'lib/contentful-lib';
+import { PAGE_SLUGS } from 'utils/constants';
+
+export default function VendorSubmissionsPage({ showEmailCapture }) {
+  useFacebookPixel();
+  const { setShowEmailCapture } = useEmailCaptureContext();
+  setShowEmailCapture(showEmailCapture);
+  return (
+    <>
+      <Head title="Vendor Submissions" />
+      <VendorSubmission />
+    </>
+  );
+}
+
+export async function getStaticProps() {
+  const pageLoadData = await getPageLoadData({
+    url: PAGE_SLUGS.VENDOR_SUBMISSIONS,
+  });
+  return {
+    props: {
+      ...pageLoadData,
+    },
+  };
+}
