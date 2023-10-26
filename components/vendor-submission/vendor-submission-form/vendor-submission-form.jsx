@@ -106,7 +106,12 @@ export default function ArtistSubmissionForm() {
       )}
       {stage === stages.CONFIRMATION && (
         <div>
-          <h2 className={styles.thankYou}>Thank you for your submission!</h2>
+          <h2 className={styles.thankYouHeading}>
+            Thank you for your submission!
+          </h2>
+          <p className={styles.thankYouText}>
+            We will be in touch shortly with more information.
+          </p>
         </div>
       )}
     </>

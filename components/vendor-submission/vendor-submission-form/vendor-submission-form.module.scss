@@ -1,11 +1,20 @@
 @import '@variables';
 
-.thankYou {
+.thankYouHeading {
   font-size: 24px;
   font-family: $fontPrimary;
   margin-top: 100px;
   color: $darkGreen;
   padding: 0 10px;
+}
+
+.thankYouText {
+  font-style: 18px;
+  font-family: $fontSecondaryLight;
+  margin-top: 40px;
+  margin-bottom: 100px;
+  color: $black;
+  text-align: center;
 }
 
 // Form elements
@@ -51,5 +60,15 @@ label.label {
   }
   .inputContainer {
     flex-direction: column;
+  }
+  .thankYouHeading {
+    font-size: 24px;
+    text-align: center;
+    color: $darkGreen;
+  }
+  .thankYouText {
+    font-size: 16px;
+    margin-top: 40px;
+    margin-bottom: 100px;
   }
 }
