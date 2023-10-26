@@ -26,3 +26,17 @@ $width: 600px;
 .listItem {
   list-style: disc;
 }
+
+@media screen and (max-width: $mobile) {
+  .informationContainer,
+  .informationHeading {
+    width: 100%;
+  }
+  .informationHeading {
+    font-size: 18px;
+  }
+  .text,
+  .listItem {
+    font-size: 14px;
+  }
+}

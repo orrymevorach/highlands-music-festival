@@ -9,10 +9,8 @@
 }
 
 // Form elements
-$width: 600px;
 .formContainer {
-  width: $width !important;
-  max-width: $width !important;
+  width: 600px !important;
   align-items: flex-start;
 }
 .inputContainer {
@@ -40,4 +38,18 @@ label.label {
   font-family: $fontSecondary;
   font-size: 20px;
   align-self: center;
+}
+
+@media screen and (max-width: $mobile) {
+  .formContainer {
+    width: 100% !important;
+  }
+
+  label.label {
+    font-size: 16px !important;
+    width: 100% !important;
+  }
+  .inputContainer {
+    flex-direction: column;
+  }
 }

@@ -31,10 +31,17 @@
 @media screen and (max-width: $mobile) {
   .logo {
     width: 100%;
-    padding: 50px 80px 0;
+    padding-top: 90px;
   }
   .vendorFormPageContainer {
     width: 100%;
     margin-top: -40px;
+    padding: 0 15px;
+  }
+  .marketplaceContainer {
+    margin: 50px 0 60px 10px;
+  }
+  .marketplaceText {
+    font-size: 24px;
   }
 }
