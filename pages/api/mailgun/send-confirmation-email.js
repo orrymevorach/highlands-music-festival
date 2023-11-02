@@ -2,6 +2,8 @@ let nodemailer = require('nodemailer');
 
 export default async function handler(req, res) {
   const { emailAddress } = req.body;
+  // const emailAddress = req.body?.emailAddress || req.query?.emailAddress;
+  // console.log('emailAddress', emailAddress);
 
   let transporter = nodemailer.createTransport({
     host: 'smtp.mailgun.org',
@@ -17,13 +19,8 @@ export default async function handler(req, res) {
     to: emailAddress,
     subject: 'Congratulations – you’re headed to the Highlands!',
     html: `
-
-
-
-
-    <div>
+      <div>
         <h2>Congratulations – you’re headed to the Highlands!</h2>
-        <p>Thank you for being a trailblazer! Your support means the world to us, and we are thrilled that you are joining us again in 2024.</p>
         <p>If you chose to pay for your ticket(s) in instalments your credit card will automatically be charged according to your payment schedule.</p>
         <p>If you chose to pay in full, you're good to go!</p>
         <p>Closer to the festival we will send you a link to register for your cabin, as well as a full registration form where you can indicate any dietary needs, and much more.</p>
