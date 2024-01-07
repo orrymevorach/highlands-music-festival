@@ -24,12 +24,12 @@ export default function ArtistSubmissionForm() {
       Website: state.website,
       'Email Address': state.email,
     };
-    const { response: record } = await createRecord({
+    const { response } = await createRecord({
       tableId: 'Vendor Submissions',
       newFields: fields,
     });
 
-    await sendVendorSubmissionForm({ fields, recId: record.id });
+    await sendVendorSubmissionForm({ fields });
     dispatch({ type: actions.SET_STAGE, stage: stages.CONFIRMATION });
     setIsLoading(false);
   };
