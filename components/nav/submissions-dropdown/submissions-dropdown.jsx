@@ -13,16 +13,16 @@ export default function SubmissionsDropdown() {
   }
   return (
     <div className={styles.container}>
-      <li className={clsx(styles.link)} onClick={handleClick}>
+      <li className={styles.navItem} onClick={handleClick}>
         Submissions
         <FontAwesomeIcon icon={icon} size="sm" className={styles.chevron} />
       </li>
       {isDropdownOpen && (
         <ul className={styles.dropdown}>
-          <li className={clsx(styles.dropdownItem)}>
+          <li className={styles.dropdownItem}>
             <Link href="/artist-submissions">Artist Submissions</Link>
           </li>
-          <li className={clsx(styles.dropdownItem)}>
+          <li className={styles.dropdownItem}>
             <Link href="/vendor-submission">Vendor Submissions</Link>
           </li>
         </ul>
