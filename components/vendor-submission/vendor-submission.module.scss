@@ -28,13 +28,18 @@
   margin-left: 10px;
 }
 
+@media screen and (max-width: 1150px) {
+  .vendorFormPageContainer {
+    width: 100%;
+  }
+}
+
 @media screen and (max-width: $mobile) {
   .logo {
     width: 100%;
     padding-top: 90px;
   }
   .vendorFormPageContainer {
-    width: 100%;
     margin-top: -40px;
     padding: 0 15px;
   }

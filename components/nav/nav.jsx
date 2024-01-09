@@ -10,6 +10,7 @@ import { faInstagram } from '@fortawesome/free-brands-svg-icons';
 import { colors } from 'utils/constants';
 import { useNavContext } from 'context/nav-context';
 import Button from 'components/shared/button/button';
+import SubmissionsDropdown from './nav-dropdown/nav-dropdown';
 
 const HomeIcon = ({ setIsOpen }) => {
   return (
@@ -68,16 +69,6 @@ const Nav = ({ hamburgerMenuColor = '' }) => {
           <ul className={styles.navList}>
             <HomeIcon setIsOpen={setIsOpen} />
             {navData.map(({ url, label }) => {
-              const isBuyTicketsButton = label === 'Buy Tickets';
-              if (isBuyTicketsButton) {
-                return (
-                  <li key={label}>
-                    <Button href={url} classNames={styles.buyTickets}>
-                      {label}
-                    </Button>
-                  </li>
-                );
-              }
               return (
                 <li
                   key={url}
@@ -91,6 +82,12 @@ const Nav = ({ hamburgerMenuColor = '' }) => {
                 </li>
               );
             })}
+            <SubmissionsDropdown />
+            <li>
+              <Button href="buy-tickets" classNames={styles.buyTickets}>
+                Buy Tickets
+              </Button>
+            </li>
             <InstagramIcon />
           </ul>
         </nav>
