@@ -10,7 +10,7 @@ import Information from './information';
 
 const informationData = [
   {
-    heading: 'your $100.00 vendor fee includes:',
+    heading: 'your $150.00 vendor fee includes:',
     listItems: [
       'Your business spot reserved at our marketplace',
       'A one night stay at Highlands Music Festival for up to two people. Meals, snacks. Request for accomodations.',
