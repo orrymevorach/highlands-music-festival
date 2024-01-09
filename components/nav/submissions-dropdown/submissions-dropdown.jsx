@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import styles from './nav-dropdown.module.scss';
+import styles from './submissions-dropdown.module.scss';
 import Link from 'next/link';
 import clsx from 'clsx';
 import { faChevronDown, faChevronUp } from '@fortawesome/free-solid-svg-icons';

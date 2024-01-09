@@ -11,6 +11,8 @@
   margin: 0;
   cursor: pointer;
   transition: 0.2s;
+  color: $darkGreen;
+
   a {
     color: $darkGreen;
     text-decoration: none;
@@ -67,6 +69,38 @@
       background-color: $darkGreen;
       bottom: 0;
       left: 0;
+    }
+  }
+}
+
+@media (max-width: $navMobile) {
+  .link {
+    padding: 5px 0;
+    font-size: 22px;
+    &:hover a:after {
+      display: none;
+    }
+    a {
+      font-size: 22px;
+    }
+  }
+  .dropdown {
+    position: relative;
+    top: 0px;
+    left: 0px;
+    animation: fadeIn 0.2s linear forwards;
+  }
+}
+
+@media screen and (orientation: landscape) and (max-width: $mobile) {
+  .link {
+    padding: 2px 0;
+    font-size: 14px;
+  }
+  .dropdownItem {
+    width: 150px;
+    a {
+      font-size: 14px;
     }
   }
 }

@@ -10,7 +10,7 @@ import { faInstagram } from '@fortawesome/free-brands-svg-icons';
 import { colors } from 'utils/constants';
 import { useNavContext } from 'context/nav-context';
 import Button from 'components/shared/button/button';
-import SubmissionsDropdown from './nav-dropdown/nav-dropdown';
+import SubmissionsDropdown from './submissions-dropdown/submissions-dropdown';
 
 const HomeIcon = ({ setIsOpen }) => {
   return (
