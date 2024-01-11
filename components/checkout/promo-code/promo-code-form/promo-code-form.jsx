@@ -21,7 +21,8 @@ export default function PromoCodeForm() {
 
   // Instructions for creating a fixed price promo:
   // 1. In Contentful, add the promo code ID to the Price Model Validations, and create a price model with the pricing info
-  // 2. In constants.js, add the promo code to the list of FIXED_PRICE_PROMO_CODES
+  // 2. In Stripe, create the promo code. The amount does not matter.
+  // 3. In constants.js, add the promo code to the list of FIXED_PRICE_PROMO_CODES
   const handleFixedPricePromo = async () => {
     const {
       promoCodeData,
