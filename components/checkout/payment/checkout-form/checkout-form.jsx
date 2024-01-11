@@ -62,7 +62,7 @@ export default function CheckoutForm() {
       name,
       emailAddress: email,
       discountCode: promoCode,
-      fullTicketPrice: priceData.total,
+      fullTicketPrice: parseFloat(priceData.total),
     });
 
     // TEMPORARILY REMOVING FOR SUPER EARLY BIRD

@@ -38,7 +38,7 @@ export default function PromoCodeForm() {
       setErrorMessage('');
       setIsLoading(false);
       dispatch({
-        type: actions.APPLY_PROMO_CODE,
+        type: actions.APPLY_FIXED_PRICE_PROMO,
         promoCode: promoCodeData.code,
         pricing: updatedPaymentIntent.metadata,
       });
@@ -62,7 +62,7 @@ export default function PromoCodeForm() {
       setErrorMessage('');
       setIsLoading(false);
       dispatch({
-        type: actions.APPLY_CHAMPIONS_PROMO,
+        type: actions.APPLY_FIXED_PRICE_PROMO,
         promoCode: promoCodeData.code,
         pricing: updatedPaymentIntent.metadata,
       });

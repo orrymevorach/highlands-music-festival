@@ -20,14 +20,14 @@ export const actions = {
   SET_PAYMENT_INTENT: 'SET_PAYMENT_INTENT',
   CANCEL_PAYMENT_INTENT: 'CANCEL_PAYMENT_INTENT',
   APPLY_PROMO_CODE: 'APPLY_PROMO_CODE',
-  APPLY_CHAMPIONS_PROMO: 'APPLY_CHAMPIONS_PROMO',
+  APPLY_FIXED_PRICE_PROMO: 'APPLY_FIXED_PRICE_PROMO',
 };
 const {
   SET_QUANTITY,
   SET_PAYMENT_INTENT,
   CANCEL_PAYMENT_INTENT,
   APPLY_PROMO_CODE,
-  APPLY_CHAMPIONS_PROMO,
+  APPLY_FIXED_PRICE_PROMO,
   SET_SINGLE_PAYMENT,
   SET_SUBSCRIPTION_PAYMENT,
 } = actions;
@@ -75,7 +75,7 @@ const reducer = (state, action) => {
         promoCode: action.promoCode,
         pricing: action.pricing,
       };
-    case APPLY_CHAMPIONS_PROMO:
+    case APPLY_FIXED_PRICE_PROMO:
       return {
         ...state,
         promoCode: action.promoCode,
