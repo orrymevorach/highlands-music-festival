@@ -56,11 +56,11 @@ export default function Committee({
                 it! Sol texted Sammy. Sammy got really excited which showed Sol
                 that Pulver wasn’t so crazy after-all. Danielle and Amanda who
                 work with Sol insisted we call Orry and Brooke. Sol grabbed
-                capable cousin’s Toby and Josh which made our 9-person
+                capable cousins Toby and Josh which made our 9-person
                 co-creator team complete! People said… “if you build it, they
                 will come.” But Sol called Corey to help that along! Early Bird
                 tickets sold fast, Josh had a baby, and here we are… ready for
-                the 2nd Annual Highlands Music Festival!
+                the 3rd Annual Highlands Music Festival!
               </p>
             </Takeover>
           )}
