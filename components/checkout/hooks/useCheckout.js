@@ -11,6 +11,8 @@ const initialState = {
   pricing: null,
   promoCode: '',
   paymentType: null,
+  vendorName: '',
+  vendorSecondGuest: '',
 };
 
 export const actions = {
@@ -63,6 +65,8 @@ const reducer = (state, action) => {
         ...state,
         paymentIntent: action.paymentIntent,
         customer: action.customer,
+        vendorName: action.vendorName,
+        vendorSecondGuest: action.vendorSecondGuest,
       };
     case CANCEL_PAYMENT_INTENT:
       return {
@@ -99,8 +103,16 @@ const reducer = (state, action) => {
 
 export default function useCheckout({ priceModel }) {
   const [state, dispatch] = useReducer(reducer, initialState);
-  const { quantity, customer, paymentIntent, pricing, promoCode, paymentType } =
-    state;
+  const {
+    quantity,
+    customer,
+    paymentIntent,
+    pricing,
+    promoCode,
+    paymentType,
+    vendorName,
+    vendorSecondGuest,
+  } = state;
 
   usetSetPriceModelBasedOnRoute({ dispatch });
   useCancelPaymentIntent({ paymentIntent, dispatch, actions });
@@ -116,5 +128,7 @@ export default function useCheckout({ priceModel }) {
     },
     promoCode,
     paymentType,
+    vendorName,
+    vendorSecondGuest,
   };
 }

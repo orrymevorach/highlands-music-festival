@@ -22,3 +22,27 @@
 .lastName {
   margin-bottom: 10px;
 }
+
+.checkboxContainer {
+  margin-top: 15px;
+  display: flex;
+  align-items: center;
+}
+
+.businessInput {
+  margin-top: 15px;
+  margin-bottom: 10px;
+}
+
+.checkboxLabel {
+  font-family: 'Neue Haas Regular';
+  color: $darkGreen;
+  margin-left: 10px;
+}
+
+.checkbox {
+  margin: 0;
+  padding: 0;
+  width: 25px;
+  height: 0;
+}

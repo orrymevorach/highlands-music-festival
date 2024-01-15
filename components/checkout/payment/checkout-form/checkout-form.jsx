@@ -8,15 +8,22 @@ import { useCheckoutContext } from 'context/checkout-context';
 import { createSubscription } from 'lib/stripe-lib';
 import { ErrorMessage } from 'components/checkout/checkout-shared-components';
 import Button from 'components/shared/button';
-import { addTicketToAirtable } from 'lib/airtable-lib';
+import { createRecord } from 'lib/airtable-lib';
 import { sendCabinReservationEmail, sendConfirmationEmail } from 'lib/mailgun';
 import { sendSlackNotification } from 'lib/slack-lib';
 
 export default function CheckoutForm() {
   const [isLoading, setIsLoading] = useState(false);
   const [errorMessage, setErrorMessage] = useState(null);
-  const { priceData, quantity, paymentIntent, customer, promoCode } =
-    useCheckoutContext();
+  const {
+    priceData,
+    quantity,
+    paymentIntent,
+    customer,
+    promoCode,
+    vendorName,
+    vendorSecondGuest,
+  } = useCheckoutContext();
   const [successfulPaymentIntentId, setSuccessfulPaymentIntentId] =
     useState(null);
 
@@ -56,13 +63,22 @@ export default function CheckoutForm() {
     const name = customer.name;
     const email = customer.email.toLowerCase();
 
-    const airtableResponse = await addTicketToAirtable({
-      amount: paymentResult.amount / 100,
-      paymentIntentId: paymentResult.id,
-      name,
-      emailAddress: email,
-      discountCode: promoCode,
-      fullTicketPrice: parseFloat(priceData.total),
+    const { response: airtableResponse } = await createRecord({
+      tableId: 'Ticket Purchases 2024',
+      newFields: {
+        amount: paymentResult.amount / 100,
+        paymentIntent: paymentResult.id,
+        Name: name,
+        'Email Address': email,
+        discountCode: promoCode,
+        'Full Ticket Price': parseFloat(priceData.total),
+        Status:
+          process.env.NODE_ENV === 'production'
+            ? 'Ticket Purchased'
+            : 'Testing',
+        'Vendor Name': vendorName,
+        'Vendor Second Guest': vendorSecondGuest,
+      },
     });
 
     // TEMPORARILY REMOVING FOR SUPER EARLY BIRD
@@ -71,7 +87,7 @@ export default function CheckoutForm() {
     //   emailAddress: customer.email,
     // });
 
-    const isAirtableSuccessful = airtableResponse.isSuccess;
+    const isAirtableSuccessful = airtableResponse.id;
 
     if (
       paymentResult.status === 'succeeded' &&

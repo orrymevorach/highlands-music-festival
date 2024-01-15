@@ -5,6 +5,7 @@ import { useCheckoutContext } from 'context/checkout-context';
 import { getStripeCustomer, createPaymentIntent } from 'lib/stripe-lib';
 import Loader from 'components/loader';
 import Button from 'components/shared/button';
+import { Checkbox } from '@mui/material';
 
 export default function UserForm() {
   const { quantity, priceData, dispatch, actions } = useCheckoutContext();
@@ -12,6 +13,9 @@ export default function UserForm() {
   const [lastName, setLastName] = useState('');
   const [email, setEmail] = useState('');
   const [isLoading, setIsLoading] = useState(false);
+  const [isVendor, setIsVendor] = useState(false);
+  const [vendorName, setVendorName] = useState('');
+  const [vendorSecondGuest, setVendorSecondGuest] = useState('');
 
   const handleSubmit = async e => {
     e.preventDefault();
@@ -38,6 +42,8 @@ export default function UserForm() {
       type: actions.SET_PAYMENT_INTENT,
       customer,
       paymentIntent,
+      vendorName,
+      vendorSecondGuest,
     });
     setIsLoading(false);
   };
@@ -75,6 +81,38 @@ export default function UserForm() {
         placeholder="Email"
         required
       />
+
+      <div className={styles.checkboxContainer}>
+        <Checkbox
+          value={isVendor}
+          onChange={() => setIsVendor(!isVendor)}
+          name="vendor-checkbox"
+          id="vendor-checkbox"
+          className={styles.checkbox}
+        />
+        <label htmlFor="vendor-checkbox" className={styles.checkboxLabel}>
+          I am a vendor
+        </label>
+      </div>
+      {isVendor && (
+        <div>
+          <Input
+            type="text"
+            value={vendorName}
+            onChange={e => setVendorName(e.target.value)}
+            placeholder="Business Name"
+            required
+            fullWidth
+            className={styles.businessInput}
+          />
+          <Input
+            type="text"
+            value={vendorSecondGuest}
+            onChange={e => setVendorSecondGuest(e.target.value)}
+            placeholder="Full Name of Second Guest"
+          />
+        </div>
+      )}
 
       <Button>Submit</Button>
     </form>
