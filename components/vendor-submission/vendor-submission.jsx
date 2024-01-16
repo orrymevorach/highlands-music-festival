@@ -22,7 +22,7 @@ const informationData = [
       'Post, share tag, on social media',
       'Arrive on time for set-up',
       'Keep an eye on your products - Highlands Music Festival is not responsible for any lost/stolen items.',
-      'Pay $100.00 if your application is approved.',
+      'Pay $150.00 if your application is approved.',
       'Have Fun!',
     ],
   },
