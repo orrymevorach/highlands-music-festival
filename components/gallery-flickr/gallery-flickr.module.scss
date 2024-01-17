@@ -1,0 +1,15 @@
+.modal {
+  padding: 0;
+}
+
+.closeButton {
+  background-color: rgba(0, 0, 0, 0);
+  color: white;
+}
+
+.container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2px;
+  cursor: pointer;
+}

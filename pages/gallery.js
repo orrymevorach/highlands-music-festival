@@ -1,4 +1,4 @@
-import Gallery from 'components/gallery/gallery';
+import FlickrGallery from 'components/gallery-flickr/gallery-flickr';
 import Head from 'components/head';
 import Layout from 'components/layout/layout';
 import { useEmailCaptureContext } from 'context/email-capture-context';
@@ -10,11 +10,12 @@ export default function GalleryPage({ showEmailCapture }) {
   useFacebookPixel();
   const { setShowEmailCapture } = useEmailCaptureContext();
   setShowEmailCapture(showEmailCapture);
+
   return (
     <>
       <Head title="Gallery" />
       <Layout hamburgerMenuColor={colors.beige}>
-        <Gallery />
+        <FlickrGallery />
       </Layout>
     </>
   );
