@@ -12,7 +12,7 @@
   cursor: pointer;
   transition: 0.2s;
   color: $darkGreen;
-  font-size: 16px;
+  font-size: 19px;
   color: $darkGreen;
   text-decoration: none;
 }
@@ -58,6 +58,11 @@
   }
 }
 
+@media (max-width: 1550px) {
+  .navItem {
+    font-size: 16px;
+  }
+}
 
 @media (max-width: $navMobile) {
   .navItem {
