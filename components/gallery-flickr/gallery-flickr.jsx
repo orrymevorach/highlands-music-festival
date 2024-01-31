@@ -55,14 +55,11 @@ export default function FlickrGallery() {
           <div
             key={photo.id}
             onClick={() => handleSetPhoto(photo)}
+            style={{
+              backgroundImage: `url(https://farm${photo.farm}.staticflickr.com/${photo.server}/${photo.id}_${photo.secret}.jpg)`,
+            }}
             className={styles.tile}
-          >
-            <img
-              src={`https://farm${photo.farm}.staticflickr.com/${photo.server}/${photo.id}_${photo.secret}.jpg`}
-              alt={photo.title}
-              title={photo.title}
-            />
-          </div>
+          ></div>
         ))}
       </div>
     </>
