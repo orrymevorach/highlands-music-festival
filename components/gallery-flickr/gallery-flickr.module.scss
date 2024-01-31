@@ -5,6 +5,8 @@
 .closeButton {
   background-color: rgba(0, 0, 0, 0);
   color: white;
+  padding: 1px 3px;
+  border-radius: 4px;
 }
 
 .container {
@@ -20,4 +22,19 @@
   background-position: center;
   height: 400px;
   width: 100%;
+}
+
+.chevron {
+  background: none;
+  border: none;
+  position: absolute;
+  top: 45%;
+}
+
+.chevronLeft {
+  left: 10px;
+}
+
+.chevronRight {
+  right: 10px;
 }

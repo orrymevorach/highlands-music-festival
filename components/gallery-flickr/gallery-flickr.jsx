@@ -2,11 +2,17 @@ import { createFlickr } from 'flickr-sdk';
 import styles from './gallery-flickr.module.scss';
 import { useEffect, useState } from 'react';
 import Takeover from 'components/takeover/takeover';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import {
+  faChevronLeft,
+  faChevronRight,
+} from '@fortawesome/free-solid-svg-icons';
+import clsx from 'clsx';
 
 export default function FlickrGallery() {
   const [photos, setPhotos] = useState([]);
   const [showModal, setShowModal] = useState(false);
-  const [photo, setPhoto] = useState('');
+  const [index, setIndex] = useState('');
 
   const { flickr } = createFlickr(process.env.NEXT_PUBLIC_FLICKR_API_KEY);
 
@@ -29,10 +35,12 @@ export default function FlickrGallery() {
     fetchData();
   }, []); // Run the effect only once when the component mounts
 
-  const handleSetPhoto = photo => {
+  const handleSetPhoto = index => {
     setShowModal(true);
-    setPhoto(photo);
+    setIndex(index);
   };
+
+  const photo = photos[index];
 
   return (
     <>
@@ -47,14 +55,32 @@ export default function FlickrGallery() {
             alt={photo.title}
             title={photo.title}
           />
+
+          {index !== 0 && (
+            <button
+              onClick={() => setIndex(index - 1)}
+              className={clsx(styles.chevron, styles.chevronLeft)}
+            >
+              <FontAwesomeIcon icon={faChevronLeft} color="white" size="2x" />
+            </button>
+          )}
+
+          {index !== photos.length - 1 && (
+            <button
+              onClick={() => setIndex(index + 1)}
+              className={clsx(styles.chevron, styles.chevronRight)}
+            >
+              <FontAwesomeIcon icon={faChevronRight} color="white" size="2x" />
+            </button>
+          )}
         </Takeover>
       )}
 
       <div className={styles.container}>
-        {photos.map(photo => (
+        {photos.map((photo, index) => (
           <div
             key={photo.id}
-            onClick={() => handleSetPhoto(photo)}
+            onClick={() => handleSetPhoto(index)}
             style={{
               backgroundImage: `url(https://farm${photo.farm}.staticflickr.com/${photo.server}/${photo.id}_${photo.secret}.jpg)`,
             }}
