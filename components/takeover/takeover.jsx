@@ -63,6 +63,7 @@ export default function Takeover({
           }}
           ref={takeoverRef}
         >
+          <div className={style.overlay} onClick={closeModal}></div>
           <div className={clsx(style.modal, modalClassNames)} ref={modalRef}>
             {children}
             {!disableClose && (

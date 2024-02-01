@@ -1,19 +1,5 @@
 @import '@variables';
 
-.modal {
-  padding: 0;
-  img {
-    width: 100%;
-  }
-}
-
-.closeButton {
-  background-color: rgba(0, 0, 0, 0);
-  color: white;
-  padding: 1px 3px;
-  border-radius: 4px;
-}
-
 .container {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -21,36 +7,28 @@
   cursor: pointer;
 }
 
+.tileContainer {
+  height: 400px;
+  width: 100%;
+  overflow: hidden;
+}
 .tile {
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
-  height: 400px;
+  height: 100%;
   width: 100%;
+  transition: 0.3s;
+  position: relative;
+  &:hover {
+    transform: scale(1.05);
+    transition: 0.3s;
+  }
 }
 
-.chevron {
-  background: none;
-  border: none;
-  position: absolute;
-  top: 45%;
-}
-
-.chevronLeft {
-  left: 10px;
-}
-
-.chevronRight {
-  right: 10px;
-}
-
-@media screen and (max-width: $mobile) {
+@media screen and (max-width: $tablet) {
   .container {
     grid-template-columns: repeat(3, 1fr);
-  }
-
-  .modal {
-    width: 95%;
   }
 }
 
