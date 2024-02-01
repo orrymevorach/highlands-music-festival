@@ -14,7 +14,7 @@ export default function GalleryPage({ showEmailCapture }) {
   return (
     <>
       <Head title="Gallery" />
-      <Layout hamburgerMenuColor={colors.beige}>
+      <Layout>
         <FlickrGallery />
       </Layout>
     </>

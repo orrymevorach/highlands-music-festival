@@ -3,6 +3,7 @@ import styles from './gallery-flickr.module.scss';
 import { useEffect, useState } from 'react';
 import Pagination from './pagination/pagination';
 import CarouselTakeover from './carousel-takover/carousel-takover';
+import Loader from 'components/loader/loader';
 
 export default function FlickrGallery() {
   const [photos, setPhotos] = useState([]);
@@ -38,6 +39,8 @@ export default function FlickrGallery() {
     setIndex(index);
   };
 
+  if (!photos?.length) return <Loader />;
+
   return (
     <>
       {showModal && (
@@ -50,6 +53,7 @@ export default function FlickrGallery() {
       )}
 
       <Pagination page={page} setPage={setPage} numberOfPages={numberOfPages} />
+
       <div className={styles.container}>
         {photos.map((photo, index) => (
           <div
