@@ -34,7 +34,7 @@ div.modal {
   right: 10px;
 }
 
-@media screen and (max-width: $mobile) {
+@media screen and (max-width: $tablet) {
   div.modal {
     width: auto;
     height: auto;
