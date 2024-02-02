@@ -1,5 +1,5 @@
 import Takeover from 'components/takeover/takeover';
-import { useCallback, useEffect, useState } from 'react';
+import { useCallback, useEffect } from 'react';
 import styles from './carousel-takeover.module.scss';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
@@ -7,7 +7,6 @@ import {
   faChevronRight,
 } from '@fortawesome/free-solid-svg-icons';
 import clsx from 'clsx';
-import { createFlickr } from 'flickr-sdk';
 
 export default function CarouselTakeover({
   setIndex,
@@ -15,34 +14,11 @@ export default function CarouselTakeover({
   index,
   photos,
 }) {
-  const [modalPhoto, setModalPhoto] = useState('');
-  const { flickr } = createFlickr(process.env.NEXT_PUBLIC_FLICKR_API_KEY);
-  //   Get large version of photo
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const getFlickr = async () => {
-          const response = await flickr('flickr.photos.getSizes', {
-            photo_id: photos[index].id,
-          });
-          const largePhoto = response.sizes.size.find(
-            ({ label }) => label === 'Large'
-          );
-          setModalPhoto(largePhoto);
-        };
-        getFlickr();
-      } catch (error) {
-        console.error('Error fetching data:', error);
-      }
-    };
-
-    fetchData();
-  }, [index]);
+  const modalPhoto = photos[index].sizes.find(({ label }) => label === 'Large');
 
   const handleCloseModal = () => {
     setIndex('');
     setShowModal(false);
-    setModalPhoto('');
   };
 
   const isFirstImage = index === 0;

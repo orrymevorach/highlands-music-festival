@@ -6,7 +6,14 @@ import {
   faChevronRight,
 } from '@fortawesome/free-solid-svg-icons';
 
-export default function Pagination({ setPage, page, numberOfPages }) {
+function calculateNumberOfPages(totalItems) {
+  const itemsPerPage = 100;
+  const totalPages = Math.ceil(totalItems / itemsPerPage);
+  return totalPages;
+}
+
+export default function Pagination({ setPage, page, numberOfItems }) {
+  const numberOfPages = calculateNumberOfPages(numberOfItems);
   const numberAsArray = Array.from(
     { length: numberOfPages },
     (_, index) => index
