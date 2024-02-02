@@ -20,7 +20,8 @@ export default function FlickrGallery({ photos }) {
 
   const handleSetPhoto = index => {
     setShowModal(true);
-    setIndex(index);
+    const currentIndex = index + (page - 1) * 100;
+    setIndex(currentIndex);
   };
 
   if (!photos?.length) return <Loader />;
