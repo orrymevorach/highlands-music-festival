@@ -36,13 +36,7 @@ div.modal {
 
 @media screen and (max-width: $mobile) {
   div.modal {
-    width: 95%;
-    height: auto;
-  }
-}
-
-@media screen and (orientation: landscape) and (max-width: $mobile) {
-  div.modal {
     width: auto;
+    height: auto;
   }
 }
