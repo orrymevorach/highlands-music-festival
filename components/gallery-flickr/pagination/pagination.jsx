@@ -18,16 +18,21 @@ export default function Pagination({ setPage, page, numberOfItems }) {
     { length: numberOfPages },
     (_, index) => index
   );
+
+  const handleSetPage = page => {
+    window.scrollTo(0, 0);
+    setPage(page);
+  };
   return (
     <div className={styles.pagination}>
-      <button onClick={() => setPage(page - 1)} className={styles.button}>
+      <button onClick={() => handleSetPage(page - 1)} className={styles.button}>
         <FontAwesomeIcon icon={faChevronLeft} size="sm" />
       </button>
       {numberAsArray.map(number => {
         return (
           <button
             key={`pagination-${number}`}
-            onClick={() => setPage(number + 1)}
+            onClick={() => handleSetPage(number + 1)}
             className={clsx(
               styles.button,
               page === number + 1 && styles.active
@@ -37,7 +42,7 @@ export default function Pagination({ setPage, page, numberOfItems }) {
           </button>
         );
       })}
-      <button onClick={() => setPage(page + 1)} className={styles.button}>
+      <button onClick={() => handleSetPage(page + 1)} className={styles.button}>
         <FontAwesomeIcon icon={faChevronRight} size="sm" />
       </button>
     </div>
