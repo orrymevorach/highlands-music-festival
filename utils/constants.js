@@ -31,7 +31,7 @@ export const PAGE_SLUGS = {
   ORDER_CONFIRMATION: '/order-confirmation',
   BUY_TICKETS: '/buy-tickets',
   POLICIES: '/policies',
-  GALLERY: '/gallery',
+  PHOTOS: '/photos/2023',
   ARTIST_SUBMISSIONS: '/artist-submissions',
   VENDOR_SUBMISSION: '/vendor-submission',
 };

@@ -23,7 +23,7 @@ export default function GalleryPage({ showEmailCapture, photos }) {
 }
 export async function getStaticProps() {
   const pageLoadData = await getPageLoadData({
-    url: PAGE_SLUGS.GALLERY,
+    url: PAGE_SLUGS.PHOTOS,
   });
 
   const { flickr } = createFlickr(process.env.NEXT_PUBLIC_FLICKR_API_KEY);
