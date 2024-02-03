@@ -90,6 +90,7 @@
     position: fixed;
     background-color: $yellow;
     overflow-y: hidden;
+    top: 0;
     .navList {
       flex-direction: column;
       .link {
