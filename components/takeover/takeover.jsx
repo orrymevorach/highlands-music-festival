@@ -51,7 +51,7 @@ export default function Takeover({
           setAlignCenter(true);
         }
       }
-    }, 1000);
+    }, 500);
   }, [modalRef]);
 
   return (
