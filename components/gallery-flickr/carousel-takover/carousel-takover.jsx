@@ -49,6 +49,7 @@ export default function CarouselTakeover({
       handleClose={handleCloseModal}
       modalClassNames={styles.modal}
       closeButtonClassNames={styles.closeButton}
+      classNames={styles.takeover}
     >
       {!isFirstImage && (
         <button
