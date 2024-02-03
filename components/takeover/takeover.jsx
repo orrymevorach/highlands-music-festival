@@ -43,16 +43,24 @@ export default function Takeover({
   useEffect(() => {
     setTimeout(() => {
       if (modalRef?.current) {
-        const windowHeight = window.innerHeight;
-        const modalHeight = modalRef.current.clientHeight;
-        if (modalHeight > windowHeight) {
-          setAlignCenter(false);
-        } else {
-          setAlignCenter(true);
-        }
+        setModalHeight();
       }
     }, 500);
   }, [modalRef]);
+
+  const setModalHeight = () => {
+    const windowHeight = window.innerHeight;
+    const modalHeight = modalRef.current.clientHeight;
+    if (modalHeight > windowHeight) {
+      setAlignCenter(false);
+    } else {
+      setAlignCenter(true);
+    }
+  };
+  useEffect(() => {
+    window.addEventListener('resize', setModalHeight);
+    return () => window.removeEventListener('resize', setModalHeight);
+  }, []);
 
   return (
     <>
