@@ -37,17 +37,8 @@ export default function Takeover({
 
   const isOpen = showTakeover ? showTakeover : isModalOpen;
 
-  // If modal is shorter than window height, center it veritcally, otherwise align it near top of page
   const modalRef = useRef();
   const [alignCenter, setAlignCenter] = useState(true);
-  useEffect(() => {
-    setTimeout(() => {
-      if (modalRef?.current) {
-        setModalHeight();
-      }
-    }, 500);
-  }, [modalRef]);
-
   const setModalHeight = () => {
     const windowHeight = window.innerHeight;
     const modalHeight = modalRef.current.clientHeight;
@@ -57,6 +48,17 @@ export default function Takeover({
       setAlignCenter(true);
     }
   };
+  // If modal is shorter than window height, center it veritcally, otherwise align it near top of page
+  useEffect(() => {
+    // The timeout helps when a modal has an image and takes an extra bit of time to load
+    setTimeout(() => {
+      if (modalRef?.current) {
+        setModalHeight();
+      }
+    }, 500);
+  }, [modalRef]);
+
+  // This is specifically helpful for mobile, when phone is rotated between portrait and landscape
   useEffect(() => {
     window.addEventListener('resize', setModalHeight);
     return () => window.removeEventListener('resize', setModalHeight);
