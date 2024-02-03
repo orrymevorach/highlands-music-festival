@@ -7,6 +7,15 @@
   }
 }
 
+@media (max-width: $navMobile) {
+  .layout.hideTopMargin {
+    margin-top: 0;
+  }
+  .layout {
+    margin-top: 80px;
+  }
+}
+
 .layoutMarginTop {
   margin-top: 60px;
   @media (max-width: $mobile) {

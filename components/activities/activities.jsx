@@ -17,7 +17,7 @@ const activities = [
 export default function Activities() {
   const { isMobile } = useWindowSize();
   return (
-    <Layout hamburgerMenuColor={colors.beige}>
+    <Layout>
       <main>
         <div className={styles.hammocksContainer}>
           <Image src={Hammock} priority alt="" quality={30} />

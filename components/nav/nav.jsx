@@ -44,7 +44,7 @@ const Nav = ({ hamburgerMenuColor = '' }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [pathname, setPathname] = useState('');
   const { width } = useWindowSize();
-  const isMobile = width < 1150;
+  const isMobile = width < 1190;
   const showNav = !isMobile || (isMobile && isOpen);
 
   useEffect(() => {
