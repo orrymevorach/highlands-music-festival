@@ -40,8 +40,3 @@ div.modal {
     height: auto;
   }
 }
-@media screen and (orientation: landscape) and (max-width: $mobile) {
-  div.takeover {
-    display: block;
-  }
-}
