@@ -41,15 +41,17 @@ export default function Takeover({
   const modalRef = useRef();
   const [alignCenter, setAlignCenter] = useState(true);
   useEffect(() => {
-    if (modalRef?.current) {
-      const windowHeight = window.innerHeight;
-      const modalHeight = modalRef.current.clientHeight;
-      if (modalHeight > windowHeight) {
-        setAlignCenter(false);
-      } else {
-        setAlignCenter(true);
+    setTimeout(() => {
+      if (modalRef?.current) {
+        const windowHeight = window.innerHeight;
+        const modalHeight = modalRef.current.clientHeight;
+        if (modalHeight > windowHeight) {
+          setAlignCenter(false);
+        } else {
+          setAlignCenter(true);
+        }
       }
-    }
+    }, 1000);
   }, [modalRef]);
 
   return (
