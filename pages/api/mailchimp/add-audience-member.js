@@ -14,7 +14,7 @@ export default async function handler(req, res) {
       const { emailAddress } = req.body;
       const response = await mailchimp.lists.addListMember(mailchimpListId, {
         email_address: emailAddress,
-        status: 'pending',
+        status: 'subscribed',
       });
       res.status(200).json({ response });
     } catch (err) {

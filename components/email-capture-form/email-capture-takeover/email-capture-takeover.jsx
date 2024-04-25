@@ -13,8 +13,8 @@ export default function EmailCaptureTakeover() {
             <>
               <p className="lineOne">Where Music Festival meets Summer Camp</p>
               <p className="lineTwo">
-                Sign up for exclusive access to 2023 early bird pricing and
-                lineup announcements
+                Sign up for exclusive access to early bird pricing and lineup
+                announcements
               </p>
             </>
           </div>

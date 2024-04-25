@@ -31,7 +31,8 @@ export default function EmailCaptureHeader() {
             >
               <div className={styles.column}>
                 <p className={styles.columnCopy}>
-                  Sign up for exclusive access to early bird pricing
+                  Sign up for exclusive access to early bird pricing and lineup
+                  announcements
                 </p>
               </div>
               <div className={styles.column}>
