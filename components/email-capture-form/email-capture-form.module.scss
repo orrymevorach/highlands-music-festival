@@ -6,6 +6,11 @@
   justify-content: center;
   z-index: 90;
   font-family: 'Neue Haas Medium';
+
+  .inputContainer {
+    width: 100%;
+  }
+
   input,
   button {
     border-radius: 5px;
@@ -34,5 +39,11 @@
       color: $darkGreen;
       transition: 0.2s;
     }
+  }
+
+  .error {
+    color: red;
+    font-size: 14px;
+    width: 90%;
   }
 }
