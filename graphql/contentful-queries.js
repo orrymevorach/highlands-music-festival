@@ -82,7 +82,7 @@ export const GET_IS_PAGE_PUBLISHED = gql`
 
 export const GET_LINEUP = gql`
   query GetLineup {
-    lineupCollection(where: { title: "2023_LINEUP" }) {
+    lineupCollection(where: { title: "2024_LINEUP" }) {
       items {
         headlinersCollection(limit: 5) {
           items {

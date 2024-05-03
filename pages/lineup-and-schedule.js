@@ -25,7 +25,7 @@ export default function LineupAndSchedule({
       <Layout>
         <main>
           <Lineup headlinerFeatureFlag={headlinerFeatureFlag} lineup={lineup} />
-          <Schedule />
+          {/* <Schedule /> */}
         </main>
       </Layout>
     </>
