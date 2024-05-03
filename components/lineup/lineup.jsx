@@ -33,7 +33,7 @@ export default function Lineup({ headlinerFeatureFlag = false, lineup = [] }) {
       {headlinerFeatureFlag ? (
         <>
           <Announcement headliners={headliners} />
-          <Heading>Stay tuned for more 2023 lineup announcements</Heading>
+          <Heading>Stay tuned for more 2024 lineup announcements</Heading>
         </>
       ) : (
         <>
