@@ -31,24 +31,19 @@ export default function Lineup({ headlinerFeatureFlag = false, lineup = [] }) {
   return (
     <>
       {headlinerFeatureFlag ? (
-        <>
-          <Announcement headliners={headliners} />
-          <Heading>Stay tuned for more 2024 lineup announcements</Heading>
-        </>
+        <Announcement headliners={headliners} />
       ) : (
-        <>
-          <Heading>
-            <p>
-              2023 Lineup{' '}
-              {/* <span className={styles.comingSoon}>
-                (schedule coming soon...)
-              </span> */}
-            </p>
-          </Heading>
-          <ArtistTiles lineup={lineup} />
-        </>
+        <Heading>
+          <p>
+            2024 Lineup{' '}
+            <span className={styles.comingSoon}>(schedule coming soon...)</span>
+          </p>{' '}
+        </Heading>
       )}
-
+      <ArtistTiles lineup={lineup} />
+      {headlinerFeatureFlag && (
+        <Heading>Stay tuned for more 2024 lineup announcements</Heading>
+      )}
       {/* <div className={styles.container}>
         <PastLineupDropdown
           year={year}

@@ -22,7 +22,7 @@ export default function LineupAndSchedule({
   return (
     <>
       <Head title="Lineup & Schedule" />
-      <Layout>
+      <Layout hideTopMargin>
         <main>
           <Lineup headlinerFeatureFlag={headlinerFeatureFlag} lineup={lineup} />
           {/* <Schedule /> */}
