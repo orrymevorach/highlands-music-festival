@@ -11,8 +11,8 @@ const ThankYou = () => {
         alt="Highlands Music Festival logo"
         className={styles.thankYouLogo}
       />
-      <p className={styles.thankYouHeading}>THANK YOU!</p>
-      <p className={styles.thankYouHeading}>Same time next year.</p>
+      {/* <p className={styles.thankYouHeading}>THANK YOU!</p>
+      <p className={styles.thankYouHeading}>Same time next year.</p> */}
       <p className={clsx(styles.thankYouText, styles.thankYouTextDate)}>
         September 26-29, 2024
       </p>
