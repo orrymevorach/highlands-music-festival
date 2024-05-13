@@ -36,7 +36,7 @@ export default function Video() {
         <>
           <video
             // src={`${imgPath}/Walden-HighQ-cropped-v2.mp4`}
-            src={`${imgPath}/highlands-teaser-video.mp4`}
+            src={`${imgPath}/HMF_2023_v3.mp4`}
             autoPlay
             muted
             className={styles.video}
