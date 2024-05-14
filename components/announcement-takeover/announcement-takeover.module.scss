@@ -32,8 +32,18 @@
   position: absolute;
   height: 100%;
   width: 100%;
-  filter: blur(10px);
+  animation: 1s colorFadeIn linear forwards;
 }
+
+@keyframes colorFadeIn {
+  0% {
+    filter: blur(0px) grayscale(0%);
+  }
+  100% {
+    filter: blur(3px) grayscale(50%);
+  }
+}
+
 .lineOne {
   text-transform: uppercase;
   font-family: $fontSecondaryBold;

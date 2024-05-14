@@ -14,8 +14,14 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  position: relative;
+  height: 250px;
+  width: 100%;
   img {
     width: 100%;
+    position: absolute;
+    top: -100px;
+    height: auto;
   }
   opacity: 0;
   animation: fadeIn 0.5s linear forwards;
@@ -100,7 +106,7 @@
   }
 }
 
-@media (max-width: $mobile) {
+@media (max-width: $tablet) {
   .aboutWrapper {
     width: auto;
     overflow: hidden;
@@ -129,5 +135,14 @@
   }
   .aboutLogo {
     width: 90%;
+  }
+}
+
+@media (max-width: $mobile) {
+  .aboutPageImageContainer {
+    height: 150px;
+    img {
+      top: 0;
+    }
   }
 }

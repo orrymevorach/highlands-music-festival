@@ -5,21 +5,22 @@ import { colors } from 'utils/constants';
 import { useWindowSize } from 'hooks';
 import Image from 'next/image';
 import Logo from 'public/Logo-1200px-No-Bkgd-min.png';
-import Banner from 'public/lake.jpg';
+import Banner from 'public/backgrounds/HL_2023_Logo269.jpg';
 import GreenSun from 'public/green-sun.png';
-import ClFirepit from 'public/CL-FIREPIT.jpg';
-import ClBackyard from 'public/CL-BACKYARD.jpg';
-import Omni from 'public/omni.jpg';
-import ClDeck from 'public/CL-DECK-2.jpg';
-import FirehallEvening from 'public/EVENING-SET-UP-FIREHALL.jpg';
+
+import CLEvening from 'public/backgrounds/HL_2023_Logo269-narrow.jpg';
+import GuitarNight from 'public/backgrounds/HL_2023_Logo295.jpg';
+import Stage from 'public/backgrounds/HL_2023_Logo460.jpg';
+import Sax from 'public/backgrounds/HL_2023_Logo17.jpg';
+import Backflip from 'public/backgrounds/HL_2023_Logo492.jpg';
 
 export default function About() {
-  const { isMobile } = useWindowSize();
+  const { isDesktop } = useWindowSize();
   return (
     <Layout hasPaddingBottom={false} hamburgerMenuColor={colors.beige}>
       <main>
         <div className={styles.aboutPageImageContainer}>
-          <Image priority src={Banner} alt="" quality={30} width={1422} />
+          <Image priority src={Banner} alt="" quality={30} />
         </div>
         <div className={styles.aboutWrapper}>
           <Image
@@ -34,7 +35,7 @@ export default function About() {
           <h3 className={clsx(styles.aboutDate, styles.subheading)}>
             Thursday, September 26th - 29th, 2024
           </h3>
-          {!isMobile && (
+          {isDesktop && (
             <Image
               src={GreenSun}
               alt=""
@@ -129,24 +130,24 @@ export default function About() {
           </div>
         </div>
         <div className={styles.imagesRow}>
-          {!isMobile && (
+          {!isDesktop && (
             <>
               <Image
-                src={ClFirepit}
+                src={Sax}
+                alt=""
+                width={450}
+                // style={{ height: '100%' }}
+                quality={50}
+              />
+              <Image
+                src={CLEvening}
                 alt=""
                 width={450}
                 style={{ height: '100%' }}
                 quality={50}
               />
               <Image
-                src={ClBackyard}
-                alt=""
-                width={450}
-                style={{ height: '100%' }}
-                quality={50}
-              />
-              <Image
-                src={Omni}
+                src={GuitarNight}
                 alt=""
                 width={450}
                 style={{ height: '100%' }}
@@ -155,14 +156,14 @@ export default function About() {
             </>
           )}
           <Image
-            src={ClDeck}
+            src={Backflip}
             alt=""
             width={450}
             style={{ height: '100%' }}
             quality={50}
           />
           <Image
-            src={FirehallEvening}
+            src={Stage}
             alt=""
             width={450}
             style={{ height: '100%' }}

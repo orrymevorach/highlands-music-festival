@@ -1,12 +1,49 @@
 @import '@variables';
 
 .announcementContainer {
-  background-color: $darkGreen;
   text-align: center;
   padding: 35px 0;
   color: $beige;
   font-family: $fontSecondary;
   margin-bottom: 50px;
+  position: relative;
+}
+
+.backgroundImageContainer {
+  overflow: hidden;
+  height: 250px;
+  position: relative;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  // border-bottom: 10px solid $darkGreen;
+}
+.backgroundImage {
+  background-image: url('../../../public/backgrounds/HL_2023_Logo251.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 100%;
+  width: 105%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  filter: blur(3px) grayscale(50%);
+  left: -2.5%;
+  &:after {
+    content: '';
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.3);
+    left: 0;
+    z-index: 1;
+  }
+}
+
+.textContainer {
+  position: relative;
+  z-index: 2;
 }
 
 .headliner {
@@ -27,6 +64,9 @@
   justify-content: center;
   align-items: center;
   padding: 0 20px;
+  .insideContainer {
+    display: flex;
+  }
 }
 
 .and {
@@ -35,16 +75,20 @@
 
 @media screen and (max-width: $mobile) {
   .announcementContainer {
-    margin-top: 80px;
+    margin: 50px 0 0;
   }
   .headliner {
     font-size: 17px;
-    width: 90px;
+    // width: 90px;
   }
   .justAnnounced {
-    font-size: 18px;
+    font-size: 20px;
+    margin: 0 0 25px;
   }
   .and {
     margin: 0 10px;
+  }
+  .backgroundImageContainer {
+    height: 150px;
   }
 }
