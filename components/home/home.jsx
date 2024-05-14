@@ -20,6 +20,7 @@ export default function Home({
         />
       ) : (
         <div className={styles.homePageContainer}>
+          <div className={styles.background}></div>
           <Layout hasPaddingBottom={false} hamburgerMenuColor={colors.beige}>
             <main className={styles.mainContent}>
               <h1 className={styles.h1}>Highlands Music Festival</h1>
