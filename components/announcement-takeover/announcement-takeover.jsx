@@ -1,5 +1,5 @@
 import styles from './announcement-takeover.module.scss';
-import { CloseButton } from 'components/icons/icons';
+import CloseButton from 'components/shared/close-button';
 import clsx from 'clsx';
 
 export default function AnnouncementTakeover({

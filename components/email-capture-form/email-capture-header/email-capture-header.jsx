@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import EmailCaptureForm from 'components/email-capture-form';
 import Takeover from 'components/takeover';
 import { useEmailCaptureContext } from 'context/email-capture-context';
-import { CloseButton } from '../../icons/icons';
+import CloseButton from 'components/shared/close-button';
 import { useWindowSize } from 'hooks';
 import animations from '@animations';
 
