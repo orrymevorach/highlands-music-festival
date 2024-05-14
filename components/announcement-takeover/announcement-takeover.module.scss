@@ -24,6 +24,16 @@
   align-items: center;
   flex-direction: column;
 }
+
+.background {
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  filter: blur(10px);
+}
 .lineOne {
   text-transform: uppercase;
   font-family: $fontSecondaryBold;

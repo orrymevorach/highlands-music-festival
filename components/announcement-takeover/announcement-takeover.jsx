@@ -11,6 +11,12 @@ export default function AnnouncementTakeover({
       <div
         className={clsx(styles.headlinerAnnouncementContainer, styles.fadeIn)}
       >
+        <div
+          className={styles.background}
+          style={{
+            backgroundImage: 'url(./backgrounds/HL_2023_Logo247.jpg)',
+          }}
+        ></div>
         <CloseButton dark handleClick={closeAnnouncement} />
         <p className={styles.lineOne}>Announcing:</p>
         {/* These animation only work for headliners with 2 words. animation-delay changes must be done manually in scss file  */}
