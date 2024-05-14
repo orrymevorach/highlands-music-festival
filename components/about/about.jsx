@@ -130,7 +130,7 @@ export default function About() {
           </div>
         </div>
         <div className={styles.imagesRow}>
-          {!isDesktop && (
+          {isDesktop && (
             <>
               <Image
                 src={Sax}
