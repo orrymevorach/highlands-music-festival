@@ -7,6 +7,7 @@ import Layout from 'components/layout/layout';
 export default function Home({
   headlinerFeatureFlag = false,
   headliners = [],
+  festivalDate,
 }) {
   const { showAnnouncement, closeAnnouncement } = useAnimateAnnouncement();
   return (
@@ -18,11 +19,11 @@ export default function Home({
         />
       ) : (
         <div className={styles.homePageContainer}>
-          <Layout hideHeaderMargin>
+          <Layout hideHeaderMargin festivalDate={festivalDate}>
             <main className={styles.mainContent}>
               <h1 className={styles.h1}>Highlands Music Festival</h1>
               {/* <TopRow /> */}
-              <Video />
+              <Video festivalDate={festivalDate} />
             </main>
           </Layout>
         </div>

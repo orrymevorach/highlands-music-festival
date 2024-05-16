@@ -30,26 +30,24 @@ const informationData = [
 
 export default function VendorSubmission() {
   return (
-    <Layout hideHeaderMargin>
-      <main>
-        <div className={styles.vendorFormPageContainer}>
-          <Image
-            src={logo}
-            className={styles.logo}
-            alt="Highlands Music Festival Logo"
-          />
-          <div className={styles.marketplaceContainer}>
-            <FontAwesomeIcon icon={faMapPin} color={colors.beige} size="2xl" />
-            <p className={styles.marketplaceText}>Marketplace</p>
-          </div>
-
-          {informationData.map(informationItem => (
-            <Information {...informationItem} key={informationItem.heading} />
-          ))}
-          <Information heading="vendor application" />
-          <VendorSubmissionForm />
+    <main>
+      <div className={styles.vendorFormPageContainer}>
+        <Image
+          src={logo}
+          className={styles.logo}
+          alt="Highlands Music Festival Logo"
+        />
+        <div className={styles.marketplaceContainer}>
+          <FontAwesomeIcon icon={faMapPin} color={colors.beige} size="2xl" />
+          <p className={styles.marketplaceText}>Marketplace</p>
         </div>
-      </main>
-    </Layout>
+
+        {informationData.map(informationItem => (
+          <Information {...informationItem} key={informationItem.heading} />
+        ))}
+        <Information heading="vendor application" />
+        <VendorSubmissionForm />
+      </div>
+    </main>
   );
 }

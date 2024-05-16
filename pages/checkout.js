@@ -9,12 +9,12 @@ import Head from 'components/head';
 import Legal from 'components/checkout/legal';
 import { useWindowSize } from 'hooks';
 import { useFacebookPixel } from 'hooks';
-export default function CheckoutPage({ priceModel }) {
+export default function CheckoutPage({ priceModel, festivalDate }) {
   useFacebookPixel();
   const { isMobile } = useWindowSize();
   return (
     <CheckoutProvider priceModel={priceModel}>
-      <Head title="Checkout" />
+      <Head title="Checkout" festivalDate={festivalDate} />
       <Layout>
         <Container />
         {!isMobile && <Legal />}

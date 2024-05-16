@@ -5,14 +5,22 @@ import { PAGE_SLUGS } from 'utils/constants';
 import BuyTickets from 'components/buy-tickets';
 import { getPriceModel } from 'lib/stripe-lib';
 import { useFacebookPixel } from 'hooks';
-export default function BuyTicketsPage({ priceModel, showEmailCapture }) {
+import Layout from 'components/layout/layout';
+
+export default function BuyTicketsPage({
+  priceModel,
+  showEmailCapture,
+  festivalDate,
+}) {
   useFacebookPixel();
   const { setShowEmailCapture } = useEmailCaptureContext();
   setShowEmailCapture(showEmailCapture);
   return (
     <>
-      <Head title="Buy Tickets" />
-      <BuyTickets priceModel={priceModel} />
+      <Head title="Buy Tickets" festivalDate={festivalDate} />
+      <Layout hideHeaderMargin festivalDate={festivalDate}>
+        <BuyTickets priceModel={priceModel} />
+      </Layout>
     </>
   );
 }

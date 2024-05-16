@@ -13,16 +13,18 @@ export default function Index({
   headlinerFeatureFlag = false,
   headliners,
   showEmailCapture,
+  festivalDate,
 }) {
   useFacebookPixel();
   const { setShowEmailCapture } = useEmailCaptureContext();
   setShowEmailCapture(showEmailCapture);
   return (
     <>
-      <Head />
+      <Head festivalDate={festivalDate} />
       <Home
         headlinerFeatureFlag={headlinerFeatureFlag}
         headliners={headliners}
+        festivalDate={festivalDate}
       />
     </>
   );

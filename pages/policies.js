@@ -6,14 +6,14 @@ import { useFacebookPixel } from 'hooks';
 import { getPageLoadData } from 'lib/contentful-lib';
 import { PAGE_SLUGS } from 'utils/constants';
 
-export default function PoliciesPage({ showEmailCapture }) {
+export default function PoliciesPage({ showEmailCapture, festivalDate }) {
   useFacebookPixel();
   const { setShowEmailCapture } = useEmailCaptureContext();
   setShowEmailCapture(showEmailCapture);
   return (
     <>
-      <Head title="Policies" />
-      <Layout>
+      <Head title="Policies" festivalDate={festivalDate} />
+      <Layout festivalDate={festivalDate}>
         <Policies />
       </Layout>
     </>

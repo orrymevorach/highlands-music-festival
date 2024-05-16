@@ -17,14 +17,15 @@ export default function LineupAndSchedule({
   lineup = [],
   showEmailCapture,
   lineupGraphics,
+  festivalDate,
 }) {
   useFacebookPixel();
   const { setShowEmailCapture } = useEmailCaptureContext();
   setShowEmailCapture(showEmailCapture);
   return (
     <>
-      <Head title="Lineup & Schedule" />
-      <Layout>
+      <Head title="Lineup & Schedule" festivalDate={festivalDate} />
+      <Layout festivalDate={festivalDate}>
         <main>
           <Lineup
             headlinerFeatureFlag={headlinerFeatureFlag}

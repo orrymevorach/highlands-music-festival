@@ -1,3 +1,8 @@
+import {
+  mapDayToSuffix,
+  mapIndexToMonth,
+} from 'components/checkout/checkout-utils';
+
 export function isObjEmpty(obj) {
   return Object.keys(obj).length === 0;
 }
@@ -14,3 +19,26 @@ export function toCamelCase(str) {
     })
     .replace(/\s+/g, '');
 }
+
+export const formatFestivalDate = ({ startDate, endDate }) => {
+  const year = new Date(startDate).getFullYear();
+
+  const startDay = new Date(startDate).getDate();
+  const startDaySuffix = mapDayToSuffix[startDay];
+  const formattedStartDay = `${startDay}${startDaySuffix}`;
+
+  const endDay = new Date(endDate).getDate();
+  const endDaySuffix = mapDayToSuffix[endDay];
+  const formattedEndDay = `${endDay}${endDaySuffix}`;
+
+  const startMonthIndex = new Date(startDate).getMonth() + 1;
+  const startMonth = mapIndexToMonth[startMonthIndex];
+  const endMonthIndex = new Date(endDate).getMonth() + 1;
+  const endMonth = mapIndexToMonth[endMonthIndex];
+
+  const fullDate = `${startMonth} ${formattedStartDay} - ${
+    endMonth === startMonth ? '' : `${endMonth} `
+  }${formattedEndDay}, ${year}`;
+
+  return fullDate;
+};

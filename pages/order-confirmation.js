@@ -4,11 +4,15 @@ import { PAGE_SLUGS } from 'utils/constants';
 import Head from 'components/head';
 import { useFacebookPixel } from 'hooks';
 
-export default function CommitteePage({ customer, orderDetails }) {
+export default function CommitteePage({
+  customer,
+  orderDetails,
+  festivalDate,
+}) {
   useFacebookPixel();
   return (
     <>
-      <Head title="Order Confirmed!" />
+      <Head title="Order Confirmed!" festivalDate={festivalDate} />
       <OrderConfirmation customer={customer} orderDetails={orderDetails} />
     </>
   );

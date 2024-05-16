@@ -1,18 +1,21 @@
 import Faq from 'components/faq/faq';
 import Head from 'components/head';
+import Layout from 'components/layout/layout';
 import { useEmailCaptureContext } from 'context/email-capture-context';
 import { useFacebookPixel } from 'hooks';
 import { getFaqPage, getPageLoadData } from 'lib/contentful-lib';
 import { PAGE_SLUGS } from 'utils/constants';
 
-const FAQPage = ({ showEmailCapture, faqData }) => {
+const FAQPage = ({ showEmailCapture, faqData, festivalDate }) => {
   useFacebookPixel();
   const { setShowEmailCapture } = useEmailCaptureContext();
   setShowEmailCapture(showEmailCapture);
   return (
     <>
-      <Head title="FAQ" />
-      <Faq data={faqData} />
+      <Head title="FAQ" festivalDate={festivalDate} />
+      <Layout festivalDate={festivalDate}>
+        <Faq data={faqData} />
+      </Layout>
     </>
   );
 };

@@ -7,15 +7,19 @@ import { getPageLoadData } from 'lib/contentful-lib';
 import { PAGE_SLUGS, colors } from 'utils/constants';
 import { createFlickr } from 'flickr-sdk';
 
-export default function GalleryPage({ showEmailCapture, photos }) {
+export default function GalleryPage({
+  showEmailCapture,
+  photos,
+  festivalDate,
+}) {
   useFacebookPixel();
   const { setShowEmailCapture } = useEmailCaptureContext();
   setShowEmailCapture(showEmailCapture);
 
   return (
     <>
-      <Head title="Gallery" />
-      <Layout hideHeaderMargin>
+      <Head title="Gallery" festivalDate={festivalDate} />
+      <Layout hideHeaderMargin festivalDate={festivalDate}>
         <FlickrGallery photos={photos} />
       </Layout>
     </>

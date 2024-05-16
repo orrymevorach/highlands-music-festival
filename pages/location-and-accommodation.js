@@ -4,15 +4,21 @@ import { useEmailCaptureContext } from 'context/email-capture-context';
 import { PAGE_SLUGS } from 'utils/constants';
 import { getPageLoadData } from 'lib/contentful-lib';
 import { useFacebookPixel } from 'hooks';
+import Layout from 'components/layout/layout';
 
-export default function LocationAndAccommodationPage({ showEmailCapture }) {
+export default function LocationAndAccommodationPage({
+  showEmailCapture,
+  festivalDate,
+}) {
   useFacebookPixel();
   const { setShowEmailCapture } = useEmailCaptureContext();
   setShowEmailCapture(showEmailCapture);
   return (
     <>
-      <Head title="Location & Accommodation" />
-      <LocationAndAccommodation />
+      <Head title="Location & Accommodation" festivalDate={festivalDate} />
+      <Layout festivalDate={festivalDate}>
+        <LocationAndAccommodation />
+      </Layout>
     </>
   );
 }

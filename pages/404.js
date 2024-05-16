@@ -4,11 +4,11 @@ import styles from './404.module.scss';
 import Head from 'components/head';
 import { useFacebookPixel } from 'hooks';
 
-export default function PageNotFound() {
+export default function PageNotFound({ festivalDate }) {
   useFacebookPixel();
   return (
     <div className={styles.pageNotFoundContainer}>
-      <Head />
+      <Head festivalDate={festivalDate} />
       <Image
         src={Rainbow}
         alt="Highlands Music Festival logo"

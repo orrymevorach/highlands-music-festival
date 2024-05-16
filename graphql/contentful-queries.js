@@ -187,3 +187,14 @@ export const GET_LINEUP_GRAPHICS = gql`
     }
   }
 `;
+
+export const GET_FESTIVAL_DATE = gql`
+  query getFestivalDate {
+    festivalDateCollection(where: { title: "Date" }, limit: 1) {
+      items {
+        startDate
+        endDate
+      }
+    }
+  }
+`;

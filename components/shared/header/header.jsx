@@ -5,7 +5,7 @@ import Nav from 'components/nav';
 import Link from 'next/link';
 import { useWindowSize } from 'hooks';
 
-export default function Header({ hideBottomMargin }) {
+export default function Header({ hideBottomMargin, festivalDate = '' }) {
   const { isMobile } = useWindowSize();
   return (
     <div
@@ -25,7 +25,7 @@ export default function Header({ hideBottomMargin }) {
             className={styles.thankYouLogo}
           />
         </Link>
-        <h3>September 26th - 29th, 2024</h3>
+        <h3>{festivalDate}</h3>
       </div>
       {!isMobile && (
         <div className={styles.buttonsContainer}>

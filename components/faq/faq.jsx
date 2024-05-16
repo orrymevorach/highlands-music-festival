@@ -1,7 +1,6 @@
 import FaqCategories from './faq-categories/faq-categories';
 import FaqCategoriesLinks from './faq-category-links';
 import styles from './faq.module.scss';
-import Layout from 'components/layout';
 
 export default function Faq({ data }) {
   const mapCategoryTypeToName = {
@@ -26,23 +25,21 @@ export default function Faq({ data }) {
     return acc;
   }, []);
   return (
-    <Layout>
-      <main>
-        <div className={styles.faqWrapper}>
-          <h1 className={styles.heading}>FAQ</h1>
-          <FaqCategoriesLinks categoryData={categoryData} />
-          <FaqCategories categoryData={categoryData} />
-          <div>
-            <p className={styles.otherQuestionsHeading}>
-              What if I have other questions?
-            </p>
-            <p className={styles.otherQuestionsText}>
-              Please reach out to us at info@highlandsmusicfestival.ca for any
-              questions about the festival!
-            </p>
-          </div>
+    <main>
+      <div className={styles.faqWrapper}>
+        <h1 className={styles.heading}>FAQ</h1>
+        <FaqCategoriesLinks categoryData={categoryData} />
+        <FaqCategories categoryData={categoryData} />
+        <div>
+          <p className={styles.otherQuestionsHeading}>
+            What if I have other questions?
+          </p>
+          <p className={styles.otherQuestionsText}>
+            Please reach out to us at info@highlandsmusicfestival.ca for any
+            questions about the festival!
+          </p>
         </div>
-      </main>
-    </Layout>
+      </div>
+    </main>
   );
 }
