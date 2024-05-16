@@ -23,6 +23,7 @@ export default function EmailCaptureForm({ buttonClassNames = '' }) {
     if (status === 400) {
       setError(`Error: ${JSON.parse(response.text).title}. Please try again.`);
     } else {
+      fbq('trackCustom', 'WebsiteLead');
       Cookies.set(cookies.emailCaptureCookie, true);
       SUBMIT_FORM();
     }
