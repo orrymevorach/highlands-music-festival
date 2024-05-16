@@ -2,11 +2,8 @@
 
 .hamburgerMenu {
   z-index: 2001;
-  width: 30px;
+  width: 40px;
   height: 20px;
-  position: absolute;
-  top: 58px;
-  right: 50px;
   -webkit-transform: rotate(0deg);
   -moz-transform: rotate(0deg);
   -o-transform: rotate(0deg);
@@ -23,9 +20,9 @@
 .hamburgerMenu span {
   display: block;
   position: absolute;
-  height: 1px;
-  width: 30px;
-  background: black;
+  height: 4px;
+  width: 40px;
+  background: $darkGreen;
   border-radius: 9px;
   opacity: 1;
   left: 0;
@@ -45,15 +42,15 @@
 
 .hamburgerMenu span:nth-child(2),
 .hamburgerMenu span:nth-child(3) {
-  top: 8px;
+  top: 10px;
 }
 
 .hamburgerMenu span:nth-child(4) {
-  top: 16px;
+  top: 20px;
 }
 
 .hamburgerMenu.open span:nth-child(1) {
-  top: 16px;
+  top: 20px;
   width: 0%;
   left: 50%;
 }

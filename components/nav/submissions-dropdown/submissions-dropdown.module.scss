@@ -5,16 +5,22 @@
 }
 
 .navItem {
+  padding: 5px 0;
   font-family: 'Neue Haas Light', 'Arial', sans-serif;
   font-style: normal;
-  padding: 0 25px;
   margin: 0;
   cursor: pointer;
   transition: 0.2s;
   color: $darkGreen;
-  font-size: 19px;
+  font-size: 22px;
   color: $darkGreen;
   text-decoration: none;
+  &:hover a:after {
+    display: none;
+  }
+  a {
+    font-size: 22px;
+  }
 }
 
 .chevron {
@@ -22,10 +28,6 @@
 }
 
 .dropdown {
-  position: absolute;
-  z-index: 101;
-  top: 35px;
-  left: 20px;
   animation: fadeIn 0.2s linear forwards;
 }
 
@@ -55,31 +57,6 @@
       bottom: 0;
       left: 0;
     }
-  }
-}
-
-@media (max-width: 1550px) {
-  .navItem {
-    font-size: 16px;
-  }
-}
-
-@media (max-width: $navMobile) {
-  .navItem {
-    padding: 5px 0;
-    font-size: 22px;
-    &:hover a:after {
-      display: none;
-    }
-    a {
-      font-size: 22px;
-    }
-  }
-  .dropdown {
-    position: relative;
-    top: 0px;
-    left: 0px;
-    animation: fadeIn 0.2s linear forwards;
   }
 }
 

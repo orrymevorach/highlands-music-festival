@@ -30,7 +30,7 @@ const informationData = [
 
 export default function VendorSubmission() {
   return (
-    <Layout>
+    <Layout hideHeaderMargin>
       <main>
         <div className={styles.vendorFormPageContainer}>
           <Image

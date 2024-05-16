@@ -22,9 +22,3 @@
 .active {
   font-family: $fontSecondaryBold;
 }
-
-@media screen and (max-width: $mobile) {
-  .pagination {
-    margin: 80px 0 20px;
-  }
-}

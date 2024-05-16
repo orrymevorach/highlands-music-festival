@@ -6,7 +6,7 @@ import ImageTiles from 'components/shared/image-tiles/image-tiles';
 
 export default function Activities({ activities }) {
   return (
-    <Layout>
+    <Layout hideHeaderMargin>
       <main>
         <div className={styles.imageContainer}>
           <Image src={Hammock} priority alt="" quality={70} />
