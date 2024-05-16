@@ -5,7 +5,7 @@ import Button from 'components/shared/button/button';
 export default function TopRow() {
   return (
     <div className={styles.topRow}>
-      <h2 className={styles.date}>September 26 - 29</h2>
+      {/* <h2 className={styles.date}>September 26 - 29</h2> */}
       <div className={styles.middle}>
         <p className={styles.ticketsAvailable}>
           2024 tickets are now available
@@ -15,9 +15,9 @@ export default function TopRow() {
           the ticket price
         </p>
       </div>
-      <Button href="/buy-tickets" classNames={styles.buyNowButton}>
+      {/* <Button href="/buy-tickets" classNames={styles.buyNowButton}>
         Buy Now
-      </Button>
+      </Button> */}
     </div>
   );
 }
