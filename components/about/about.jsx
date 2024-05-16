@@ -17,7 +17,7 @@ import Backflip from 'public/backgrounds/HL_2023_Logo492.jpg';
 export default function About() {
   const { isDesktop } = useWindowSize();
   return (
-    <Layout hasPaddingBottom={false} hamburgerMenuColor={colors.beige}>
+    <Layout hasPaddingBottom={false} hideHeaderMargin>
       <main>
         <div className={styles.aboutPageImageContainer}>
           <Image priority src={Banner} alt="" quality={30} />

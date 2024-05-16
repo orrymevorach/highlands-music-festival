@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import styles from './nav.module.scss';
 import Link from 'next/link';
 import HamburgerMenu from '../hamburger-menu';
-import { useWindowSize } from 'hooks';
 import clsx from 'clsx';
 import { faHome } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -16,7 +15,7 @@ const HomeIcon = ({ setIsOpen }) => {
   return (
     <li className={styles.homeIcon} onClick={() => setIsOpen(false)}>
       <Link href="/">
-        <FontAwesomeIcon icon={faHome} color={colors.darkGreen} size="xl" />
+        <FontAwesomeIcon icon={faHome} color={colors.darkGreen} size="2x" />
       </Link>
     </li>
   );
@@ -32,20 +31,17 @@ const InstagramIcon = () => {
         <FontAwesomeIcon
           icon={faInstagram}
           color={colors.darkGreen}
-          size="xl"
+          size="2x"
         />
       </a>
     </li>
   );
 };
 
-const Nav = ({ hamburgerMenuColor = '' }) => {
+const Nav = () => {
   const navData = useNavContext() || [];
   const [isOpen, setIsOpen] = useState(false);
   const [pathname, setPathname] = useState('');
-  const { width } = useWindowSize();
-  const isMobile = width < 1235;
-  const showNav = !isMobile || (isMobile && isOpen);
 
   useEffect(() => {
     const body = document.getElementsByTagName('body')[0];
@@ -64,7 +60,7 @@ const Nav = ({ hamburgerMenuColor = '' }) => {
 
   return (
     <>
-      {showNav ? (
+      {isOpen ? (
         <nav className={styles.nav}>
           <ul className={styles.navList}>
             <HomeIcon setIsOpen={setIsOpen} />
@@ -92,13 +88,7 @@ const Nav = ({ hamburgerMenuColor = '' }) => {
           </ul>
         </nav>
       ) : null}
-      {isMobile && (
-        <HamburgerMenu
-          isOpen={isOpen}
-          setIsOpen={setIsOpen}
-          hamburgerMenuColor={hamburgerMenuColor}
-        />
-      )}
+      <HamburgerMenu isOpen={isOpen} setIsOpen={setIsOpen} />
     </>
   );
 };

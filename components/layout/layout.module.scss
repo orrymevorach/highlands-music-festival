@@ -2,18 +2,6 @@
 
 .layout {
   padding-bottom: 50px;
-  @media (max-width: $mobile) {
-    padding-top: 40px;
-  }
-}
-
-@media (max-width: $navMobile) {
-  .layout.hideTopMargin {
-    margin-top: 0;
-  }
-  .layout {
-    margin-top: 80px;
-  }
 }
 
 .layoutMarginTop {

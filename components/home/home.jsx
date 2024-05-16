@@ -1,10 +1,8 @@
 import styles from './home.module.scss';
-import { colors } from 'utils/constants';
-import Layout from 'components/layout';
 import AnnouncementTakeover from 'components/announcement-takeover';
 import useAnimateAnnouncement from 'components/announcement-takeover/useAnimateAnnouncement';
-import TopRow from './top-row';
 import Video from './video';
+import Layout from 'components/layout/layout';
 
 export default function Home({
   headlinerFeatureFlag = false,
@@ -20,11 +18,9 @@ export default function Home({
         />
       ) : (
         <div className={styles.homePageContainer}>
-          <div className={styles.background}></div>
-          <Layout hasPaddingBottom={false} hamburgerMenuColor={colors.beige}>
+          <Layout hideHeaderMargin>
             <main className={styles.mainContent}>
               <h1 className={styles.h1}>Highlands Music Festival</h1>
-              <TopRow />
               <Video />
             </main>
           </Layout>
