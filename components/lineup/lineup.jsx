@@ -1,9 +1,12 @@
 import styles from './lineup.module.scss';
 import Image from 'next/image';
 import clsx from 'clsx';
-import Announcement from './announcement';
 import ImageTiles from '../shared/image-tiles';
 import GreenSun from 'public/green-sun.png';
+import Link from 'next/link';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faSpotify } from '@fortawesome/free-brands-svg-icons';
+import { useWindowSize } from 'hooks';
 
 const getFormattedLineup = lineup => {
   const headliners = lineup.headlinersCollection.items;
@@ -24,21 +27,34 @@ export default function Lineup({
   lineup = [],
   lineupGraphics = [],
 }) {
+  const { isMobile } = useWindowSize();
   // const headliners = lineup.headlinersCollection.items;
   const formatttedLineup = getFormattedLineup(lineup);
+
+  const ImageTileBack = ({ spotifyLink }) => {
+    return (
+      <Link href={spotifyLink} className={styles.imageTileBack} target="_blank">
+        <p>Listen on Spotify</p>
+        <FontAwesomeIcon icon={faSpotify} size="xl" />
+      </Link>
+    );
+  };
 
   return (
     <>
       {/* {headlinerFeatureFlag && <Announcement headliners={headliners} />} */}
 
       <Heading>
-        <p>
+        <p className={styles.paragraph}>
           2024 Lineup{' '}
           {/* <span className={styles.comingSoon}>(schedule coming soon...)</span> */}
           {headlinerFeatureFlag ? (
-            <span className={styles.comingSoon}>
-              (more announcements coming soon...)
-            </span>
+            <>
+              {isMobile && <br />}
+              <span className={styles.comingSoon}>
+                (more announcements coming soon...)
+              </span>
+            </>
           ) : (
             <span className={styles.comingSoon}>(schedule coming soon...)</span>
           )}
@@ -46,7 +62,7 @@ export default function Lineup({
       </Heading>
 
       <div className={styles.tilesContainer}>
-        <ImageTiles tiles={formatttedLineup} />
+        <ImageTiles tiles={formatttedLineup} ImageTileBack={ImageTileBack} />
       </div>
       <div className={styles.pastLineupsContainer}>
         <Heading>

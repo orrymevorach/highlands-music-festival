@@ -90,6 +90,7 @@ export const GET_LINEUP = gql`
             image {
               ...ImageFields
             }
+            spotifyLink
           }
         }
         artistsCollection(limit: 20) {
@@ -98,6 +99,7 @@ export const GET_LINEUP = gql`
             image {
               ...ImageFields
             }
+            spotifyLink
           }
         }
       }

@@ -21,6 +21,11 @@
 
 .comingSoon {
   font-size: 16px;
+  text-align: center;
+}
+
+.paragraph {
+  text-align: center;
 }
 
 .tilesContainer {
@@ -34,6 +39,21 @@
     margin: 50px auto;
   }
 }
+
+.imageTileBack {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  color: white;
+  cursor: pointer;
+  background-color: $darkGreen;
+  height: 100%;
+  p {
+    margin-bottom: 7px;
+  }
+}
+
 .pastLineups {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -53,27 +73,5 @@
     width: 100%;
     overflow: hidden;
     padding: 0 10px;
-  }
-}
-
-@media screen and (max-width: 750px) {
-  .container {
-    margin-top: 50px;
-  }
-  .lineupHeading {
-    margin-bottom: 50px;
-    font-size: 18px;
-  }
-  .lineupContainer {
-    margin-top: 70px;
-  }
-  .lineupBackground {
-    top: 220px;
-    height: 50%;
-  }
-  div.dropdown {
-    width: 70%;
-    display: flex;
-    margin: 0 auto;
   }
 }

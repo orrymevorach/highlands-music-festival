@@ -8,12 +8,15 @@
   margin: 0 auto;
 }
 
-.tile {
+.tileContainer {
   position: relative;
   margin: 0 10px;
   height: 320px;
   animation: fadeIn 0.5s linear forwards;
   margin-bottom: 20px;
+  // For flip card effect
+  background-color: transparent;
+  perspective: 1000px; /* Remove this if you don't want the 3D effect */
 }
 
 .image {
@@ -43,6 +46,39 @@
   text-align: center;
 }
 
+// Flip Card Effects
+
+/* This container is needed to position the front and back side */
+.flipCardInner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
+}
+
+/* Do an horizontal flip when you move the mouse over the flip box container */
+.tileContainer:hover .flipCardInner {
+  transform: rotateY(180deg);
+}
+
+.flipCardFront,
+.flipCardBack {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  -webkit-backface-visibility: hidden; /* Safari */
+  backface-visibility: hidden;
+}
+
+.flipCardBack {
+  transform: rotateY(180deg);
+  z-index: 2;
+  font-family: $fontSecondary;
+  font-size: 20px;
+}
+
 @media screen and (max-width: $tablet) {
   .container {
     grid-template-columns: 1fr 1fr;
@@ -53,7 +89,7 @@
   .container {
     grid-template-columns: 1fr;
   }
-  .tile {
-    height: 100%;
+  .tileContainer {
+    height: 400px;
   }
 }
