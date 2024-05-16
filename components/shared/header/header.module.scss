@@ -1,0 +1,88 @@
+@import '@variables';
+
+.header {
+  display: flex;
+  height: 210px;
+  margin-bottom: 50px;
+  &.hideBottomMargin {
+    margin-bottom: 0;
+  }
+}
+
+.grid {
+  border: 1px solid black;
+}
+
+.navContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 300px;
+  background-color: $darkYellow;
+}
+
+.logoContainer {
+  background-color: $beige;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  flex-grow: 1;
+  h3 {
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    font-size: 16px;
+    color: $darkGreen;
+    font-family: $fontSecondary;
+    margin-left: 83px;
+    margin-top: 0px;
+  }
+  img {
+    width: 500px;
+    height: auto;
+  }
+}
+
+.buttonsContainer {
+  display: flex;
+  flex-direction: column;
+  width: 300px;
+}
+
+.lineupButton,
+.buyTicketsButton {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-grow: 1;
+  font-family: $fontSecondary;
+  color: white;
+  font-size: 24px;
+  letter-spacing: -0.5px;
+}
+
+.lineupButton {
+  background-color: $mediumGreen;
+}
+
+.buyTicketsButton {
+  background-color: $darkGreen;
+}
+
+@media screen and (max-width: $mobile) {
+  .header {
+    height: 180px;
+  }
+  .navContainer {
+    width: 80px;
+  }
+  .logoContainer {
+    img {
+      width: 280px;
+    }
+    h3 {
+      font-size: 13px;
+      margin-left: 38px;
+    }
+  }
+}

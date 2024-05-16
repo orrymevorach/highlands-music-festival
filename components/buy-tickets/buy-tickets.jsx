@@ -39,7 +39,7 @@ export default function BuyTickets({ priceModel }) {
   const isSubscriptionPaymentsEnabled =
     priceModel.numberOfSubscriptionIterations !== 0;
   return (
-    <Layout hideTopMargin>
+    <Layout hideHeaderMargin>
       <div className={styles.announcement}>
         <p className={styles.aboutText}>About Cabin Reservations:</p>
         <p>

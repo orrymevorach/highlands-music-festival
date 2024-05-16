@@ -15,7 +15,7 @@ export default function GalleryPage({ showEmailCapture, photos }) {
   return (
     <>
       <Head title="Gallery" />
-      <Layout>
+      <Layout hideHeaderMargin>
         <FlickrGallery photos={photos} />
       </Layout>
     </>
