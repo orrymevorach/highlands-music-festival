@@ -6,8 +6,14 @@ import { useEffect, useRef, useState } from 'react';
 import Artists from './artists';
 import Headliners from './headliners';
 import Announcement from './announcement';
-import ArtistTiles from './artist-tiles';
+import ImageTiles from '../shared/image-tiles';
 import GreenSun from 'public/green-sun.png';
+
+const getFormattedLineup = lineup => {
+  const headliners = lineup.headlinersCollection.items;
+  const artists = lineup.artistsCollection.items;
+  return [...headliners, ...artists];
+};
 
 const Heading = ({ children }) => (
   <div className={styles.headingContainer}>
@@ -27,6 +33,7 @@ export default function Lineup({ headlinerFeatureFlag = false, lineup = [] }) {
   }, [year, lineupRef]);
 
   const headliners = lineup.headlinersCollection.items;
+  const formatttedLineup = getFormattedLineup(lineup);
 
   return (
     <>
@@ -40,7 +47,7 @@ export default function Lineup({ headlinerFeatureFlag = false, lineup = [] }) {
           </p>{' '}
         </Heading>
       )}
-      <ArtistTiles lineup={lineup} />
+      <ImageTiles tiles={formatttedLineup} />
       {headlinerFeatureFlag && (
         <Heading>Stay tuned for more 2024 lineup announcements</Heading>
       )}

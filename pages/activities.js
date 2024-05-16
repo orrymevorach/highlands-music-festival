@@ -2,17 +2,17 @@ import Activities from 'components/activities';
 import Head from 'components/head';
 import { useEmailCaptureContext } from 'context/email-capture-context';
 import { useFacebookPixel } from 'hooks';
-import { getPageLoadData } from 'lib/contentful-lib';
+import { getActivities, getPageLoadData } from 'lib/contentful-lib';
 import { PAGE_SLUGS } from 'utils/constants';
 
-export default function AboutPage({ showEmailCapture }) {
+export default function ActivitiesPage({ showEmailCapture, activities }) {
   useFacebookPixel();
   const { setShowEmailCapture } = useEmailCaptureContext();
   setShowEmailCapture(showEmailCapture);
   return (
     <>
       <Head title="Activities" />
-      <Activities />
+      <Activities activities={activities} />
     </>
   );
 }
@@ -20,9 +20,12 @@ export async function getStaticProps() {
   const pageLoadData = await getPageLoadData({
     url: PAGE_SLUGS.ACTIVITIES,
   });
+
+  const activities = await getActivities();
   return {
     props: {
       ...pageLoadData,
+      activities,
     },
   };
 }

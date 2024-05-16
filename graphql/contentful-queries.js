@@ -150,3 +150,21 @@ export const GET_FAQ_PAGE = gql`
   }
   ${FAQ_FRAGMENT}
 `;
+
+export const GET_ACTIVITIES = gql`
+  query getActivities {
+    galleryActivitiesCollection(where: { title: "Activities" }, limit: 1) {
+      items {
+        activitiesCollection {
+          items {
+            name
+            image {
+              ...ImageFields
+            }
+          }
+        }
+      }
+    }
+  }
+  ${IMAGE_FRAGMENT}
+`;

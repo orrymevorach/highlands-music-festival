@@ -1,6 +1,6 @@
 @import '@variables';
 
-.hammocksContainer {
+.imageContainer {
   height: 250px;
   overflow: hidden;
   display: flex;
@@ -9,6 +9,9 @@
   align-items: center;
   opacity: 0;
   animation: fadeIn 0.5s linear forwards;
+  img {
+    width: 100%;
+  }
 }
 
 .activitiesWrapper {
@@ -17,53 +20,19 @@
   position: relative;
 
   .activitiesContainer {
-    display: flex;
-  }
-
-  .activitiesSun {
-    position: absolute;
-    width: 150px;
-    top: 20px;
-    right: 100px;
-    animation: spin 3s;
-  }
-
-  .activitiesCol {
-    width: 50%;
     font-size: 24px;
-    &1 {
-      padding-right: 50px;
-    }
-    &2 {
-      position: relative;
-    }
-    .activity {
-      margin: 10px 0;
-    }
+    margin-bottom: 20px;
   }
 
   @media (max-width: $tablet) {
-    .activitiesCol {
-      font-size: 16px;
-    }
     .heading {
       margin-top: 50px;
     }
-    .activitiesSun {
-      width: 100px;
-      height: 100px;
-    }
   }
-  @media (max-width: $mobile) {
-    .activitiesContainer {
-      flex-direction: column;
-    }
-    .activitiesCol {
-      width: 100%;
-      padding-right: 0;
-      &1 {
-        margin: 10px 0;
-      }
-    }
-  }
+}
+
+.imageTiles {
+  margin: 0 0 0 -10px;
+  padding: 0;
+  @include wrapper;
 }

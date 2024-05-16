@@ -1,58 +1,26 @@
 import Layout from 'components/layout';
 import styles from './activities.module.scss';
-import { colors } from 'utils/constants';
-import { useWindowSize } from 'hooks';
-import clsx from 'clsx';
 import Image from 'next/image';
-import Hammock from 'public/CL-HAMMOCK.jpg';
+import Hammock from 'public/backgrounds/HL_2023_Logo491.jpg';
+import ImageTiles from 'components/shared/image-tiles/image-tiles';
 
-const activities = [
-  'Tennis, Basketball, & Hockey',
-  'Painting, Beading, & Crafts',
-  'Canoe, Kayak, Sail, & Swim',
-  'Yoga & Fitness Classes',
-  'Waterski',
-];
-
-export default function Activities() {
-  const { isMobile } = useWindowSize();
+export default function Activities({ activities }) {
   return (
     <Layout>
       <main>
-        <div className={styles.hammocksContainer}>
-          <Image src={Hammock} priority alt="" quality={30} />
+        <div className={styles.imageContainer}>
+          <Image src={Hammock} priority alt="" quality={70} />
         </div>
         <div className={styles.activitiesWrapper}>
           <h2 className={styles.heading}>Activities</h2>
-          {!isMobile && (
-            <Image
-              src="/green-sun.png"
-              alt=""
-              className={styles.activitiesSun}
-              width={150}
-              height={150}
-              quality={10}
-            />
-          )}
           <div className={styles.activitiesContainer}>
-            <div className={clsx(styles.activitiesCol, styles.activitiesCol1)}>
-              <p className={styles.bodyCopyMedium}>
-                In between performances, take advantage of the many activities
-                available on the campgrounds.
-              </p>
-            </div>
-            <ul className={clsx(styles.activitiesCol, styles.activitiesCol2)}>
-              {activities.map(activity => (
-                <li
-                  key={activity}
-                  className={clsx(styles.bodyCopy, styles.activity)}
-                >
-                  {activity}
-                </li>
-              ))}
-            </ul>
+            <p className={styles.bodyCopyMedium}>
+              In between performances, take advantage of the many activities
+              available on the campgrounds.
+            </p>
           </div>
         </div>
+        <ImageTiles tiles={activities} classNames={styles.imageTiles} />
       </main>
     </Layout>
   );
