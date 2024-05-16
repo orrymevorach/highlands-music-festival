@@ -168,3 +168,22 @@ export const GET_ACTIVITIES = gql`
   }
   ${IMAGE_FRAGMENT}
 `;
+
+export const GET_LINEUP_GRAPHICS = gql`
+  query getLineupGraphics {
+    galleryLineupGraphicsCollection(
+      where: { title: "Lineup Graphics" }
+      limit: 1
+    ) {
+      items {
+        imageCollection {
+          items {
+            url
+            height
+            width
+          }
+        }
+      }
+    }
+  }
+`;

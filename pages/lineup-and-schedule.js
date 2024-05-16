@@ -6,6 +6,7 @@ import { useEmailCaptureContext } from 'context/email-capture-context';
 import {
   getFeatureFlags,
   getLineup,
+  getLineupGraphics,
   getPageLoadData,
 } from 'lib/contentful-lib';
 import { FEATURE_FLAGS, PAGE_SLUGS } from 'utils/constants';
@@ -15,6 +16,7 @@ export default function LineupAndSchedule({
   headlinerFeatureFlag = false,
   lineup = [],
   showEmailCapture,
+  lineupGraphics,
 }) {
   useFacebookPixel();
   const { setShowEmailCapture } = useEmailCaptureContext();
@@ -22,9 +24,13 @@ export default function LineupAndSchedule({
   return (
     <>
       <Head title="Lineup & Schedule" />
-      <Layout hideHeaderMargin>
+      <Layout>
         <main>
-          <Lineup headlinerFeatureFlag={headlinerFeatureFlag} lineup={lineup} />
+          <Lineup
+            headlinerFeatureFlag={headlinerFeatureFlag}
+            lineup={lineup}
+            lineupGraphics={lineupGraphics}
+          />
           {/* <Schedule /> */}
         </main>
       </Layout>
@@ -44,10 +50,13 @@ export async function getStaticProps() {
   });
   const headlinerFeatureFlag = featureFlags[0].value;
 
+  const lineupGraphics = await getLineupGraphics();
+
   return {
     props: {
       lineup,
       headlinerFeatureFlag,
+      lineupGraphics,
       ...pageLoadData,
     },
   };

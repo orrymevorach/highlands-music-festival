@@ -1,35 +1,5 @@
 @import '@variables';
 
-.container {
-  position: relative;
-  padding: 0 20px;
-  @include wrapper;
-  &::after {
-    content: '';
-    display: block;
-    height: 200px;
-    width: 1px;
-    background-color: black;
-    margin: 50px auto;
-  }
-}
-
-.lineupBackground {
-  width: 100%;
-  height: 80%;
-  opacity: 0.2;
-  background: none;
-  position: absolute !important;
-  top: 200px;
-  left: 50%;
-  transform: translateX(-50%);
-  object-fit: cover;
-}
-
-.lineupContainer {
-  margin-top: 200px;
-}
-
 .headingContainer {
   display: flex;
   justify-content: center;
@@ -51,6 +21,31 @@
 
 .comingSoon {
   font-size: 16px;
+}
+
+.tilesContainer {
+  position: relative;
+  &::after {
+    content: '';
+    display: block;
+    height: 200px;
+    width: 1px;
+    background-color: black;
+    margin: 50px auto;
+  }
+}
+.pastLineups {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
+.lineupGraphic {
+  img {
+    width: 100%;
+    height: auto;
+  }
 }
 
 @media screen and (max-width: 1200px) {

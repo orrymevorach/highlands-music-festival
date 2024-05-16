@@ -1,10 +1,6 @@
 import styles from './lineup.module.scss';
 import Image from 'next/image';
 import clsx from 'clsx';
-import PastLineupDropdown from './past-lineup-dropdown';
-import { useEffect, useRef, useState } from 'react';
-import Artists from './artists';
-import Headliners from './headliners';
 import Announcement from './announcement';
 import ImageTiles from '../shared/image-tiles';
 import GreenSun from 'public/green-sun.png';
@@ -23,55 +19,53 @@ const Heading = ({ children }) => (
   </div>
 );
 
-export default function Lineup({ headlinerFeatureFlag = false, lineup = [] }) {
-  const [year, setYear] = useState('');
-  const lineupRef = useRef();
-  useEffect(() => {
-    if (year && lineupRef) {
-      lineupRef.current.scrollIntoView();
-    }
-  }, [year, lineupRef]);
-
-  const headliners = lineup.headlinersCollection.items;
+export default function Lineup({
+  headlinerFeatureFlag = false,
+  lineup = [],
+  lineupGraphics = [],
+}) {
+  // const headliners = lineup.headlinersCollection.items;
   const formatttedLineup = getFormattedLineup(lineup);
 
   return (
     <>
-      {headlinerFeatureFlag ? (
-        <Announcement headliners={headliners} />
-      ) : (
-        <Heading>
-          <p>
-            2024 Lineup{' '}
+      {/* {headlinerFeatureFlag && <Announcement headliners={headliners} />} */}
+
+      <Heading>
+        <p>
+          2024 Lineup{' '}
+          {/* <span className={styles.comingSoon}>(schedule coming soon...)</span> */}
+          {headlinerFeatureFlag ? (
+            <span className={styles.comingSoon}>
+              (more announcements coming soon...)
+            </span>
+          ) : (
             <span className={styles.comingSoon}>(schedule coming soon...)</span>
-          </p>{' '}
+          )}
+        </p>{' '}
+      </Heading>
+
+      <div className={styles.tilesContainer}>
+        <ImageTiles tiles={formatttedLineup} />
+      </div>
+      <div className={styles.pastLineupsContainer}>
+        <Heading>
+          <p>Past Lineups</p>
         </Heading>
-      )}
-      <ImageTiles tiles={formatttedLineup} />
-      {headlinerFeatureFlag && (
-        <Heading>Stay tuned for more 2024 lineup announcements</Heading>
-      )}
-      {/* <div className={styles.container}>
-        <PastLineupDropdown
-          year={year}
-          setYear={setYear}
-          classNames={styles.dropdown}
-        />
-        {year && (
-          <div className={styles.lineupContainer} ref={lineupRef}>
-            <Image
-              src="/yellow-sun.png"
-              alt=""
-              className={styles.lineupBackground}
-              width={1184}
-              height={620}
-              quality={1}
-            />
-            <Headliners />
-            <Artists />
-          </div>
-        )}
-      </div> */}
+        <div className={styles.pastLineups}>
+          {lineupGraphics.map(graphic => {
+            return (
+              <div className={styles.lineupGraphic} key={graphic.url}>
+                <Image
+                  src={graphic.url}
+                  height={graphic.height}
+                  width={graphic.width}
+                />
+              </div>
+            );
+          })}
+        </div>
+      </div>
     </>
   );
 }
