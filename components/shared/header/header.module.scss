@@ -59,14 +59,24 @@
   color: white;
   font-size: 24px;
   letter-spacing: -0.5px;
+  transition: 0.3s;
+  &:hover {
+    transition: 0.3s;
+  }
 }
 
 .lineupButton {
   background-color: $orange;
+  &:hover {
+    background-color: rgba($orange, 0.8);
+  }
 }
 
 .buyTicketsButton {
   background-color: $darkGreen;
+  &:hover {
+    background-color: rgba($darkGreen, 0.8);
+  }
 }
 
 @media screen and (max-width: $mobile) {
