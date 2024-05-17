@@ -24,6 +24,10 @@
   }
 }
 
+.bodyCopyMedium {
+  font-size: 18px;
+}
+
 .activitiesWrapper {
   @include wrapper;
   padding-top: 25px;
@@ -43,7 +47,7 @@
 }
 
 .imageTiles {
-  margin: 0 0 0 -10px;
+  margin: 0 auto;
   padding: 0;
   @include wrapper;
 }
