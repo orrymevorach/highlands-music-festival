@@ -7,6 +7,8 @@ import Link from 'next/link';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSpotify } from '@fortawesome/free-brands-svg-icons';
 import { useWindowSize } from 'hooks';
+import { useState } from 'react';
+import Takeover from 'components/takeover';
 
 const getFormattedLineup = lineup => {
   const headliners = lineup.headlinersCollection.items;
@@ -28,6 +30,8 @@ export default function Lineup({
   lineupGraphics = [],
 }) {
   const { isMobile } = useWindowSize();
+  const [showModal, setShowModal] = useState(false);
+  const [lineupGraphic, setLineupGraphic] = useState(null);
   // const headliners = lineup.headlinersCollection.items;
   const formatttedLineup = getFormattedLineup(lineup);
 
@@ -40,10 +44,25 @@ export default function Lineup({
     );
   };
 
+  const handleClickImage = graphic => {
+    setShowModal(true);
+    setLineupGraphic(graphic);
+  };
+
   return (
     <>
       {/* {headlinerFeatureFlag && <Announcement headliners={headliners} />} */}
 
+      {showModal && (
+        <Takeover handleClose={() => setShowModal(false)}>
+          <Image
+            src={lineupGraphic.url}
+            height={lineupGraphic.height}
+            width={lineupGraphic.width}
+            className={styles.modalLineupGraphic}
+          />
+        </Takeover>
+      )}
       <Heading>
         <p className={styles.paragraph}>
           2024 Lineup{' '}
@@ -71,7 +90,11 @@ export default function Lineup({
         <div className={styles.pastLineups}>
           {lineupGraphics.map(graphic => {
             return (
-              <div className={styles.lineupGraphic} key={graphic.url}>
+              <div
+                className={styles.lineupGraphic}
+                key={graphic.url}
+                onClick={() => handleClickImage(graphic)}
+              >
                 <Image
                   src={graphic.url}
                   height={graphic.height}
