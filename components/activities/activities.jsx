@@ -1,9 +1,16 @@
-import Layout from 'components/layout';
 import styles from './activities.module.scss';
 import Image from 'next/image';
 import Hammock from 'public/backgrounds/HL_2023_Logo491.jpg';
 import ImageTiles from 'components/shared/image-tiles/image-tiles';
+import RichText from 'components/shared/rich-text/rich-text';
 
+const ImageTileBack = ({ description }) => {
+  return (
+    <div className={styles.tileBack}>
+      {description?.json && <RichText json={description.json} />}
+    </div>
+  );
+};
 export default function Activities({ activities }) {
   return (
     <main>
@@ -19,7 +26,11 @@ export default function Activities({ activities }) {
           </p>
         </div>
       </div>
-      <ImageTiles tiles={activities} classNames={styles.imageTiles} />
+      <ImageTiles
+        tiles={activities}
+        classNames={styles.imageTiles}
+        ImageTileBack={ImageTileBack}
+      />
     </main>
   );
 }

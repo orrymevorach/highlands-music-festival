@@ -51,3 +51,20 @@
   padding: 0;
   @include wrapper;
 }
+
+.tileBack {
+  background-color: $darkGreen;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  height: 100%;
+  color: $beige;
+  padding: 0 15px;
+  a {
+    color: white;
+    text-decoration: underline;
+    cursor: pointer;
+    font-family: $fontSecondary;
+  }
+}

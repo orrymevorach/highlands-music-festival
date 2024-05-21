@@ -160,6 +160,9 @@ export const GET_ACTIVITIES = gql`
         activitiesCollection {
           items {
             name
+            description {
+              json
+            }
             image {
               ...ImageFields
             }
