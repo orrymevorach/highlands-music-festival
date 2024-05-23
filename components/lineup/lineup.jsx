@@ -67,7 +67,7 @@ export default function Lineup({
         <p className={styles.paragraph}>
           2024 Lineup{' '}
           {/* <span className={styles.comingSoon}>(schedule coming soon...)</span> */}
-          {headlinerFeatureFlag ? (
+          {/* {headlinerFeatureFlag ? (
             <>
               {isMobile && <br />}
               <span className={styles.comingSoon}>
@@ -76,12 +76,15 @@ export default function Lineup({
             </>
           ) : (
             <span className={styles.comingSoon}>(schedule coming soon...)</span>
-          )}
-        </p>{' '}
+          )} */}
+        </p>
       </Heading>
 
       <div className={styles.tilesContainer}>
         <ImageTiles tiles={formatttedLineup} ImageTileBack={ImageTileBack} />
+        {headlinerFeatureFlag && (
+          <p className={styles.comingSoon}>More announcements coming soon...</p>
+        )}
       </div>
       <div className={styles.pastLineupsContainer}>
         <Heading>
