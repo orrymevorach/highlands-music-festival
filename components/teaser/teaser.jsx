@@ -6,7 +6,7 @@ const TeaserPage = () => {
     <div className="containerStyles">
       <h1>Highlands Music Festival</h1>
       <img
-        src={`${imgPath}/Logo-1200px-No-Bkgd-min.png`}
+        src={`${imgPath}/Logo-1200px-No-Bkgd-min-small.png`}
         alt="Highlands Music Festival logo"
         className="logo"
       />

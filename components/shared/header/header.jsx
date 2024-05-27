@@ -21,7 +21,7 @@ export default function Header({ hideBottomMargin, festivalDate = '' }) {
       <div className={clsx(styles.logoContainer, styles.grid)}>
         <Link href="/">
           <img
-            src={`${imgPath}/Logo-1200px-No-Bkgd-min.png`}
+            src={`${imgPath}/Logo-1200px-No-Bkgd-min-small.png`}
             className={styles.thankYouLogo}
           />
         </Link>

@@ -2,7 +2,7 @@ import clsx from 'clsx';
 import styles from './about.module.scss';
 import { useWindowSize } from 'hooks';
 import Image from 'next/image';
-import Logo from 'public/Logo-1200px-No-Bkgd-min.png';
+import Logo from 'public/Logo-1200px-No-Bkgd-min-small.png';
 import Banner from 'public/backgrounds/HL_2023_Logo269.jpg';
 import GreenSun from 'public/green-sun-small.png';
 
