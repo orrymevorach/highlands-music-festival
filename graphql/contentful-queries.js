@@ -88,7 +88,10 @@ export const GET_LINEUP = gql`
           items {
             name
             image {
-              ...ImageFields
+              url(transform: { width: 850 })
+              width
+              height
+              description
             }
             spotifyLink
           }
@@ -97,7 +100,10 @@ export const GET_LINEUP = gql`
           items {
             name
             image {
-              ...ImageFields
+              url(transform: { width: 850 })
+              width
+              height
+              description
             }
             spotifyLink
           }
@@ -105,7 +111,6 @@ export const GET_LINEUP = gql`
       }
     }
   }
-  ${IMAGE_FRAGMENT}
 `;
 
 export const GET_FAQ_PAGE = gql`
