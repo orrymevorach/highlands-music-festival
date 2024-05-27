@@ -12,7 +12,7 @@ export default function Headliners() {
         Bass
       </p>
       <Image
-        src="/green-sun.png"
+        src="/green-sun-small.png"
         width={80}
         height={80}
         className={styles.headlineSun}

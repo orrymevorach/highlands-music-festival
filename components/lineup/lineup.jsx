@@ -2,7 +2,7 @@ import styles from './lineup.module.scss';
 import Image from 'next/image';
 import clsx from 'clsx';
 import ImageTiles from '../shared/image-tiles';
-import GreenSun from 'public/green-sun.png';
+import GreenSun from 'public/green-sun-small.png';
 import Link from 'next/link';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSpotify } from '@fortawesome/free-brands-svg-icons';

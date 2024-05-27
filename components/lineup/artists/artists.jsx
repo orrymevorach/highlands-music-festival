@@ -48,7 +48,7 @@ export default function Artists() {
                   </p>
                   {!isLastArtistInRow && (
                     <Image
-                      src="/green-sun.png"
+                      src="/green-sun-small.png"
                       className={styles.lineupSun}
                       width={80}
                       height={80}

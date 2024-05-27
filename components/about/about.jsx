@@ -4,7 +4,7 @@ import { useWindowSize } from 'hooks';
 import Image from 'next/image';
 import Logo from 'public/Logo-1200px-No-Bkgd-min.png';
 import Banner from 'public/backgrounds/HL_2023_Logo269.jpg';
-import GreenSun from 'public/green-sun.png';
+import GreenSun from 'public/green-sun-small.png';
 
 import CLEvening from 'public/backgrounds/HL_2023_Logo269-narrow.jpg';
 import GuitarNight from 'public/backgrounds/HL_2023_Logo295.jpg';
