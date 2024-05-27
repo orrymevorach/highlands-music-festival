@@ -1,9 +1,10 @@
 import styles from './header.module.scss';
-import { imgPath } from 'utils/constants';
 import clsx from 'clsx';
 import Nav from 'components/nav';
 import Link from 'next/link';
 import { useWindowSize } from 'hooks';
+import logo from 'public/Logo-1200px-No-Bkgd-min-small.png'
+import Image from 'next/image';
 
 export default function Header({ hideBottomMargin, festivalDate = '' }) {
   const { isMobile } = useWindowSize();
@@ -20,8 +21,8 @@ export default function Header({ hideBottomMargin, festivalDate = '' }) {
       </div>
       <div className={clsx(styles.logoContainer, styles.grid)}>
         <Link href="/">
-          <img
-            src={`${imgPath}/Logo-1200px-No-Bkgd-min-small.png`}
+          <Image
+            src={logo}
             className={styles.thankYouLogo}
           />
         </Link>
