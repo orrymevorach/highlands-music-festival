@@ -30,7 +30,7 @@ export default function ArtistSubmissionForm() {
       newFields: fields,
     });
 
-    // await sendVendorSubmissionForm({ fields });
+    await sendVendorSubmissionForm({ fields });
     dispatch({ type: actions.SET_STAGE, stage: stages.CONFIRMATION });
     setIsLoading(false);
   };
