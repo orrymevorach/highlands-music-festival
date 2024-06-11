@@ -23,6 +23,7 @@ export default function ArtistSubmissionForm() {
       )}/`,
       Website: state.website,
       'Email Address': state.email,
+      'Length Of Stay': state.lengthOfStay,
     };
     const { response } = await createRecord({
       tableId: 'Vendor Submissions',
@@ -85,6 +86,16 @@ export default function ArtistSubmissionForm() {
       value: state.email,
       handleChange: value =>
         dispatch({ type: actions.SET_EMAIL, email: value }),
+      required: true,
+    },
+    {
+      type: 'dropdown',
+      dropdownItems: ['1 night (Saturday Night)', '3 nights (Entire festival)'],
+      label: 'Length of stay',
+      id: 'lengthOfStay',
+      value: state.lengthOfStay,
+      handleChange: value =>
+        dispatch({ type: actions.SET_LENGTH_OF_STAY, lengthOfStay: value }),
       required: true,
     },
   ];

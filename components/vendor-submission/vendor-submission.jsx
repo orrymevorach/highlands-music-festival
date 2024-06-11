@@ -1,4 +1,3 @@
-import Layout from 'components/layout';
 import VendorSubmissionForm from './vendor-submission-form';
 import styles from './vendor-submission.module.scss';
 import Image from 'next/image';
@@ -10,10 +9,17 @@ import Information from './information';
 
 const informationData = [
   {
-    heading: 'your $150.00 vendor fee includes:',
+    heading: 'vendor options:',
+    listItems: [
+      'A one night stay at Highlands Music Festival - $150.',
+      'Or, stay for the entire festival - $400.',
+    ],
+  },
+  {
+    heading: 'your vendor fee includes:',
     listItems: [
       'Your business spot reserved at our marketplace',
-      'A one night stay at Highlands Music Festival for up to two people. Meals, snacks. Request for accomodations.',
+      'Meals and snacks for up to two people. Request for accomodations.',
     ],
   },
   {
@@ -22,7 +28,7 @@ const informationData = [
       'Post, share tag, on social media',
       'Arrive on time for set-up',
       'Keep an eye on your products - Highlands Music Festival is not responsible for any lost/stolen items.',
-      'Pay $150.00 if your application is approved.',
+      'Pay your vendor fee if your application is approved.',
       'Have Fun!',
     ],
   },
