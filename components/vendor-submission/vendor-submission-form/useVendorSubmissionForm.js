@@ -3,11 +3,12 @@ import { useReducer } from 'react';
 const actions = {
   SET_STAGE: 'SET_STAGE',
   SET_BUSINESS: 'SET_BUSINESS',
-  SET_PRODUCTS: '  SET_PRODUCTS',
-  SET_SERVICES: '  SET_SERVICES',
-  SET_INSTAGRAM: '  SET_INSTAGRAM',
-  SET_WEBSITE: '  SET_WEBSITE',
-  SET_EMAIL: '  SET_EMAIL',
+  SET_PRODUCTS: 'SET_PRODUCTS',
+  SET_SERVICES: 'SET_SERVICES',
+  SET_INSTAGRAM: 'SET_INSTAGRAM',
+  SET_WEBSITE: 'SET_WEBSITE',
+  SET_EMAIL: 'SET_EMAIL',
+  SET_LENGTH_OF_STAY: 'SET_LENGTH_OF_STAY',
 };
 
 const stages = {
@@ -23,6 +24,7 @@ const initialState = {
   instagram: '',
   website: '',
   email: '',
+  lengthOfStay: '',
 };
 
 const reducer = (state, action) => {
@@ -34,6 +36,7 @@ const reducer = (state, action) => {
     SET_INSTAGRAM,
     SET_WEBSITE,
     SET_EMAIL,
+    SET_LENGTH_OF_STAY,
   } = actions;
   switch (action.type) {
     case SET_STAGE:
@@ -70,6 +73,11 @@ const reducer = (state, action) => {
       return {
         ...state,
         email: action.email,
+      };
+    case SET_LENGTH_OF_STAY:
+      return {
+        ...state,
+        lengthOfStay: action.lengthOfStay,
       };
   }
 };

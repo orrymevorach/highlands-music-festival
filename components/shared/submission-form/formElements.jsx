@@ -31,7 +31,9 @@ export default function GetFormElement({
   switch (type) {
     case 'dropdown':
       return (
-        <div className={styles.formFieldContainer}>
+        <div
+          className={clsx(styles.formFieldContainer, inputContainerClassNames)}
+        >
           <Label label={label} id={id} required={required} />
           <Select
             required={required}
