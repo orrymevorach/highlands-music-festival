@@ -28,7 +28,7 @@ export default function ArtistSubmissionForm() {
     };
     await sendArtistSubmissionForm({ fields });
     await createRecord({
-      tableId: 'Artist Submissions',
+      tableId: 'Artist Submissions 2025',
       newFields: fields,
     });
     dispatch({ type: actions.SET_STAGE, stage: stages.CONFIRMATION });
@@ -151,6 +151,7 @@ export default function ArtistSubmissionForm() {
             formConfig={formConfig}
             handleSubmit={handleSubmit}
             isLoading={isLoading}
+            inputClassNames={styles.input}
           />
         </div>
       )}
