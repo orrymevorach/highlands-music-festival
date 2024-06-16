@@ -42,6 +42,7 @@ export default function ImageTiles({ tiles, classNames = '', ImageTileBack }) {
   return (
     <div className={clsx(styles.container, classNames)}>
       {tiles.map(artist => {
+        if (!artist) return;
         return (
           <Tile
             {...artist}
