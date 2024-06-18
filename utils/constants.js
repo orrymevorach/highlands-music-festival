@@ -39,6 +39,7 @@ export const PAGE_SLUGS = {
 export const PRICE_MODEL_IDS = {
   SITE_WIDE: 'SITE_WIDE',
   CHAMPIONS: 'CHAMPIONS',
+  TEST_MODE: 'TEST_MODE',
 };
 
 export const FIXED_PRICE_PROMO_CODES = ['VENDORS'];
