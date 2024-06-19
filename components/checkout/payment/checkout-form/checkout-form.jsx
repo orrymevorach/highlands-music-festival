@@ -119,9 +119,6 @@ export default function CheckoutForm() {
             paymentType === 'subscription' &&
             !!priceData?.subscriptionInstallmentAmount;
 
-          const customEventName = isSubscription
-            ? 'Pay In Monthly Installments'
-            : 'Pay Full Amount';
           fbq('track', 'Purchase', {
             installments: isSubscription,
             promoCode,

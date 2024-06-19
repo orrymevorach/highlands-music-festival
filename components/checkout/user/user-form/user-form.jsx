@@ -6,6 +6,7 @@ import { getStripeCustomer, createPaymentIntent } from 'lib/stripe-lib';
 import Loader from 'components/loader';
 import Button from 'components/shared/button';
 import { Checkbox } from '@mui/material';
+import { createRecord } from 'lib/airtable-lib';
 
 export default function UserForm() {
   const { quantity, priceData, dispatch, actions } = useCheckoutContext();
@@ -38,6 +39,20 @@ export default function UserForm() {
       amount,
       metadata,
     });
+
+    // Add to marketing list for abandoned cart email
+    if (!isVendor) {
+      await createRecord({
+        tableId: 'Marketing',
+        newFields: {
+          Name: `${firstName} ${lastName}`,
+          Status: 'Subscribed',
+          'Email Address': email,
+          'Abandoned Cart Email': 'Pending',
+          'Has Ticket': 'False',
+        },
+      });
+    }
     dispatch({
       type: actions.SET_PAYMENT_INTENT,
       customer,

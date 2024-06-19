@@ -34,6 +34,7 @@ export const PAGE_SLUGS = {
   PHOTOS: '/photos/2023',
   ARTIST_SUBMISSIONS: '/artist-submissions',
   VENDOR_SUBMISSION: '/vendor-submission',
+  UNSUBSCRIBE: '/unsubscribe',
 };
 
 export const PRICE_MODEL_IDS = {

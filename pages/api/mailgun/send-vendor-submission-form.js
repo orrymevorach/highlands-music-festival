@@ -32,7 +32,7 @@ export default async function handler(req, res) {
     <div style="width:550px;margin:0 auto;display:block">
         <h2 style="font-family:Open Sans,Helvetica Neue,Helvetica,Arial,sans-serif;font-size:24px">New Vendor Submission for Highlands!</h2>
         ${fieldData}
-        <img src="https://highlandsmusicfestival.ca/_next/image?url=%2F_next%2Fstatic%2Fmedia%2FLogo-1200px-No-Bkgd-min.effb0614.png&w=640&q=10" style="width:300px;margin-top:40px;" }} />
+        <img src="https://highlandsmusicfestival.ca/_next/image?url=%2F_next%2Fstatic%2Fmedia%2FLogo-1200px-No-Bkgd-min-small.0900c997.png&w=2048&q=75" style="width:300px;margin-top:40px;" }} />
       </div>
     `,
   });

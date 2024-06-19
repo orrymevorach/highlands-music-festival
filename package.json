@@ -26,6 +26,7 @@
     "@mui/base": "^5.0.0-alpha.125",
     "@mui/joy": "^5.0.0-alpha.74",
     "@mui/material": "^5.12.0",
+    "@netlify/functions": "^2.7.0",
     "@next/font": "13.2.4",
     "@react-google-maps/api": "^2.18.1",
     "@slack/web-api": "^6.9.0",
