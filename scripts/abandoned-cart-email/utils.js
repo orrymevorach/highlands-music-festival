@@ -76,8 +76,8 @@ async function sendAbandonedCartEmail({ contact }) {
         <p>Why you should attend:</p>
         <ul style="list-style:none;padding:0;">
             <li style="padding:7px 0;">🌟 <a href="https://highlandsmusicfestival.ca/lineup-and-schedule">Amazing Lineup:</a> Headlined by Kevin Morby, Donovan Woods, and Wing Night, plus over 15 more artists!</li>
-            <li style="padding:7px 0;">🎉 <a href="https://highlandsmusicfestival.ca/activities">Camp Activities:</a> Swim, yoga, waterski, marketplace, pickleball, get a tattoo ... you name it, we have it.</li>
-            <li style="padding:7px 0;">📅 Food & Accommodations Included: Shared accommodations, 3 meals, and lots of snacks all included in the ticket price!</li>
+            <li style="padding:7px 0;">🛶 <a href="https://highlandsmusicfestival.ca/activities">Camp Activities:</a> Swim, yoga, waterski, marketplace, pickleball, get a tattoo ... you name it, we have it.</li>
+            <li style="padding:7px 0;">🍔 Food & Accommodations Included: Shared accommodations, 3 meals, and lots of snacks all included in the ticket price!</li>
         </ul>
         <p><a href="https://www.highlandsmusicfestival.ca/buy-tickets">Click here</a> to resume your purchase.</p>
         <p>If you have any questions or need assistance, our support team is here to help. Contact us at support@highlandsmusicfestival.ca.</p>
