@@ -60,7 +60,7 @@ async function run() {
       if (contact['Abandoned Cart Email'] !== 'Pending') return false;
       if (contact['Has Ticket'] === 'True') return false;
       // TEMPORARY FOR TESTING
-      // if (contact['Email Address'] !== 'orry.mevorach@gmail.com') return false;
+      if (contact['Email Address'] !== 'orry.mevorach@gmail.com') return false;
       return true;
     }
   );
