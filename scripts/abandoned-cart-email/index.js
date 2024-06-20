@@ -60,29 +60,33 @@ async function run() {
       if (contact['Abandoned Cart Email'] !== 'Pending') return false;
       if (contact['Has Ticket'] === 'True') return false;
       // TEMPORARY FOR TESTING
-      // if (contact['Email Address'] !== 'orry.mevorach@gmail.com') return false;
+      if (contact['Email Address'] !== 'orry.mevorach@gmail.com') return false;
       return true;
     }
   );
   console.log('Success!');
-  console.log('Sending Abandoned Cart Emails...');
-  for (let contact of filteredContacts) {
-    try {
-      await sendAbandonedCartEmail({ contact });
-    } catch (error) {
-      console.error('Error sending abandoned cart emails:', error);
-    }
-    console.log('Success!');
+  if (filteredContacts.length > 0) {
+    console.log('Sending Abandoned Cart Emails...');
 
-    try {
-      console.log('Updating Email Status...');
-      await airtableBase('Marketing').update(contact.id, {
-        'Abandoned Cart Email': 'Sent',
-      });
+    for (let contact of filteredContacts) {
+      try {
+        await sendAbandonedCartEmail({ contact });
+      } catch (error) {
+        console.error('Error sending abandoned cart emails:', error);
+      }
       console.log('Success!');
-    } catch (error) {
-      console.error('Error updating email status', error);
+
+      try {
+        console.log('Updating Email Status...');
+        await airtableBase('Marketing').update(contact.id, {
+          'Abandoned Cart Email': 'Sent',
+        });
+        console.log('Success!');
+      } catch (error) {
+        console.error('Error updating email status', error);
+      }
     }
   }
+  console.log('Done!');
 }
 module.exports = run;
