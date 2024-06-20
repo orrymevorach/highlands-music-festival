@@ -1,8 +1,15 @@
+const Airtable = require('airtable');
 let nodemailer = require('nodemailer');
 
-async function getRecords(baseId, airtableBase) {
+require('dotenv').config({ path: '.env.local' });
+
+var airtableBase = new Airtable({
+  apiKey: process.env.AIRTABLE_PERSONAL_ACCESS_TOKEN,
+}).base(process.env.AIRTABLE_BASE);
+
+async function getRecords(tableId) {
   const recordsArray = [];
-  await airtableBase(baseId)
+  await airtableBase(tableId)
     .select()
     .eachPage((records, fetchNextPage) => {
       records.forEach(record => {
@@ -15,7 +22,6 @@ async function getRecords(baseId, airtableBase) {
 }
 
 async function updateTicketPurchaseStatus({
-  airtableBase,
   marketingContacts,
   ticketPurchasers,
 }) {
@@ -36,6 +42,7 @@ async function updateTicketPurchaseStatus({
         // Update "Has Ticket" field in airtable
         await airtableBase('Marketing').update(contact.id, {
           'Has Ticket': 'True',
+          'Abandoned Cart Email': 'Cancelled',
         });
         // update local copy so that we can filter it out in the next step
         contact['Has Ticket'] = 'True';
@@ -45,7 +52,6 @@ async function updateTicketPurchaseStatus({
     }
     contactsWithUpdatedStatus.push(contact);
   }
-
   return contactsWithUpdatedStatus;
 }
 
@@ -85,21 +91,19 @@ async function sendAbandonedCartEmail({ contact }) {
   console.log(`email sent to ${contact['Email Address']}`);
 }
 
-function removeDuplicateContacts({ array, airtableBase }) {
-  // Create an object to store seen email addresses
-  const seenEmails = {};
+async function removeDuplicateContacts({ array }) {
+  const seenEmails = [];
+  const noDupes = [];
 
-  return array.filter(async obj => {
-    // If the email address is already in the seenEmails object, delete it from airtable and filter out the object
-    if (seenEmails[obj.EmailAddress]) {
-      await airtableBase('Marketing').destroy([obj.id]);
-      return false;
+  for (let contact of array) {
+    if (!seenEmails.includes(contact['Email Address'])) {
+      seenEmails.push(contact['Email Address']);
+      noDupes.push(contact);
     } else {
-      // Otherwise, add the email address to the seenEmails object and keep the object
-      seenEmails[obj.EmailAddress] = true;
-      return true;
+      await airtableBase('Marketing').destroy(contact.id);
     }
-  });
+  }
+  return noDupes;
 }
 
 module.exports = {

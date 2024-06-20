@@ -13,41 +13,76 @@ var airtableBase = new Airtable({
 }).base(process.env.AIRTABLE_BASE);
 
 async function run() {
-  let marketingContacts = await getRecords('Marketing', airtableBase);
-  let ticketPurchasers = await getRecords(
-    'Ticket Purchases 2024',
-    airtableBase
-  );
+  let marketingContacts, ticketPurchasers;
+  try {
+    console.log('Getting Marketing Contacts...');
+    marketingContacts = await getRecords('Marketing');
+    console.log('Success!');
+  } catch (error) {
+    console.error('Error getting marketing contacts:', error);
+  }
+  try {
+    console.log('Getting Ticket Purchasers...');
+    ticketPurchasers = await getRecords('Ticket Purchases 2024');
+    console.log('Success!');
+  } catch (error) {
+    console.error('Error getting ticket purchasers:', error);
+  }
 
-  marketingContacts = removeDuplicateContacts({
-    array: marketingContacts,
-    airtableBase,
-  });
-
-  const marketingContactsWithUpdatedTicketStatus =
-    await updateTicketPurchaseStatus({
-      airtableBase,
-      marketingContacts,
-      ticketPurchasers,
+  try {
+    console.log('Removing Duplicate Contacts');
+    marketingContacts = await removeDuplicateContacts({
+      array: marketingContacts,
     });
+    console.log('Success!');
+  } catch {
+    console.error('Error removing duplicates', error);
+  }
 
+  let marketingContactsWithUpdatedTicketStatus;
+  try {
+    console.log('Updating Ticket Purchase Status...');
+    marketingContactsWithUpdatedTicketStatus = await updateTicketPurchaseStatus(
+      {
+        marketingContacts,
+        ticketPurchasers,
+      }
+    );
+    console.log('Success!');
+  } catch (error) {
+    console.error('Error updating ticket purchase status', error);
+  }
+
+  console.log('Filtering contacts...');
   const filteredContacts = marketingContactsWithUpdatedTicketStatus.filter(
     contact => {
       if (contact.Status !== 'Subscribed') return false;
       if (contact['Abandoned Cart Email'] !== 'Pending') return false;
       if (contact['Has Ticket'] === 'True') return false;
       // TEMPORARY FOR TESTING
-      if (contact['Email Address'] !== 'orry.mevorach@gmail.com') return false;
+      // if (contact['Email Address'] !== 'orry.mevorach@gmail.com') return false;
       return true;
     }
   );
-
+  console.log('Success!');
+  console.log('Sending Abandoned Cart Emails...');
   for (let contact of filteredContacts) {
-    await sendAbandonedCartEmail({ contact });
-    await airtableBase('Marketing').update(contact.id, {
-      'Abandoned Cart Email': 'Sent',
-    });
+    try {
+      await sendAbandonedCartEmail({ contact });
+    } catch (error) {
+      console.error('Error sending abandoned cart emails:', error);
+    }
+    console.log('Success!');
+
+    try {
+      console.log('Updating Email Status...');
+      await airtableBase('Marketing').update(contact.id, {
+        'Abandoned Cart Email': 'Sent',
+      });
+      console.log('Success!');
+    } catch (error) {
+      console.error('Error updating email status', error);
+    }
   }
 }
-
-run();
+module.exports = run;
