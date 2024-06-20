@@ -58,9 +58,9 @@ async function run() {
     contact => {
       if (contact.Status !== 'Subscribed') return false;
       if (contact['Abandoned Cart Email'] !== 'Pending') return false;
+      if (contact['Has Ticket'] === 'True') return false;
       // TEMPORARY FOR TESTING
-      // if (contact['Has Ticket'] === 'True') return false;
-      if (contact['Email Address'] !== 'orry.mevorach@gmail.com') return false;
+      // if (contact['Email Address'] !== 'orry.mevorach@gmail.com') return false;
       return true;
     }
   );
