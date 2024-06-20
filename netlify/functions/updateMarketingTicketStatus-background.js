@@ -8,4 +8,4 @@ const handler = async function (event, context) {
   };
 };
 
-module.exports.handler = schedule('0 17 10 * *', handler);
+module.exports.handler = schedule('15 17 * * *', handler);
