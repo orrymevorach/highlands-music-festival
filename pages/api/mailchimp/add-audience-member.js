@@ -6,7 +6,8 @@ mailchimp.setConfig({
   server: 'us8',
 });
 
-const mailchimpListId = 'e38b9edce5';
+// const mailchimpListId = 'e38b9edce5';
+const mailchimpListId = '646323b29e';
 
 export default async function handler(req, res) {
   if (req.method === 'POST') {
