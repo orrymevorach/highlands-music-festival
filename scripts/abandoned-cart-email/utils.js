@@ -80,7 +80,7 @@ async function sendAbandonedCartEmail({ contact }) {
             <li style="padding:7px 0;">🍔 Food & Accommodations Included: Shared accommodations, 3 meals, and lots of snacks all included in the ticket price!</li>
         </ul>
         <p><a href="https://www.highlandsmusicfestival.ca/buy-tickets">Click here</a> to resume your purchase.</p>
-        <p>If you have any questions or need assistance, our support team is here to help. Contact us at support@highlandsmusicfestival.ca.</p>
+        <p>If you have any questions or need assistance, our support team is here to help. Contact us at info@highlandsmusicfestival.ca.</p>
         <p>See you at Highlands!</p>
         <p><em>Please do not reply to this email.</em></p>
         <img src="https://highlandsmusicfestival.ca/_next/image?url=%2F_next%2Fstatic%2Fmedia%2FLogo-1200px-No-Bkgd-min-small.0900c997.png&w=2048&q=75" style="width:300px;margin: 20px 0;" }} />
