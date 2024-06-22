@@ -29,6 +29,7 @@
     "@netlify/functions": "^2.7.0",
     "@next/font": "13.2.4",
     "@react-google-maps/api": "^2.18.1",
+    "@sentry/nextjs": "^8.11.0",
     "@slack/web-api": "^6.9.0",
     "@stripe/react-stripe-js": "^2.1.0",
     "@stripe/stripe-js": "^1.52.0",
