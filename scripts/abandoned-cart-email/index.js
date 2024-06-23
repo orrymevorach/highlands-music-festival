@@ -72,10 +72,9 @@ async function run() {
       } catch (error) {
         console.error('Error sending abandoned cart emails:', error);
       }
-      console.log('Success!');
 
       try {
-        console.log('Updating Email Status...');
+        console.log('Updating email status in Airtable...');
         await airtableBase('Marketing').update(contact.id, {
           'Abandoned Cart Email': 'Sent',
         });

@@ -1,0 +1,90 @@
+@import '@variables';
+
+.jamlands {
+  max-width: 1280px;
+  height: auto;
+  margin: 0 auto;
+  padding: 0 9px;
+  margin-top: 25px;
+}
+
+.titleContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 50px;
+}
+
+.title {
+  font-family: $fontSecondaryHeavy;
+  color: $orange;
+  text-transform: uppercase;
+  text-align: center;
+  font-size: 48px;
+}
+
+.titleInner {
+  font-family: $fontPrimary;
+  font-size: 32px;
+}
+
+.sun {
+  width: 40px;
+  height: auto;
+  margin: 0 50px;
+}
+
+.description {
+  font-family: $fontSecondaryLight;
+  font-size: 18px;
+  margin: 30px 0;
+  text-align: center;
+}
+
+.lineup {
+  margin-left: auto;
+}
+
+.featuring {
+  font-family: $fontSecondaryHeavy;
+  color: $orange;
+  text-transform: uppercase;
+  font-size: 30px;
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.artist {
+  font-family: $fontPrimary;
+  color: $darkGreen;
+  font-size: 26px;
+  text-align: center;
+  margin-bottom: 5px;
+  display: block;
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+@media screen and (max-width: $mobile) {
+  .title {
+    font-size: 36px;
+  }
+  .titleInner {
+    font-size: 24px;
+  }
+  .sun {
+    margin: 0 25px;
+  }
+
+  .description {
+    font-size: 16px;
+    padding: 0 15px;
+  }
+  .artist {
+    font-size: 22px;
+  }
+  .featuring {
+    font-size: 26px;
+  }
+}

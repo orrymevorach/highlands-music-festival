@@ -108,6 +108,12 @@ export const GET_LINEUP = gql`
             spotifyLink
           }
         }
+        jamlandsCollection(limit: 10) {
+          items {
+            name
+            spotifyLink
+          }
+        }
       }
     }
   }
