@@ -7,7 +7,7 @@ mailchimp.setConfig({
 });
 
 // const mailchimpListId = 'e38b9edce5';
-const mailchimpListId = '646323b29e';
+const mailchimpListId = 'f20c462018';
 
 export default async function handler(req, res) {
   if (req.method === 'POST') {
