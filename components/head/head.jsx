@@ -4,7 +4,8 @@ import { formatFestivalDate } from 'utils/utils';
 
 export default function Meta({ title = '', festivalDate = '' }) {
   const tabTitle = `Highlands Music Festival ${title ? `| ${title}` : ''}`;
-  const formattedFestivalDate = formatFestivalDate(festivalDate);
+  // const formattedFestivalDate = formatFestivalDate(festivalDate);
+  const formattedFestivalDate = festivalDate;
   return (
     <Head>
       <meta charSet="utf-8" />
