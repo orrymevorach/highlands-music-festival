@@ -28,8 +28,12 @@ export default async function handler(req, res) {
     // Count number of tickets
     const numberOfTickets = recordsFilteredByTicketStatus.length;
 
+    // Number of tickets available
+    const numberOfTicketsAvailable = 432;
+    const remainingTickets = numberOfTicketsAvailable - numberOfTickets;
+
     // Create message and send as slack notification
-    const message = `*<!channel>, a ticket to Highlands has been purchased!*\nAttendee: ${name}\nEmail: ${email}\nDiscount Code: ${discountCode}\n\nNumber of tickets sold: ${numberOfTickets}`;
+    const message = `*<!channel>, a ticket to Highlands has been purchased!*\nAttendee: ${name}\nEmail: ${email}\nDiscount Code: ${discountCode}\n\nNumber of tickets sold: ${numberOfTickets}\nRemaining Tickets: ${remainingTickets}`;
     await web.chat.postMessage({
       channel: '#notifications_tickets',
       text: message,
