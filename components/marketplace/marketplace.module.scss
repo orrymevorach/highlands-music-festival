@@ -1,0 +1,47 @@
+@import '@variables';
+
+.bodyCopyMedium {
+  font-size: 18px;
+}
+
+.wrapper {
+  @include wrapper;
+  padding-top: 25px;
+  position: relative;
+  text-align: center;
+
+  .innerContainer {
+    font-size: 24px;
+    margin-bottom: 20px;
+  }
+
+  @media (max-width: $tablet) {
+    .heading {
+      margin-top: 50px;
+    }
+  }
+}
+
+.imageTiles {
+  margin: 0 auto;
+  padding: 0;
+  @include wrapper;
+}
+
+.tileBack {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  height: 100%;
+  color: $beige;
+  padding: 0 15px;
+  background-color: $darkGreen;
+
+  a {
+    color: white;
+    text-decoration: underline;
+    cursor: pointer;
+    font-family: $fontSecondary;
+  }
+}

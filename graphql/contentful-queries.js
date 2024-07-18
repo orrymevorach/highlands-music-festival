@@ -185,6 +185,30 @@ export const GET_ACTIVITIES = gql`
   ${IMAGE_FRAGMENT}
 `;
 
+export const GET_VENDORS = gql`
+  query getVendors {
+    galleryVendorsCollection(where: { title: "Vendors" }, limit: 1) {
+      items {
+        vendorsCollection {
+          items {
+            name
+            description {
+              json
+            }
+            image {
+              ...ImageFields
+            }
+            logo {
+              ...ImageFields
+            }
+          }
+        }
+      }
+    }
+  }
+  ${IMAGE_FRAGMENT}
+`;
+
 export const GET_LINEUP_GRAPHICS = gql`
   query getLineupGraphics {
     galleryLineupGraphicsCollection(

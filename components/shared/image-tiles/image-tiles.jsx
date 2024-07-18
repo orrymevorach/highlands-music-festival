@@ -11,16 +11,19 @@ const Tile = props => {
         <div className={styles.overlay}>
           <p className={styles.name}>{name}</p>
         </div>
-        <Image
-          src={image.url}
-          width={image.width}
-          height={image.height}
-          className={styles.image}
-          quality={50}
-        />
+        {image && (
+          <Image
+            src={image.url}
+            width={image.width}
+            height={image.height}
+            className={styles.image}
+            quality={50}
+          />
+        )}
       </>
     );
   };
+
   return (
     <div className={styles.tileContainer}>
       {ImageTileBack ? (

@@ -35,6 +35,7 @@ export const PAGE_SLUGS = {
   ARTIST_SUBMISSIONS: '/artist-submissions',
   VENDOR_SUBMISSION: '/vendor-submission',
   UNSUBSCRIBE: '/unsubscribe',
+  MARKETPLACE: '/marketplace',
 };
 
 export const PRICE_MODEL_IDS = {
