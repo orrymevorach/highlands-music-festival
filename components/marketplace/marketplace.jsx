@@ -12,7 +12,10 @@ const ImageTileBack = ({ description, link }) => {
         {description?.json && <RichText json={description.json} />}
         {link && (
           <p>
-            Instagram: <Link href={link}>{instaHandle}</Link>
+            Instagram:{' '}
+            <Link href={link} target="_blank">
+              {instaHandle}
+            </Link>
           </p>
         )}
       </div>
