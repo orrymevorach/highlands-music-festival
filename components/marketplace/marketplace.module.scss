@@ -37,11 +37,16 @@
   color: $beige;
   padding: 0 15px;
   background-color: $darkGreen;
+  p {
+    font-family: $fontSecondaryLight;
+    font-size: 14px;
+    margin-top: 10px;
+  }
 
   a {
     color: white;
     text-decoration: underline;
     cursor: pointer;
-    font-family: $fontSecondary;
+    font-family: $fontSecondaryBold;
   }
 }

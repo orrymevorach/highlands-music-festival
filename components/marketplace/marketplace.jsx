@@ -1,13 +1,20 @@
 import styles from './marketplace.module.scss';
 import ImageTiles from 'components/shared/image-tiles/image-tiles';
 import RichText from 'components/shared/rich-text/rich-text';
+import Link from 'next/link';
+import { getInstagramHandle } from 'utils/utils';
 
-const ImageTileBack = ({ description, image }) => {
+const ImageTileBack = ({ description, link }) => {
+  const instaHandle = link ? getInstagramHandle(link) : '';
   return (
     <div className={styles.tileBack}>
-      <div className={styles.tileBackBackgroundImage}></div>
       <div className={styles.overlay}>
         {description?.json && <RichText json={description.json} />}
+        {link && (
+          <p>
+            Instagram: <Link href={link}>{instaHandle}</Link>
+          </p>
+        )}
       </div>
     </div>
   );

@@ -201,6 +201,7 @@ export const GET_VENDORS = gql`
             logo {
               ...ImageFields
             }
+            link
           }
         }
       }
