@@ -24,7 +24,7 @@ export default function Takeover({
   const takeoverRef = useRef();
   useEffect(() => {
     const windowHeight = window.innerHeight;
-    const takeoverHeight = takeoverRef.current.clientHeight;
+    const takeoverHeight = takeoverRef.current?.clientHeight;
     const body = document.getElementsByTagName('body')[0];
     if (windowHeight >= takeoverHeight) {
       body.style.overflow = 'hidden';
@@ -40,7 +40,7 @@ export default function Takeover({
   const [alignCenter, setAlignCenter] = useState(true);
   const setModalHeight = () => {
     const windowHeight = window.innerHeight;
-    const modalHeight = modalRef.current.clientHeight;
+    const modalHeight = modalRef.current?.clientHeight;
     if (modalHeight > windowHeight) {
       setAlignCenter(false);
     } else {
