@@ -1,9 +1,8 @@
 let nodemailer = require('nodemailer');
 
 export default async function handler(req, res) {
-  const { emailAddress } = req.body;
-  // const emailAddress = req.body?.emailAddress || req.query?.emailAddress;
-  // console.log('emailAddress', emailAddress);
+  // const { emailAddress } = req.body;
+  const emailAddress = req.body?.emailAddress || req.query?.emailAddress;
 
   let transporter = nodemailer.createTransport({
     host: 'smtp.mailgun.org',
