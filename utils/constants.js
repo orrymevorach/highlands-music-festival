@@ -34,11 +34,18 @@ export const PAGE_SLUGS = {
   PHOTOS: '/photos/2023',
   ARTIST_SUBMISSIONS: '/artist-submissions',
   VENDOR_SUBMISSION: '/vendor-submission',
+  UNSUBSCRIBE: '/unsubscribe',
+  MARKETPLACE: '/marketplace',
 };
 
 export const PRICE_MODEL_IDS = {
   SITE_WIDE: 'SITE_WIDE',
   CHAMPIONS: 'CHAMPIONS',
+  TEST_MODE: 'TEST_MODE',
 };
 
-export const FIXED_PRICE_PROMO_CODES = ['VENDORS'];
+export const FIXED_PRICE_PROMO_CODES = [
+  'VENDORSPARTIAL',
+  'VENDORSPARTIALPLUS',
+  'VENDORSFULLWEEKEND',
+];

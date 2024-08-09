@@ -33,3 +33,9 @@ yarn-error.log*
 .vercel
 
 
+
+# Local Netlify folder
+.netlify
+
+# Sentry Config File
+.env.sentry-build-plugin

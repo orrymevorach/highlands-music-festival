@@ -12,9 +12,9 @@ export default function Layout({
   festivalDate = '',
 }) {
   const { hasSubmittedForm, showEmailCapture } = useEmailCaptureContext();
-  const formattedFestivalDate = festivalDate
-    ? formatFestivalDate(festivalDate)
-    : '';
+  const formattedFestivalDate = festivalDate;
+  // ? formatFestivalDate(festivalDate)
+  // : '';
   return (
     <div
       className={clsx(

@@ -13,7 +13,8 @@ export default function AboutPage({ showEmailCapture, festivalDate }) {
   const { setShowEmailCapture } = useEmailCaptureContext();
   setShowEmailCapture(showEmailCapture);
 
-  const formattedFestivalDate = formatFestivalDate(festivalDate);
+  // const formattedFestivalDate = formatFestivalDate(festivalDate);
+  const formattedFestivalDate = festivalDate;
   return (
     <>
       <Head title="About" festivalDate={festivalDate} />

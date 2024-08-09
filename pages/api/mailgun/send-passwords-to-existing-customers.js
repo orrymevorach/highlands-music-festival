@@ -47,7 +47,7 @@ async function run() {
                 <p style="margin:20px 0;">Your password is <span style="font-weight:bold">${paymentIntentId}</span></p>
                 <p>If you have any question or concerns, please contact us at info@highlandsmusicfestival.ca</p>
                 <p><em>Please do not reply to this email</em></p>
-                <img src="https://highlandsmusicfestival.ca/_next/image?url=%2F_next%2Fstatic%2Fmedia%2FLogo-1200px-No-Bkgd-min.effb0614.png&w=640&q=10" style="width:300px;" }} />
+                <img src="https://highlandsmusicfestival.ca/_next/image?url=%2F_next%2Fstatic%2Fmedia%2FLogo-1200px-No-Bkgd-min-small.0900c997.png&w=2048&q=75" style="width:300px;" }} />
               </div>
                       `,
             });

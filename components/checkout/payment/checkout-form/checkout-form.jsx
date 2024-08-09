@@ -23,7 +23,9 @@ export default function CheckoutForm() {
     promoCode,
     vendorName,
     vendorSecondGuest,
+    paymentType,
   } = useCheckoutContext();
+
   const [successfulPaymentIntentId, setSuccessfulPaymentIntentId] =
     useState(null);
 
@@ -97,7 +99,9 @@ export default function CheckoutForm() {
       const mailgunConfirmationEmailResponse = await sendConfirmationEmail({
         emailAddress: email,
       });
+
       if (process.env.NODE_ENV === 'production') {
+        // Slack Notification
         try {
           const slackNotificationResponse = await sendSlackNotification({
             name,
@@ -106,6 +110,21 @@ export default function CheckoutForm() {
           });
         } catch (error) {
           console.log(error);
+        }
+
+        // Facebook Pixel Tracking
+        try {
+          const isSubscription =
+            paymentType &&
+            paymentType === 'subscription' &&
+            !!priceData?.subscriptionInstallmentAmount;
+
+          fbq('track', 'Purchase', {
+            installments: isSubscription,
+            promoCode,
+          });
+        } catch (error) {
+          console.error('Facebook Pixel Tracking Failed:', error);
         }
       }
       setSuccessfulPaymentIntentId(paymentResult.id);

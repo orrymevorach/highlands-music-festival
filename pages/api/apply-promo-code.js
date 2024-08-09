@@ -42,6 +42,16 @@ export default async function handler(req, res) {
           selectedPromoCode.coupon.amount_off * quantity) *
           1.13
       );
+      if (amount < 0) {
+        res.status(401).json({
+          error: {
+            status: 401,
+            message:
+              'Oh no! This voucher is only valid for tickets paid in full. <a href="/checkout?installments=false">Click here</a> to proceed.',
+          },
+        });
+        return;
+      }
       const updatedMetadata = {
         ...metadata,
         promoCode: selectedPromoCode.code,

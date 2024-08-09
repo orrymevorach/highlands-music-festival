@@ -9,6 +9,7 @@ import { faSpotify } from '@fortawesome/free-brands-svg-icons';
 import { useWindowSize } from 'hooks';
 import { useState } from 'react';
 import Takeover from 'components/takeover';
+import Jamlands from './jamlands/jamlands';
 
 const getFormattedLineup = lineup => {
   const headliners = lineup.headlinersCollection.items;
@@ -34,6 +35,7 @@ export default function Lineup({
   const [lineupGraphic, setLineupGraphic] = useState(null);
   // const headliners = lineup.headlinersCollection.items;
   const formatttedLineup = getFormattedLineup(lineup);
+  const jamlandsLineup = lineup.jamlandsCollection.items;
 
   const ImageTileBack = ({ spotifyLink }) => {
     return (
@@ -82,6 +84,7 @@ export default function Lineup({
 
       <div className={styles.tilesContainer}>
         <ImageTiles tiles={formatttedLineup} ImageTileBack={ImageTileBack} />
+        <Jamlands lineup={jamlandsLineup} />
         {headlinerFeatureFlag && (
           <p className={styles.comingSoon}>More announcements coming soon...</p>
         )}

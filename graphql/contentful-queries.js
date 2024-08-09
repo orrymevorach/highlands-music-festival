@@ -108,6 +108,12 @@ export const GET_LINEUP = gql`
             spotifyLink
           }
         }
+        jamlandsCollection(limit: 10) {
+          items {
+            name
+            spotifyLink
+          }
+        }
       }
     }
   }
@@ -171,6 +177,31 @@ export const GET_ACTIVITIES = gql`
             image {
               ...ImageFields
             }
+          }
+        }
+      }
+    }
+  }
+  ${IMAGE_FRAGMENT}
+`;
+
+export const GET_VENDORS = gql`
+  query getVendors {
+    galleryVendorsCollection(where: { title: "Vendors" }, limit: 1) {
+      items {
+        vendorsCollection {
+          items {
+            name
+            description {
+              json
+            }
+            image {
+              ...ImageFields
+            }
+            logo {
+              ...ImageFields
+            }
+            link
           }
         }
       }
