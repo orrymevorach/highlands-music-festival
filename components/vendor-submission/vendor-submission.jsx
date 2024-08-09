@@ -12,7 +12,7 @@ const informationData = [
     heading: 'vendor options:',
     listItems: [
       'A one night stay at Highlands Music Festival - $150.',
-      'Or, stay for the entire festival - $400.',
+      'Or, stay for the entire festival - $350.',
     ],
   },
   {
