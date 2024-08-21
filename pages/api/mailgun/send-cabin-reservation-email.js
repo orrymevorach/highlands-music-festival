@@ -1,7 +1,11 @@
 let nodemailer = require('nodemailer');
 
 export default async function handler(req, res) {
-  const { paymentIntentId, emailAddress } = req.body;
+  // const { paymentIntentId, emailAddress } = req.body;
+
+  const emailAddress = req.body?.emailAddress || req.query?.emailAddress;
+  const paymentIntentId =
+    req.body?.paymentIntentId || req.query?.paymentIntentId;
 
   let transporter = nodemailer.createTransport({
     host: 'smtp.mailgun.org',
