@@ -83,12 +83,6 @@ export default function CheckoutForm() {
       },
     });
 
-    // TEMPORARILY REMOVING FOR SUPER EARLY BIRD
-    // const mailgunResponse = await sendCabinReservationEmail({
-    //   paymentIntentId: paymentResult.id,
-    //   emailAddress: customer.email,
-    // });
-
     const isAirtableSuccessful = airtableResponse.id;
 
     if (
@@ -97,6 +91,10 @@ export default function CheckoutForm() {
       isAirtableSuccessful
     ) {
       const mailgunConfirmationEmailResponse = await sendConfirmationEmail({
+        emailAddress: email,
+      });
+      const mailgunResponse = await sendCabinReservationEmail({
+        paymentIntentId: paymentResult.id,
         emailAddress: email,
       });
 
