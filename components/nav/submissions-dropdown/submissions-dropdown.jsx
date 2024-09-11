@@ -22,9 +22,9 @@ export default function SubmissionsDropdown() {
           <li className={styles.dropdownItem}>
             <Link href="/artist-submissions">Artist Submissions</Link>
           </li>
-          <li className={styles.dropdownItem}>
+          {/* <li className={styles.dropdownItem}>
             <Link href="/vendor-submission">Vendor Submissions</Link>
-          </li>
+          </li> */}
         </ul>
       )}
     </div>
