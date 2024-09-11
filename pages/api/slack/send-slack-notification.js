@@ -1,6 +1,5 @@
 const { WebClient } = require('@slack/web-api');
 const Airtable = require('airtable');
-import { amountToDollar } from 'utils/utils';
 
 require('dotenv').config({ path: '.env.local' });
 
@@ -29,7 +28,7 @@ export default async function handler(req, res) {
     const numberOfTickets = recordsFilteredByTicketStatus.length;
 
     // Number of tickets available
-    const numberOfTicketsAvailable = 432;
+    const numberOfTicketsAvailable = 367;
     const remainingTickets = numberOfTicketsAvailable - numberOfTickets;
 
     // Create message and send as slack notification
