@@ -36,6 +36,7 @@ export const PAGE_SLUGS = {
   VENDOR_SUBMISSION: '/vendor-submission',
   UNSUBSCRIBE: '/unsubscribe',
   MARKETPLACE: '/marketplace',
+  TICKET_LINKS: '/ticket-links',
 };
 
 export const PRICE_MODEL_IDS = {
