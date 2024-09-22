@@ -46,11 +46,12 @@ export default function UserForm() {
       : hasDeposit
       ? priceData.deposit
       : priceData.total;
-
     const metadata = {
       ...priceData,
+      cabin: null, // Removing cabin data from metadata
       quantity,
     };
+
     const paymentIntent = await createPaymentIntent({
       customer,
       amount,

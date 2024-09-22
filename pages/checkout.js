@@ -32,7 +32,7 @@ export async function getServerSideProps(props) {
     url: PAGE_SLUGS.CHECKOUT,
   });
 
-  const generalAdmissionTicketProductId = 'rec24ualnEOrvcd6T';
+  const generalAdmissionTicketProductId = 'rec93smMdXeuDJWZ4';
   const productId = props.query.productId || generalAdmissionTicketProductId;
   const productData = await getProduct({ recordId: productId });
 
