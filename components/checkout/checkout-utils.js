@@ -75,7 +75,7 @@ export function calculatePricing({
   promoAmount = 0,
   promoPaymentIntent,
 }) {
-  const ticketPrice = Math.round(priceData.ticketPrice * quantity);
+  const ticketPrice = Math.round(priceData.price * quantity);
   const subtotal =
     ticketPrice - promoAmount - priceData.discountAmountPerUnit * quantity;
   const tax = subtotal * 0.13;

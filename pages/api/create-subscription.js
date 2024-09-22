@@ -22,7 +22,7 @@ export default async function handler(req, res) {
       } = priceData;
       console.log('Creating subscription plan...');
 
-      if (!subscriptionId) {
+      if (!subscriptionStartDate) {
         console.log('No subscription ID, no subscription created...');
         res.send(200);
         return;
