@@ -37,6 +37,7 @@ export const PAGE_SLUGS = {
   UNSUBSCRIBE: '/unsubscribe',
   MARKETPLACE: '/marketplace',
   TICKET_LINKS: '/ticket-links',
+  FESTIVAL_GUIDE: '/festival-guide',
 };
 
 export const PRICE_MODEL_IDS = {
