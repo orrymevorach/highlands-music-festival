@@ -3,7 +3,7 @@ import Layout from '../layout';
 import GoogleMap from 'components/location-and-accommodation/GoogleMap';
 import clsx from 'clsx';
 import Image from 'next/image';
-import MapOfCamp from 'public/map-dark.jpg';
+import MapOfCamp from 'public/map-2024.jpg';
 import Cabin from 'public/backgrounds/HL_2023_Logo190.jpg';
 
 const packingList = [
