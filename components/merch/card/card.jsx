@@ -9,9 +9,11 @@ export default function Card({ product }) {
   const priceInDollars = amountToDollar(price);
   const dueTodayInDollars = deposit !== 0 ? amountToDollar(deposit) : '';
   const discountAmountPerUnitInDollars =
-    deposit !== 0 ? amountToDollar(price - discountAmountPerUnit) : '';
+    discountAmountPerUnit !== 0
+      ? amountToDollar(price - discountAmountPerUnit)
+      : '';
 
-  const numberToShow = discountAmountPerUnit
+  const numberToShow = !!discountAmountPerUnit
     ? discountAmountPerUnitInDollars
     : priceInDollars;
 
