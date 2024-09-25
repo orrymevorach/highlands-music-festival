@@ -48,7 +48,6 @@ export const getServerSideProps = async context => {
       customer,
       orderDetails: {
         status: paymentIntent.status,
-        ...paymentIntent.metadata,
       },
       ...pageLoadData,
     },

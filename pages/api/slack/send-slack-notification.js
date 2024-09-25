@@ -16,7 +16,7 @@ export default async function handler(req, res) {
 
   try {
     // Get ticket records
-    const ticketRecords = await base('Ticket Purchases 2024').select().all();
+    const ticketRecords = await base('Ticket Purchases').select().all();
 
     // Filter out tickets that were not purchased
     const recordsFilteredByTicketStatus = ticketRecords.filter(record => {
