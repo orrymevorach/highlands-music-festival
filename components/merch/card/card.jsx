@@ -4,10 +4,16 @@ import { amountToDollar } from 'utils/utils';
 import clsx from 'clsx';
 
 export default function Card({ product }) {
-  const { name, price, deposit } = product;
+  const { name, price, deposit, discountAmountPerUnit } = product;
 
   const priceInDollars = amountToDollar(price);
   const dueTodayInDollars = deposit !== 0 ? amountToDollar(deposit) : '';
+  const discountAmountPerUnitInDollars =
+    deposit !== 0 ? amountToDollar(price - discountAmountPerUnit) : '';
+
+  const numberToShow = discountAmountPerUnit
+    ? discountAmountPerUnitInDollars
+    : priceInDollars;
 
   return (
     <>
@@ -18,7 +24,12 @@ export default function Card({ product }) {
       >
         <div className={clsx(styles.row, styles.topRow)}>
           <p>{name}</p>
-          <p>{priceInDollars}</p>
+          <div>
+            {!!discountAmountPerUnit && (
+              <p className={styles.strikethrough}>{priceInDollars}</p>
+            )}
+            <p>{numberToShow}</p>
+          </div>
         </div>
 
         {dueTodayInDollars && (

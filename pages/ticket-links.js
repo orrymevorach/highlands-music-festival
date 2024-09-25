@@ -12,25 +12,6 @@ export default function TicketLinks({ festivalDate, products }) {
     <>
       <Head festivalDate={festivalDate} />
       <Layout hideHeaderMargin festivalDate={festivalDate}>
-        {/* <div
-          style={{
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-            height: '60vh',
-          }}
-        >
-          <h1
-            style={{
-              fontFamily: 'Neue Haas Regular',
-              fontSize: '34px',
-              textAlign: 'center',
-              padding: '0 25px',
-            }}
-          >
-            2025 Ticket Information Coming Soon...
-          </h1>
-        </div> */}
         <Merch products={products} />
       </Layout>
     </>
