@@ -19,6 +19,8 @@ export default function OrderSummary() {
       numberOfSubscriptionIterations,
       promoAmount,
       firstInstalmentTotalAfterTax,
+      name: productName,
+      deposit = '',
     },
     promoCode,
     paymentType,
@@ -39,7 +41,7 @@ export default function OrderSummary() {
         <p className={styles.title}>Order Summary</p>
         <Border />
         <LineItem
-          label={`${quantity ? `${quantity} x ` : ''}General Admission`}
+          label={`${quantity ? `${quantity} x ` : ''} ${productName}`}
           price={ticketPrice}
         />
         {discountName && discountTotal ? (
@@ -63,6 +65,14 @@ export default function OrderSummary() {
         <LineItem label="HST (13%)" price={tax} />
         <Border />
         <LineItem label="Total" price={total} isBold shouldAddCanadianDollars />
+        {!!deposit && (
+          <LineItem
+            label="Due Today"
+            price={deposit}
+            isBold
+            shouldAddCanadianDollars
+          />
+        )}
         {isSubscription && (
           <LineItem
             label="Due Today"

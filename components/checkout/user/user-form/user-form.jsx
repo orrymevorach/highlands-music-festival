@@ -9,6 +9,7 @@ import { Checkbox } from '@mui/material';
 import { createRecord } from 'lib/airtable-lib';
 import { ErrorMessage } from 'components/checkout/checkout-shared-components';
 import { validateEmail } from 'utils/utils';
+import { useRouter } from 'next/router';
 
 export default function UserForm() {
   const { quantity, priceData, dispatch, actions } = useCheckoutContext();
@@ -20,6 +21,7 @@ export default function UserForm() {
   const [vendorName, setVendorName] = useState('');
   const [vendorSecondGuest, setVendorSecondGuest] = useState('');
   const [errorMessage, setErrorMessage] = useState('');
+  const router = useRouter();
 
   const handleSubmit = async e => {
     e.preventDefault();
@@ -36,14 +38,20 @@ export default function UserForm() {
       email: email,
     };
     const customer = await getStripeCustomer({ user });
-    const hasSubscription = !!priceData.subscriptionInstallmentAmount;
+
+    const hasSubscription = router.query.installments === 'true';
+    const hasDeposit = priceData.deposit;
     const amount = hasSubscription
       ? priceData.subscriptionInstallmentAmount
+      : hasDeposit
+      ? priceData.deposit
       : priceData.total;
     const metadata = {
       ...priceData,
+      cabin: null, // Removing cabin data from metadata
       quantity,
     };
+
     const paymentIntent = await createPaymentIntent({
       customer,
       amount,

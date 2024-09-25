@@ -23,31 +23,28 @@ export default function Button({
   href = null,
   handleClick = null,
   classNames = '',
+  target = '',
+  isSmall = false,
 }) {
+  const classes = clsx(styles.button, classNames, {
+    [styles.small]: isSmall,
+  });
   if (href) {
     return (
-      <Link href={href} className={clsx(styles.button, classNames)}>
+      <Link href={href} target={target} className={classes}>
         {children}
       </Link>
     );
   }
   if (handleClick) {
     return (
-      <button
-        className={clsx(styles.button, classNames)}
-        disabled={isDisabled}
-        onClick={handleClick}
-      >
+      <button className={classes} disabled={isDisabled} onClick={handleClick}>
         <ButtonContents isLoading={isLoading}>{children}</ButtonContents>
       </button>
     );
   }
   return (
-    <button
-      className={clsx(styles.button, classNames)}
-      type="submit"
-      disabled={isDisabled}
-    >
+    <button className={classes} type="submit" disabled={isDisabled}>
       <ButtonContents isLoading={isLoading}>{children}</ButtonContents>
     </button>
   );

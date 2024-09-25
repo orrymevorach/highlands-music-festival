@@ -8,7 +8,7 @@ import { useCheckoutContext } from 'context/checkout-context';
 import { createSubscription } from 'lib/stripe-lib';
 import { ErrorMessage } from 'components/checkout/checkout-shared-components';
 import Button from 'components/shared/button';
-import { createRecord } from 'lib/airtable-lib';
+import { createRecord, updateRecord } from 'lib/airtable-lib';
 import { sendCabinReservationEmail, sendConfirmationEmail } from 'lib/mailgun';
 import { sendSlackNotification } from 'lib/slack-lib';
 
@@ -66,7 +66,7 @@ export default function CheckoutForm() {
     const email = customer.email.toLowerCase();
 
     const { response: airtableResponse } = await createRecord({
-      tableId: 'Ticket Purchases 2024',
+      tableId: 'Ticket Purchases',
       newFields: {
         amount: paymentResult.amount / 100,
         paymentIntent: paymentResult.id,
@@ -80,8 +80,18 @@ export default function CheckoutForm() {
             : 'Testing',
         'Vendor Name': vendorName,
         'Vendor Second Guest': vendorSecondGuest,
+        Cabin: priceData.cabin?.length ? [priceData.cabin[0]] : null,
       },
     });
+
+    // If a cabin is purchased, update cabin status to sold. If it is a ticket, leave statas as is
+    if (priceData.cabin?.length) {
+      await updateRecord({
+        tableId: 'Product Inventory',
+        recordId: priceData.id,
+        newFields: { Status: 'Sold' },
+      });
+    }
 
     const isAirtableSuccessful = airtableResponse.id;
 
@@ -93,10 +103,10 @@ export default function CheckoutForm() {
       const mailgunConfirmationEmailResponse = await sendConfirmationEmail({
         emailAddress: email,
       });
-      const mailgunResponse = await sendCabinReservationEmail({
-        paymentIntentId: paymentResult.id,
-        emailAddress: email,
-      });
+      // const mailgunResponse = await sendCabinReservationEmail({
+      //   paymentIntentId: paymentResult.id,
+      //   emailAddress: email,
+      // });
 
       if (process.env.NODE_ENV === 'production') {
         // Slack Notification
