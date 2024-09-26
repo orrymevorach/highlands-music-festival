@@ -3,7 +3,7 @@ import { CheckoutProvider } from 'context/checkout-context';
 import Layout from 'components/checkout/layout';
 import Container from 'components/checkout/container';
 import { getPageLoadData } from 'lib/contentful-lib';
-import { getSubscriptionPricingData } from 'lib/stripe-lib';
+import { getPriceModel, getSubscriptionPricingData } from 'lib/stripe-lib';
 import { PAGE_SLUGS } from 'utils/constants';
 import Head from 'components/head';
 import Legal from 'components/checkout/legal';
@@ -32,26 +32,14 @@ export async function getServerSideProps(props) {
     url: PAGE_SLUGS.CHECKOUT,
   });
 
-  const generalAdmissionTicketProductId = 'rec93smMdXeuDJWZ4';
-  const productId = props.query.productId || generalAdmissionTicketProductId;
-  const productData = await getProduct({ recordId: productId });
+  const productId = props.query.productId;
+  const installments = props.query.installments;
 
-  if (!props.query.installments || props.query.installments !== 'true') {
-    return {
-      props: {
-        priceModel: productData,
-        ...pageLoadData,
-      },
-    };
-  }
-  const subscriptionPricingData = await getSubscriptionPricingData(productData);
+  const priceModel = await getPriceModel({ installments, productId });
 
   return {
     props: {
-      priceModel: {
-        ...productData,
-        ...subscriptionPricingData,
-      },
+      priceModel,
       ...pageLoadData,
     },
   };

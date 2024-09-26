@@ -12,7 +12,6 @@ export default function BuyTicketsPage({
   showEmailCapture,
   festivalDate,
 }) {
-  return;
   useFacebookPixel();
   const { setShowEmailCapture } = useEmailCaptureContext();
   setShowEmailCapture(showEmailCapture);
@@ -26,15 +25,19 @@ export default function BuyTicketsPage({
   );
 }
 
-// export async function getStaticProps() {
-//   const pageLoadData = await getPageLoadData({
-//     url: PAGE_SLUGS.BUY_TICKETS,
-//   });
-//   const { priceModel } = await getPriceModel();
-//   return {
-//     props: {
-//       ...pageLoadData,
-//       priceModel,
-//     },
-//   };
-// }
+export async function getServerSideProps(props) {
+  const pageLoadData = await getPageLoadData({
+    url: PAGE_SLUGS.BUY_TICKETS,
+  });
+  const productId = props.query.productId;
+  const installments = props.query.installments;
+
+  const priceModel = await getPriceModel({ installments, productId });
+
+  return {
+    props: {
+      priceModel,
+      ...pageLoadData,
+    },
+  };
+}
