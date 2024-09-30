@@ -18,7 +18,9 @@ const Category = ({ category, products }) => {
       <p className={styles.categoryTitle}>{category}</p>
       <div>
         {products.map(product => {
-          if (product.category === category && product.status === 'Available') {
+          const isCurrentCateogry = product.category === category;
+          const isAvailable = product.status === 'Available';
+          if (isCurrentCateogry && isAvailable) {
             return <Card key={product.name} product={product} />;
           }
         })}
@@ -39,6 +41,9 @@ export default function Merch({ products = [] }) {
       </div>
       <div className={styles.container}>
         {categories.map(category => {
+          if (category === 'Test Mode' && process.env.NODE_ENV === 'production')
+            return;
+
           return (
             <Category key={category} category={category} products={products} />
           );
