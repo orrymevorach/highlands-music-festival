@@ -4,7 +4,14 @@ import { amountToDollar } from 'utils/utils';
 import clsx from 'clsx';
 
 export default function Card({ product }) {
-  const { name, price, deposit, discountAmountPerUnit, description } = product;
+  const {
+    name,
+    price,
+    deposit,
+    discountAmountPerUnit,
+    description,
+    subscriptionId,
+  } = product;
 
   const priceInDollars = amountToDollar(price);
   const dueTodayInDollars = deposit !== 0 ? amountToDollar(deposit) : '';
@@ -17,12 +24,14 @@ export default function Card({ product }) {
     ? discountAmountPerUnitInDollars
     : priceInDollars;
 
+  const hasInstallments = !!subscriptionId;
+
   return (
     <>
       <Link
         className={styles.card}
         key={name}
-        href={`/checkout?productId=${product.productID}&installments=false`}
+        href={`/checkout?productId=${product.productID}&installments=${hasInstallments}`}
       >
         <div className={clsx(styles.row, styles.topRow)}>
           <p>{name}</p>

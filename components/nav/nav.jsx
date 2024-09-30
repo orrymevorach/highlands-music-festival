@@ -6,7 +6,7 @@ import clsx from 'clsx';
 import { faHome } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faInstagram } from '@fortawesome/free-brands-svg-icons';
-import { colors } from 'utils/constants';
+import { colors, PAGE_SLUGS } from 'utils/constants';
 import { useNavContext } from 'context/nav-context';
 import Button from 'components/shared/button/button';
 import SubmissionsDropdown from './submissions-dropdown/submissions-dropdown';
@@ -80,7 +80,10 @@ const Nav = () => {
             })}
             <SubmissionsDropdown />
             <li>
-              <Button href="buy-tickets" classNames={styles.buyTickets}>
+              <Button
+                href={PAGE_SLUGS.TICKET_LINKS}
+                classNames={styles.buyTickets}
+              >
                 Buy Tickets
               </Button>
             </li>

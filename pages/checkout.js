@@ -33,9 +33,9 @@ export async function getServerSideProps(props) {
   });
 
   const productId = props.query.productId;
-  const installments = props.query.installments;
+  const hasInstallments = props.query.installments;
 
-  const priceModel = await getPriceModel({ installments, productId });
+  const priceModel = await getPriceModel({ hasInstallments, productId });
 
   return {
     props: {
