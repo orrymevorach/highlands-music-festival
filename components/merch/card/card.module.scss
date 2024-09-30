@@ -54,3 +54,13 @@
   color: red;
   font-family: variables.$fontSecondary;
 }
+
+.bottomRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+
+.description {
+  font-size: 13px;
+}

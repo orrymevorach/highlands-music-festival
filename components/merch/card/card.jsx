@@ -4,7 +4,7 @@ import { amountToDollar } from 'utils/utils';
 import clsx from 'clsx';
 
 export default function Card({ product }) {
-  const { name, price, deposit, discountAmountPerUnit } = product;
+  const { name, price, deposit, discountAmountPerUnit, description } = product;
 
   const priceInDollars = amountToDollar(price);
   const dueTodayInDollars = deposit !== 0 ? amountToDollar(deposit) : '';
@@ -34,9 +34,14 @@ export default function Card({ product }) {
           </div>
         </div>
 
-        {dueTodayInDollars && (
-          <p className={styles.due}>Due Today: {dueTodayInDollars}</p>
-        )}
+        <div className={styles.bottomRow}>
+          {description && <p className={styles.description}>{description}</p>}
+          {dueTodayInDollars && (
+            <div>
+              <p className={styles.due}>Due Today: {dueTodayInDollars}</p>
+            </div>
+          )}
+        </div>
       </Link>
     </>
   );
