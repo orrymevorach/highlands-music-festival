@@ -18,7 +18,7 @@ const Category = ({ category, products }) => {
       <p className={styles.categoryTitle}>{category}</p>
       <div>
         {products.map(product => {
-          if (product.category === category && product.status !== 'Sold') {
+          if (product.category === category && product.status === 'Available') {
             return <Card key={product.name} product={product} />;
           }
         })}
