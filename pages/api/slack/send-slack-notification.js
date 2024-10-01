@@ -1,3 +1,5 @@
+import { getRecordById } from 'lib/airtable-lib';
+
 const { WebClient } = require('@slack/web-api');
 const Airtable = require('airtable');
 
@@ -19,20 +21,39 @@ export default async function handler(req, res) {
     const ticketRecords = await base('Ticket Purchases').select().all();
 
     // Filter out tickets that were not purchased
-    const recordsFilteredByTicketStatus = ticketRecords.filter(record => {
-      if (record?.fields?.Status === 'Ticket Purchased') return true;
-      return false;
-    });
+    let numberOfTickets = 0;
+    let numberOfCamperCabinsSold = 0;
+    let numberOfHeadStaffCabinSold = 0;
+    let cabinName = '';
 
-    // Count number of tickets
-    const numberOfTickets = recordsFilteredByTicketStatus.length;
+    for (let ticket of ticketRecords) {
+      const { Cabin, Status } = ticket.fields;
+      if (Status === 'Ticket Purchased' && Cabin) {
+        const recordId = Cabin[0];
+        const cabin = await getRecordById({ recordId, tableId: 'Cabins' });
+        const { totalBeds } = cabin.record;
 
+        numberOfTickets = numberOfTickets + totalBeds;
+        if (ticket.id === cabin.record.id) {
+          cabinName = cabin.record.name;
+        }
+
+        if (totalBeds === 12) {
+          numberOfCamperCabinsSold = numberOfCamperCabinsSold + 1;
+        }
+        if (totalBeds === 3) {
+          numberOfHeadStaffCabinSold = numberOfHeadStaffCabinSold + 1;
+        }
+      } else if (Status === 'Ticket Purchased') {
+        numberOfTickets = numberOfTickets + 1;
+      }
+    }
     // Number of tickets available
-    const numberOfTicketsAvailable = 367;
+    const numberOfTicketsAvailable = 525;
     const remainingTickets = numberOfTicketsAvailable - numberOfTickets;
 
     // Create message and send as slack notification
-    const message = `*<!channel>, a ticket to Highlands has been purchased!*\nAttendee: ${name}\nEmail: ${email}\nDiscount Code: ${discountCode}\n\nNumber of tickets sold: ${numberOfTickets}\nRemaining Tickets: ${remainingTickets}`;
+    const message = `*<!channel>, a ticket to Highlands has been purchased!*\nAttendee: ${name}\nEmail: ${email}\nCabin: ${cabinName}\nDiscount Code: ${discountCode}\n\nNumber of tickets sold: ${numberOfTickets}\nRemaining Tickets: ${remainingTickets}\nCamper Cabins Sold: ${numberOfCamperCabinsSold}\nHead Staff Cabins Sold: ${numberOfHeadStaffCabinSold}`;
     await web.chat.postMessage({
       channel: '#notifications_tickets',
       text: message,
