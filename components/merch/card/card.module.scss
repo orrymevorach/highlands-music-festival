@@ -42,11 +42,17 @@
   margin-bottom: 25px;
 }
 
+.sold,
 .due {
   color: red;
   margin-top: 5px;
   text-align: right;
   font-size: 14px;
+}
+
+.sold {
+  margin: 0 0 0 10px;
+  font-family: variables.$fontSecondaryBold;
 }
 
 .strikethrough {

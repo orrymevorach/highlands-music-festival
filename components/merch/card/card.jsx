@@ -3,7 +3,7 @@ import styles from './card.module.scss';
 import { amountToDollar } from 'utils/utils';
 import clsx from 'clsx';
 
-export default function Card({ product }) {
+export default function Card({ product, isSold = false }) {
   const {
     name,
     price,
@@ -26,32 +26,38 @@ export default function Card({ product }) {
 
   const hasInstallments = !!subscriptionId;
 
+  const Element = isSold ? 'div' : Link;
+
   return (
     <>
-      <Link
+      <Element
         className={styles.card}
         key={name}
         href={`/checkout?productId=${product.productID}&installments=${hasInstallments}`}
       >
         <div className={clsx(styles.row, styles.topRow)}>
-          <p>{name}</p>
-          <div>
-            {!!discountAmountPerUnit && (
-              <p className={styles.strikethrough}>{priceInDollars}</p>
-            )}
-            <p>{numberToShow}</p>
-          </div>
+          <p>
+            {name} {isSold && <span className={styles.sold}>Sold</span>}
+          </p>
+          {!isSold && (
+            <div>
+              {!!discountAmountPerUnit && (
+                <p className={styles.strikethrough}>{priceInDollars}</p>
+              )}
+              <p>{numberToShow}</p>
+            </div>
+          )}
         </div>
 
         <div className={styles.bottomRow}>
           {description && <p className={styles.description}>{description}</p>}
-          {dueTodayInDollars && (
+          {dueTodayInDollars && !isSold && (
             <div>
               <p className={styles.due}>Due Today: {dueTodayInDollars}</p>
             </div>
           )}
         </div>
-      </Link>
+      </Element>
     </>
   );
 }

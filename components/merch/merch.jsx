@@ -20,6 +20,10 @@ const Category = ({ category, products }) => {
         {products.map(product => {
           const isCurrentCateogry = product.category === category;
           const isAvailable = product.status === 'Available';
+          const isSold = product.status === 'Sold';
+          if (isCurrentCateogry && isSold) {
+            return <Card key={product.name} product={product} isSold />;
+          }
           if (isCurrentCateogry && isAvailable) {
             return <Card key={product.name} product={product} />;
           }
