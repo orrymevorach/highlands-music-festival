@@ -14,7 +14,7 @@ var base = new Airtable({
 const web = new WebClient(process.env.SLACK_OAUTH_TOKEN);
 
 export default async function handler(req, res) {
-  const { name, email, discountCode } = req.body;
+  const { name, email, discountCode, cabinRecordId } = req.body;
 
   try {
     // Get ticket records
@@ -34,7 +34,7 @@ export default async function handler(req, res) {
         const { totalBeds } = cabin.record;
 
         numberOfTickets = numberOfTickets + totalBeds;
-        if (ticket.id === cabin.record.id) {
+        if (cabinRecordId === cabin.record.id) {
           cabinName = cabin.record.name;
         }
 
@@ -53,9 +53,14 @@ export default async function handler(req, res) {
     const remainingTickets = numberOfTicketsAvailable - numberOfTickets;
 
     // Create message and send as slack notification
+    const channel =
+      process.env.NODE_ENV === 'production'
+        ? '#notifications_tickets'
+        : '#testing_workflows';
+
     const message = `*<!channel>, a ticket to Highlands has been purchased!*\nAttendee: ${name}\nEmail: ${email}\nCabin: ${cabinName}\nDiscount Code: ${discountCode}\n\nNumber of tickets sold: ${numberOfTickets}\nRemaining Tickets: ${remainingTickets}\nCamper Cabins Sold: ${numberOfCamperCabinsSold}\nHead Staff Cabins Sold: ${numberOfHeadStaffCabinSold}`;
     await web.chat.postMessage({
-      channel: '#notifications_tickets',
+      channel,
       text: message,
     });
     res.status(200).json({ success: true });

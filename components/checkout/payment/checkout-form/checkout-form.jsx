@@ -108,18 +108,19 @@ export default function CheckoutForm() {
       //   emailAddress: email,
       // });
 
-      if (process.env.NODE_ENV === 'production') {
+      try {
         // Slack Notification
-        try {
-          const slackNotificationResponse = await sendSlackNotification({
-            name,
-            email,
-            discountCode: promoCode,
-          });
-        } catch (error) {
-          console.log(error);
-        }
+        const slackNotificationResponse = await sendSlackNotification({
+          name,
+          email,
+          discountCode: promoCode,
+          cabinRecordId: priceData.cabin?.length ? priceData.cabin[0] : '',
+        });
+      } catch (error) {
+        console.error('Slack Notification Failed:', error);
+      }
 
+      if (process.env.NODE_ENV === 'production') {
         // Facebook Pixel Tracking
         try {
           const isSubscription =
