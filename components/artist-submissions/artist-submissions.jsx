@@ -11,12 +11,12 @@ export default function ArtistSubmission() {
           Welcome to the Highlands Music Festival Artist Submission form!
         </p>
         <p className={styles.text}>
-          {/* We accept submissions all year round, however submissions must be
+          We accept submissions all year round, however submissions must be
           received by January 31 in order to be considered for the following
-          year’s Festival. */}
-          We accept submissions all year round, however submissions for 2024 are
+          year’s Festival.
+          {/* We accept submissions all year round, however submissions for 2024 are
           now closed. Stay tuned for more info about HMF 2025 submission
-          deadlines.
+          deadlines. */}
         </p>
         <p className={styles.text}>
           {/* HMF 2024 will take place on Sept 26-29. We will notify you with any
