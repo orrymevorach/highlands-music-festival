@@ -41,7 +41,7 @@ export default function Merch({ products = [] }) {
     <>
       <div className={styles.textContainer}>
         <h2 className={styles.title}>Ticket Pricing for Highlands 2025</h2>
-        <p>(Closes Monday September 30th at Midnight)</p>
+        <p>(Closes Sunday October 6th at Midnight)</p>
       </div>
       <div className={styles.container}>
         {categories.map(category => {
