@@ -8,29 +8,33 @@ import { colors } from 'utils/constants';
 import Information from './information';
 
 const informationData = [
+  // {
+  //   heading: 'vendor options:',
+  //   listItems: [
+  //     'A one night stay at Highlands Music Festival - $150.',
+  //     'Or, stay for the entire festival - $350.',
+  //   ],
+  // },
+  // {
+  //   heading: 'your vendor fee includes:',
+  //   listItems: [
+  //     'Your business spot reserved at our marketplace',
+  //     'Meals and snacks for up to two people. Request for accomodations.',
+  //   ],
+  // },
+  // {
+  //   heading: "it's your responsibility to:",
+  //   listItems: [
+  //     'Post, share tag, on social media',
+  //     'Arrive on time for set-up',
+  //     'Keep an eye on your products - Highlands Music Festival is not responsible for any lost/stolen items.',
+  //     'Pay your vendor fee if your application is approved.',
+  //     'Have Fun!',
+  //   ],
+  // },
   {
-    heading: 'vendor options:',
-    listItems: [
-      'A one night stay at Highlands Music Festival - $150.',
-      'Or, stay for the entire festival - $350.',
-    ],
-  },
-  {
-    heading: 'your vendor fee includes:',
-    listItems: [
-      'Your business spot reserved at our marketplace',
-      'Meals and snacks for up to two people. Request for accomodations.',
-    ],
-  },
-  {
-    heading: "it's your responsibility to:",
-    listItems: [
-      'Post, share tag, on social media',
-      'Arrive on time for set-up',
-      'Keep an eye on your products - Highlands Music Festival is not responsible for any lost/stolen items.',
-      'Pay your vendor fee if your application is approved.',
-      'Have Fun!',
-    ],
+    heading: 'vendor application',
+    listItems: ['Now accepting applications for 2025.'],
   },
 ];
 
@@ -51,7 +55,7 @@ export default function VendorSubmission() {
         {informationData.map(informationItem => (
           <Information {...informationItem} key={informationItem.heading} />
         ))}
-        <Information heading="vendor application" />
+        {/* <Information heading="vendor application" /> */}
         <VendorSubmissionForm />
       </div>
     </main>
