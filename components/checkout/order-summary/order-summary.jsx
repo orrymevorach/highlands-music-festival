@@ -66,12 +66,20 @@ export default function OrderSummary() {
         <Border />
         <LineItem label="Total" price={total} isBold shouldAddCanadianDollars />
         {!!deposit && (
-          <LineItem
-            label="Due Today"
-            price={deposit}
-            isBold
-            shouldAddCanadianDollars
-          />
+          <>
+            <LineItem
+              label="Due Today"
+              price={deposit}
+              isBold
+              shouldAddCanadianDollars
+            />
+
+            <p className={styles.asterisk}>
+              *Future payments will be available as single payments or broken
+              down as multiple installments. The Highands team will follow up to
+              discuss options at a later date.
+            </p>
+          </>
         )}
         {isSubscription && (
           <LineItem
