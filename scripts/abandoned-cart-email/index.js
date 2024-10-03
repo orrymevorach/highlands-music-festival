@@ -23,7 +23,7 @@ async function run() {
   }
   try {
     console.log('Getting Ticket Purchasers...');
-    ticketPurchasers = await getRecords('Ticket Purchases 2024');
+    ticketPurchasers = await getRecords('Ticket Purchases');
     console.log('Success!');
   } catch (error) {
     console.error('Error getting ticket purchasers:', error);
@@ -86,4 +86,5 @@ async function run() {
   }
   console.log('Done!');
 }
-module.exports = run;
+// module.exports = run;
+run();
