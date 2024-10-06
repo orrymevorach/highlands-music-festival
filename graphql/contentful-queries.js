@@ -187,7 +187,7 @@ export const GET_ACTIVITIES = gql`
 
 export const GET_VENDORS = gql`
   query getVendors {
-    galleryVendorsCollection(where: { title: "Vendors" }, limit: 1) {
+    galleryVendorsCollection(where: { title: "Vendors & Partners" }, limit: 1) {
       items {
         vendorsCollection {
           items {
