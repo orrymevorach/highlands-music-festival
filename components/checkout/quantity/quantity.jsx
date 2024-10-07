@@ -4,7 +4,7 @@ import { useEffect, useState } from 'react';
 import { useCheckoutContext } from 'context/checkout-context';
 import { calculatePricing } from '../checkout-utils';
 import Loader from 'components/shared/Loader/Loader';
-import Button from 'components/shared/Button/Button';
+import Button from 'components/shared/ButtonComp/Button';
 
 export default function Quantity() {
   const [dropdownQuantity, setDropdownQuantity] = useState('');

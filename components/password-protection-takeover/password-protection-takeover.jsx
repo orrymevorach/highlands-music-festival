@@ -2,7 +2,7 @@ import { useState } from 'react';
 import Takeover from 'components/shared/Takeover/Takeover';
 import styles from './password-protection-takeover.module.scss';
 import Input from '@mui/joy/Input';
-import Button from 'components/shared/Button/Button';
+import Button from 'components/shared/ButtonComp/Button';
 import { ErrorMessage } from 'components/checkout/checkout-shared-components';
 
 export default function PasswordProtectionTakeover({

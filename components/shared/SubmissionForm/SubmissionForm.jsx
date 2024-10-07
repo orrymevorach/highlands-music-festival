@@ -1,4 +1,4 @@
-import Button from '../Button/Button';
+import Button from '../ButtonComp/Button';
 import GetFormElement from './FormElements';
 import styles from './SubmissionForm.module.scss';
 import clsx from 'clsx';
