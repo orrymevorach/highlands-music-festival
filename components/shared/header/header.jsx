@@ -35,7 +35,7 @@ export default function Header({ hideBottomMargin, festivalDate = '' }) {
             Lineup
           </Link>
           <Link
-            href={PAGE_SLUGS.TICKET_LINKS}
+            href={PAGE_SLUGS.BUY_TICKETS}
             className={clsx(styles.buyTicketsButton, styles.grid)}
           >
             Buy Tickets

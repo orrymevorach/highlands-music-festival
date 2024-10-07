@@ -1,0 +1,43 @@
+@use '@variables' as variables;
+
+.container {
+  width: 700px;
+  margin: 0 auto;
+  text-align: center;
+  margin-top: 100px;
+}
+
+.title {
+  margin-bottom: 40px;
+  font-family: variables.$fontPrimary;
+  font-size: 50px;
+}
+
+.description {
+  font-family: variables.$fontSecondary;
+  font-size: 20px;
+  margin-bottom: 20px;
+}
+
+.formContainer {
+  text-align: left;
+}
+
+.form {
+  input {
+    height: 50px;
+    width: 97%;
+    &::placeholder {
+      font-family: variables.$fontSecondary;
+      font-size: 16px;
+    }
+  }
+}
+
+button.button {
+  background-color: variables.$darkGreen;
+  color: variables.$beige;
+  width: 120px;
+  font-size: 18px;
+  padding-top: 12px;
+}

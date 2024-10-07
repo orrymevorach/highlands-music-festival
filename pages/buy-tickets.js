@@ -1,70 +1,48 @@
-// import Head from 'components/head';
-// import { useEmailCaptureContext } from 'context/email-capture-context';
-// import { getPageLoadData } from 'lib/contentful-lib';
-// import { PAGE_SLUGS } from 'utils/constants';
-// import BuyTickets from 'components/buy-tickets';
-// import { getPriceModel } from 'lib/stripe-lib';
-// import { useFacebookPixel } from 'hooks';
-// import Layout from 'components/layout/layout';
-
-// export default function BuyTicketsPage({
-//   priceModel,
-//   showEmailCapture,
-//   festivalDate,
-// }) {
-//   useFacebookPixel();
-//   const { setShowEmailCapture } = useEmailCaptureContext();
-//   setShowEmailCapture(showEmailCapture);
-//   return (
-//     <>
-//       <Head title="Buy Tickets" festivalDate={festivalDate} />
-//       <Layout hideHeaderMargin festivalDate={festivalDate}>
-//         <BuyTickets priceModel={priceModel} />
-//       </Layout>
-//     </>
-//   );
-// }
-
-// export async function getServerSideProps(props) {
-//   const pageLoadData = await getPageLoadData({
-//     url: PAGE_SLUGS.BUY_TICKETS,
-//   });
-//   const productId = props.query.productId;
-//   const hasInstallments = props.query.installments;
-
-//   const priceModel = await getPriceModel({ hasInstallments, productId });
-
-//   return {
-//     props: {
-//       priceModel,
-//       ...pageLoadData,
-//     },
-//   };
-// }
-
 import Head from 'components/head';
-import { getPageLoadData } from 'lib/contentful-lib';
-import { PAGE_SLUGS } from 'utils/constants';
+import { getFeatureFlags, getPageLoadData } from 'lib/contentful-lib';
+import { FEATURE_FLAGS, PAGE_SLUGS } from 'utils/constants';
 import { useFacebookPixel } from 'hooks';
 import Layout from 'components/layout';
 import Merch from 'components/merch/merch';
 import { getProducts } from 'lib/airtable-lib';
+import EmailCaptureForm from 'components/email-capture-form';
+import { useEmailCaptureContext } from 'context/email-capture-context';
+// import { getPriceModel } from 'lib/stripe-lib';
+// import BuyTickets from 'components/buy-tickets';
+import Contact from 'components/buy-tickets/contact';
 
-export default function TicketLinks({ festivalDate, products }) {
+export default function TicketLinks({
+  festivalDate,
+  showEmailCapture,
+  products,
+  isTicketSalesOpen,
+  // priceModel,
+}) {
+  const { setShowEmailCapture } = useEmailCaptureContext();
+  setShowEmailCapture(showEmailCapture);
   useFacebookPixel();
   return (
     <>
-      <Head festivalDate={festivalDate} />
+      <Head title="Buy Tickets" festivalDate={festivalDate} />
       <Layout hideHeaderMargin festivalDate={festivalDate}>
-        <Merch products={products} />
+        {/* <BuyTickets priceModel={priceModel} /> */}
+        {isTicketSalesOpen ? <Merch products={products} /> : <Contact />}
       </Layout>
     </>
   );
 }
 
-export async function getServerSideProps() {
+export async function getServerSideProps(props) {
   const pageLoadData = await getPageLoadData({
-    url: PAGE_SLUGS.TICKET_LINKS,
+    url: PAGE_SLUGS.BUY_TICKETS,
+  });
+
+  // const productId = props.query.productId;
+  // const hasInstallments = props.query.installments;
+  // const priceModel = await getPriceModel({ hasInstallments, productId });
+
+  const isTicketSalesOpen = await getFeatureFlags({
+    name: FEATURE_FLAGS.TICKET_SALES_OPEN,
   });
 
   const products = await getProducts();
@@ -73,6 +51,9 @@ export async function getServerSideProps() {
     props: {
       ...pageLoadData,
       products,
+      isTicketSalesOpen,
+      isPagePublished: true,
+      // priceModel,
     },
   };
 }

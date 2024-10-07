@@ -1,4 +1,3 @@
-import Layout from 'components/layout';
 import styles from './artist-submissions.module.scss';
 import ArtistSubmissionForm from './artist-submission-form';
 
@@ -19,7 +18,7 @@ export default function ArtistSubmission() {
           deadlines. */}
         </p>
         <p className={styles.text}>
-          {/* HMF 2024 will take place on Sept 26-29. We will notify you with any
+          {/* HMF 2024 will take place on Sept 25-28. We will notify you with any
           further questions or confirmation. Please be patient as we receive a
           high volume of submissions. */}
           We will notify you with any further questions or confirmation. Please

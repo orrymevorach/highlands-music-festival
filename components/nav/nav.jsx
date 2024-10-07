@@ -81,7 +81,7 @@ const Nav = () => {
             <SubmissionsDropdown />
             <li>
               <Button
-                href={PAGE_SLUGS.TICKET_LINKS}
+                href={PAGE_SLUGS.BUY_TICKETS}
                 classNames={styles.buyTickets}
               >
                 Buy Tickets

@@ -5,8 +5,12 @@ import Cookies from 'js-cookie';
 import { cookies } from 'utils/constants';
 import { useEmailCaptureContext } from 'context/email-capture-context';
 import { addMemberToMailchimpAudience } from 'lib/mailchimp-lib';
+import clsx from 'clsx';
 
-export default function EmailCaptureForm({ buttonClassNames = '' }) {
+export default function EmailCaptureForm({
+  buttonClassNames = {},
+  formClassNames = {},
+}) {
   const {
     triggers: { SUBMIT_FORM },
   } = useEmailCaptureContext();
@@ -37,7 +41,10 @@ export default function EmailCaptureForm({ buttonClassNames = '' }) {
   if (isLoading) return <Loader isWhite centerInContainer />;
 
   return (
-    <form onSubmit={handleSubmit} className={styles.emailCaptureForm}>
+    <form
+      onSubmit={handleSubmit}
+      className={clsx(styles.emailCaptureForm, formClassNames)}
+    >
       <div className={styles.inputContainer}>
         {error && <p className={styles.error}>{error}</p>}
         <input

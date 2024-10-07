@@ -17,6 +17,7 @@ export const cookies = {
 export const FEATURE_FLAGS = {
   HEADLINER_ANNOUNCEMENT: 'HEADLINER_ANNOUNCEMENT',
   SHOW_EMAIL_CAPTURE: 'SHOW_EMAIL_CAPTURE',
+  TICKET_SALES_OPEN: 'TICKET_SALES_OPEN',
 };
 
 export const PAGE_SLUGS = {
@@ -36,7 +37,6 @@ export const PAGE_SLUGS = {
   VENDOR_SUBMISSION: '/vendor-submission',
   UNSUBSCRIBE: '/unsubscribe',
   MARKETPLACE: '/marketplace',
-  TICKET_LINKS: '/ticket-links',
   FESTIVAL_GUIDE: '/festival-guide',
 };
 

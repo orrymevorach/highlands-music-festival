@@ -3,13 +3,12 @@ import { CheckoutProvider } from 'context/checkout-context';
 import Layout from 'components/checkout/layout';
 import Container from 'components/checkout/container';
 import { getPageLoadData } from 'lib/contentful-lib';
-import { getPriceModel, getSubscriptionPricingData } from 'lib/stripe-lib';
+import { getPriceModel } from 'lib/stripe-lib';
 import { PAGE_SLUGS } from 'utils/constants';
 import Head from 'components/head';
 import Legal from 'components/checkout/legal';
 import { useWindowSize } from 'hooks';
 import { useFacebookPixel } from 'hooks';
-import { getProduct } from 'lib/airtable-lib';
 
 export default function CheckoutPage({ priceModel, festivalDate }) {
   useFacebookPixel();

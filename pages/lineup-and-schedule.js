@@ -46,10 +46,9 @@ export async function getStaticProps() {
     url: PAGE_SLUGS.LINEUP_AND_SCHEDULE,
   });
 
-  const featureFlags = await getFeatureFlags({
+  const headlinerFeatureFlag = await getFeatureFlags({
     name: FEATURE_FLAGS.HEADLINER_ANNOUNCEMENT,
   });
-  const headlinerFeatureFlag = featureFlags[0].value;
 
   const lineupGraphics = await getLineupGraphics();
 
