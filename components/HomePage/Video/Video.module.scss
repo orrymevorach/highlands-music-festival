@@ -55,7 +55,16 @@
   margin-top: 30px;
 }
 
+@media screen and (min-width: 1300px) {
+  .thankYou {
+    top: -10%;
+  }
+}
+
 @media screen and (max-width: $tablet) {
+  .thankYou {
+    top: 0;
+  }
   .thankYouLogo {
     width: 400px;
     margin-top: 50px;

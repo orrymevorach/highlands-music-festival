@@ -1,8 +1,7 @@
 import { imgPath } from 'utils/constants';
 import styles from './Video.module.scss';
 
-const showThankYou = false;
-const ThankYou = ({ festivalDate }) => {
+const ThankYou = () => {
   return (
     <div className={styles.thankYou}>
       <img
@@ -12,19 +11,15 @@ const ThankYou = ({ festivalDate }) => {
       />
       <p className={styles.thankYouHeading}>THANK YOU!</p>
       <p className={styles.thankYouHeading}>Same time next year.</p>
-      {/* <p className={clsx(styles.thankYouText, styles.thankYouTextDate)}>
-        {festivalDate}
-      </p>
-      <p className={styles.thankYouText}>Camp Walden, Ontario</p> */}
     </div>
   );
 };
-export default function Video({ festivalDate }) {
+export default function Video({ thankYouMessageFeatureFlag = false }) {
   return (
     <div className={styles.videoContainer}>
-      {showThankYou && (
+      {thankYouMessageFeatureFlag && (
         <>
-          <ThankYou festivalDate={festivalDate} />
+          <ThankYou />
           <div className={styles.videoOverlay}></div>
         </>
       )}

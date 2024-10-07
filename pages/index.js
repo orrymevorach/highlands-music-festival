@@ -11,6 +11,7 @@ import { useFacebookPixel } from 'hooks';
 
 export default function Index({
   headlinerFeatureFlag = false,
+  thankYouMessageFeatureFlag = false,
   headliners,
   showEmailCapture,
   festivalDate,
@@ -23,6 +24,7 @@ export default function Index({
       <Head festivalDate={festivalDate} />
       <Home
         headlinerFeatureFlag={headlinerFeatureFlag}
+        thankYouMessageFeatureFlag={thankYouMessageFeatureFlag}
         headliners={headliners}
         festivalDate={festivalDate}
       />
@@ -41,10 +43,15 @@ export async function getStaticProps() {
     name: FEATURE_FLAGS.HEADLINER_ANNOUNCEMENT,
   });
 
+  const thankYouMessageFeatureFlag = await getFeatureFlags({
+    name: FEATURE_FLAGS.SHOW_THANK_YOU_MESSAGE,
+  });
+
   return {
     props: {
       headliners,
       headlinerFeatureFlag,
+      thankYouMessageFeatureFlag,
       ...pageLoadData,
     },
   };

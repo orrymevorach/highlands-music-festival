@@ -4,6 +4,7 @@ import Particles, { initParticlesEngine } from '@tsparticles/react';
 // import { loadFull } from "tsparticles"; // if you are going to use `loadFull`, install the "tsparticles" package too.
 import { loadSlim } from '@tsparticles/slim'; // if you are going to use `loadSlim`, install the "@tsparticles/slim" package too.
 // import { loadBasic } from "@tsparticles/basic"; // if you are going to use `loadBasic`, install the "@tsparticles/basic" package too.
+import styles from './Particles.module.scss';
 
 export default function ParticlesContainer({
   opacity = 0.5,
@@ -48,8 +49,8 @@ export default function ParticlesContainer({
             image: [
               {
                 src: '/leaf.png', // Maple leaf image
-                width: 100,
-                height: 100,
+                width: 10,
+                height: 10,
                 replaceColor: true,
               },
             ],
@@ -60,19 +61,19 @@ export default function ParticlesContainer({
           random: true,
         },
         size: {
-          value: 20,
+          value: 10,
           random: true,
         },
         move: {
           direction: 'bottom',
           enable: true,
-          speed: 2,
+          speed: 0.5,
           outModes: {
             default: 'out',
           },
         },
         rotate: {
-          value: 180,
+          value: 10,
           random: true,
           animation: {
             enable: true,

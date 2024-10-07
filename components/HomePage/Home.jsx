@@ -7,6 +7,7 @@ import Particles from './Particles/Particles';
 
 export default function Home({
   headlinerFeatureFlag = false,
+  thankYouMessageFeatureFlag = false,
   headliners = [],
   festivalDate,
 }) {
@@ -24,7 +25,7 @@ export default function Home({
             <main className={styles.mainContent}>
               {/* <Particles /> */}
               <h1 className={styles.h1}>Highlands Music Festival</h1>
-              <Video festivalDate={festivalDate} />
+              <Video thankYouMessageFeatureFlag={thankYouMessageFeatureFlag} />
             </main>
           </Layout>
         </div>
