@@ -1,6 +1,6 @@
 import Head from 'components/shared/Head/Head';
 import Layout from 'components/shared/Layout/Layout';
-import Policies from 'components/policies/policies';
+import Policies from 'components/PoliciesPage/policies';
 import { useEmailCaptureContext } from 'context/email-capture-context';
 import { useFacebookPixel } from 'hooks';
 import { getPageLoadData } from 'lib/contentful-lib';

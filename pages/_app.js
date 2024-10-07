@@ -5,7 +5,7 @@ import PageNotFound from './404';
 import { NavProvider } from 'context/nav-context';
 import Script from 'next/script';
 import { useGoogleAnalytics } from 'lib/google-analytics-lib';
-import PasswordProtectionTakeover from 'components/password-protection-takeover/password-protection-takeover';
+import PasswordProtectionTakeover from 'components/shared/password-protection-takeover/password-protection-takeover';
 import { useState } from 'react';
 import { EmailCaptureProvider } from 'context/email-capture-context';
 

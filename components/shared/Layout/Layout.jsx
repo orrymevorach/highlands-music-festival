@@ -2,7 +2,7 @@ import styles from './Layout.module.scss';
 import EmailCaptureHeader from 'components/shared/EmailCaptureForm/EmailCaptureHeader/EmailCaptureHeader';
 import { useEmailCaptureContext } from '../../../context/email-capture-context';
 import clsx from 'clsx';
-import Header from 'components/shared/HeaderComp/Header';
+import Header from 'components/shared/Header/Header';
 import { formatFestivalDate } from 'utils/utils';
 
 export default function Layout({

@@ -1,4 +1,4 @@
-import FlickrGallery from 'components/gallery-flickr/gallery-flickr';
+import FlickrGallery from 'components/PhotosPage/GalleryFlickr/gallery-flickr';
 import Head from 'components/shared/Head/Head';
 import Layout from 'components/shared/Layout/Layout';
 import { useEmailCaptureContext } from 'context/email-capture-context';

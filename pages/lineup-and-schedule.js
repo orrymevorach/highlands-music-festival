@@ -1,6 +1,6 @@
 import Head from 'components/shared/Head/Head';
 // import Schedule from 'components/schedule';
-import Lineup from 'components/lineup/lineup';
+import Lineup from 'components/LineupAndSchedulePage/lineup';
 import Layout from 'components/shared/Layout/Layout';
 import { useEmailCaptureContext } from 'context/email-capture-context';
 import {

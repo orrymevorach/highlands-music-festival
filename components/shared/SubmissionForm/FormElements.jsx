@@ -1,6 +1,6 @@
 import styles from './SubmissionForm.module.scss';
 import { InputLabel, MenuItem, Select, TextareaAutosize } from '@mui/material';
-import Input from '../InputComp/Input';
+import Input from '../Input/Input';
 import { useState } from 'react';
 import clsx from 'clsx';
 

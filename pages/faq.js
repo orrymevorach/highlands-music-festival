@@ -1,4 +1,4 @@
-import Faq from 'components/faq/faq';
+import Faq from 'components/FaqPage/faq';
 import Head from 'components/shared/Head/Head';
 import Layout from 'components/shared/Layout/Layout';
 import { useEmailCaptureContext } from 'context/email-capture-context';
