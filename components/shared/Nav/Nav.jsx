@@ -8,7 +8,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faInstagram } from '@fortawesome/free-brands-svg-icons';
 import { colors, PAGE_SLUGS } from 'utils/constants';
 import { useNavContext } from 'context/nav-context';
-import Button from 'components/shared/ButtonComp/Button';
+import Button from 'components/shared/Button/Button';
 import SubmissionsDropdown from './SubmissionsDropdown/SubmissionsDropdown';
 
 const HomeIcon = ({ setIsOpen }) => {

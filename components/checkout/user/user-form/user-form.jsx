@@ -4,7 +4,7 @@ import Input from '@mui/joy/Input';
 import { useCheckoutContext } from 'context/checkout-context';
 import { getStripeCustomer, createPaymentIntent } from 'lib/stripe-lib';
 import Loader from 'components/shared/Loader/Loader';
-import Button from 'components/shared/ButtonComp/Button';
+import Button from 'components/shared/Button/Button';
 import { Checkbox } from '@mui/material';
 import { createRecord } from 'lib/airtable-lib';
 import { ErrorMessage } from 'components/checkout/checkout-shared-components';
