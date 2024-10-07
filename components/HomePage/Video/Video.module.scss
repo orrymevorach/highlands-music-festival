@@ -10,89 +10,9 @@
   position: relative;
 }
 
-.videoOverlay {
-  position: absolute;
-  background-color: rgba(0, 0, 0, 0.3);
-  width: 100%;
-  // Height comes from JS
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  z-index: 5;
-}
-
-.thankYou {
-  display: flex;
-  flex-direction: column;
-  position: absolute;
-  width: 100%;
-  justify-content: center;
-  align-items: center;
-  z-index: 6;
-  height: 100%;
-  color: white;
-}
-
-.thankYouLogo {
-  width: 600px;
-  margin-bottom: 70px;
-}
-
-.thankYouHeading {
-  font-size: 28px;
-  font-family: $fontPrimary;
-  margin-top: 8px;
-}
-
-.thankYouText {
-  font-size: 22px;
-  font-family: $fontPrimary;
-  margin: 15px 0 0;
-}
-
-.thankYouTextDate {
-  margin-top: 30px;
-}
-
-@media screen and (min-width: 1300px) {
-  .thankYou {
-    top: -10%;
-  }
-}
-
 @media screen and (max-width: $tablet) {
-  .thankYou {
-    top: 0;
-  }
-  .thankYouLogo {
-    width: 400px;
-    margin-top: 50px;
-    margin-bottom: 40px;
-  }
-  .thankYouHeading {
-    font-size: 24px;
-  }
-  .thankYouText {
-    font-size: 18px;
+  .videoContainer {
+    display: flex;
+    flex-direction: column;
   }
 }
-@media screen and (max-width: $mobile) {
-  .thankYouLogo {
-    width: 80%;
-    margin: 20px 0;
-  }
-  .thankYouHeading {
-    font-size: 20px;
-  }
-}
-
-// @media screen and (orientation: landscape) and (max-width: $mobile) {
-//   .imageContainer {
-//     position: static;
-//     padding-top: 100px;
-//   }
-//   .logo {
-//     width: 50%;
-//   }
-// }

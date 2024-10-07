@@ -1,0 +1,70 @@
+@use '@variables' as variables;
+
+.thankYouContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: 6;
+  height: 100%;
+  width: 100%;
+  color: white;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  //   top: 210px;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+.overlay {
+  position: absolute;
+  background-color: rgba(0, 0, 0, 0.3);
+  width: 100%;
+  height: 100%;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 5;
+}
+
+.contentContainer {
+  position: relative;
+  z-index: 100;
+  text-align: center;
+  @media screen and (min-width: 1300px) {
+    margin-top: -12%;
+  }
+}
+
+.thankYouLogo {
+  width: 600px;
+  margin-bottom: 70px;
+}
+
+.thankYouHeading {
+  font-size: 28px;
+  font-family: variables.$fontPrimary;
+  margin-top: 8px;
+}
+
+@media screen and (max-width: variables.$tablet) {
+  .thankYouContainer {
+    position: relative;
+    top: 0;
+    background-color: variables.$darkGreen;
+    padding: 50px;
+    height: 300px;
+  }
+}
+
+@media screen and (max-width: variables.$mobile) {
+  .thankYouContainer {
+    height: 280px;
+  }
+  .thankYouHeading {
+    font-size: 20px;
+  }
+}
