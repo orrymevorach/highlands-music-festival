@@ -41,3 +41,29 @@ button.button {
   font-size: 18px;
   padding-top: 12px;
 }
+
+@media screen and (max-width: variables.$mobile) {
+  .container {
+    width: 100%;
+    padding: 0 15px;
+    margin-top: 50px;
+  }
+
+  .title {
+    font-size: 30px;
+  }
+
+  .description {
+    font-size: 18px;
+  }
+
+  .form {
+    input {
+      height: 40px;
+    }
+  }
+
+  button.button {
+    font-size: 16px;
+  }
+}
