@@ -1,5 +1,5 @@
 import ArtistSubmissions from 'components/artist-submissions/artist-submissions';
-import Head from 'components/head';
+import Head from 'components/head/head';
 import Layout from 'components/layout/layout';
 import { useEmailCaptureContext } from 'context/email-capture-context';
 import { useFacebookPixel } from 'hooks';

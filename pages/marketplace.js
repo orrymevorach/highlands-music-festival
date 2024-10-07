@@ -1,6 +1,6 @@
-import Head from 'components/head';
+import Head from 'components/head/head';
 import Layout from 'components/layout/layout';
-import Marketplace from 'components/marketplace';
+import Marketplace from 'components/marketplace/marketplace';
 import { useEmailCaptureContext } from 'context/email-capture-context';
 import { useFacebookPixel } from 'hooks';
 import { getPageLoadData, getVendors } from 'lib/contentful-lib';

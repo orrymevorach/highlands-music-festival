@@ -1,4 +1,4 @@
-import Head from 'components/head';
+import Head from 'components/head/head';
 import { getPageLoadData } from 'lib/contentful-lib';
 import { PAGE_SLUGS } from 'utils/constants';
 

@@ -1,11 +1,11 @@
-import VendorSubmissionForm from './vendor-submission-form';
+import VendorSubmissionForm from './vendor-submission-form/vendor-submission-form';
 import styles from './vendor-submission.module.scss';
 import Image from 'next/image';
 import logo from 'public/Logo-1200px-Neutral.png';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faMapPin } from '@fortawesome/free-solid-svg-icons';
 import { colors } from 'utils/constants';
-import Information from './information';
+import Information from './information/information';
 
 const informationData = [
   // {

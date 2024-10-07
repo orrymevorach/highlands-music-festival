@@ -1,5 +1,5 @@
 import FaqCategories from './faq-categories/faq-categories';
-import FaqCategoriesLinks from './faq-category-links';
+import FaqCategoriesLinks from './faq-category-links/faq-category-links';
 import styles from './faq.module.scss';
 
 export default function Faq({ data }) {

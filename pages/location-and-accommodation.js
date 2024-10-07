@@ -1,5 +1,5 @@
-import LocationAndAccommodation from 'components/location-and-accommodation';
-import Head from 'components/head';
+import LocationAndAccommodation from 'components/location-and-accommodation/location-and-accommodation';
+import Head from 'components/head/head';
 import { useEmailCaptureContext } from 'context/email-capture-context';
 import { PAGE_SLUGS } from 'utils/constants';
 import { getPageLoadData } from 'lib/contentful-lib';

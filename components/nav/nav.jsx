@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import styles from './nav.module.scss';
 import Link from 'next/link';
-import HamburgerMenu from '../hamburger-menu';
+import HamburgerMenu from '../hamburger-menu/hamburger-menu';
 import clsx from 'clsx';
 import { faHome } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';

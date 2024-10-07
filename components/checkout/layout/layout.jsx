@@ -1,5 +1,5 @@
 import styles from './layout.module.scss';
-import OrderSummary from '../order-summary';
+import OrderSummary from '../order-summary/order-summary';
 import Image from 'next/image';
 import Logo from 'public/Logo-1200px-No-Bkgd-min-small.png';
 import clsx from 'clsx';

@@ -1,7 +1,7 @@
 import Image from 'next/image';
 import Rainbow from 'public/rainbow-min.png';
 import styles from './404.module.scss';
-import Head from 'components/head';
+import Head from 'components/head/head';
 import { useFacebookPixel } from 'hooks';
 import { PAGE_SLUGS } from 'utils/constants';
 import { getPageLoadData } from 'lib/contentful-lib';

@@ -1,7 +1,7 @@
 import styles from './home.module.scss';
-import AnnouncementTakeover from 'components/announcement-takeover';
+import AnnouncementTakeover from 'components/announcement-takeover/announcement-takeover';
 import useAnimateAnnouncement from 'components/announcement-takeover/useAnimateAnnouncement';
-import Video from './video';
+import Video from './video/video';
 import Layout from 'components/layout/layout';
 
 export default function Home({
@@ -22,7 +22,6 @@ export default function Home({
           <Layout hideHeaderMargin festivalDate={festivalDate}>
             <main className={styles.mainContent}>
               <h1 className={styles.h1}>Highlands Music Festival</h1>
-              {/* <TopRow /> */}
               <Video festivalDate={festivalDate} />
             </main>
           </Layout>

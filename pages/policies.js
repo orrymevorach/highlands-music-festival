@@ -1,4 +1,4 @@
-import Head from 'components/head';
+import Head from 'components/head/head';
 import Layout from 'components/layout/layout';
 import Policies from 'components/policies/policies';
 import { useEmailCaptureContext } from 'context/email-capture-context';

@@ -1,7 +1,7 @@
-import Head from 'components/head';
-import Schedule from 'components/schedule';
-import Lineup from 'components/lineup';
-import Layout from 'components/layout';
+import Head from 'components/head/head';
+// import Schedule from 'components/schedule';
+import Lineup from 'components/lineup/lineup';
+import Layout from 'components/layout/layout';
 import { useEmailCaptureContext } from 'context/email-capture-context';
 import {
   getFeatureFlags,

@@ -1,4 +1,3 @@
-import Layout from '../layout';
 import styles from './committee.module.scss';
 import Image from 'next/image';
 import clsx from 'clsx';

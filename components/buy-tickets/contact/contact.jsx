@@ -1,4 +1,4 @@
-import EmailCaptureForm from 'components/email-capture-form';
+import EmailCaptureForm from 'components/email-capture-form/email-capture-form';
 import styles from './contact.module.scss';
 
 export default function Contact() {

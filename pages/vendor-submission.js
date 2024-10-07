@@ -1,6 +1,6 @@
-import Head from 'components/head';
+import Head from 'components/head/head';
 import Layout from 'components/layout/layout';
-import VendorSubmission from 'components/vendor-submission';
+import VendorSubmission from 'components/vendor-submission/vendor-submission';
 import { useEmailCaptureContext } from 'context/email-capture-context';
 import { useFacebookPixel } from 'hooks';
 import { getPageLoadData } from 'lib/contentful-lib';

@@ -1,6 +1,6 @@
-import Takeover from 'components/takeover';
-import styles from './password-protection-takeover.module.scss';
 import { useState } from 'react';
+import Takeover from 'components/takeover/takeover';
+import styles from './password-protection-takeover.module.scss';
 import Input from '@mui/joy/Input';
 import Button from 'components/shared/button/button';
 import { ErrorMessage } from 'components/checkout/checkout-shared-components';

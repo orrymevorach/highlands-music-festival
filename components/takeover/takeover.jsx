@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
 import style from './takeover.module.scss';
-import CloseButton from 'components/shared/close-button';
+import CloseButton from 'components/shared/close-button/close-button';
 import clsx from 'clsx';
 
 export default function Takeover({

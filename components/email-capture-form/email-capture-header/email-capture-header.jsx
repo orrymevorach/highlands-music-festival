@@ -1,9 +1,9 @@
 import styles from './email-capture-header.module.scss';
 import React, { useState } from 'react';
-import EmailCaptureForm from 'components/email-capture-form';
-import Takeover from 'components/takeover';
+import EmailCaptureForm from 'components/email-capture-form/email-capture-form';
+import Takeover from 'components/takeover/takeover';
 import { useEmailCaptureContext } from 'context/email-capture-context';
-import CloseButton from 'components/shared/close-button';
+import CloseButton from 'components/shared/close-button/close-button';
 import { useWindowSize } from 'hooks';
 import animations from '@animations';
 

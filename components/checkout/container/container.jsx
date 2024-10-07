@@ -1,13 +1,13 @@
-import Quantity from 'components/checkout/quantity';
-import UserForm from 'components/checkout/user/user-form';
-import Payment from 'components/checkout/payment';
+import Quantity from 'components/checkout/quantity/quantity';
+import UserForm from 'components/checkout/user/user-form/user-form';
+import Payment from 'components/checkout/payment/payment';
 import { useCheckoutContext } from 'context/checkout-context';
-import Takeover from 'components/takeover';
+import Takeover from 'components/takeover/takeover';
 import styles from './container.module.scss';
 import Loader from 'components/loader/loader';
-import PromoCodeForm from 'components/checkout/promo-code/promo-code-form';
-import UserDetails from 'components/checkout/user/user-details';
-import PromoCodeSuccess from 'components/checkout/promo-code/promo-code-success';
+import PromoCodeForm from 'components/checkout/promo-code/promo-code-form/promo-code-form';
+import UserDetails from 'components/checkout/user/user-details/user-details';
+import PromoCodeSuccess from 'components/checkout/promo-code/promo-code-success/promo-code-success';
 
 export default function CheckoutContainer() {
   const { quantity, paymentIntent, isLoading, promoCode, customer } =

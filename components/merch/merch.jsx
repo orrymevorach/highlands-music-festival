@@ -1,6 +1,6 @@
 import styles from './merch.module.scss';
-import Loader from 'components/loader';
-import Card from './card';
+import Loader from 'components/loader/loader';
+import Card from './card/card';
 
 const getCategories = ({ products }) => {
   let categories = [];

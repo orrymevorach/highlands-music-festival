@@ -1,7 +1,7 @@
 import OrderConfirmation from 'components/order-confirmation';
 import { getPageLoadData } from 'lib/contentful-lib';
 import { PAGE_SLUGS } from 'utils/constants';
-import Head from 'components/head';
+import Head from 'components/head/head';
 import { useFacebookPixel } from 'hooks';
 
 export default function CommitteePage({

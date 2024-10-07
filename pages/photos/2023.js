@@ -1,5 +1,5 @@
 import FlickrGallery from 'components/gallery-flickr/gallery-flickr';
-import Head from 'components/head';
+import Head from 'components/head/head';
 import Layout from 'components/layout/layout';
 import { useEmailCaptureContext } from 'context/email-capture-context';
 import { useFacebookPixel } from 'hooks';

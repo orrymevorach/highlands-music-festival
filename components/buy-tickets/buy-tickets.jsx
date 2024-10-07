@@ -1,4 +1,4 @@
-import Layout from 'components/layout';
+import Layout from 'components/layout/layout';
 import styles from './buy-tickets.module.scss';
 import { calculatePricing } from 'components/checkout/checkout-utils';
 import PricingContainer from './pricing-container';

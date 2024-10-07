@@ -1,6 +1,6 @@
 import styles from './email-capture-form.module.scss';
 import React, { useState } from 'react';
-import Loader from 'components/loader';
+import Loader from 'components/loader/loader';
 import Cookies from 'js-cookie';
 import { cookies } from 'utils/constants';
 import { useEmailCaptureContext } from 'context/email-capture-context';

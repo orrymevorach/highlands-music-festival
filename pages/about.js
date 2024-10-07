@@ -1,6 +1,5 @@
-import About from 'components/about';
-
-import Head from 'components/head';
+import About from 'components/about/about';
+import Head from 'components/head/head';
 import Layout from 'components/layout/layout';
 import { useEmailCaptureContext } from 'context/email-capture-context';
 import { useFacebookPixel } from 'hooks';

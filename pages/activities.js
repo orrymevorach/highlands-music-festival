@@ -1,5 +1,5 @@
-import Activities from 'components/activities';
-import Head from 'components/head';
+import Activities from 'components/activities/activities';
+import Head from 'components/head/head';
 import Layout from 'components/layout/layout';
 import { useEmailCaptureContext } from 'context/email-capture-context';
 import { useFacebookPixel } from 'hooks';

@@ -1,6 +1,5 @@
 import styles from './location-and-accommodation.module.scss';
-import Layout from '../layout';
-import GoogleMap from 'components/location-and-accommodation/GoogleMap';
+import GoogleMap from 'components/location-and-accommodation/GoogleMap/GoogleMap';
 import clsx from 'clsx';
 import Image from 'next/image';
 import MapOfCamp from 'public/map-2024.jpg';

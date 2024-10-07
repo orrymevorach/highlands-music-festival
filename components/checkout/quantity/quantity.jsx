@@ -3,7 +3,7 @@ import { InputLabel, MenuItem, Select } from '@mui/material';
 import { useEffect, useState } from 'react';
 import { useCheckoutContext } from 'context/checkout-context';
 import { calculatePricing } from '../checkout-utils';
-import Loader from 'components/loader';
+import Loader from 'components/loader/loader';
 import Button from 'components/shared/button/button';
 
 export default function Quantity() {
