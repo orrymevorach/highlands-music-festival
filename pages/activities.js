@@ -1,4 +1,4 @@
-import Activities from 'components/Activities/Activities';
+import Activities from 'components/ActivitiesPage/Activities';
 import Head from 'components/shared/Head/Head';
 import Layout from 'components/shared/Layout/Layout';
 import { useEmailCaptureContext } from 'context/email-capture-context';

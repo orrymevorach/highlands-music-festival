@@ -1,4 +1,4 @@
-import ArtistSubmissions from 'components/ArtistSubmissions/ArtistSubmissions';
+import ArtistSubmissions from 'components/ArtistSubmissionsPage/ArtistSubmissions';
 import Head from 'components/shared/Head/Head';
 import Layout from 'components/shared/Layout/Layout';
 import { useEmailCaptureContext } from 'context/email-capture-context';

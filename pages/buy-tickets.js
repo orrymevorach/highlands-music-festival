@@ -3,13 +3,13 @@ import { getFeatureFlags, getPageLoadData } from 'lib/contentful-lib';
 import { FEATURE_FLAGS, PAGE_SLUGS } from 'utils/constants';
 import { useFacebookPixel } from 'hooks';
 import Layout from 'components/shared/Layout/Layout';
-import Merch from 'components/BuyTickets/Merch/Merch';
+import Merch from 'components/BuyTicketsPage/Merch/Merch';
 import { getProducts } from 'lib/airtable-lib';
 import EmailCaptureForm from 'components/shared/EmailCaptureForm/EmailCaptureForm';
 import { useEmailCaptureContext } from 'context/email-capture-context';
 // import { getPriceModel } from 'lib/stripe-lib';
 // import BuyTickets from 'components/buy-tickets';
-import Contact from 'components/BuyTickets/Contact/Contact';
+import Contact from 'components/BuyTicketsPage/Contact/Contact';
 
 export default function TicketLinks({
   festivalDate,

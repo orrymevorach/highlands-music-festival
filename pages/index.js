@@ -1,4 +1,4 @@
-import Home from 'components/Home/Home';
+import Home from 'components/HomePage/Home';
 import Head from 'components/shared/Head/Head';
 import { useEmailCaptureContext } from 'context/email-capture-context';
 import {

@@ -1,6 +1,6 @@
 import styles from './Home.module.scss';
-import AnnouncementTakeover from 'components/Home/AnnouncementTakeover/AnnouncementTakeover';
-import useAnimateAnnouncement from 'components/Home/AnnouncementTakeover/useAnimateAnnouncement';
+import AnnouncementTakeover from 'components/HomePage/AnnouncementTakeover/AnnouncementTakeover';
+import useAnimateAnnouncement from 'components/HomePage/AnnouncementTakeover/useAnimateAnnouncement';
 import Video from './Video/Video';
 import Layout from 'components/shared/Layout/Layout';
 
