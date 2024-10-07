@@ -6,7 +6,7 @@ import {
 } from '@stripe/react-stripe-js';
 import { useCheckoutContext } from 'context/checkout-context';
 import { createSubscription } from 'lib/stripe-lib';
-import { ErrorMessage } from 'components/checkout/checkout-shared-components';
+import { ErrorMessage } from 'components/CheckoutPage/checkout-shared-components';
 import Button from 'components/shared/Button/Button';
 import { createRecord, updateRecord } from 'lib/airtable-lib';
 import { sendCabinReservationEmail, sendConfirmationEmail } from 'lib/mailgun';

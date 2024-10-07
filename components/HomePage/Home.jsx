@@ -3,6 +3,7 @@ import AnnouncementTakeover from 'components/HomePage/AnnouncementTakeover/Annou
 import useAnimateAnnouncement from 'components/HomePage/AnnouncementTakeover/useAnimateAnnouncement';
 import Video from './Video/Video';
 import Layout from 'components/shared/Layout/Layout';
+import Particles from './Particles/Particles';
 
 export default function Home({
   headlinerFeatureFlag = false,
@@ -21,8 +22,9 @@ export default function Home({
         <div className={styles.homePageContainer}>
           <Layout hideHeaderMargin festivalDate={festivalDate}>
             <main className={styles.mainContent}>
+              <Particles />
               <h1 className={styles.h1}>Highlands Music Festival</h1>
-              <Video festivalDate={festivalDate} />
+              {/* <Video festivalDate={festivalDate} /> */}
             </main>
           </Layout>
         </div>

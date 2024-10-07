@@ -1,6 +1,6 @@
 import React from 'react';
 import { Elements } from '@stripe/react-stripe-js';
-import CheckoutForm from 'components/checkout/payment/checkout-form/checkout-form';
+import CheckoutForm from 'components/CheckoutPage/payment/checkout-form/checkout-form';
 import { loadStripe } from '@stripe/stripe-js';
 import { useCheckoutContext } from 'context/checkout-context';
 

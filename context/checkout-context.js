@@ -1,4 +1,4 @@
-import { useCheckout } from 'components/checkout/hooks';
+import { useCheckout } from 'components/CheckoutPage/hooks';
 import React, { createContext, useContext } from 'react';
 
 const CheckoutContext = createContext();

@@ -1,7 +1,7 @@
 import {
   mapDayToSuffix,
   mapIndexToMonth,
-} from 'components/checkout/checkout-utils';
+} from 'components/CheckoutPage/checkout-utils';
 
 export function isObjEmpty(obj) {
   return Object.keys(obj).length === 0;

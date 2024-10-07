@@ -1,5 +1,5 @@
 import styles from './BuyTickets.module.scss';
-import { calculatePricing } from 'components/checkout/checkout-utils';
+import { calculatePricing } from 'components/CheckoutPage/checkout-utils';
 import PricingContainer from './PricingContainer';
 import Link from 'next/link';
 

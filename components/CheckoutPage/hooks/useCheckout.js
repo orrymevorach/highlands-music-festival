@@ -2,7 +2,7 @@ import { useReducer } from 'react';
 import {
   useCancelPaymentIntent,
   usetSetPriceModelBasedOnRoute,
-} from 'components/checkout/hooks';
+} from 'components/CheckoutPage/hooks';
 
 const initialState = {
   quantity: null,

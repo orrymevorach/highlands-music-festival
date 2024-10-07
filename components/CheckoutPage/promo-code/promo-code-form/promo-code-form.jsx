@@ -7,8 +7,8 @@ import {
   applyFixedPricePromo,
   applyPromoCode,
 } from 'lib/stripe-lib';
-import { calculatePricing } from 'components/checkout/checkout-utils';
-import { ErrorMessage } from 'components/checkout/checkout-shared-components';
+import { calculatePricing } from 'components/CheckoutPage/checkout-utils';
+import { ErrorMessage } from 'components/CheckoutPage/checkout-shared-components';
 import Button from 'components/shared/Button/Button';
 import { FIXED_PRICE_PROMO_CODES } from 'utils/constants';
 

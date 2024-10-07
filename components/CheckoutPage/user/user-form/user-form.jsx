@@ -7,7 +7,7 @@ import Loader from 'components/shared/Loader/Loader';
 import Button from 'components/shared/Button/Button';
 import { Checkbox } from '@mui/material';
 import { createRecord } from 'lib/airtable-lib';
-import { ErrorMessage } from 'components/checkout/checkout-shared-components';
+import { ErrorMessage } from 'components/CheckoutPage/checkout-shared-components';
 import { validateEmail } from 'utils/utils';
 import { useRouter } from 'next/router';
 
