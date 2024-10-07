@@ -40,14 +40,18 @@ export default function Marketplace({ vendors, partners }) {
         classNames={styles.imageTiles}
         ImageTileBack={ImageTileBack}
       />
-      <div className={styles.wrapper}>
-        <h2 className={styles.heading}>Partners of Highlands</h2>
-      </div>
-      <ImageTiles
-        tiles={partners}
-        classNames={styles.imageTiles}
-        ImageTileBack={ImageTileBack}
-      />
+      {partners.length && (
+        <>
+          <div className={styles.wrapper}>
+            <h2 className={styles.heading}>Partners of Highlands</h2>
+          </div>
+          <ImageTiles
+            tiles={partners}
+            classNames={styles.imageTiles}
+            ImageTileBack={ImageTileBack}
+          />
+        </>
+      )}
     </main>
   );
 }
