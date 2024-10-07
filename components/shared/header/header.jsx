@@ -1,6 +1,6 @@
-import styles from './header.module.scss';
+import styles from './Header.module.scss';
 import clsx from 'clsx';
-import Nav from 'components/nav/nav';
+import Nav from 'components/shared/Nav/Nav';
 import Link from 'next/link';
 import { useWindowSize } from 'hooks';
 import logo from 'public/Logo-1200px-No-Bkgd-min-small.png';

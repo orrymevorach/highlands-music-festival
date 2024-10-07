@@ -1,8 +1,8 @@
-import styles from './home.module.scss';
-import AnnouncementTakeover from 'components/announcement-takeover/announcement-takeover';
-import useAnimateAnnouncement from 'components/announcement-takeover/useAnimateAnnouncement';
-import Video from './video/video';
-import Layout from 'components/layout/layout';
+import styles from './Home.module.scss';
+import AnnouncementTakeover from 'components/Home/AnnouncementTakeover/AnnouncementTakeover';
+import useAnimateAnnouncement from 'components/Home/AnnouncementTakeover/useAnimateAnnouncement';
+import Video from './Video/Video';
+import Layout from 'components/shared/Layout/Layout';
 
 export default function Home({
   headlinerFeatureFlag = false,

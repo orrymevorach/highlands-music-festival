@@ -1,6 +1,6 @@
 import FlickrGallery from 'components/gallery-flickr/gallery-flickr';
-import Head from 'components/head/head';
-import Layout from 'components/layout/layout';
+import Head from 'components/shared/Head/Head';
+import Layout from 'components/shared/Layout/Layout';
 import { useEmailCaptureContext } from 'context/email-capture-context';
 import { useFacebookPixel } from 'hooks';
 import { getPageLoadData } from 'lib/contentful-lib';

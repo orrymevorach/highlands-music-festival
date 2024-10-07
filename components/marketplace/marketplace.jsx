@@ -1,6 +1,6 @@
 import styles from './marketplace.module.scss';
-import ImageTiles from 'components/shared/image-tiles/image-tiles';
-import RichText from 'components/shared/rich-text/rich-text';
+import ImageTiles from 'components/shared/ImageTiles/ImageTiles';
+import RichText from 'components/shared/RichText/RichText';
 import Link from 'next/link';
 import { getInstagramHandle } from 'utils/utils';
 

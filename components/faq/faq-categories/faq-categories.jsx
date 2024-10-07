@@ -1,4 +1,4 @@
-import RichText from 'components/shared/rich-text/rich-text';
+import RichText from 'components/shared/RichText/RichText';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { useState } from 'react';
 import { faChevronDown, faChevronUp } from '@fortawesome/free-solid-svg-icons';

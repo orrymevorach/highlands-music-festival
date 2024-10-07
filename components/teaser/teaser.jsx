@@ -1,5 +1,5 @@
 import { imgPath } from '../../utils/constants';
-import './teaser.scss';
+import './Teaser.scss';
 
 const TeaserPage = () => {
   return (

@@ -1,5 +1,5 @@
 import clsx from 'clsx';
-import styles from './about.module.scss';
+import styles from './About.module.scss';
 import { useWindowSize } from 'hooks';
 import Image from 'next/image';
 import Logo from 'public/Logo-1200px-No-Bkgd-min-small.png';

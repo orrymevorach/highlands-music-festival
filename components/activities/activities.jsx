@@ -1,8 +1,8 @@
-import styles from './activities.module.scss';
+import styles from './Activities.module.scss';
 import Image from 'next/image';
 import Hammock from 'public/backgrounds/HL_2023_Logo491.jpg';
-import ImageTiles from 'components/shared/image-tiles/image-tiles';
-import RichText from 'components/shared/rich-text/rich-text';
+import ImageTiles from 'components/shared/ImageTiles/ImageTiles';
+import RichText from 'components/shared/RichText/RichText';
 
 const ImageTileBack = ({ description }) => {
   return (

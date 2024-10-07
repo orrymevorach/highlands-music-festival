@@ -5,7 +5,7 @@ import Container from 'components/checkout/container/container';
 import { getPageLoadData } from 'lib/contentful-lib';
 import { getPriceModel } from 'lib/stripe-lib';
 import { PAGE_SLUGS } from 'utils/constants';
-import Head from 'components/head/head';
+import Head from 'components/shared/Head/Head';
 import Legal from 'components/checkout/legal/legal';
 import { useWindowSize } from 'hooks';
 import { useFacebookPixel } from 'hooks';

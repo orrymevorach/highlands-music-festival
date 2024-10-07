@@ -1,5 +1,5 @@
 import { imgPath } from 'utils/constants';
-import styles from './video.module.scss';
+import styles from './Video.module.scss';
 
 const showThankYou = false;
 const ThankYou = ({ festivalDate }) => {

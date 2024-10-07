@@ -1,7 +1,7 @@
 import styles from './committee.module.scss';
 import Image from 'next/image';
 import clsx from 'clsx';
-import Takeover from 'components/takeover/takeover';
+import Takeover from 'components/shared/Takeover/Takeover';
 import { useState } from 'react';
 
 const CommitteeMember = ({ name, jobTitle, image }) => {

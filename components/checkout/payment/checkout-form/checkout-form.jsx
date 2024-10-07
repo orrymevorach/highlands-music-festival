@@ -7,7 +7,7 @@ import {
 import { useCheckoutContext } from 'context/checkout-context';
 import { createSubscription } from 'lib/stripe-lib';
 import { ErrorMessage } from 'components/checkout/checkout-shared-components';
-import Button from 'components/shared/button/button';
+import Button from 'components/shared/Button/Button';
 import { createRecord, updateRecord } from 'lib/airtable-lib';
 import { sendCabinReservationEmail, sendConfirmationEmail } from 'lib/mailgun';
 import { sendSlackNotification } from 'lib/slack-lib';

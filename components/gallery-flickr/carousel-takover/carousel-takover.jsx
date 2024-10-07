@@ -1,4 +1,4 @@
-import Takeover from 'components/takeover/takeover';
+import Takeover from 'components/shared/Takeover/Takeover';
 import { useCallback, useEffect } from 'react';
 import styles from './carousel-takeover.module.scss';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';

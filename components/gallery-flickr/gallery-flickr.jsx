@@ -2,7 +2,7 @@ import styles from './gallery-flickr.module.scss';
 import { useEffect, useState } from 'react';
 import Pagination from './pagination/pagination';
 import CarouselTakeover from './carousel-takover/carousel-takover';
-import Loader from 'components/loader/loader';
+import Loader from 'components/shared/Loader/Loader';
 
 export default function FlickrGallery({ photos }) {
   const [showModal, setShowModal] = useState(false);

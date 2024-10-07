@@ -1,6 +1,6 @@
-import Activities from 'components/activities/activities';
-import Head from 'components/head/head';
-import Layout from 'components/layout/layout';
+import Activities from 'components/Activities/Activities';
+import Head from 'components/shared/Head/Head';
+import Layout from 'components/shared/Layout/Layout';
 import { useEmailCaptureContext } from 'context/email-capture-context';
 import { useFacebookPixel } from 'hooks';
 import { getActivities, getPageLoadData } from 'lib/contentful-lib';

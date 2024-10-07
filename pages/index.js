@@ -1,5 +1,5 @@
-import Home from 'components/home/home';
-import Head from 'components/head/head';
+import Home from 'components/Home/Home';
+import Head from 'components/shared/Head/Head';
 import { useEmailCaptureContext } from 'context/email-capture-context';
 import {
   getFeatureFlags,

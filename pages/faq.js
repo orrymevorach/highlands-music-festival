@@ -1,6 +1,6 @@
 import Faq from 'components/faq/faq';
-import Head from 'components/head/head';
-import Layout from 'components/layout/layout';
+import Head from 'components/shared/Head/Head';
+import Layout from 'components/shared/Layout/Layout';
 import { useEmailCaptureContext } from 'context/email-capture-context';
 import { useFacebookPixel } from 'hooks';
 import { getFaqPage, getPageLoadData } from 'lib/contentful-lib';

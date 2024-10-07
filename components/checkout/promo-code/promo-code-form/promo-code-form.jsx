@@ -9,7 +9,7 @@ import {
 } from 'lib/stripe-lib';
 import { calculatePricing } from 'components/checkout/checkout-utils';
 import { ErrorMessage } from 'components/checkout/checkout-shared-components';
-import Button from 'components/shared/button/button';
+import Button from 'components/shared/Button/Button';
 import { FIXED_PRICE_PROMO_CODES } from 'utils/constants';
 
 export default function PromoCodeForm() {

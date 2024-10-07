@@ -1,14 +1,14 @@
 import styles from './lineup.module.scss';
 import Image from 'next/image';
 import clsx from 'clsx';
-import ImageTiles from '../shared/image-tiles/image-tiles';
+import ImageTiles from '../shared/ImageTiles/ImageTiles';
 import GreenSun from 'public/green-sun-small.png';
 import Link from 'next/link';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSpotify } from '@fortawesome/free-brands-svg-icons';
 import { useWindowSize } from 'hooks';
 import { useState } from 'react';
-import Takeover from 'components/takeover/takeover';
+import Takeover from 'components/shared/Takeover/Takeover';
 import Jamlands from './jamlands/jamlands';
 
 const getFormattedLineup = lineup => {
