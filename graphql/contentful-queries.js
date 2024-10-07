@@ -204,6 +204,21 @@ export const GET_VENDORS = gql`
             link
           }
         }
+        partnersCollection {
+          items {
+            name
+            description {
+              json
+            }
+            image {
+              ...ImageFields
+            }
+            logo {
+              ...ImageFields
+            }
+            link
+          }
+        }
       }
     }
   }

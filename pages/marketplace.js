@@ -1,6 +1,6 @@
 import Head from 'components/head';
 import Layout from 'components/layout/layout';
-import Vendors from 'components/marketplace';
+import Marketplace from 'components/marketplace';
 import { useEmailCaptureContext } from 'context/email-capture-context';
 import { useFacebookPixel } from 'hooks';
 import { getPageLoadData, getVendors } from 'lib/contentful-lib';
@@ -9,6 +9,7 @@ import { PAGE_SLUGS } from 'utils/constants';
 export default function ActivitiesPage({
   showEmailCapture,
   vendors,
+  partners,
   festivalDate,
 }) {
   useFacebookPixel();
@@ -18,7 +19,7 @@ export default function ActivitiesPage({
     <>
       <Head title="Marketplace" festivalDate={festivalDate} />
       <Layout hideHeaderMargin festivalDate={festivalDate}>
-        <Vendors vendors={vendors} />
+        <Marketplace vendors={vendors} partners={partners} />
       </Layout>
     </>
   );
@@ -28,11 +29,12 @@ export async function getStaticProps() {
     url: PAGE_SLUGS.MARKETPLACE,
   });
 
-  const vendors = await getVendors();
+  const { vendors, partners } = await getVendors();
   return {
     props: {
       ...pageLoadData,
       vendors,
+      partners,
     },
   };
 }

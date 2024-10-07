@@ -23,7 +23,7 @@ const ImageTileBack = ({ description, link }) => {
   );
 };
 
-export default function Marketplace({ vendors }) {
+export default function Marketplace({ vendors, partners }) {
   return (
     <main>
       <div className={styles.wrapper}>
@@ -37,6 +37,14 @@ export default function Marketplace({ vendors }) {
       </div>
       <ImageTiles
         tiles={vendors}
+        classNames={styles.imageTiles}
+        ImageTileBack={ImageTileBack}
+      />
+      <div className={styles.wrapper}>
+        <h2 className={styles.heading}>Partners of Highlands</h2>
+      </div>
+      <ImageTiles
+        tiles={partners}
         classNames={styles.imageTiles}
         ImageTileBack={ImageTileBack}
       />
