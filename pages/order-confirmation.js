@@ -3,17 +3,14 @@ import { getPageLoadData } from 'lib/contentful-lib';
 import { PAGE_SLUGS } from 'utils/constants';
 import Head from 'components/shared/Head/Head';
 import { useFacebookPixel } from 'hooks';
+import { getRecordById } from 'lib/airtable-lib';
 
-export default function CommitteePage({
-  customer,
-  orderDetails,
-  festivalDate,
-}) {
+export default function CommitteePage({ user, festivalDate }) {
   useFacebookPixel();
   return (
     <>
       <Head title="Order Confirmed!" festivalDate={festivalDate} />
-      <OrderConfirmation customer={customer} orderDetails={orderDetails} />
+      <OrderConfirmation user={user} />
     </>
   );
 }
@@ -23,32 +20,16 @@ export const getServerSideProps = async context => {
     url: PAGE_SLUGS.ORDER_CONFIRMATION,
   });
 
-  const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY);
-  const { payment_intent } = context.query;
-  const getPaymentIntent = async () => {
-    try {
-      const paymentIntent = await stripe.paymentIntents.retrieve(
-        payment_intent
-      );
-      return paymentIntent;
-    } catch (error) {
-      console.log(error);
-    }
-  };
+  const { id } = context.query;
 
-  const paymentIntent = await getPaymentIntent();
-  if (!paymentIntent) {
-    return {
-      props: {},
-    };
-  }
-  const customer = await stripe.customers.retrieve(paymentIntent?.customer);
+  const { record: user } = await getRecordById({
+    recordId: id,
+    tableId: 'Ticket Purchases',
+  });
+
   return {
     props: {
-      customer,
-      orderDetails: {
-        status: paymentIntent.status,
-      },
+      user: user || null,
       ...pageLoadData,
     },
   };

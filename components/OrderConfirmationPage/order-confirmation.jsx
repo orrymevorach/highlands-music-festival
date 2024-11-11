@@ -7,33 +7,34 @@ import clsx from 'clsx';
 import Link from 'next/link';
 import { faChevronLeft } from '@fortawesome/free-solid-svg-icons';
 
-const SuccessMessage = ({ customer }) => {
+const SuccessMessage = ({ user }) => {
   return (
     <>
       <p className={styles.orderConfirmed}>
         Order Confirmed{' '}
         <FontAwesomeIcon icon={faCheckCircle} className={styles.checkMark} />
       </p>
-      <p className={styles.bodyCopy}>Thanks for your order, {customer.name}!</p>
+      <p className={styles.bodyCopy}>Thanks for your order, {user.name}!</p>
       <p className={clsx(styles.bodyCopy, styles.bodyCopySmall)}>
-        A confirmation email has been sent to {customer.email}.
+        A confirmation email has been sent to {user.emailAddress}.
       </p>
-      {/* Pulver - this is where you can add links to social after a ticket has been purchased */}
     </>
   );
 };
 
 const ErrorMessage = () => (
   <>
-    <p className={styles.bodyCopy}>No confirmation number has been provided</p>
+    <p className={styles.bodyCopy}>
+      Apologies, we do not not have a record of this order
+    </p>
     <p className={styles.bodyCopySmall}>
       If you are having trouble placing an order, please contact us at
       info@highlandsmusicfestival.ca.
     </p>
   </>
 );
-export default function OrderConfirmation({ customer, orderDetails = {} }) {
-  const isOrderSuccessful = orderDetails.status === 'succeeded';
+export default function OrderConfirmation({ user = null }) {
+  const isOrderSuccessful = !!user;
   return (
     <div className={styles.orderConfirmationContainer}>
       <Link href="/" className={styles.backLink}>
@@ -48,11 +49,7 @@ export default function OrderConfirmation({ customer, orderDetails = {} }) {
         priority
         quality={10}
       />
-      {isOrderSuccessful ? (
-        <SuccessMessage customer={customer} />
-      ) : (
-        <ErrorMessage />
-      )}
+      {isOrderSuccessful ? <SuccessMessage user={user} /> : <ErrorMessage />}
     </div>
   );
 }

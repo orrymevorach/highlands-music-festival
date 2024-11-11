@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import {
   useStripe,
   useElements,
@@ -11,6 +11,8 @@ import Button from 'components/shared/Button/Button';
 import { createRecord, updateRecord } from 'lib/airtable-lib';
 import { sendCabinReservationEmail, sendConfirmationEmail } from 'lib/mailgun';
 import { sendSlackNotification } from 'lib/slack-lib';
+import { useRouter } from 'next/router';
+import { createTemporaryPassword } from 'components/CheckoutPage/checkout-utils';
 
 export default function CheckoutForm() {
   const [isLoading, setIsLoading] = useState(false);
@@ -23,11 +25,8 @@ export default function CheckoutForm() {
     promoCode,
     vendorName,
     vendorSecondGuest,
-    paymentType,
   } = useCheckoutContext();
-
-  const [successfulPaymentIntentId, setSuccessfulPaymentIntentId] =
-    useState(null);
+  const router = useRouter();
 
   const stripe = useStripe();
   const elements = useElements();
@@ -40,36 +39,55 @@ export default function CheckoutForm() {
     }
     setIsLoading(true);
 
-    // Collect $100 payment
-    const { error, paymentIntent: paymentResult } = await stripe.confirmPayment(
-      {
+    let paymentResponse;
+    const hasSubscription = router.query.installments === 'true';
+    if (hasSubscription) {
+      // Create a payment method
+      const { setupIntent, error: setupError } = await stripe.confirmSetup({
+        elements,
+        redirect: 'if_required',
+      });
+
+      if (setupError) {
+        setErrorMessage(setupError.message);
+        setIsLoading(false);
+        return;
+      }
+      // Create subscription
+      paymentResponse = await createSubscription({
+        priceData,
+        quantity,
+        customerId: customer.id,
+        paymentMethodId: setupIntent.payment_method,
+      });
+    } else {
+      const response = await stripe.confirmPayment({
         elements,
         redirect: 'if_required', // stop redirect on payment success so that we can create a subscription
-      }
-    );
-
-    if (error) {
-      setIsLoading(false);
-      setErrorMessage(error.message);
-      return;
+      });
+      paymentResponse = response.error ? response : response.paymentIntent;
     }
 
-    // Create subscription
-    const subscriptionResponse = await createSubscription({
-      priceData,
-      quantity,
-      customerId: paymentIntent.customer,
-      paymentMethodId: paymentResult.payment_method,
-    });
+    if (paymentResponse.error) {
+      setIsLoading(false);
+      setErrorMessage(paymentResponse.error.message);
+      return;
+    }
 
     const name = customer.name;
     const email = customer.email.toLowerCase();
 
+    const amount = hasSubscription
+      ? priceData.subscriptionInstallmentAmount
+      : paymentResponse.amount / 100;
+
+    const password = createTemporaryPassword(paymentResponse.id);
+
     const { response: airtableResponse } = await createRecord({
       tableId: 'Ticket Purchases',
       newFields: {
-        amount: paymentResult.amount / 100,
-        paymentIntent: paymentResult.id,
+        amount,
+        paymentIntent: password,
         Name: name,
         'Email Address': email,
         discountCode: promoCode,
@@ -95,16 +113,12 @@ export default function CheckoutForm() {
 
     const isAirtableSuccessful = airtableResponse.id;
 
-    if (
-      paymentResult.status === 'succeeded' &&
-      subscriptionResponse === 200 &&
-      isAirtableSuccessful
-    ) {
+    if (isAirtableSuccessful) {
       const mailgunConfirmationEmailResponse = await sendConfirmationEmail({
         emailAddress: email,
       });
       // const mailgunResponse = await sendCabinReservationEmail({
-      //   paymentIntentId: paymentResult.id,
+      //   paymentIntentId: password,
       //   emailAddress: email,
       // });
 
@@ -123,30 +137,18 @@ export default function CheckoutForm() {
       if (process.env.NODE_ENV === 'production') {
         // Facebook Pixel Tracking
         try {
-          const isSubscription =
-            paymentType &&
-            paymentType === 'subscription' &&
-            !!priceData?.subscriptionInstallmentAmount;
-
           fbq('track', 'Purchase', {
-            installments: isSubscription,
+            installments: hasSubscription,
             promoCode,
           });
         } catch (error) {
           console.error('Facebook Pixel Tracking Failed:', error);
         }
       }
-      setSuccessfulPaymentIntentId(paymentResult.id);
+      setIsLoading(false);
+      window.location = `/order-confirmation?id=${airtableResponse.id}`;
     }
   };
-
-  // To ensure that re-direct happens after order confirmation email is triggered
-  useEffect(() => {
-    if (successfulPaymentIntentId) {
-      setIsLoading(false);
-      window.location = `/order-confirmation?payment_intent=${successfulPaymentIntentId}`;
-    }
-  }, [successfulPaymentIntentId]);
 
   return (
     <form onSubmit={handleSubmit}>

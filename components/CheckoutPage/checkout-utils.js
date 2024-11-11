@@ -47,25 +47,16 @@ export const mapDayToSuffix = {
   31: 'st',
 };
 
-export const getMonth = ({ subscriptionStartDate, iteration = 0 }) => {
-  let [_, monthIndex] = subscriptionStartDate.split('-');
+export const getInstallmentDate = ({ iteration = 0 }) => {
+  const today = new Date().toISOString().split('T')[0];
+  let [year, monthIndex, day] = today.split('-');
   let monthInNumbers = parseInt(monthIndex) + iteration;
-  if (monthInNumbers > 12) monthInNumbers = 1;
-  return mapIndexToMonth[monthInNumbers];
-};
-
-const getInstallmentData = ({ priceData, promoPaymentIntent, quantity }) => {
-  if (promoPaymentIntent)
-    return {
-      // the calculation for the first instalment happens in apply-promo-code
-      firstInstalmentTotalAfterTax: promoPaymentIntent.amount / 100,
-    };
-
+  if (monthInNumbers > 12) monthInNumbers = monthInNumbers - 12;
+  const month = mapIndexToMonth[monthInNumbers];
   return {
-    firstInstalmentTotalAfterTax:
-      priceData.firstInstalmentTotalAfterTax * quantity, // This field only applies to subscription flow, it is empty if on single payment flow
-    subscriptionInstallmentAmount:
-      priceData.firstInstalmentTotalAfterTax * quantity,
+    month,
+    day,
+    year,
   };
 };
 
@@ -75,19 +66,13 @@ export function calculatePricing({
   promoAmount = 0,
   promoPaymentIntent,
 }) {
-  const ticketPrice = Math.round(priceData.price * quantity);
+  const excludeTax = priceData.excludeTax === 'True';
+  const ticketPrice = Math.round(priceData.price * quantity * 100) / 100; // Round to 2 decimal places
   const subtotal =
     ticketPrice - promoAmount - priceData.discountAmountPerUnit * quantity;
-  const tax = subtotal * 0.13;
-  const total = subtotal + tax;
+  const tax = excludeTax ? null : subtotal * 0.13;
+  const total = excludeTax ? subtotal : subtotal + tax;
   const discountTotal = priceData.discountAmountPerUnit * quantity;
-
-  // Only changes if there is a promo
-  const installmentData = getInstallmentData({
-    priceData,
-    promoPaymentIntent,
-    quantity,
-  });
 
   return {
     ...priceData,
@@ -97,6 +82,11 @@ export function calculatePricing({
     total,
     discountTotal,
     promoAmount,
-    ...installmentData,
   };
 }
+
+export const createTemporaryPassword = word => {
+  const array = word.split('_');
+  const lastWord = array[array.length - 1];
+  return `hmf_${lastWord}`;
+};

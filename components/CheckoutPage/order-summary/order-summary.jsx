@@ -2,7 +2,8 @@ import styles from './order-summary.module.scss';
 import { useCheckoutContext } from 'context/checkout-context';
 import clsx from 'clsx';
 import { Border, LineItem } from './order-summary-shared';
-import { getMonth } from '../checkout-utils';
+import { getInstallmentDate } from '../checkout-utils';
+import { useRouter } from 'next/router';
 
 export default function OrderSummary() {
   const {
@@ -10,7 +11,6 @@ export default function OrderSummary() {
     priceData: {
       discountName,
       discountTotal,
-      subscriptionStartDate,
       ticketPrice,
       subtotal,
       total,
@@ -18,22 +18,18 @@ export default function OrderSummary() {
       subscriptionInstallmentAmount,
       numberOfSubscriptionIterations,
       promoAmount,
-      firstInstalmentTotalAfterTax,
       name: productName,
       deposit = '',
     },
     promoCode,
-    paymentType,
   } = useCheckoutContext();
 
   const numberOfSubscriptionIterationsAsArray = Array.from(
     Array(numberOfSubscriptionIterations)
   );
 
-  const isSubscription =
-    paymentType &&
-    paymentType === 'subscription' &&
-    !!subscriptionInstallmentAmount;
+  const router = useRouter();
+  const isSubscription = router.query.installments === 'true';
 
   return (
     <div className={clsx(styles.orderSummary, styles.bodyCopy)}>
@@ -60,9 +56,13 @@ export default function OrderSummary() {
             className={styles.discount}
           />
         )}
-        <Border />
-        <LineItem label="Subtotal" price={subtotal} />
-        <LineItem label="HST (13%)" price={tax} />
+        {tax && (
+          <>
+            <Border />
+            <LineItem label="Subtotal" price={subtotal} />
+            <LineItem label="HST (13%)" price={tax} />
+          </>
+        )}
         <Border />
         <LineItem label="Total" price={total} isBold shouldAddCanadianDollars />
         {!!deposit && (
@@ -74,28 +74,31 @@ export default function OrderSummary() {
               shouldAddCanadianDollars
             />
 
-            <p className={styles.asterisk}>
+            {/* <p className={styles.asterisk}>
               *Future payments will be available as single payments or broken
               down as multiple installments. The Highands team will follow up to
               discuss options at a later date.
-            </p>
+            </p> */}
           </>
         )}
         {isSubscription && (
           <LineItem
             label="Due Today"
-            price={firstInstalmentTotalAfterTax}
+            price={subscriptionInstallmentAmount}
             isBold
             shouldAddCanadianDollars
           />
         )}
         {isSubscription &&
           numberOfSubscriptionIterationsAsArray.map((_, index) => {
-            const month = getMonth({ subscriptionStartDate, iteration: index });
+            if (index === 0) return; // Skip the first installment, it's already displayed above as "Due Today"
+            const { month, day, year } = getInstallmentDate({
+              iteration: index,
+            });
             return (
               <LineItem
                 key={month}
-                label={`Due ${month} 1*`}
+                label={`Due ${month} ${day}`}
                 price={subscriptionInstallmentAmount}
                 shouldAddCanadianDollars
               />

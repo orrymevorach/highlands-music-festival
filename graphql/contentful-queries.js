@@ -16,21 +16,6 @@ export const GET_FEATURE_FLAG = gql`
   }
 `;
 
-export const GET_PRICE_MODEL = gql`
-  query GetPriceModel($priceModelId: String) {
-    priceModelCollection(where: { priceModelId: $priceModelId }) {
-      items {
-        subscriptionId
-        ticketPrice
-        subscriptionStartDate
-        numberOfSubscriptionIterations
-        discountName
-        discountAmountPerUnit
-      }
-    }
-  }
-`;
-
 export const GET_COMMITTEE_MEMBERS = gql`
   query GetCommitteeMembers {
     galleryCommitteeMembersCollection(

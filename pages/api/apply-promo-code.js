@@ -56,7 +56,6 @@ export default async function handler(req, res) {
         ...metadata,
         promoCode: selectedPromoCode.code,
         promoAmount: (selectedPromoCode.coupon.amount_off / 100) * quantity,
-        firstInstalmentTotalAfterTax: amount / 100,
       };
 
       const updatedPaymentIntent = await stripe.paymentIntents.update(

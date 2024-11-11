@@ -1,8 +1,5 @@
 import { useReducer } from 'react';
-import {
-  useCancelPaymentIntent,
-  usetSetPriceModelBasedOnRoute,
-} from 'components/CheckoutPage/hooks';
+import { useCancelPaymentIntent } from 'components/CheckoutPage/hooks';
 
 const initialState = {
   quantity: null,
@@ -10,14 +7,11 @@ const initialState = {
   paymentIntent: null,
   pricing: null,
   promoCode: '',
-  paymentType: null,
   vendorName: '',
   vendorSecondGuest: '',
 };
 
 export const actions = {
-  SET_SINGLE_PAYMENT: 'SET_SINGLE_PAYMENT',
-  SET_SUBSCRIPTION_PAYMENT: 'SET_SUBSCRIPTION_PAYMENT',
   SET_QUANTITY: 'SET_QUANTITY',
   SET_PAYMENT_INTENT: 'SET_PAYMENT_INTENT',
   CANCEL_PAYMENT_INTENT: 'CANCEL_PAYMENT_INTENT',
@@ -30,30 +24,10 @@ const {
   CANCEL_PAYMENT_INTENT,
   APPLY_PROMO_CODE,
   APPLY_FIXED_PRICE_PROMO,
-  SET_SINGLE_PAYMENT,
-  SET_SUBSCRIPTION_PAYMENT,
 } = actions;
 
 const reducer = (state, action) => {
   switch (action.type) {
-    case SET_SUBSCRIPTION_PAYMENT:
-      return {
-        ...state,
-        paymentType: 'subscription',
-      };
-    case SET_SINGLE_PAYMENT:
-      return {
-        ...state,
-        pricing: {
-          ...state.pricing,
-          subscriptionId: '',
-          subscriptionStartDate: '',
-          subscriptionInstallmentAmount: '',
-          numberOfSubscriptionIterations: '',
-          firstInstalmentTotalAfterTax: '',
-        },
-        paymentType: 'single',
-      };
     case SET_QUANTITY:
       return {
         ...state,
@@ -91,7 +65,6 @@ const reducer = (state, action) => {
           discountName: '',
           discountTotal: '',
           subscriptionId: '',
-          subscriptionStartDate: '',
           subscriptionInstallmentAmount: '',
           numberOfSubscriptionIterations: 0,
         },
@@ -109,12 +82,10 @@ export default function useCheckout({ priceModel }) {
     paymentIntent,
     pricing,
     promoCode,
-    paymentType,
     vendorName,
     vendorSecondGuest,
   } = state;
 
-  usetSetPriceModelBasedOnRoute({ dispatch });
   useCancelPaymentIntent({ paymentIntent, dispatch, actions });
   return {
     dispatch,
@@ -127,7 +98,6 @@ export default function useCheckout({ priceModel }) {
       ...pricing,
     },
     promoCode,
-    paymentType,
     vendorName,
     vendorSecondGuest,
   };

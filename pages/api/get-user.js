@@ -7,7 +7,7 @@ export default async function handler(req, res) {
         user: { name, email },
       } = req.body;
       const customerResponse = await stripe.customers.search({
-        query: `email:'${email}' AND name:'${name}'`,
+        query: `email:'${email}'`,
       });
 
       const hasCustomer = customerResponse.data.length > 0;

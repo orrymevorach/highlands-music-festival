@@ -2,7 +2,11 @@ import styles from './user-form.module.scss';
 import { useState } from 'react';
 import Input from '@mui/joy/Input';
 import { useCheckoutContext } from 'context/checkout-context';
-import { getStripeCustomer, createPaymentIntent } from 'lib/stripe-lib';
+import {
+  getStripeCustomer,
+  createPaymentIntent,
+  createSetupIntent,
+} from 'lib/stripe-lib';
 import Loader from 'components/shared/Loader/Loader';
 import Button from 'components/shared/Button/Button';
 import { Checkbox } from '@mui/material';
@@ -46,17 +50,16 @@ export default function UserForm() {
       : hasDeposit
       ? priceData.deposit
       : priceData.total;
-    const metadata = {
-      ...priceData,
-      cabin: null, // Removing cabin data from metadata
-      quantity,
-    };
 
-    const paymentIntent = await createPaymentIntent({
-      customer,
-      amount,
-      metadata,
-    });
+    let paymentIntent;
+    if (hasSubscription) {
+      paymentIntent = await createSetupIntent({ customer });
+    } else {
+      paymentIntent = await createPaymentIntent({
+        customer,
+        amount,
+      });
+    }
 
     // Add to marketing list for abandoned cart email
     if (!isVendor) {
