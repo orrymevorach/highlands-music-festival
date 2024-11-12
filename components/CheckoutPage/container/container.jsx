@@ -8,6 +8,7 @@ import Loader from 'components/shared/Loader/Loader';
 import PromoCodeForm from 'components/CheckoutPage/promo-code/promo-code-form/promo-code-form';
 import UserDetails from 'components/CheckoutPage/user/user-details/user-details';
 import PromoCodeSuccess from 'components/CheckoutPage/promo-code/promo-code-success/promo-code-success';
+import PaymentOptionsToggle from '../payment-options-toggle/payment-options-toggle';
 
 export default function CheckoutContainer() {
   const { quantity, paymentIntent, isLoading, promoCode, customer } =
@@ -16,6 +17,7 @@ export default function CheckoutContainer() {
   if (isLoading) return <Loader centerInContainer />;
   return (
     <div>
+      <PaymentOptionsToggle />
       {isPaymentIntentExpired && (
         <Takeover disableClose classNames={styles.takeover}>
           <p>

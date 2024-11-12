@@ -7,10 +7,10 @@ export const useCheckoutContext = () => {
   return useContext(CheckoutContext);
 };
 
-export const CheckoutProvider = ({ children, priceModel }) => {
+export const CheckoutProvider = ({ children, priceModel, product }) => {
   const checkout = useCheckout({ priceModel });
   return (
-    <CheckoutContext.Provider value={checkout}>
+    <CheckoutContext.Provider value={{ ...checkout, product }}>
       {children}
     </CheckoutContext.Provider>
   );

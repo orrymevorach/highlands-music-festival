@@ -1,0 +1,59 @@
+@use '@variables' as variables;
+
+.container {
+  margin-bottom: 50px;
+}
+
+.switch {
+  position: relative;
+  height: 40px;
+  width: 100%;
+  margin-top: 20px;
+  background: #f2f2f2;
+  background: #d7d7d7;
+  border-radius: 32px;
+  display: flex;
+  align-items: center;
+}
+
+.option {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.label {
+  font-weight: bold;
+  position: relative;
+  z-index: 2;
+  float: left;
+  line-height: 32px;
+  font-size: 16px;
+  color: #676a6c;
+  text-align: center;
+  cursor: pointer;
+  font-family: variables.$fontSecondary;
+}
+
+.input {
+  display: none;
+}
+
+.input:checked + .label {
+  color: #fff;
+  transition: 0.15s ease-out;
+  transition-property: color, text-shadow;
+}
+
+.active {
+  position: absolute;
+  z-index: 1;
+  top: 0px;
+  left: 0px;
+  height: 100%;
+  display: block;
+  border-radius: 32px;
+  background-color: variables.$darkGreen;
+  transition: all 0.3s cubic-bezier(0.18, 0.89, 0.32, 1.28);
+  color: white;
+}

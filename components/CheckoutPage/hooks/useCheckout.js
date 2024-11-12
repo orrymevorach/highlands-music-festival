@@ -17,6 +17,7 @@ export const actions = {
   CANCEL_PAYMENT_INTENT: 'CANCEL_PAYMENT_INTENT',
   APPLY_PROMO_CODE: 'APPLY_PROMO_CODE',
   APPLY_FIXED_PRICE_PROMO: 'APPLY_FIXED_PRICE_PROMO',
+  SET_PRICING: 'SET_PRICING',
 };
 const {
   SET_QUANTITY,
@@ -24,6 +25,7 @@ const {
   CANCEL_PAYMENT_INTENT,
   APPLY_PROMO_CODE,
   APPLY_FIXED_PRICE_PROMO,
+  SET_PRICING,
 } = actions;
 
 const reducer = (state, action) => {
@@ -69,6 +71,11 @@ const reducer = (state, action) => {
           numberOfSubscriptionIterations: 0,
         },
       };
+    case SET_PRICING:
+      return {
+        ...state,
+        pricing: action.pricing,
+      };
     default:
       return state;
   }
@@ -87,6 +94,7 @@ export default function useCheckout({ priceModel }) {
   } = state;
 
   useCancelPaymentIntent({ paymentIntent, dispatch, actions });
+
   return {
     dispatch,
     actions,
