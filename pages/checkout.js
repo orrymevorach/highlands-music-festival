@@ -9,14 +9,13 @@ import Head from 'components/shared/Head/Head';
 import Legal from 'components/CheckoutPage/legal/legal';
 import { useWindowSize } from 'hooks';
 import { useFacebookPixel } from 'hooks';
-import { getProduct } from 'lib/airtable-lib';
 
-export default function CheckoutPage({ priceModel, festivalDate, product }) {
+export default function CheckoutPage({ priceModel, festivalDate }) {
   useFacebookPixel();
   const { isMobile } = useWindowSize();
 
   return (
-    <CheckoutProvider priceModel={priceModel} product={product}>
+    <CheckoutProvider priceModel={priceModel}>
       <Head title="Checkout" festivalDate={festivalDate} />
       <Layout>
         <Container />
@@ -29,19 +28,17 @@ export default function CheckoutPage({ priceModel, festivalDate, product }) {
 
 export async function getServerSideProps(props) {
   const pageLoadData = await getPageLoadData({
-    url: PAGE_SLUGS.CHECKOUT,
+    url: PAGE_SLUGS.HOME,
   });
 
   const productId = props.query.productId;
   const hasInstallments = props.query.installments;
 
   const priceModel = await getPriceModel({ hasInstallments, productId });
-  const product = await getProduct({ recordId: productId });
 
   return {
     props: {
       priceModel,
-      product,
       ...pageLoadData,
     },
   };

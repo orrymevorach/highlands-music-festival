@@ -5,7 +5,7 @@ import Toggle from './toggle';
 
 export default function PaymentOptionsToggle() {
   const router = useRouter();
-  const { product, priceData, dispatch, actions } = useCheckoutContext();
+  const { priceData, dispatch, actions } = useCheckoutContext();
 
   const handleClick = ({
     subscriptionId,
@@ -18,7 +18,7 @@ export default function PaymentOptionsToggle() {
         {
           pathname: PAGE_SLUGS.CHECKOUT,
           query: {
-            productId: product.id,
+            productId: priceData.id,
           },
         },
         undefined,
@@ -40,7 +40,7 @@ export default function PaymentOptionsToggle() {
       {
         pathname: PAGE_SLUGS.CHECKOUT,
         query: {
-          productId: product.id,
+          productId: priceData.id,
           installments: true,
         },
       },
@@ -65,7 +65,7 @@ export default function PaymentOptionsToggle() {
     {
       label: 'Pay In Full',
     },
-    ...product.paymentOptions,
+    ...priceData.subscriptionOptions,
   ];
   const defaultPaymentOption =
     router.query.installments === 'true' ? options[1].label : options[0].label;

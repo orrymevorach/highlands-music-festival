@@ -87,7 +87,7 @@ export default function CheckoutForm() {
       tableId: 'Ticket Purchases',
       newFields: {
         amount,
-        paymentIntent: password,
+        'Temporary Password': password,
         Name: name,
         'Email Address': email,
         discountCode: promoCode,
@@ -118,7 +118,7 @@ export default function CheckoutForm() {
         emailAddress: email,
       });
       // const mailgunResponse = await sendCabinReservationEmail({
-      //   paymentIntentId: password,
+      //   temporaryPassword: password,
       //   emailAddress: email,
       // });
 
