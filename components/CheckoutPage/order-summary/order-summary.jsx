@@ -15,11 +15,13 @@ export default function OrderSummary() {
       subtotal,
       total,
       tax,
-      subscriptionInstallmentAmount,
-      numberOfSubscriptionIterations,
       promoAmount,
       name: productName,
       deposit = '',
+    },
+    subscriptionData: {
+      subscriptionInstallmentAmount,
+      numberOfSubscriptionIterations,
     },
     promoCode,
   } = useCheckoutContext();

@@ -7,6 +7,7 @@ import Loader from 'components/shared/Loader/Loader';
 import Button from 'components/shared/Button/Button';
 
 export default function Quantity() {
+  return; // This is temporary until we add quantity back
   const [dropdownQuantity, setDropdownQuantity] = useState('');
   const { priceData, dispatch, actions } = useCheckoutContext();
   const [isLoading, setIsLoading] = useState(false);

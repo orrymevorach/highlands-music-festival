@@ -19,7 +19,7 @@ export default function CheckoutForm() {
   const [errorMessage, setErrorMessage] = useState(null);
   const {
     priceData,
-    quantity,
+    subscriptionData,
     paymentIntent,
     customer,
     promoCode,
@@ -55,8 +55,7 @@ export default function CheckoutForm() {
       }
       // Create subscription
       paymentResponse = await createSubscription({
-        priceData,
-        quantity,
+        subscriptionData,
         customerId: customer.id,
         paymentMethodId: setupIntent.payment_method,
       });
@@ -78,7 +77,7 @@ export default function CheckoutForm() {
     const email = customer.email.toLowerCase();
 
     const amount = hasSubscription
-      ? priceData.subscriptionInstallmentAmount
+      ? subscriptionData.subscriptionInstallmentAmount
       : paymentResponse.amount / 100;
 
     const password = createTemporaryPassword(paymentResponse.id);

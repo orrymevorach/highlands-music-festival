@@ -90,3 +90,17 @@ export const createTemporaryPassword = word => {
   const lastWord = array[array.length - 1];
   return `hmf_${lastWord}`;
 };
+
+export const getDefaultSubscriptionData = pricing => {
+  const defaultSubscriptionOption = pricing.subscriptionOptions
+    ? pricing.subscriptionOptions[0]
+    : null;
+
+  return {
+    subscriptionInstallmentAmount: defaultSubscriptionOption.price,
+    subscriptionId: defaultSubscriptionOption.subscriptionId,
+    numberOfSubscriptionIterations: parseFloat(
+      defaultSubscriptionOption.numberOfSubscriptionIterations
+    ),
+  };
+};

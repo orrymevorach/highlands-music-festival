@@ -1,15 +1,9 @@
 import { useReducer } from 'react';
 import { useCancelPaymentIntent } from 'components/CheckoutPage/hooks';
-
-const initialState = {
-  quantity: null,
-  customer: null,
-  paymentIntent: null,
-  pricing: null,
-  promoCode: '',
-  vendorName: '',
-  vendorSecondGuest: '',
-};
+import {
+  calculatePricing,
+  getDefaultSubscriptionData,
+} from '../checkout-utils';
 
 export const actions = {
   SET_QUANTITY: 'SET_QUANTITY',
@@ -18,10 +12,12 @@ export const actions = {
   APPLY_PROMO_CODE: 'APPLY_PROMO_CODE',
   APPLY_FIXED_PRICE_PROMO: 'APPLY_FIXED_PRICE_PROMO',
   SET_PRICING: 'SET_PRICING',
+  SET_SUBSCRIPTION: 'SET_SUBSCRIPTION,',
 };
 const {
   SET_QUANTITY,
   SET_PAYMENT_INTENT,
+  SET_SUBSCRIPTION,
   CANCEL_PAYMENT_INTENT,
   APPLY_PROMO_CODE,
   APPLY_FIXED_PRICE_PROMO,
@@ -76,37 +72,48 @@ const reducer = (state, action) => {
         ...state,
         pricing: action.pricing,
       };
+    case SET_SUBSCRIPTION:
+      return {
+        ...state,
+        subscriptionData: action.subscriptionData,
+      };
     default:
       return state;
   }
 };
 
 export default function useCheckout({ priceModel }) {
+  // Start -Setting Initial Pricing Data
+  const initialPricing = calculatePricing({
+    priceData: priceModel,
+    quantity: 1,
+  });
+
+  const defaultSubscriptionData = getDefaultSubscriptionData(initialPricing);
+
+  // End - Setting Initial Pricing Data
+
+  const initialState = {
+    quantity: 1,
+    customer: null,
+    paymentIntent: null,
+    priceData: initialPricing,
+    promoCode: '',
+    vendorName: '',
+    vendorSecondGuest: '',
+    subscriptionData: defaultSubscriptionData,
+  };
   const [state, dispatch] = useReducer(reducer, initialState);
-  const {
-    quantity,
-    customer,
-    paymentIntent,
-    pricing,
-    promoCode,
-    vendorName,
-    vendorSecondGuest,
-  } = state;
 
-  useCancelPaymentIntent({ paymentIntent, dispatch, actions });
-
-  return {
+  useCancelPaymentIntent({
+    paymentIntent: state.paymentIntent,
     dispatch,
     actions,
-    customer,
-    paymentIntent,
-    quantity,
-    priceData: {
-      ...priceModel,
-      ...pricing,
-    },
-    promoCode,
-    vendorName,
-    vendorSecondGuest,
+  });
+
+  return {
+    ...state,
+    dispatch,
+    actions,
   };
 }

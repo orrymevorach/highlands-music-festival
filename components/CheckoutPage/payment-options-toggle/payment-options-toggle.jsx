@@ -26,11 +26,11 @@ export default function PaymentOptionsToggle() {
       );
 
       dispatch({
-        type: actions.SET_PRICING,
-        pricing: {
-          ...priceData,
+        type: actions.SET_SUBSCRIPTION,
+        subscriptionData: {
           subscriptionInstallmentAmount: '',
           subscriptionId: '',
+          numberOfSubscriptionIterations: 0,
         },
       });
       return;
@@ -49,9 +49,8 @@ export default function PaymentOptionsToggle() {
     );
 
     dispatch({
-      type: actions.SET_PRICING,
-      pricing: {
-        ...priceData,
+      type: actions.SET_SUBSCRIPTION,
+      subscriptionData: {
         subscriptionInstallmentAmount: price,
         subscriptionId,
         numberOfSubscriptionIterations: parseFloat(
@@ -61,20 +60,21 @@ export default function PaymentOptionsToggle() {
     });
   };
 
+  const subscriptionOptions = priceData?.subscriptionOptions || [];
   const options = [
     {
       label: 'Pay In Full',
     },
-    ...priceData.subscriptionOptions,
+    ...subscriptionOptions,
   ];
-  const defaultPaymentOption =
+  const defaultPaymentOptionLabel =
     router.query.installments === 'true' ? options[1].label : options[0].label;
   return (
     <Toggle
       name="payment-Options"
       options={options}
       handleClick={handleClick}
-      defaultOption={defaultPaymentOption}
+      defaultOption={defaultPaymentOptionLabel}
     />
   );
 }

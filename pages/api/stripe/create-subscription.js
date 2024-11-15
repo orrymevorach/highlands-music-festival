@@ -3,9 +3,10 @@ const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY);
 export default async function handler(req, res) {
   if (req.method === 'POST') {
     try {
-      const { customerId, quantity, priceData, paymentMethodId } = req.body;
+      const { customerId, subscriptionData, paymentMethodId } = req.body;
 
-      const { subscriptionId, numberOfSubscriptionIterations } = priceData;
+      const { subscriptionId, numberOfSubscriptionIterations } =
+        subscriptionData;
 
       console.log('Creating subscription plan...');
 

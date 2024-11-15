@@ -16,7 +16,8 @@ import { validateEmail } from 'utils/utils';
 import { useRouter } from 'next/router';
 
 export default function UserForm() {
-  const { quantity, priceData, dispatch, actions } = useCheckoutContext();
+  const { priceData, dispatch, actions, subscriptionData } =
+    useCheckoutContext();
   const [firstName, setFirstName] = useState('');
   const [lastName, setLastName] = useState('');
   const [email, setEmail] = useState('');
@@ -46,7 +47,7 @@ export default function UserForm() {
     const hasSubscription = router.query.installments === 'true';
     const hasDeposit = priceData.deposit;
     const amount = hasSubscription
-      ? priceData.subscriptionInstallmentAmount
+      ? subscriptionData.subscriptionInstallmentAmount
       : hasDeposit
       ? priceData.deposit
       : priceData.total;
