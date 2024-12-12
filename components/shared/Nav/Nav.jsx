@@ -9,7 +9,7 @@ import { faInstagram } from '@fortawesome/free-brands-svg-icons';
 import { colors, PAGE_SLUGS } from 'utils/constants';
 import { useNavContext } from 'context/nav-context';
 import Button from 'components/shared/Button/Button';
-import SubmissionsDropdown from './SubmissionsDropdown/SubmissionsDropdown';
+import NavDropdown from './NavDropdown/NavDropdown';
 
 const HomeIcon = ({ setIsOpen }) => {
   return (
@@ -78,7 +78,32 @@ const Nav = () => {
                 </li>
               );
             })}
-            <SubmissionsDropdown />
+            <NavDropdown
+              title="Photo Gallery"
+              items={[
+                {
+                  href: '/photos/2023',
+                  label: '2023',
+                },
+                {
+                  href: '/photos/2024',
+                  label: '2024',
+                },
+              ]}
+            />
+            <NavDropdown
+              title="Submissions"
+              items={[
+                {
+                  href: '/artist-submissions',
+                  label: 'Artist Submissions',
+                },
+                {
+                  href: '/vendor-submissions',
+                  label: 'Vendor Submissions',
+                },
+              ]}
+            />
             <li>
               <Button
                 href={PAGE_SLUGS.BUY_TICKETS}
