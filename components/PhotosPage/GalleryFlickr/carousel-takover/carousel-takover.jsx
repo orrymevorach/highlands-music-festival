@@ -14,7 +14,7 @@ export default function CarouselTakeover({
   index,
   photos,
 }) {
-  const modalPhoto = photos[index].sizes.find(({ label }) => label === 'Large');
+  const modalPhoto = photos[index].url;
 
   const handleCloseModal = () => {
     setIndex('');
@@ -58,7 +58,7 @@ export default function CarouselTakeover({
           <FontAwesomeIcon icon={faChevronLeft} color="white" size="2x" />
         </button>
       )}
-      <img src={modalPhoto.source} alt="" />
+      <img src={modalPhoto} alt="" />
 
       {!isLastImge && (
         <button

@@ -1,4 +1,4 @@
-import styles from './gallery-flickr.module.scss';
+import styles from './photo-gallery.module.scss';
 import { useEffect, useState } from 'react';
 import Pagination from './pagination/pagination';
 import CarouselTakeover from './carousel-takover/carousel-takover';
@@ -40,20 +40,22 @@ export default function FlickrGallery({ photos }) {
       <Pagination page={page} setPage={setPage} numberOfItems={photos.length} />
 
       <div className={styles.container}>
-        {currentPagePhotos.map((photo, index) => (
-          <div
-            key={photo.id}
-            onClick={() => handleSetPhoto(index)}
-            className={styles.tileContainer}
-          >
+        {currentPagePhotos.map((photo, index) => {
+          return (
             <div
-              className={styles.tile}
-              style={{
-                backgroundImage: `url(https://farm${photo.farm}.staticflickr.com/${photo.server}/${photo.id}_${photo.secret}.jpg)`,
-              }}
-            ></div>
-          </div>
-        ))}
+              key={photo.id}
+              onClick={() => handleSetPhoto(index)}
+              className={styles.tileContainer}
+            >
+              <div
+                className={styles.tile}
+                style={{
+                  backgroundImage: `url(${photo.url})`,
+                }}
+              ></div>
+            </div>
+          );
+        })}
       </div>
       <Pagination page={page} setPage={setPage} numberOfItems={photos.length} />
     </>
