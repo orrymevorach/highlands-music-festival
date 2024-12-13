@@ -21,21 +21,31 @@ const createRecord = async ({ tableId, newFields }) => {
   }
 };
 
+// const albumId2023 = '72177720314508393';
+const albumId2024 = '72177720322553473';
+
 async function run() {
   try {
     const { flickr } = createFlickr(process.env.NEXT_PUBLIC_FLICKR_API_KEY);
 
     const pageOneResponse = await flickr('flickr.photosets.getPhotos', {
       user_id: process.env.NEXT_PUBLIC_FLICKR_HIGHLANDS_USER_ID,
-      photoset_id: '72177720314508393',
+      photoset_id: albumId2024,
       page: 1,
       per_page: 500, // default
     });
 
     const pageTwoResponse = await flickr('flickr.photosets.getPhotos', {
       user_id: process.env.NEXT_PUBLIC_FLICKR_HIGHLANDS_USER_ID,
-      photoset_id: '72177720314508393',
+      photoset_id: albumId2024,
       page: 2,
+      per_page: 500, // default
+    });
+
+    const pageThreeResponse = await flickr('flickr.photosets.getPhotos', {
+      user_id: process.env.NEXT_PUBLIC_FLICKR_HIGHLANDS_USER_ID,
+      photoset_id: albumId2024,
+      page: 3,
       per_page: 500, // default
     });
 
@@ -43,6 +53,7 @@ async function run() {
     const allPhotosets = [
       ...pageOneResponse.photoset.photo,
       ...pageTwoResponse.photoset.photo,
+      ...pageThreeResponse.photoset.photo,
     ];
 
     for (let photo of allPhotosets) {
@@ -57,19 +68,16 @@ async function run() {
       const url = largePhoto.source;
 
       try {
-        // Upload the compressed image URL to Airtable
+        // Upload the image URL to Airtable
         await createRecord({
           tableId: 'Photo Library',
           newFields: {
             Name: title,
             Url: url, // Use the compressed image URL
-            Album: '2023',
+            Album: '2024',
           },
         });
-        console.log(
-          'Successfully uploaded compressed image to Airtable:',
-          title
-        );
+        console.log('Successfully uploaded image to Airtable:', title);
       } catch (error) {
         console.error('Error uploading image to airtable:', title, error);
       }
