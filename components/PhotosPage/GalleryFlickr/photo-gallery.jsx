@@ -52,7 +52,7 @@ export default function FlickrGallery({ photos }) {
                 style={{
                   backgroundImage: `url(${photo.url})`,
                 }}
-                data-photoId={photo.name}
+                data-photoid={photo.name}
               ></div>
             </div>
           );
