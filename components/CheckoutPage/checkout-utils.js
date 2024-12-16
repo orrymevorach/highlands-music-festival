@@ -67,12 +67,13 @@ export function calculatePricing({
   promoPaymentIntent,
 }) {
   const excludeTax = priceData.excludeTax === 'True';
+  const discountAmountPerUnit = priceData.discountAmountPerUnit || 0;
   const ticketPrice = Math.round(priceData.price * quantity * 100) / 100; // Round to 2 decimal places
-  const subtotal =
-    ticketPrice - promoAmount - priceData.discountAmountPerUnit * quantity;
+  const subtotal = ticketPrice - promoAmount - discountAmountPerUnit * quantity;
+
   const tax = excludeTax ? null : subtotal * 0.13;
   const total = excludeTax ? subtotal : subtotal + tax;
-  const discountTotal = priceData.discountAmountPerUnit * quantity;
+  const discountTotal = discountAmountPerUnit * quantity;
 
   return {
     ...priceData,
@@ -92,15 +93,23 @@ export const createTemporaryPassword = word => {
 };
 
 export const getDefaultSubscriptionData = pricing => {
-  const defaultSubscriptionOption = pricing.subscriptionOptions
+  const defaultSubscriptionOption = pricing.subscriptionOptions?.length
     ? pricing.subscriptionOptions[0]
     : null;
 
+  if (!defaultSubscriptionOption) {
+    return {
+      subscriptionInstallmentAmount: '',
+      subscriptionId: '',
+      numberOfSubscriptionIterations: 0,
+    };
+  }
+
   return {
-    subscriptionInstallmentAmount: defaultSubscriptionOption.price,
-    subscriptionId: defaultSubscriptionOption.subscriptionId,
+    subscriptionInstallmentAmount: defaultSubscriptionOption?.price,
+    subscriptionId: defaultSubscriptionOption?.subscriptionId,
     numberOfSubscriptionIterations: parseFloat(
-      defaultSubscriptionOption.numberOfSubscriptionIterations
+      defaultSubscriptionOption?.numberOfSubscriptionIterations
     ),
   };
 };
