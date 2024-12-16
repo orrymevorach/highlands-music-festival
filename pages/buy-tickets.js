@@ -32,7 +32,7 @@ export default function TicketLinks({
   );
 }
 
-export async function getServerSideProps(props) {
+export async function getStaticProps(props) {
   const pageLoadData = await getPageLoadData({
     url: PAGE_SLUGS.BUY_TICKETS,
   });
@@ -50,9 +50,8 @@ export async function getServerSideProps(props) {
   return {
     props: {
       ...pageLoadData,
-      products,
+      // products,
       isTicketSalesOpen,
-      isPagePublished: true,
       // priceModel,
     },
   };
