@@ -28,11 +28,21 @@ export default function CheckoutPage({ priceModel, festivalDate }) {
 
 export async function getServerSideProps(props) {
   const pageLoadData = await getPageLoadData({
-    url: PAGE_SLUGS.HOME,
+    url: PAGE_SLUGS.CHECKOUT,
   });
 
   const productId = props.query.productId;
   const hasInstallments = props.query.installments;
+
+  // Allowing people to pay their remaining balances on cabins, but keeping GA ticket sales closed
+  if (!productId) {
+    return {
+      props: {
+        ...pageLoadData,
+        isPagePublished: false,
+      },
+    };
+  }
 
   const priceModel = await getPriceModel({ hasInstallments, productId });
 
