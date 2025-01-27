@@ -25,10 +25,11 @@ export default async function handler(req, res) {
     let numberOfCamperCabinsSold = 0;
     let numberOfHeadStaffCabinSold = 0;
     let cabinName = '';
-
+    let numberOfConfirmedGuests = 0;
+    let revenue = 0;
     for (let ticket of ticketRecords) {
       const { Cabin, Status } = ticket.fields;
-      if (Status === 'Ticket Purchased' && Cabin) {
+      if (Status === 'Cabin Purchased') {
         const recordId = Cabin[0];
         const cabin = await getRecordById({ recordId, tableId: 'Cabins' });
         const { totalBeds } = cabin.record;
@@ -44,10 +45,25 @@ export default async function handler(req, res) {
         if (totalBeds === 3) {
           numberOfHeadStaffCabinSold = numberOfHeadStaffCabinSold + 1;
         }
+        numberOfConfirmedGuests = numberOfConfirmedGuests + 1;
+        revenue = ticket.fields['Full Ticket Price']
+          ? revenue + ticket.fields['Full Ticket Price']
+          : revenue;
       } else if (Status === 'Ticket Purchased') {
         numberOfTickets = numberOfTickets + 1;
+        numberOfConfirmedGuests = numberOfConfirmedGuests + 1;
+        revenue = ticket.fields['Full Ticket Price']
+          ? revenue + ticket.fields['Full Ticket Price']
+          : revenue;
+      } else if (Status === 'Cabin Guest') {
+        numberOfTickets = numberOfTickets + 1;
+        numberOfConfirmedGuests = numberOfConfirmedGuests + 1;
+        revenue = ticket.fields['Full Ticket Price']
+          ? revenue + ticket.fields['Full Ticket Price']
+          : revenue;
       }
     }
+    const averageTicketPrice = Math.round(revenue / numberOfTickets);
     // Number of tickets available
     const numberOfTicketsAvailable = 525;
     const remainingTickets = numberOfTicketsAvailable - numberOfTickets;
@@ -58,7 +74,7 @@ export default async function handler(req, res) {
         ? '#notifications_tickets'
         : '#testing_workflows';
 
-    const message = `*<!channel>, a ticket to Highlands has been purchased!*\nAttendee: ${name}\nEmail: ${email}\nCabin: ${cabinName}\nDiscount Code: ${discountCode}\n\nNumber of tickets sold: ${numberOfTickets}\nRemaining Tickets: ${remainingTickets}\nCamper Cabins Sold: ${numberOfCamperCabinsSold}\nHead Staff Cabins Sold: ${numberOfHeadStaffCabinSold}`;
+    const message = `*<!channel>, a ticket to Highlands has been purchased!*\nAttendee: ${name}\nEmail: ${email}\nCabin: ${cabinName}\nDiscount Code: ${discountCode}\n\nNumber of tickets sold: ${numberOfTickets}\nRemaining Tickets: ${remainingTickets}\nCamper Cabins Sold: ${numberOfCamperCabinsSold}\nHead Staff Cabins Sold: ${numberOfHeadStaffCabinSold}\nNumber of Beds Claimed: ${numberOfConfirmedGuests}\nAverage Ticket Price: $${averageTicketPrice}`;
     await web.chat.postMessage({
       channel,
       text: message,

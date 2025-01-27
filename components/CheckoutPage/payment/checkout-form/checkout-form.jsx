@@ -82,6 +82,11 @@ export default function CheckoutForm() {
 
     const password = createTemporaryPassword(paymentResponse.id);
 
+    const isPurchasingCabin = priceData.cabin?.length;
+    const ticketStatus = isPurchasingCabin
+      ? 'Cabin Purchased'
+      : 'Ticket Purchased';
+
     const { response: airtableResponse } = await createRecord({
       tableId: 'Ticket Purchases',
       newFields: {
@@ -92,17 +97,15 @@ export default function CheckoutForm() {
         discountCode: promoCode,
         'Full Ticket Price': parseFloat(priceData.total),
         Status:
-          process.env.NODE_ENV === 'production'
-            ? 'Ticket Purchased'
-            : 'Testing',
+          process.env.NODE_ENV === 'production' ? ticketStatus : 'Testing',
         'Vendor Name': vendorName,
         'Vendor Second Guest': vendorSecondGuest,
-        Cabin: priceData.cabin?.length ? [priceData.cabin[0]] : null,
+        Cabin: isPurchasingCabin ? [priceData.cabin[0]] : null,
       },
     });
 
     // If a cabin is purchased, update cabin status to sold. If it is a ticket, leave statas as is
-    if (priceData.cabin?.length) {
+    if (isPurchasingCabin) {
       await updateRecord({
         tableId: 'Product Inventory',
         recordId: priceData.id,
@@ -127,7 +130,7 @@ export default function CheckoutForm() {
           name,
           email,
           discountCode: promoCode,
-          cabinRecordId: priceData.cabin?.length ? priceData.cabin[0] : '',
+          cabinRecordId: isPurchasingCabin ? priceData.cabin[0] : '',
         });
       } catch (error) {
         console.error('Slack Notification Failed:', error);
