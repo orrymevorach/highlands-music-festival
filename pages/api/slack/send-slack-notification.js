@@ -32,19 +32,20 @@ export default async function handler(req, res) {
       if (Status === 'Cabin Purchased') {
         const recordId = Cabin[0];
         const cabin = await getRecordById({ recordId, tableId: 'Cabins' });
-        const { totalBeds } = cabin.record;
+        let { totalBeds } = cabin.record;
 
-        numberOfTickets = numberOfTickets + totalBeds;
         if (cabinRecordId === cabin.record.id) {
           cabinName = cabin.record.name;
         }
 
-        if (totalBeds === 12) {
-          numberOfCamperCabinsSold = numberOfCamperCabinsSold + 1;
-        }
         if (totalBeds === 3) {
           numberOfHeadStaffCabinSold = numberOfHeadStaffCabinSold + 1;
+        } else {
+          totalBeds = 12; // resetting back to 12, because private cabins technically have 24 beds --> 12 beds included in cabin price and then 12 more available for purchase
+          numberOfCamperCabinsSold = numberOfCamperCabinsSold + 1;
         }
+        numberOfTickets = numberOfTickets + totalBeds;
+
         numberOfConfirmedGuests = numberOfConfirmedGuests + 1;
         revenue = ticket.fields['Full Ticket Price']
           ? revenue + ticket.fields['Full Ticket Price']
@@ -56,13 +57,10 @@ export default async function handler(req, res) {
           ? revenue + ticket.fields['Full Ticket Price']
           : revenue;
       } else if (Status === 'Cabin Guest') {
-        numberOfTickets = numberOfTickets + 1;
         numberOfConfirmedGuests = numberOfConfirmedGuests + 1;
-        revenue = ticket.fields['Full Ticket Price']
-          ? revenue + ticket.fields['Full Ticket Price']
-          : revenue;
       }
     }
+
     const averageTicketPrice = Math.round(revenue / numberOfTickets);
     // Number of tickets available
     const numberOfTicketsAvailable = 525;
