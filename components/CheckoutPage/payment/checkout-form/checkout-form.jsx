@@ -104,12 +104,21 @@ export default function CheckoutForm() {
       },
     });
 
-    // If a cabin is purchased, update cabin status to sold. If it is a ticket, leave statas as is
+    // If a cabin is purchased:
+    // 1. Update Inventory - cabin status to sold
+    // 2. Update Cabin - cabin availability to price, and total beds to 24 so user can fill cabin
     if (isPurchasingCabin) {
       await updateRecord({
         tableId: 'Product Inventory',
         recordId: priceData.id,
         newFields: { Status: 'Sold' },
+      });
+      await updateRecord({
+        tableId: 'Cabins',
+        recordId: priceData.cabin[0],
+        newFields: {
+          Availability: 'Private',
+        },
       });
     }
 
@@ -148,7 +157,7 @@ export default function CheckoutForm() {
         }
       }
       setIsLoading(false);
-      window.location = `/order-confirmation?id=${airtableResponse.id}`;
+      // window.location = `/order-confirmation?id=${airtableResponse.id}`;
     }
   };
 
