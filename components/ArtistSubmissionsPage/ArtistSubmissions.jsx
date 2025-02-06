@@ -15,9 +15,8 @@ export default function ArtistSubmission() {
           {/* We accept submissions all year round, however submissions must be
           received by January 31 in order to be considered for the following
           year’s Festival. */}
-          We accept submissions all year round, however submissions for {year}{' '}
-          are now closed. Stay tuned for more info about HMF {nextYear}{' '}
-          submission deadlines.
+          Submissions for {year} are now closed. Stay tuned for more info about
+          HMF {nextYear} submission deadlines.
         </p>
         {/* <p className={styles.text}> */}
         {/* HMF 2024 will take place on Sept 25-28. We will notify you with any
