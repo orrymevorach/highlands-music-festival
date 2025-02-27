@@ -157,7 +157,7 @@ export default function CheckoutForm() {
         }
       }
       setIsLoading(false);
-      // window.location = `/order-confirmation?id=${airtableResponse.id}`;
+      window.location = `/order-confirmation?id=${airtableResponse.id}`;
     }
   };
 
