@@ -8,11 +8,6 @@ export default async function handler(req, res) {
       const { subscriptionId, numberOfSubscriptionIterations } =
         subscriptionData;
 
-      const taxRate =
-        process.env.STRIPE_ENV === 'production'
-          ? 'txr_1QwzWeAzwwMUcbvFAam5fDKt'
-          : 'txr_1QwztxAzwwMUcbvFP7mVaoWJ';
-
       console.log('Creating subscription plan...');
 
       const schedule = await stripe.subscriptionSchedules.create({
@@ -25,18 +20,10 @@ export default async function handler(req, res) {
         },
         phases: [
           {
-            items: [
-              {
-                price: subscriptionId,
-                tax_rates: [taxRate],
-              },
-            ],
+            items: [{ price: subscriptionId }],
             iterations: parseFloat(numberOfSubscriptionIterations),
           },
         ],
-        metadata: {
-          hst_number: '700283740RT0001',
-        },
       });
       console.log('Subscription plan created successfuly...');
       res.send(schedule);
