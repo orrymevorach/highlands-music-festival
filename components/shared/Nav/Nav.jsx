@@ -95,11 +95,11 @@ const Nav = () => {
               title="Submissions"
               items={[
                 {
-                  href: '/artist-submissions',
+                  href: PAGE_SLUGS.ARTIST_SUBMISSIONS,
                   label: 'Artist Submissions',
                 },
                 {
-                  href: '/vendor-submissions',
+                  href: PAGE_SLUGS.VENDOR_SUBMISSION,
                   label: 'Vendor Submissions',
                 },
               ]}
