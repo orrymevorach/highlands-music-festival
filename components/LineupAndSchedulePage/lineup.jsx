@@ -10,6 +10,7 @@ import { useWindowSize } from 'hooks';
 import { useState } from 'react';
 import Takeover from 'components/shared/Takeover/Takeover';
 import Jamlands from './jamlands/jamlands';
+import Announcement from './announcement/announcement';
 
 const getFormattedLineup = lineup => {
   const headliners = lineup.headlinersCollection.items;
@@ -84,7 +85,7 @@ export default function Lineup({
 
       <div className={styles.tilesContainer}>
         <ImageTiles tiles={formatttedLineup} ImageTileBack={ImageTileBack} />
-        <Jamlands lineup={jamlandsLineup} />
+        {/* <Jamlands lineup={jamlandsLineup} /> */}
         {headlinerFeatureFlag && (
           <p className={styles.comingSoon}>More announcements coming soon...</p>
         )}
