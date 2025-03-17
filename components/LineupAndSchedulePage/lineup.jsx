@@ -34,9 +34,9 @@ export default function Lineup({
   const { isMobile } = useWindowSize();
   const [showModal, setShowModal] = useState(false);
   const [lineupGraphic, setLineupGraphic] = useState(null);
-  // const headliners = lineup.headlinersCollection.items;
+  const headliners = lineup.headlinersCollection.items;
   const formatttedLineup = getFormattedLineup(lineup);
-  const jamlandsLineup = lineup.jamlandsCollection.items;
+  // const jamlandsLineup = lineup.jamlandsCollection.items;
 
   const ImageTileBack = ({ spotifyLink }) => {
     return (
