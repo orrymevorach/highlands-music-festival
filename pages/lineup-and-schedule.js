@@ -25,7 +25,8 @@ export default function LineupAndSchedule({
   return (
     <>
       <Head title="Lineup & Schedule" festivalDate={festivalDate} />
-      <Layout festivalDate={festivalDate}>
+      <Layout festivalDate={festivalDate} hideHeaderMargin>
+        {/* <Layout festivalDate={festivalDate}> */}
         <main>
           <Lineup
             headlinerFeatureFlag={headlinerFeatureFlag}
