@@ -53,7 +53,7 @@ export default function Lineup({
 
   return (
     <>
-      {/* {headlinerFeatureFlag && <Announcement headliners={headliners} />} */}
+      {headlinerFeatureFlag && <Announcement headliners={headliners} />}
 
       {showModal && (
         <Takeover handleClose={() => setShowModal(false)}>
@@ -67,9 +67,9 @@ export default function Lineup({
       )}
       <Heading>
         <p className={styles.paragraph}>
-          2024 Lineup{' '}
-          {/* <span className={styles.comingSoon}>(schedule coming soon...)</span> */}
-          {/* {headlinerFeatureFlag ? (
+          2025 Lineup{' '}
+          <span className={styles.comingSoon}>(schedule coming soon...)</span>
+          {headlinerFeatureFlag ? (
             <>
               {isMobile && <br />}
               <span className={styles.comingSoon}>
@@ -78,7 +78,7 @@ export default function Lineup({
             </>
           ) : (
             <span className={styles.comingSoon}>(schedule coming soon...)</span>
-          )} */}
+          )}
         </p>
       </Heading>
 
