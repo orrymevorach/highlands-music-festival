@@ -5,7 +5,7 @@ import ImageTiles from '../shared/ImageTiles/ImageTiles';
 import GreenSun from 'public/green-sun-small.png';
 import Link from 'next/link';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faSpotify } from '@fortawesome/free-brands-svg-icons';
+import { faSpotify, faYoutube } from '@fortawesome/free-brands-svg-icons';
 import { useWindowSize } from 'hooks';
 import { useState } from 'react';
 import Takeover from 'components/shared/Takeover/Takeover';
@@ -38,12 +38,17 @@ export default function Lineup({
   const formatttedLineup = getFormattedLineup(lineup);
   // const jamlandsLineup = lineup.jamlandsCollection.items;
 
-  const ImageTileBack = ({ spotifyLink }) => {
-    if (!spotifyLink) return <div className={styles.imageTileBack}></div>;
+  const ImageTileBack = ({ spotifyLink, youTubeLink }) => {
+    if (!spotifyLink && !youTubeLink)
+      return <div className={styles.imageTileBack} />;
+    const icon = spotifyLink ? faSpotify : faYoutube;
+    const text = spotifyLink ? 'Spotify' : 'YouTube';
+    const link = spotifyLink ? spotifyLink : youTubeLink;
+
     return (
-      <Link href={spotifyLink} className={styles.imageTileBack} target="_blank">
-        <p>Listen on Spotify</p>
-        <FontAwesomeIcon icon={faSpotify} size="xl" />
+      <Link href={link} className={styles.imageTileBack} target="_blank">
+        <p>Listen on {text}</p>
+        <FontAwesomeIcon icon={icon} size="xl" />
       </Link>
     );
   };

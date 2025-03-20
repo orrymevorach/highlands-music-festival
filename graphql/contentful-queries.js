@@ -79,6 +79,7 @@ export const GET_LINEUP = gql`
               description
             }
             spotifyLink
+            youTubeLink
           }
         }
         artistsCollection(limit: 20) {
@@ -91,12 +92,14 @@ export const GET_LINEUP = gql`
               description
             }
             spotifyLink
+            youTubeLink
           }
         }
         jamlandsCollection(limit: 10) {
           items {
             name
             spotifyLink
+            youTubeLink
           }
         }
       }
