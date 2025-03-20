@@ -39,6 +39,7 @@ export default function Lineup({
   // const jamlandsLineup = lineup.jamlandsCollection.items;
 
   const ImageTileBack = ({ spotifyLink }) => {
+    if (!spotifyLink) return <div className={styles.imageTileBack}></div>;
     return (
       <Link href={spotifyLink} className={styles.imageTileBack} target="_blank">
         <p>Listen on Spotify</p>
