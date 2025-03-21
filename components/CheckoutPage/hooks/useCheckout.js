@@ -30,7 +30,7 @@ const reducer = (state, action) => {
       return {
         ...state,
         quantity: action.quantity,
-        pricing: action.pricing,
+        priceData: action.pricing,
       };
     case SET_PAYMENT_INTENT:
       return {
@@ -49,14 +49,14 @@ const reducer = (state, action) => {
       return {
         ...state,
         promoCode: action.promoCode,
-        pricing: action.pricing,
+        priceData: action.pricing,
       };
     case APPLY_FIXED_PRICE_PROMO:
       return {
         ...state,
         promoCode: action.promoCode,
         quantity: 1,
-        pricing: {
+        priceData: {
           ...action.pricing,
           promoAmount: null,
           discountAmountPerUnit: '',
@@ -70,7 +70,7 @@ const reducer = (state, action) => {
     case SET_PRICING:
       return {
         ...state,
-        pricing: action.pricing,
+        priceData: action.pricing,
       };
     case SET_SUBSCRIPTION:
       return {
