@@ -9,7 +9,11 @@ import { createSubscription } from 'lib/stripe-lib';
 import { ErrorMessage } from 'components/CheckoutPage/checkout-shared-components';
 import Button from 'components/shared/Button/Button';
 import { createRecord, updateRecord } from 'lib/airtable-lib';
-import { sendCabinReservationEmail, sendConfirmationEmail } from 'lib/mailgun';
+import {
+  sendCabinReservationEmail,
+  sendConfirmationEmail,
+  sendReceipt,
+} from 'lib/mailgun';
 import { sendSlackNotification } from 'lib/slack-lib';
 import { useRouter } from 'next/router';
 import { createTemporaryPassword } from 'components/CheckoutPage/checkout-utils';
@@ -40,19 +44,23 @@ export default function CheckoutForm() {
     setIsLoading(true);
 
     let paymentResponse;
+    let setupIntent;
     const hasSubscription = router.query.installments === 'true';
     if (hasSubscription) {
       // Create a payment method
-      const { setupIntent, error: setupError } = await stripe.confirmSetup({
-        elements,
-        redirect: 'if_required',
-      });
+      const { setupIntent: setupIntentResponse, error: setupError } =
+        await stripe.confirmSetup({
+          elements,
+          redirect: 'if_required',
+        });
 
       if (setupError) {
         setErrorMessage(setupError.message);
         setIsLoading(false);
         return;
       }
+
+      setupIntent = setupIntentResponse;
       // Create subscription
       paymentResponse = await createSubscription({
         subscriptionData,
@@ -127,6 +135,19 @@ export default function CheckoutForm() {
     if (isAirtableSuccessful) {
       const mailgunConfirmationEmailResponse = await sendConfirmationEmail({
         emailAddress: email,
+      });
+      const receiptResponse = await sendReceipt({
+        priceData,
+        subscriptionData,
+        paymentIntent,
+        customer,
+        promoCode,
+        vendorName,
+        vendorSecondGuest,
+        paymentResponse,
+        paymentMethodId: hasSubscription
+          ? setupIntent.payment_method
+          : paymentResponse.payment_method,
       });
       // const mailgunResponse = await sendCabinReservationEmail({
       //   temporaryPassword: password,
