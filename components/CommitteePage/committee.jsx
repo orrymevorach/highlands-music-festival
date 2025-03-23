@@ -3,6 +3,8 @@ import Image from 'next/image';
 import clsx from 'clsx';
 import Takeover from 'components/shared/Takeover/Takeover';
 import { useState } from 'react';
+import { getActiveYears } from 'utils/utils';
+import { mapDayToSuffix } from 'components/CheckoutPage/checkout-utils';
 
 const CommitteeMember = ({ name, jobTitle, image }) => {
   const firstName = name?.split(' ')[0].toLowerCase();
@@ -36,6 +38,9 @@ export default function Committee({
   },
 }) {
   const [showTakeover, setShowTakeover] = useState(false);
+  const year = getActiveYears();
+  const suffix = mapDayToSuffix[year];
+
   return (
     <main>
       <div className={styles.committeePage}>
@@ -57,8 +62,8 @@ export default function Committee({
               cousins Toby and Josh which made our 9-person co-creator team
               complete! People said… “if you build it, they will come.” But Sol
               called Corey to help that along! Early Bird tickets sold fast,
-              Josh had a baby, and here we are… ready for the 3rd Annual
-              Highlands Music Festival!
+              Josh had a baby, and here we are… ready for the {year}
+              {suffix} Annual Highlands Music Festival!
             </p>
           </Takeover>
         )}

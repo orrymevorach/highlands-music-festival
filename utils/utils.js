@@ -56,3 +56,15 @@ export const validateEmail = email => {
 export const getInstagramHandle = link => {
   return link.replace('https://www.instagram.com/', '@').replace('/', '');
 };
+
+export function getCurrentYear() {
+  return new Date().getFullYear();
+}
+
+export function getActiveYears() {
+  const startYear = 2022; // The year the event started (this is the 4th year)
+  const currentYear = new Date().getFullYear(); // Get the current year
+
+  const yearsActive = currentYear - startYear + 1; // Adding 1 because the start year counts as the first year
+  return yearsActive;
+}

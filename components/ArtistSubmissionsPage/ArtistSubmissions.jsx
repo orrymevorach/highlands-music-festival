@@ -19,7 +19,7 @@ export default function ArtistSubmission() {
           HMF {nextYear} submission deadlines.
         </p>
         {/* <p className={styles.text}> */}
-        {/* HMF 2024 will take place on Sept 25-28. We will notify you with any
+        {/* HMF {year} will take place on Sept 25-28. We will notify you with any
           further questions or confirmation. Please be patient as we receive a
           high volume of submissions. */}
         {/* We will notify you with any further questions or confirmation. Please
