@@ -16,7 +16,6 @@ export default function TicketLinks({
   showEmailCapture,
   products,
   isTicketSalesOpen,
-  // priceModel,
 }) {
   const { setShowEmailCapture } = useEmailCaptureContext();
   setShowEmailCapture(showEmailCapture);
@@ -25,21 +24,16 @@ export default function TicketLinks({
     <>
       <Head title="Buy Tickets" festivalDate={festivalDate} />
       <Layout hideHeaderMargin festivalDate={festivalDate}>
-        {/* <BuyTickets priceModel={priceModel} /> */}
         {isTicketSalesOpen ? <Merch products={products} /> : <Contact />}
       </Layout>
     </>
   );
 }
 
-export async function getStaticProps(props) {
+export async function getStaticProps() {
   const pageLoadData = await getPageLoadData({
     url: PAGE_SLUGS.BUY_TICKETS,
   });
-
-  // const productId = props.query.productId;
-  // const hasInstallments = props.query.installments;
-  // const priceModel = await getPriceModel({ hasInstallments, productId });
 
   const isTicketSalesOpen = await getFeatureFlags({
     name: FEATURE_FLAGS.TICKET_SALES_OPEN,
@@ -50,9 +44,8 @@ export async function getStaticProps(props) {
   return {
     props: {
       ...pageLoadData,
-      // products,
+      products,
       isTicketSalesOpen,
-      // priceModel,
     },
   };
 }

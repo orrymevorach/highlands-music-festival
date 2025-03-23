@@ -37,16 +37,14 @@ export default function Card({ product, isSold = false }) {
       >
         <div className={clsx(styles.row, styles.topRow)}>
           <p>
-            {name} {isSold && <span className={styles.sold}>Sold</span>}
+            {name} {isSold && <span className={styles.sold}>Sold Out</span>}
           </p>
-          {!isSold && (
-            <div>
-              {!!discountAmountPerUnit && (
-                <p className={styles.strikethrough}>{priceInDollars}</p>
-              )}
-              <p>{numberToShow}</p>
-            </div>
-          )}
+          <div>
+            {!!discountAmountPerUnit && (
+              <p className={styles.strikethrough}>{priceInDollars}</p>
+            )}
+            <p>{numberToShow}</p>
+          </div>
         </div>
 
         <div className={styles.bottomRow}>

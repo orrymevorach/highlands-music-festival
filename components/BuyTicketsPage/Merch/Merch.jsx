@@ -17,17 +17,23 @@ const Category = ({ category, products }) => {
     <div className={styles.category}>
       <p className={styles.categoryTitle}>{category}</p>
       <div>
-        {products.map(product => {
-          const isCurrentCateogry = product.category === category;
-          const isAvailable = product.status === 'Available';
-          const isSold = product.status === 'Sold';
-          if (isCurrentCateogry && isSold) {
-            return <Card key={product.name} product={product} isSold />;
-          }
-          if (isCurrentCateogry && isAvailable) {
-            return <Card key={product.name} product={product} />;
-          }
-        })}
+        {products
+          .filter(product => {
+            if (product.status === 'Hide' || product.status === 'On Hold')
+              return false;
+            return true;
+          })
+          .map(product => {
+            const isCurrentCateogry = product.category === category;
+            const isAvailable = product.status === 'Available';
+            const isSold = product.status === 'Sold';
+            if (isCurrentCateogry && isSold) {
+              return <Card key={product.name} product={product} isSold />;
+            }
+            if (isCurrentCateogry && isAvailable) {
+              return <Card key={product.name} product={product} />;
+            }
+          })}
       </div>
     </div>
   );
@@ -41,17 +47,39 @@ export default function Merch({ products = [] }) {
     <>
       <div className={styles.textContainer}>
         <h2 className={styles.title}>Ticket Pricing for Highlands 2025</h2>
-        <p>(Closes Sunday October 6th at Midnight)</p>
       </div>
       <div className={styles.container}>
-        {categories.map(category => {
-          if (category === 'Test Mode' && process.env.NODE_ENV === 'production')
-            return;
+        {categories
+          .filter(category => {
+            const categoriesToShow = [
+              'Ticket',
+              'Cabin in Colours',
+              'Cabin in Comics',
+              'Cabin in Zodiacs',
+            ];
+            if (
+              category === 'Test Mode' &&
+              process.env.NODE_ENV !== 'production'
+            )
+              return true;
+            if (categoriesToShow.includes(category)) return true;
 
-          return (
-            <Category key={category} category={category} products={products} />
-          );
-        })}
+            return false;
+          })
+          .sort((a, b) => {
+            if (a === 'Ticket') return -1;
+            return 1;
+          })
+          .map(category => {
+            return (
+              <Category
+                key={category}
+                category={category}
+                products={products}
+              />
+            );
+            return;
+          })}
       </div>
     </>
   );

@@ -17,7 +17,7 @@ export default function CheckoutContainer() {
   if (isLoading) return <Loader centerInContainer />;
   return (
     <div>
-      <PaymentOptionsToggle />
+      {!!quantity && !customer ? <PaymentOptionsToggle /> : ''}
       {isPaymentIntentExpired && (
         <Takeover disableClose classNames={styles.takeover}>
           <p>
