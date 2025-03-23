@@ -46,7 +46,10 @@ export default async function handler(req, res) {
                   </td>
                 </tr>
               </table>
-        <h2 style="text-align:center;">Congratulations – you’re headed to the Highlands!</h2>
+        
+              <p style="text-align:center;font-size:24px;font-weight:bold">Congratulations – you’re headed to the Highlands!</p>
+        <div style="border: 1px solid #e4e4e4;width:100%;margin-bottom:20px;"></div>
+
         <p style="font-size: 16px; font-weight: bold;">Payment Information</p>
         ${
           hasSubscription
