@@ -11,6 +11,7 @@ export default function PaymentOptionsToggle() {
     subscriptionId,
     price,
     numberOfSubscriptionIterations,
+    id: recordId,
   }) => {
     // for one-time payment
     if (!subscriptionId) {
@@ -56,6 +57,7 @@ export default function PaymentOptionsToggle() {
         numberOfSubscriptionIterations: parseFloat(
           numberOfSubscriptionIterations
         ),
+        recordId,
       },
     });
   };

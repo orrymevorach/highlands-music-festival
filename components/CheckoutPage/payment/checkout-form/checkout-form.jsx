@@ -94,6 +94,7 @@ export default function CheckoutForm() {
     const ticketStatus = isPurchasingCabin
       ? 'Cabin Purchased'
       : 'Ticket Purchased';
+    const subscriptionRecordId = subscriptionData?.recordId;
 
     const { response: airtableResponse } = await createRecord({
       tableId: 'Ticket Purchases',
@@ -109,6 +110,7 @@ export default function CheckoutForm() {
         'Vendor Name': vendorName,
         'Vendor Second Guest': vendorSecondGuest,
         Cabin: isPurchasingCabin ? [priceData.cabin[0]] : null,
+        'Subscription Id': hasSubscription ? [subscriptionRecordId] : null,
       },
     });
 
@@ -135,6 +137,8 @@ export default function CheckoutForm() {
     if (isAirtableSuccessful) {
       const mailgunConfirmationEmailResponse = await sendConfirmationEmail({
         emailAddress: email,
+        subscriptionRecordId,
+        cabinId: isPurchasingCabin ? priceData.cabin[0] : '',
       });
       const receiptResponse = await sendReceipt({
         priceData,

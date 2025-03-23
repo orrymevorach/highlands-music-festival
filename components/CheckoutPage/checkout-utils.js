@@ -102,6 +102,7 @@ export const getDefaultSubscriptionData = pricing => {
       subscriptionInstallmentAmount: '',
       subscriptionId: '',
       numberOfSubscriptionIterations: 0,
+      recordId: '',
     };
   }
 
@@ -111,5 +112,6 @@ export const getDefaultSubscriptionData = pricing => {
     numberOfSubscriptionIterations: parseFloat(
       defaultSubscriptionOption?.numberOfSubscriptionIterations
     ),
+    recordId: defaultSubscriptionOption?.id,
   };
 };
