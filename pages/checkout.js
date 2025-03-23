@@ -2,15 +2,19 @@ import React from 'react';
 import { CheckoutProvider } from 'context/checkout-context';
 import Layout from 'components/CheckoutPage/layout/layout';
 import Container from 'components/CheckoutPage/container/container';
-import { getPageLoadData } from 'lib/contentful-lib';
+import { getFeatureFlags, getPageLoadData } from 'lib/contentful-lib';
 import { getPriceModel } from 'lib/stripe-lib';
-import { PAGE_SLUGS } from 'utils/constants';
+import { FEATURE_FLAGS, PAGE_SLUGS } from 'utils/constants';
 import Head from 'components/shared/Head/Head';
 import Legal from 'components/CheckoutPage/legal/legal';
 import { useWindowSize } from 'hooks';
 import { useFacebookPixel } from 'hooks';
 
-export default function CheckoutPage({ priceModel, festivalDate }) {
+export default function CheckoutPage({
+  priceModel,
+  festivalDate,
+  enablePromoCodeFeatureFlag,
+}) {
   useFacebookPixel();
   const { isMobile } = useWindowSize();
 
@@ -18,7 +22,7 @@ export default function CheckoutPage({ priceModel, festivalDate }) {
     <CheckoutProvider priceModel={priceModel}>
       <Head title="Checkout" festivalDate={festivalDate} />
       <Layout>
-        <Container />
+        <Container enablePromoCodeFeatureFlag={enablePromoCodeFeatureFlag} />
         {!isMobile && <Legal />}
       </Layout>
       {isMobile && <Legal />}
@@ -31,24 +35,29 @@ export async function getServerSideProps(props) {
     url: PAGE_SLUGS.CHECKOUT,
   });
 
+  const enablePromoCodeFeatureFlag = await getFeatureFlags({
+    name: FEATURE_FLAGS.ENABLE_PROMO_CODE,
+  });
+
   const productId = props.query.productId;
   const hasInstallments = props.query.installments;
 
   // Allowing people to pay their remaining balances on cabins, but keeping GA ticket sales closed
-  if (!productId) {
-    return {
-      props: {
-        ...pageLoadData,
-        isPagePublished: false,
-      },
-    };
-  }
+  // if (!productId) {
+  //   return {
+  //     props: {
+  //       ...pageLoadData,
+  //       isPagePublished: false,
+  //     },
+  //   };
+  // }
 
   const priceModel = await getPriceModel({ hasInstallments, productId });
 
   return {
     props: {
       priceModel,
+      enablePromoCodeFeatureFlag,
       ...pageLoadData,
     },
   };

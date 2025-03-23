@@ -10,7 +10,7 @@ import UserDetails from 'components/CheckoutPage/user/user-details/user-details'
 import PromoCodeSuccess from 'components/CheckoutPage/promo-code/promo-code-success/promo-code-success';
 import PaymentOptionsToggle from '../payment-options-toggle/payment-options-toggle';
 
-export default function CheckoutContainer() {
+export default function CheckoutContainer({ enablePromoCodeFeatureFlag }) {
   const { quantity, paymentIntent, isLoading, promoCode, customer } =
     useCheckoutContext();
   const isPaymentIntentExpired = paymentIntent?.status === 'canceled';
@@ -32,8 +32,12 @@ export default function CheckoutContainer() {
 
       {paymentIntent && !isPaymentIntentExpired && (
         <>
-          {!promoCode && <PromoCodeForm />}
-          {promoCode && <PromoCodeSuccess />}
+          {enablePromoCodeFeatureFlag && (
+            <>
+              {!promoCode && <PromoCodeForm />}
+              {promoCode && <PromoCodeSuccess />}
+            </>
+          )}
           <Payment />
         </>
       )}
