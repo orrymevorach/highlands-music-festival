@@ -15,7 +15,6 @@ export default async function handler(req, res) {
           enabled: true,
         },
         metadata,
-        receipt_email: customer.email,
         // saves card for future subscription payments
         payment_method_options: {
           card: {
