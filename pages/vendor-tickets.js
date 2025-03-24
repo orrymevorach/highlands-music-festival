@@ -5,9 +5,9 @@ import { useFacebookPixel } from 'hooks';
 import Layout from 'components/shared/Layout/Layout';
 import { getProducts } from 'lib/airtable-lib';
 import { useEmailCaptureContext } from 'context/email-capture-context';
-import BuyTicketsPage from 'components/BuyTicketsPage/BuyTickets';
+import VendorTicketsPage from 'components/VendorTicketsPage/VendorTickets';
 
-export default function BuyTickets({
+export default function VendorTickets({
   festivalDate,
   showEmailCapture,
   products,
@@ -16,12 +16,11 @@ export default function BuyTickets({
   const { setShowEmailCapture } = useEmailCaptureContext();
   setShowEmailCapture(showEmailCapture);
   useFacebookPixel();
-
   return (
     <>
       <Head title="Buy Tickets" festivalDate={festivalDate} />
       <Layout hideHeaderMargin festivalDate={festivalDate}>
-        <BuyTicketsPage
+        <VendorTicketsPage
           products={products}
           isTicketSalesOpen={isTicketSalesOpen}
         />
@@ -39,7 +38,7 @@ export async function getStaticProps() {
     name: FEATURE_FLAGS.TICKET_SALES_OPEN,
   });
 
-  const products = await getProducts({ tableId: 'Product Inventory' });
+  const products = await getProducts({ tableId: 'Vendor Ticket Options' });
 
   return {
     props: {

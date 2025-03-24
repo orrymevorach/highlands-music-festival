@@ -39,47 +39,39 @@ const Category = ({ category, products }) => {
   );
 };
 
-export default function Merch({ products = [] }) {
+export default function Merch({
+  products = [],
+  title = 'Ticket Pricing for Highlands 2025',
+  sortAndFilterFunctions,
+}) {
   if (!products.length) return <Loader />;
 
   const categories = getCategories({ products });
   return (
     <>
       <div className={styles.textContainer}>
-        <h2 className={styles.title}>Ticket Pricing for Highlands 2025</h2>
+        <h2 className={styles.title}>{title}</h2>
       </div>
       <div className={styles.container}>
-        {categories
-          .filter(category => {
-            const categoriesToShow = [
-              'Ticket',
-              'Cabin in Colours',
-              'Cabin in Comics',
-              'Cabin in Zodiacs',
-            ];
-            if (
-              category === 'Test Mode' &&
-              process.env.NODE_ENV !== 'production'
-            )
-              return true;
-            if (categoriesToShow.includes(category)) return true;
-
-            return false;
-          })
-          .sort((a, b) => {
-            if (a === 'Ticket') return -1;
-            return 1;
-          })
-          .map(category => {
-            return (
-              <Category
-                key={category}
-                category={category}
-                products={products}
-              />
-            );
-            return;
-          })}
+        {sortAndFilterFunctions
+          ? sortAndFilterFunctions(categories).map(category => {
+              return (
+                <Category
+                  key={category}
+                  category={category}
+                  products={products}
+                />
+              );
+            })
+          : categories.map(category => {
+              return (
+                <Category
+                  key={category}
+                  category={category}
+                  products={products}
+                />
+              );
+            })}
       </div>
     </>
   );

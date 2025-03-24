@@ -1,66 +1,35 @@
-import styles from './BuyTickets.module.scss';
-import { calculatePricing } from 'components/CheckoutPage/checkout-utils';
-import PricingContainer from './PricingContainer';
-import Link from 'next/link';
+import Merch from 'components/BuyTicketsPage/Merch/Merch';
+import Contact from 'components/BuyTicketsPage/Contact/Contact';
 
-const fullPriceProps = {
-  buttonText: 'Pay Full Amount',
-  query: {
-    installments: 'false',
-  },
-  details: [
-    'Pay the full amount in one single transaction',
-    'No future payments',
-  ],
-};
-const getInstallmentsProps = ({
-  subscriptionInstallmentAmount,
-  numberOfSubscriptionIterations,
-}) => ({
-  buttonText: 'Pay in Monthly Installments',
-  query: {
-    installments: 'true',
-  },
-  details: [
-    `${numberOfSubscriptionIterations + 1} payments of $${Math.round(
-      subscriptionInstallmentAmount / 1.13
-    )}, spread across ${numberOfSubscriptionIterations} months`,
-    'No interest charge for future payments',
-  ],
-});
-
-export default function BuyTickets({ priceModel }) {
-  const pricing = calculatePricing({ priceData: priceModel });
-  const { subscriptionInstallmentAmount, numberOfSubscriptionIterations } =
-    pricing;
-
-  // This happens in September
-  const isSubscriptionPaymentsEnabled =
-    priceModel.numberOfSubscriptionIterations !== 0;
+export default function BuyTickets({ products, isTicketSalesOpen }) {
+  const sortAndFilterFunctions = categories => {
+    return categories
+      .filter(category => {
+        const categoriesToShow = [
+          'Ticket',
+          'Cabin in Colours',
+          'Cabin in Comics',
+          'Cabin in Zodiacs',
+        ];
+        if (category === 'Test Mode' && process.env.NODE_ENV !== 'production')
+          return true;
+        if (categoriesToShow.includes(category)) return true;
+      })
+      .sort((a, b) => {
+        if (a === 'Ticket') return -1;
+        return 1;
+      });
+  };
   return (
     <main>
-      <div className={styles.announcement}>
-        <p className={styles.aboutText}>About Cabin Reservations:</p>
-        <p>
-          Cabin and bed reservations are important to us! Closer to the
-          festival, all attendees who purchased tickets will have an opportunity
-          to reserve a spot in a cabin with their friends. For more information
-          on cabin reservations and other frequently asked questions,{' '}
-          <Link href="/faq">click here</Link>.
-        </p>
-      </div>
-      <div className={styles.buyTickets}>
-        <PricingContainer {...fullPriceProps} pricing={pricing} />
-        {isSubscriptionPaymentsEnabled && (
-          <PricingContainer
-            {...getInstallmentsProps({
-              subscriptionInstallmentAmount,
-              numberOfSubscriptionIterations,
-            })}
-            pricing={pricing}
-          />
-        )}
-      </div>
+      {isTicketSalesOpen ? (
+        <Merch
+          products={products}
+          sortAndFilterFunctions={sortAndFilterFunctions}
+        />
+      ) : (
+        <Contact />
+      )}
     </main>
   );
 }
