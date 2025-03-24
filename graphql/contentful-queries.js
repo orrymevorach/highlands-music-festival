@@ -60,6 +60,7 @@ export const GET_IS_PAGE_PUBLISHED = gql`
       items {
         label
         isPasswordProtected
+        password
       }
     }
   }

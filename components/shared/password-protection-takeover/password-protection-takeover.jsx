@@ -7,13 +7,14 @@ import { ErrorMessage } from 'components/CheckoutPage/checkout-shared-components
 
 export default function PasswordProtectionTakeover({
   setShowPasswordProtectionTakeover,
+  password: passwordProp = 'wildrivers2023',
 }) {
   const [password, setPassword] = useState('');
   const [errorMessage, setErrorMessage] = useState('');
 
   function handleSubmit(e) {
     e.preventDefault();
-    if (password === 'wildrivers2023') {
+    if (password === passwordProp) {
       setShowPasswordProtectionTakeover(false);
     } else {
       setErrorMessage('Incorrect password');

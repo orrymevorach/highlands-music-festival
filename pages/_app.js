@@ -12,7 +12,7 @@ import { EmailCaptureProvider } from 'context/email-capture-context';
 config.autoAddCss = false;
 
 export default function App({ Component, pageProps }) {
-  const { isPagePublished, navData, isPasswordProtected } = pageProps;
+  const { isPagePublished, navData, isPasswordProtected, password } = pageProps;
   const [showPasswordProtectionTakeover, setShowPasswordProtectionTakeover] =
     useState(true);
   useGoogleAnalytics();
@@ -21,6 +21,7 @@ export default function App({ Component, pageProps }) {
     return (
       <PasswordProtectionTakeover
         setShowPasswordProtectionTakeover={setShowPasswordProtectionTakeover}
+        password={password}
       />
     );
 

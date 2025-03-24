@@ -31,7 +31,7 @@ export default function VendorTickets({
 
 export async function getStaticProps() {
   const pageLoadData = await getPageLoadData({
-    url: PAGE_SLUGS.BUY_TICKETS,
+    url: PAGE_SLUGS.VENDOR_TICKETS,
   });
 
   const isTicketSalesOpen = await getFeatureFlags({
