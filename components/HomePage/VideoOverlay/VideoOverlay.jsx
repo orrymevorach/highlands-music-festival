@@ -1,8 +1,10 @@
 import { useWindowSize } from 'hooks';
-import styles from './ThankYou.module.scss';
+import styles from './VideoOverlay.module.scss';
 import { imgPath } from 'utils/constants';
 
-export default function ThankYou() {
+export default function VideoOverlay({
+  textArray = ['THANK YOU!', , 'Same time next year.'],
+}) {
   const { isDesktop } = useWindowSize();
   return (
     <div className={styles.thankYouContainer}>
@@ -14,8 +16,11 @@ export default function ThankYou() {
             className={styles.thankYouLogo}
           />
         )}
-        <p className={styles.thankYouHeading}>THANK YOU!</p>
-        <p className={styles.thankYouHeading}>Same time next year.</p>
+        {textArray.map((text, index) => (
+          <p key={`${text}-${index}`} className={styles.thankYouHeading}>
+            {text}
+          </p>
+        ))}
       </div>
       <div className={styles.overlay}></div>
     </div>
