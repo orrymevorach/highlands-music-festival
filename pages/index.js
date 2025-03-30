@@ -5,16 +5,17 @@ import {
   getFeatureFlags,
   getHeadliners,
   getPageLoadData,
+  getVideo,
 } from 'lib/contentful-lib';
 import { FEATURE_FLAGS, PAGE_SLUGS } from 'utils/constants';
 import { useFacebookPixel } from 'hooks';
 
 export default function Index({
   headlinerFeatureFlag = false,
-  thankYouMessageFeatureFlag = false,
   headliners,
   showEmailCapture,
   festivalDate,
+  video,
 }) {
   useFacebookPixel();
   const { setShowEmailCapture } = useEmailCaptureContext();
@@ -24,9 +25,9 @@ export default function Index({
       <Head festivalDate={festivalDate} />
       <Home
         headlinerFeatureFlag={headlinerFeatureFlag}
-        thankYouMessageFeatureFlag={thankYouMessageFeatureFlag}
         headliners={headliners}
         festivalDate={festivalDate}
+        video={video}
       />
     </>
   );
@@ -43,15 +44,13 @@ export async function getStaticProps() {
     name: FEATURE_FLAGS.HEADLINER_ANNOUNCEMENT,
   });
 
-  const thankYouMessageFeatureFlag = await getFeatureFlags({
-    name: FEATURE_FLAGS.SHOW_THANK_YOU_MESSAGE,
-  });
+  const video = await getVideo();
 
   return {
     props: {
       headliners,
       headlinerFeatureFlag,
-      thankYouMessageFeatureFlag,
+      video,
       ...pageLoadData,
     },
   };

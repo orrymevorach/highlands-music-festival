@@ -7,9 +7,9 @@ import Particles from './Particles/Particles';
 
 export default function Home({
   headlinerFeatureFlag = false,
-  thankYouMessageFeatureFlag = false,
   headliners = [],
   festivalDate,
+  video,
 }) {
   const { showAnnouncement, closeAnnouncement } = useAnimateAnnouncement();
   return (
@@ -25,7 +25,7 @@ export default function Home({
             <main className={styles.mainContent}>
               {/* <Particles /> */}
               <h1 className={styles.h1}>Highlands Music Festival</h1>
-              <Video thankYouMessageFeatureFlag={thankYouMessageFeatureFlag} />
+              <Video video={video} />
             </main>
           </Layout>
         </div>

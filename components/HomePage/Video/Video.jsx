@@ -1,18 +1,13 @@
-import { imgPath } from 'utils/constants';
 import styles from './Video.module.scss';
 import VideoOverlay from '../VideoOverlay/VideoOverlay';
 
-export default function Video({ thankYouMessageFeatureFlag = false }) {
+export default function Video({ video }) {
   return (
     <div className={styles.videoContainer}>
-      {thankYouMessageFeatureFlag ? (
-        <VideoOverlay />
-      ) : (
-        <VideoOverlay textArray={['Early Bird Tickets available now!']} />
-      )}
+      {video?.overlayText && <VideoOverlay overlayText={video.overlayText} />}
 
       <video
-        src={`${imgPath}/promo-2025.mp4`}
+        src={video?.href}
         autoPlay
         muted
         className={styles.video}

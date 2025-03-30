@@ -1,10 +1,23 @@
 import { useWindowSize } from 'hooks';
 import styles from './VideoOverlay.module.scss';
 import { imgPath } from 'utils/constants';
+import RichText from 'components/shared/RichText/RichText';
+import { BLOCKS } from '@contentful/rich-text-types';
 
-export default function VideoOverlay({
-  textArray = ['THANK YOU!', , 'Same time next year.'],
-}) {
+export const config = {
+  renderNode: {
+    [BLOCKS.PARAGRAPH]: (node, children) => {
+      return <p className={styles.thankYouHeading}>{children}</p>;
+    },
+    renderText: text => {
+      return text.split('\n').reduce((children, textSegment, index) => {
+        return [...children, index > 0 && <br key={index} />, textSegment];
+      }, []);
+    },
+  },
+};
+
+export default function VideoOverlay({ overlayText }) {
   const { isDesktop } = useWindowSize();
   return (
     <div className={styles.thankYouContainer}>
@@ -16,11 +29,7 @@ export default function VideoOverlay({
             className={styles.thankYouLogo}
           />
         )}
-        {textArray.map((text, index) => (
-          <p key={`${text}-${index}`} className={styles.thankYouHeading}>
-            {text}
-          </p>
-        ))}
+        <RichText json={overlayText.json} config={config} />
       </div>
       <div className={styles.overlay}></div>
     </div>

@@ -243,3 +243,16 @@ export const GET_FESTIVAL_DATE = gql`
     }
   }
 `;
+
+export const GET_VIDEO = gql`
+  query getVideo {
+    videoCollection(where: { title: "Home Page Video" }, limit: 1) {
+      items {
+        href
+        overlayText {
+          json
+        }
+      }
+    }
+  }
+`;
