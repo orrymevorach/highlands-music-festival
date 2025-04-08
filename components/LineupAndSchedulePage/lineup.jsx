@@ -84,7 +84,10 @@ export default function Lineup({
               </span>
             </>
           ) : (
-            <span className={styles.comingSoon}>(schedule coming soon...)</span>
+            // <span className={styles.comingSoon}>(schedule coming soon...)</span>
+            <span className={styles.comingSoon}>
+              (more announcements coming soon...)
+            </span>
           )}
         </p>
       </Heading>
