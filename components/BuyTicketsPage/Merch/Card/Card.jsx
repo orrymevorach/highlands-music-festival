@@ -33,7 +33,8 @@ export default function Card({ product, isSold = false, isInCart = false }) {
     ? discountAmountPerUnitInDollars
     : priceInDollars;
 
-  const Element = href ? Link : 'div';
+  const isLink = href && !isSold;
+  const Element = isLink ? Link : 'div';
 
   const handleAddToCart = () => {
     if (isSold || !addToCart) return;
@@ -48,7 +49,7 @@ export default function Card({ product, isSold = false, isInCart = false }) {
     <Element
       className={styles.card}
       key={name}
-      href={!isSold && href ? href : undefined}
+      href={isLink ? href : undefined}
     >
       <div className={styles.row}>
         <div className={styles.left}>

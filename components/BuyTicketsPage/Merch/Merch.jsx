@@ -35,7 +35,7 @@ const Category = ({
             const isCurrentCateogry = product.category === category;
             const isAvailable = product.status === 'Available';
             const isSold = product.status === 'Sold';
-            const isInCart = cart.some(
+            const isInCart = cart?.some(
               cartProduct => cartProduct.name === product.name
             );
             if (isCurrentCateogry && isSold) {
