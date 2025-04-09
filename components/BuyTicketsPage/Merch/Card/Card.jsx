@@ -1,7 +1,13 @@
 import Link from 'next/link';
 import styles from './Card.module.scss';
 import { amountToDollar } from 'utils/utils';
-import clsx from 'clsx';
+import Button from 'components/shared/Button/Button';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import {
+  faCheckCircle,
+  faShoppingCart,
+  faTrash,
+} from '@fortawesome/free-solid-svg-icons';
 
 export default function Card({ product, isSold = false, isInCart = false }) {
   const {
@@ -11,7 +17,10 @@ export default function Card({ product, isSold = false, isInCart = false }) {
     discountAmountPerUnit,
     description,
     href,
-    handleClick,
+    handleAddToCart: addToCart,
+    handleRemoveFromCart: removeFromCart,
+    isLoading,
+    allowRemoveFromCart,
   } = product;
   const priceInDollars = amountToDollar(price);
   const dueTodayInDollars = deposit !== 0 ? amountToDollar(deposit) : '';
@@ -24,39 +33,73 @@ export default function Card({ product, isSold = false, isInCart = false }) {
     ? discountAmountPerUnitInDollars
     : priceInDollars;
 
-  const Element = isSold ? 'div' : href ? Link : 'button';
+  const Element = href ? Link : 'div';
 
-  const props = {
-    href: !isSold && href ? href : undefined,
-    onClick: !isSold && handleClick ? () => handleClick(product) : undefined,
+  const handleAddToCart = () => {
+    if (isSold || !addToCart) return;
+    addToCart(product);
+  };
+
+  const handleRemoveFromCart = () => {
+    removeFromCart(product);
   };
 
   return (
-    <Element className={styles.card} key={name} {...props}>
-      <div className={clsx(styles.row, styles.topRow)}>
-        <p>
-          {name} {isSold && <span className={styles.sold}>Sold Out</span>}
-        </p>
-        <div className={styles.topRowRightContainer}>
-          {!!discountAmountPerUnit && (
-            <p className={styles.strikethrough}>{priceInDollars}</p>
-          )}
-          <p>{numberToShow}</p>
-          {isInCart && (
+    <Element
+      className={styles.card}
+      key={name}
+      href={!isSold && href ? href : undefined}
+    >
+      <div className={styles.row}>
+        <div className={styles.left}>
+          <p className={styles.name}>
+            {name} {isSold && <span className={styles.sold}>Sold Out</span>}
+          </p>
+          {description && <p className={styles.description}>{description}</p>}
+        </div>
+        <div className={styles.right}>
+          <div className={styles.topRowRightContainer}>
+            {!!discountAmountPerUnit && (
+              <p className={styles.strikethrough}>{priceInDollars}</p>
+            )}
+            <p>{numberToShow}</p>
+            {!isInCart && addToCart && (
+              <Button
+                isLoading={isLoading}
+                classNames={styles.addToCartButton}
+                handleClick={handleAddToCart}
+                isDarkBeige
+                isSmall
+              >
+                Add to Cart <FontAwesomeIcon icon={faShoppingCart} size="sm" />
+              </Button>
+            )}
+            {isInCart && (
+              <div>
+                {allowRemoveFromCart !== 'False' && (
+                  <button
+                    onClick={handleRemoveFromCart}
+                    className={styles.removeFromCartButton}
+                  >
+                    <FontAwesomeIcon icon={faTrash} />
+                  </button>
+                )}
+                <Button
+                  isLoading={isLoading}
+                  classNames={styles.addToCartButton}
+                  isSmall
+                >
+                  Item Added <FontAwesomeIcon icon={faCheckCircle} size="sm" />
+                </Button>
+              </div>
+            )}
+          </div>
+          {dueTodayInDollars && !isSold && (
             <div>
-              <p className={styles.addedToCart}>Added to cart!</p>
+              <p className={styles.due}>Due Today: {dueTodayInDollars}</p>
             </div>
           )}
         </div>
-      </div>
-
-      <div className={styles.bottomRow}>
-        {description && <p className={styles.description}>{description}</p>}
-        {dueTodayInDollars && !isSold && (
-          <div>
-            <p className={styles.due}>Due Today: {dueTodayInDollars}</p>
-          </div>
-        )}
       </div>
     </Element>
   );

@@ -1,7 +1,7 @@
 import Merch from 'components/BuyTicketsPage/Merch/Merch';
 import Contact from 'components/BuyTicketsPage/Contact/Contact';
 import styles from './VendorTickets.module.scss';
-import { useRef, useState } from 'react';
+import { useCallback, useEffect, useRef, useState } from 'react';
 import VendorOrderSummary from './VendorOrderSummary/VendorOrderSummary';
 import { VendorLayout } from 'components/VendorSubmissionPage/VendorSubmission';
 import Information from 'components/VendorSubmissionPage/Information/Information';
@@ -38,8 +38,8 @@ const informationData = [
 export default function VendorTickets({ products, isTicketSalesOpen }) {
   const baseFee = products.filter(product => product.name === 'Base Fee')[0];
   const [cart, setCart] = useState([baseFee]);
-  const [isLoading, setIsLoading] = useState(false);
   const purchaseRef = useRef(null);
+  const [formattedProducts, setFormattedProducts] = useState(products);
 
   const sortAndFilterFunctions = categories => {
     return categories
@@ -56,24 +56,80 @@ export default function VendorTickets({ products, isTicketSalesOpen }) {
         return 1;
       });
   };
-  const formattedProducts = products.map(product => {
-    return {
-      ...product,
-      handleClick: selectedProduct => {
-        if (
-          cart.some(cartProduct => cartProduct.name === selectedProduct.name)
-        ) {
-          alert('This item is already in your cart');
-          return;
-        }
-        setIsLoading(true);
-        setTimeout(() => {
-          setCart([...cart, selectedProduct]);
-          setIsLoading(false);
-        }, 300);
-      },
-    };
-  });
+
+  const handleAddToCart = useCallback(
+    selectedProduct => {
+      // Check if already in cart
+      if (cart.some(cartProduct => cartProduct.name === selectedProduct.name)) {
+        alert('This item is already in your cart');
+        return;
+      }
+
+      // Mark selected product as loading
+      setFormattedProducts(prevProducts =>
+        prevProducts.map(product =>
+          product.name === selectedProduct.name
+            ? { ...product, isLoading: true }
+            : product
+        )
+      );
+
+      setTimeout(() => {
+        setCart(prevCart => [...prevCart, selectedProduct]);
+        // Re-apply formatted products with handleAddToCart attached
+        setFormattedProducts(
+          products.map(product => ({
+            ...product,
+            handleAddToCart,
+            handleRemoveFromCart,
+            isLoading: false,
+          }))
+        );
+      }, 300);
+    },
+    [cart, products] //
+  );
+
+  const handleRemoveFromCart = useCallback(selectedProduct => {
+    // Mark selected product as loading
+    setFormattedProducts(prevProducts =>
+      prevProducts.map(product =>
+        product.name === selectedProduct.name
+          ? { ...product, isLoading: true }
+          : product
+      )
+    );
+    setTimeout(() => {
+      setCart(prevCart =>
+        prevCart.filter(
+          cartProduct => cartProduct.name !== selectedProduct.name
+        )
+      );
+      // Re-apply formatted products with handleAddToCart attached
+      setFormattedProducts(
+        products.map(product => ({
+          ...product,
+          handleAddToCart,
+          handleRemoveFromCart,
+          isLoading: false,
+        }))
+      );
+    }, 300);
+  }, []);
+
+  useEffect(() => {
+    if (!products) return;
+
+    setFormattedProducts(
+      products.map(product => ({
+        ...product,
+        handleAddToCart,
+        handleRemoveFromCart,
+        isLoading: false,
+      }))
+    );
+  }, [products, handleAddToCart, handleRemoveFromCart]);
+
   return (
     <main>
       <div className={styles.outerContainer}>
@@ -89,7 +145,8 @@ export default function VendorTickets({ products, isTicketSalesOpen }) {
                 purchaseRef.current.scrollIntoView({ behavior: 'smooth' })
               }
             >
-              Continue <FontAwesomeIcon icon={faArrowRight} size="sm" />
+              Continue to buy tickets{' '}
+              <FontAwesomeIcon icon={faArrowRight} size="sm" />
             </Button>
           </div>
           <div className={styles.purchaseContainer} ref={purchaseRef}>
@@ -106,7 +163,7 @@ export default function VendorTickets({ products, isTicketSalesOpen }) {
               )}
             </div>
             <div className={styles.right}>
-              <VendorOrderSummary isLoading={isLoading} cart={cart} />
+              <VendorOrderSummary cart={cart} />
             </div>
           </div>
         </VendorLayout>
