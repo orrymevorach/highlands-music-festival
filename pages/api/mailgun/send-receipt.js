@@ -1,5 +1,5 @@
 import { getInstallmentDate } from 'components/CheckoutPage/checkout-utils';
-import { formatPrice } from 'components/CheckoutPage/order-summary/order-summary-shared';
+import { formatPrice } from 'components/shared/OrderSummaryLayout/OrderSummaryLayout';
 
 let nodemailer = require('nodemailer');
 const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY);

@@ -19,12 +19,10 @@ export default function VendorTickets({
   return (
     <>
       <Head title="Buy Tickets" festivalDate={festivalDate} />
-      <Layout hideHeaderMargin festivalDate={festivalDate}>
-        <VendorTicketsPage
-          products={products}
-          isTicketSalesOpen={isTicketSalesOpen}
-        />
-      </Layout>
+      <VendorTicketsPage
+        products={products}
+        isTicketSalesOpen={isTicketSalesOpen}
+      />
     </>
   );
 }

@@ -1,8 +1,7 @@
-import styles from './OrderSummary.module.scss';
-import {
+import styles from './VendorOrderSummary.module.scss';
+import OrderSummaryLayout, {
   LineItem,
-  OrderSummaryLayout,
-} from 'components/CheckoutPage/order-summary/order-summary-shared';
+} from 'components/shared/OrderSummaryLayout/OrderSummaryLayout';
 import Loader from 'components/shared/Loader/Loader';
 import { calculateCart } from 'components/CheckoutPage/checkout-utils';
 

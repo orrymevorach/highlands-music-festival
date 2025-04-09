@@ -25,9 +25,11 @@ export default function Button({
   classNames = '',
   target = '',
   isSmall = false,
+  isDarkBeige = false,
 }) {
   const classes = clsx(styles.button, classNames, {
     [styles.small]: isSmall,
+    [styles.darkBeige]: isDarkBeige,
   });
   if (href) {
     return (

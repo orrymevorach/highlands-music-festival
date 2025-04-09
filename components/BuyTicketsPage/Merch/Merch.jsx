@@ -1,6 +1,7 @@
 import styles from './Merch.module.scss';
 import Loader from 'components/shared/Loader/Loader';
 import Card from './Card/Card';
+import clsx from 'clsx';
 
 const getCategories = ({ products }) => {
   let categories = [];
@@ -12,10 +13,17 @@ const getCategories = ({ products }) => {
   return categories;
 };
 
-const Category = ({ category, products, cart }) => {
+const Category = ({
+  category,
+  products,
+  cart,
+  categoryTitleClassNames = {},
+}) => {
   return (
     <div className={styles.category}>
-      <p className={styles.categoryTitle}>{category}</p>
+      <p className={clsx(styles.categoryTitle, categoryTitleClassNames)}>
+        {category}
+      </p>
       <div>
         {products
           .filter(product => {
@@ -60,6 +68,7 @@ export default function Merch({
   title,
   sortAndFilterFunctions,
   cart,
+  categoryTitleClassNames = {},
 }) {
   if (!products.length) return <Loader />;
 
@@ -80,6 +89,7 @@ export default function Merch({
                   category={category}
                   products={products}
                   cart={cart}
+                  categoryTitleClassNames={categoryTitleClassNames}
                 />
               );
             })
@@ -90,6 +100,7 @@ export default function Merch({
                   category={category}
                   products={products}
                   cart={cart}
+                  categoryTitleClassNames={categoryTitleClassNames}
                 />
               );
             })}

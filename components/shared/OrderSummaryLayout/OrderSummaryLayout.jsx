@@ -1,4 +1,4 @@
-import styles from './order-summary.module.scss';
+import styles from './OrderSummaryLayout.module.scss';
 import clsx from 'clsx';
 
 export const Border = () => {
@@ -20,6 +20,7 @@ export const LineItem = ({
   isBold,
   className,
   shouldAddCanadianDollars,
+  isDiscount,
 }) => {
   if (price) {
     price = formatPrice(price);
@@ -28,20 +29,27 @@ export const LineItem = ({
     price = addCanadianDollars(price);
   }
   return (
-    <div className={clsx(styles.row, isBold && styles.bold, className)}>
+    <div
+      className={clsx(
+        styles.row,
+        isBold && styles.bold,
+        isDiscount && styles.discount,
+        className
+      )}
+    >
       <p>{label}:</p>
       <p>{price || '--'}</p>
     </div>
   );
 };
 
-export const OrderSummaryLayout = ({
+export default function OrderSummaryLayout({
   children,
   tax,
   subtotal,
   total,
   classNames = {},
-}) => {
+}) {
   return (
     <div className={clsx(styles.orderSummary, styles.bodyCopy, classNames)}>
       <p className={styles.title}>Order Summary</p>
@@ -58,4 +66,4 @@ export const OrderSummaryLayout = ({
       <LineItem label="Total" price={total} isBold shouldAddCanadianDollars />
     </div>
   );
-};
+}

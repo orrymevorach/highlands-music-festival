@@ -1,10 +1,12 @@
-import styles from './order-summary.module.scss';
+import styles from './TicketOrderSummary.module.scss';
 import { useCheckoutContext } from 'context/checkout-context';
-import { LineItem, OrderSummaryLayout } from './order-summary-shared';
+import OrderSummaryLayout, {
+  LineItem,
+} from '../../shared/OrderSummaryLayout/OrderSummaryLayout';
 import { getInstallmentDate } from '../checkout-utils';
 import { useRouter } from 'next/router';
 
-export default function OrderSummary() {
+export default function TicketOrderSummary() {
   const {
     quantity,
     priceData: {
@@ -39,11 +41,7 @@ export default function OrderSummary() {
         price={ticketPrice}
       />
       {discountName && discountTotal ? (
-        <LineItem
-          label={discountName}
-          price={`-${discountTotal}`}
-          className={styles.discount}
-        />
+        <LineItem label={discountName} price={`-${discountTotal}`} isDiscount />
       ) : (
         ''
       )}
@@ -51,25 +49,17 @@ export default function OrderSummary() {
         <LineItem
           label={`${promoCode} Promotion x ${quantity}`}
           price={promoAmount ? `-${promoAmount}` : ''}
-          className={styles.discount}
+          isDiscount
         />
       )}
 
       {!!deposit && (
-        <>
-          <LineItem
-            label="Due Today"
-            price={deposit}
-            isBold
-            shouldAddCanadianDollars
-          />
-
-          {/* <p className={styles.asterisk}>
-              *Future payments will be available as single payments or broken
-              down as multiple installments. The Highands team will follow up to
-              discuss options at a later date.
-            </p> */}
-        </>
+        <LineItem
+          label="Due Today"
+          price={deposit}
+          isBold
+          shouldAddCanadianDollars
+        />
       )}
       {isSubscription && (
         <LineItem

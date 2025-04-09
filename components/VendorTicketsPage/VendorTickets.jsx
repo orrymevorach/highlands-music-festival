@@ -1,13 +1,45 @@
 import Merch from 'components/BuyTicketsPage/Merch/Merch';
 import Contact from 'components/BuyTicketsPage/Contact/Contact';
 import styles from './VendorTickets.module.scss';
-import { useState } from 'react';
-import OrderSummary from './OrderSummary/OrderSummary';
+import { useRef, useState } from 'react';
+import VendorOrderSummary from './VendorOrderSummary/VendorOrderSummary';
+import { VendorLayout } from 'components/VendorSubmissionPage/VendorSubmission';
+import Information from 'components/VendorSubmissionPage/Information/Information';
+import Button from 'components/shared/Button/Button';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faArrowRight } from '@fortawesome/free-solid-svg-icons';
+
+const informationData = [
+  {
+    heading: 'Highlands Vendors!',
+    text: 'You are at the right place! It’s now time for you to officially hold your spot for the 2025 Highlands Marketplace! You are an integral part to the success of our festival and we are so grateful and excited for you to join us!',
+  },
+  {
+    heading: 'Base fee is $250.00, and includes:',
+    listItems: [
+      'Admission for 2 people from your team.',
+      'Arrival on either Friday during the day or Saturday morning by 8am.',
+      'Departure on Sunday or after the Marketplace on Saturday.',
+      'Tenting on our main tenting field (bring your own gear)',
+      'Meals provided for you the entire time you are with us.',
+      'When you are not working your booth at the Marketplace you are more than welcome to enjoy the musical acts and enjoy the property.',
+    ],
+  },
+  {
+    heading: 'a la carte options:',
+    listItems: [
+      'Thursday Night',
+      'Cabin Upgrade',
+      'Hotel Upgrade (off property)',
+    ],
+  },
+];
 
 export default function VendorTickets({ products, isTicketSalesOpen }) {
   const baseFee = products.filter(product => product.name === 'Base Fee')[0];
   const [cart, setCart] = useState([baseFee]);
   const [isLoading, setIsLoading] = useState(false);
+  const purchaseRef = useRef(null);
 
   const sortAndFilterFunctions = categories => {
     return categories
@@ -28,6 +60,12 @@ export default function VendorTickets({ products, isTicketSalesOpen }) {
     return {
       ...product,
       handleClick: selectedProduct => {
+        if (
+          cart.some(cartProduct => cartProduct.name === selectedProduct.name)
+        ) {
+          alert('This item is already in your cart');
+          return;
+        }
         setIsLoading(true);
         setTimeout(() => {
           setCart([...cart, selectedProduct]);
@@ -37,58 +75,42 @@ export default function VendorTickets({ products, isTicketSalesOpen }) {
     };
   });
   return (
-    <>
-      <main>
-        <div className={styles.description}>
-          <p>
-            Highlands Vendors! You are at the right place! It’s now time for you
-            to officially hold your spot for the 2025 Highlands Marketplace! You
-            are an integral part to the success of our festival and we are so
-            grateful and excited for you to join us!
-          </p>
-
-          <p>
-            Your base vendor fee for 2025 is $250.00 which incudes the
-            following:
-          </p>
-          <ul>
-            <li>Admission for 2 people from your team.</li>
-            <li>
-              Arrival on either Friday during the day or Saturday morning by
-              8am.
-            </li>
-            <li>Departure on Sunday or after the Marketplace on Saturday.</li>
-            <li>Tenting on our main tenting field (bring your own gear)</li>
-            <li>Meals provided for you the entire time you are with us.</li>
-            <li>
-              When you are not working your booth at the Marketplace you are
-              more than welcome to enjoy the musical acts and enjoy the
-              property.
-            </li>
-          </ul>
-
-          <p>
-            We have provided a variety of a la carte option below should you
-            choose to upgrade in particular areas.
-          </p>
-        </div>
-        <div className={styles.container}>
-          <div className={styles.left}>
-            {isTicketSalesOpen ? (
-              <Merch
-                products={formattedProducts}
-                sortAndFilterFunctions={sortAndFilterFunctions}
-                cart={cart}
-              />
-            ) : (
-              <Contact />
-            )}
+    <main>
+      <div className={styles.outerContainer}>
+        <VendorLayout>
+          <div className={styles.informationContainer}>
+            {informationData.map(informationItem => (
+              <Information {...informationItem} key={informationItem.heading} />
+            ))}
+            <Button
+              classNames={styles.button}
+              isDarkBeige
+              handleClick={() =>
+                purchaseRef.current.scrollIntoView({ behavior: 'smooth' })
+              }
+            >
+              Continue <FontAwesomeIcon icon={faArrowRight} size="sm" />
+            </Button>
           </div>
-          <div className={styles.right}>
-            <OrderSummary isLoading={isLoading} cart={cart} />
+          <div className={styles.purchaseContainer} ref={purchaseRef}>
+            <div className={styles.left}>
+              {isTicketSalesOpen ? (
+                <Merch
+                  products={formattedProducts}
+                  sortAndFilterFunctions={sortAndFilterFunctions}
+                  cart={cart}
+                  categoryTitleClassNames={styles.categoryTitle}
+                />
+              ) : (
+                <Contact />
+              )}
+            </div>
+            <div className={styles.right}>
+              <VendorOrderSummary isLoading={isLoading} cart={cart} />
+            </div>
           </div>
-        </div>
-      </main>
-    </>
+        </VendorLayout>
+      </div>
+    </main>
   );
 }

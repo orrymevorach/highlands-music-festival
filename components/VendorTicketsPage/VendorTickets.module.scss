@@ -1,30 +1,42 @@
 @import '@variables';
 
-.description {
-  width: 600px;
+.outerContainer {
+  padding-bottom: 80px;
+}
+
+.informationContainer {
+  margin: 0 auto 100px;
+}
+
+.button {
+  font-size: 20px;
+  display: block;
   margin: 0 auto;
-  ul,
-  p {
-    font-family: $fontSecondary;
-    margin: 10px 0;
-  }
-  ul {
-    list-style: disc;
-  }
-  li {
-    margin-left: 20px;
+  margin-top: 30px;
+  svg {
+    margin-left: 7px;
   }
 }
 
-.container {
+.purchaseContainer {
   display: flex;
   justify-content: center;
+  margin-top: 200px;
+  padding-top: 50px;
 }
-
 .left {
   width: 800px;
 }
 
 .right {
   width: 400px;
+}
+
+.categoryTitle {
+  background-color: $darkBeige;
+  font-family: $fontSecondaryBold;
+  padding: 5px 10px;
+  font-size: 24px;
+  margin-bottom: 10px;
+  display: inline-block;
 }
