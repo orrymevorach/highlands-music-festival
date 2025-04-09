@@ -9,6 +9,8 @@ import Head from 'components/shared/Head/Head';
 import Legal from 'components/CheckoutPage/legal/legal';
 import { useWindowSize } from 'hooks';
 import { useFacebookPixel } from 'hooks';
+import nookies from 'nookies';
+import { getRecordById } from 'lib/airtable-lib';
 
 export default function CheckoutPage({
   priceModel,
@@ -30,7 +32,7 @@ export default function CheckoutPage({
   );
 }
 
-export async function getServerSideProps(props) {
+export async function getServerSideProps(context) {
   const pageLoadData = await getPageLoadData({
     url: PAGE_SLUGS.CHECKOUT,
   });
@@ -39,8 +41,29 @@ export async function getServerSideProps(props) {
     name: FEATURE_FLAGS.ENABLE_PROMO_CODE,
   });
 
-  const productId = props.query.productId;
-  const hasInstallments = props.query.installments;
+  const productId = context.query.productId;
+  const hasInstallments = context.query.installments;
+
+  const cookies = nookies.get(context);
+  const cartId = cookies.cartId;
+
+  if (cartId) {
+    const { record: cart } = await getRecordById({
+      tableId: 'Carts',
+      recordId: cartId,
+    });
+    const priceModel = {
+      price: cart.subtotal,
+      name: cart.name,
+    };
+    return {
+      props: {
+        priceModel,
+        enablePromoCodeFeatureFlag: false,
+        ...pageLoadData,
+      },
+    };
+  }
 
   // Allowing people to pay their remaining balances on cabins, but keeping GA ticket sales closed
   // if (!productId) {

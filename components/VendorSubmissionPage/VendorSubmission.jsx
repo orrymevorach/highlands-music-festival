@@ -38,26 +38,33 @@ const informationData = [
   },
 ];
 
+export const VendorLayout = ({ children }) => {
+  return (
+    <div className={styles.vendorFormPageContainer}>
+      <Image
+        src={logo}
+        className={styles.logo}
+        alt="Highlands Music Festival Logo"
+      />
+      <div className={styles.marketplaceContainer}>
+        <FontAwesomeIcon icon={faMapPin} color={colors.beige} size="2xl" />
+        <p className={styles.marketplaceText}>Marketplace</p>
+      </div>
+      {children}
+    </div>
+  );
+};
+
 export default function VendorSubmission() {
   return (
     <main>
-      <div className={styles.vendorFormPageContainer}>
-        <Image
-          src={logo}
-          className={styles.logo}
-          alt="Highlands Music Festival Logo"
-        />
-        <div className={styles.marketplaceContainer}>
-          <FontAwesomeIcon icon={faMapPin} color={colors.beige} size="2xl" />
-          <p className={styles.marketplaceText}>Marketplace</p>
-        </div>
-
+      <VendorLayout>
         {informationData.map(informationItem => (
           <Information {...informationItem} key={informationItem.heading} />
         ))}
         {/* <Information heading="vendor application" /> */}
         <VendorSubmissionForm />
-      </div>
+      </VendorLayout>
     </main>
   );
 }

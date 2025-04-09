@@ -18,13 +18,11 @@ export default function VendorTickets({
   useFacebookPixel();
   return (
     <>
-      <Head title="Buy Tickets" festivalDate={festivalDate} />
-      <Layout hideHeaderMargin festivalDate={festivalDate}>
-        <VendorTicketsPage
-          products={products}
-          isTicketSalesOpen={isTicketSalesOpen}
-        />
-      </Layout>
+      <Head festivalDate={festivalDate} />
+      <VendorTicketsPage
+        products={products}
+        isTicketSalesOpen={isTicketSalesOpen}
+      />
     </>
   );
 }

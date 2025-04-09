@@ -9,15 +9,18 @@ import PromoCodeForm from 'components/CheckoutPage/promo-code/promo-code-form/pr
 import UserDetails from 'components/CheckoutPage/user/user-details/user-details';
 import PromoCodeSuccess from 'components/CheckoutPage/promo-code/promo-code-success/promo-code-success';
 import PaymentOptionsToggle from '../payment-options-toggle/payment-options-toggle';
+import { useRouter } from 'next/router';
 
 export default function CheckoutContainer({ enablePromoCodeFeatureFlag }) {
+  const router = useRouter();
+  const isVendor = router.query.vendor === 'true';
   const { quantity, paymentIntent, isLoading, promoCode, customer } =
     useCheckoutContext();
   const isPaymentIntentExpired = paymentIntent?.status === 'canceled';
   if (isLoading) return <Loader centerInContainer />;
   return (
     <div>
-      {!!quantity && !customer ? <PaymentOptionsToggle /> : ''}
+      {!!quantity && !customer && !isVendor ? <PaymentOptionsToggle /> : ''}
       {isPaymentIntentExpired && (
         <Takeover disableClose classNames={styles.takeover}>
           <p>

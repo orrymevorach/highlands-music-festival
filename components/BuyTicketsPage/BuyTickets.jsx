@@ -20,12 +20,20 @@ export default function BuyTickets({ products, isTicketSalesOpen }) {
         return 1;
       });
   };
+
+  const formattedProducts = products.map(product => {
+    return {
+      ...product,
+      href: `/checkout?productId=${product.productID}`,
+    };
+  });
   return (
     <main>
       {isTicketSalesOpen ? (
         <Merch
-          products={products}
+          products={formattedProducts}
           sortAndFilterFunctions={sortAndFilterFunctions}
+          title="Ticket Pricing for Highlands 2025"
         />
       ) : (
         <Contact />
