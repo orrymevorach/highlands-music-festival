@@ -34,25 +34,8 @@ export default function TicketOrderSummary() {
   const router = useRouter();
   const isSubscription = router.query.installments === 'true';
 
-  return (
-    <OrderSummaryLayout tax={tax} subtotal={subtotal} total={total}>
-      <LineItem
-        label={`${quantity ? `${quantity} x ` : ''} ${productName}`}
-        price={ticketPrice}
-      />
-      {discountName && discountTotal ? (
-        <LineItem label={discountName} price={`-${discountTotal}`} isDiscount />
-      ) : (
-        ''
-      )}
-      {promoCode && (
-        <LineItem
-          label={`${promoCode} Promotion x ${quantity}`}
-          price={promoAmount ? `-${promoAmount}` : ''}
-          isDiscount
-        />
-      )}
-
+  const BottomContent = () => (
+    <>
       {!!deposit && (
         <LineItem
           label="Due Today"
@@ -90,6 +73,32 @@ export default function TicketOrderSummary() {
         </p>
       ) : (
         ''
+      )}
+    </>
+  );
+
+  return (
+    <OrderSummaryLayout
+      tax={tax}
+      subtotal={subtotal}
+      total={total}
+      BottomContent={BottomContent}
+    >
+      <LineItem
+        label={`${quantity ? `${quantity} x ` : ''} ${productName}`}
+        price={ticketPrice}
+      />
+      {discountName && discountTotal ? (
+        <LineItem label={discountName} price={`-${discountTotal}`} isDiscount />
+      ) : (
+        ''
+      )}
+      {promoCode && (
+        <LineItem
+          label={`${promoCode} Promotion x ${quantity}`}
+          price={promoAmount ? `-${promoAmount}` : ''}
+          isDiscount
+        />
       )}
     </OrderSummaryLayout>
   );

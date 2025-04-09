@@ -30,6 +30,15 @@ export default function VendorOrderSummary({ cart }) {
     Cookies.set('cartId', cartResponse.id, { expires: 3 });
     router.push(`/${PAGE_SLUGS.CHECKOUT}?vendor=true`);
   };
+  const BottomContent = () => (
+    <Button
+      classNames={styles.button}
+      handleClick={createCart}
+      isLoading={isLoading}
+    >
+      Continue to Checkout
+    </Button>
+  );
   return (
     <div className={styles.outerContainer}>
       <OrderSummaryLayout
@@ -37,18 +46,12 @@ export default function VendorOrderSummary({ cart }) {
         tax={tax}
         total={total}
         classNames={styles.container}
+        BottomContent={BottomContent}
       >
         {cart.map(item => {
           return <LineItem label={item.name} price={item.price} />;
         })}
       </OrderSummaryLayout>
-      <Button
-        classNames={styles.button}
-        handleClick={createCart}
-        isLoading={isLoading}
-      >
-        Continue to Checkout
-      </Button>
     </div>
   );
 }

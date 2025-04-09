@@ -49,6 +49,7 @@ export default function OrderSummaryLayout({
   subtotal,
   total,
   classNames = {},
+  BottomContent = () => {},
 }) {
   return (
     <div className={clsx(styles.orderSummary, styles.bodyCopy, classNames)}>
@@ -64,6 +65,7 @@ export default function OrderSummaryLayout({
       )}
       <Border />
       <LineItem label="Total" price={total} isBold shouldAddCanadianDollars />
+      {BottomContent && <BottomContent />}
     </div>
   );
 }
