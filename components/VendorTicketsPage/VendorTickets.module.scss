@@ -1,0 +1,30 @@
+@import '@variables';
+
+.description {
+  width: 600px;
+  margin: 0 auto;
+  ul,
+  p {
+    font-family: $fontSecondary;
+    margin: 10px 0;
+  }
+  ul {
+    list-style: disc;
+  }
+  li {
+    margin-left: 20px;
+  }
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+}
+
+.left {
+  width: 800px;
+}
+
+.right {
+  width: 400px;
+}

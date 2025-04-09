@@ -3,16 +3,16 @@ import styles from './Card.module.scss';
 import { amountToDollar } from 'utils/utils';
 import clsx from 'clsx';
 
-export default function Card({ product, isSold = false }) {
+export default function Card({ product, isSold = false, isInCart = false }) {
   const {
     name,
     price,
     deposit,
     discountAmountPerUnit,
     description,
-    subscriptionId,
+    href,
+    handleClick,
   } = product;
-
   const priceInDollars = amountToDollar(price);
   const dueTodayInDollars = deposit !== 0 ? amountToDollar(deposit) : '';
   const discountAmountPerUnitInDollars =
@@ -24,38 +24,40 @@ export default function Card({ product, isSold = false }) {
     ? discountAmountPerUnitInDollars
     : priceInDollars;
 
-  const hasInstallments = !!subscriptionId;
+  const Element = isSold ? 'div' : href ? Link : 'button';
 
-  const Element = isSold ? 'div' : Link;
+  const props = {
+    href: !isSold && href ? href : undefined,
+    onClick: !isSold && handleClick ? () => handleClick(product) : undefined,
+  };
 
   return (
-    <>
-      <Element
-        className={styles.card}
-        key={name}
-        href={`/checkout?productId=${product.productID}&installments=${hasInstallments}`}
-      >
-        <div className={clsx(styles.row, styles.topRow)}>
-          <p>
-            {name} {isSold && <span className={styles.sold}>Sold Out</span>}
-          </p>
-          <div>
-            {!!discountAmountPerUnit && (
-              <p className={styles.strikethrough}>{priceInDollars}</p>
-            )}
-            <p>{numberToShow}</p>
-          </div>
-        </div>
-
-        <div className={styles.bottomRow}>
-          {description && <p className={styles.description}>{description}</p>}
-          {dueTodayInDollars && !isSold && (
+    <Element className={styles.card} key={name} {...props}>
+      <div className={clsx(styles.row, styles.topRow)}>
+        <p>
+          {name} {isSold && <span className={styles.sold}>Sold Out</span>}
+        </p>
+        <div className={styles.topRowRightContainer}>
+          {!!discountAmountPerUnit && (
+            <p className={styles.strikethrough}>{priceInDollars}</p>
+          )}
+          <p>{numberToShow}</p>
+          {isInCart && (
             <div>
-              <p className={styles.due}>Due Today: {dueTodayInDollars}</p>
+              <p className={styles.addedToCart}>Added to cart!</p>
             </div>
           )}
         </div>
-      </Element>
-    </>
+      </div>
+
+      <div className={styles.bottomRow}>
+        {description && <p className={styles.description}>{description}</p>}
+        {dueTodayInDollars && !isSold && (
+          <div>
+            <p className={styles.due}>Due Today: {dueTodayInDollars}</p>
+          </div>
+        )}
+      </div>
+    </Element>
   );
 }

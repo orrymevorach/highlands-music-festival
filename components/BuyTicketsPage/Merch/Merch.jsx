@@ -12,7 +12,7 @@ const getCategories = ({ products }) => {
   return categories;
 };
 
-const Category = ({ category, products }) => {
+const Category = ({ category, products, cart }) => {
   return (
     <div className={styles.category}>
       <p className={styles.categoryTitle}>{category}</p>
@@ -27,11 +27,27 @@ const Category = ({ category, products }) => {
             const isCurrentCateogry = product.category === category;
             const isAvailable = product.status === 'Available';
             const isSold = product.status === 'Sold';
+            const isInCart = cart.some(
+              cartProduct => cartProduct.name === product.name
+            );
             if (isCurrentCateogry && isSold) {
-              return <Card key={product.name} product={product} isSold />;
+              return (
+                <Card
+                  key={product.name}
+                  product={product}
+                  isSold
+                  isInCart={isInCart}
+                />
+              );
             }
             if (isCurrentCateogry && isAvailable) {
-              return <Card key={product.name} product={product} />;
+              return (
+                <Card
+                  key={product.name}
+                  product={product}
+                  isInCart={isInCart}
+                />
+              );
             }
           })}
       </div>
@@ -41,17 +57,20 @@ const Category = ({ category, products }) => {
 
 export default function Merch({
   products = [],
-  title = 'Ticket Pricing for Highlands 2025',
+  title,
   sortAndFilterFunctions,
+  cart,
 }) {
   if (!products.length) return <Loader />;
 
   const categories = getCategories({ products });
   return (
     <>
-      <div className={styles.textContainer}>
-        <h2 className={styles.title}>{title}</h2>
-      </div>
+      {title && (
+        <div className={styles.textContainer}>
+          <h2 className={styles.title}>{title}</h2>
+        </div>
+      )}
       <div className={styles.container}>
         {sortAndFilterFunctions
           ? sortAndFilterFunctions(categories).map(category => {
@@ -60,6 +79,7 @@ export default function Merch({
                   key={category}
                   category={category}
                   products={products}
+                  cart={cart}
                 />
               );
             })
@@ -69,6 +89,7 @@ export default function Merch({
                   key={category}
                   category={category}
                   products={products}
+                  cart={cart}
                 />
               );
             })}

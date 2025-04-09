@@ -34,3 +34,28 @@ export const LineItem = ({
     </div>
   );
 };
+
+export const OrderSummaryLayout = ({
+  children,
+  tax,
+  subtotal,
+  total,
+  classNames = {},
+}) => {
+  return (
+    <div className={clsx(styles.orderSummary, styles.bodyCopy, classNames)}>
+      <p className={styles.title}>Order Summary</p>
+      <Border />
+      {children}
+      {tax && (
+        <>
+          <Border />
+          <LineItem label="Subtotal" price={subtotal} />
+          <LineItem label="HST (13%)" price={tax} />
+        </>
+      )}
+      <Border />
+      <LineItem label="Total" price={total} isBold shouldAddCanadianDollars />
+    </div>
+  );
+};

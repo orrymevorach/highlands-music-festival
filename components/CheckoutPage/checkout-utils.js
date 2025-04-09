@@ -86,6 +86,23 @@ export function calculatePricing({
   };
 }
 
+export function calculateCart({ items = [] }) {
+  const subtotal = items.reduce((acc, item) => {
+    const discountAmountPerUnit = item.discountAmountPerUnit || 0;
+    const itemSubtotal = item.price - discountAmountPerUnit;
+    return acc + itemSubtotal;
+  }, 0);
+
+  const tax = subtotal * 0.13;
+  const total = subtotal + tax;
+
+  return {
+    subtotal,
+    tax,
+    total,
+  };
+}
+
 export const createTemporaryPassword = word => {
   const array = word.split('_');
   const lastWord = array[array.length - 1];
