@@ -1,3 +1,24 @@
 .container {
   padding-top: 50px !important;
+  padding-bottom: 0 !important;
+  margin-bottom: 0 !important;
+  min-height: 100% !important;
+  border-radius: 20px !important;
+  position: relative !important;
+}
+
+.outerContainer {
+  background-color: #fafafa;
+  padding-bottom: 50px;
+  border-radius: 20px !important;
+  margin-right: 30px;
+  margin-left: 10px;
+  position: relative;
+}
+
+.button {
+  display: block;
+  width: calc(100% - 60px);
+  margin: 0 auto;
+  margin-top: 50px;
 }
