@@ -1,5 +1,5 @@
 import styles from './user-form.module.scss';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import Input from '@mui/joy/Input';
 import { useCheckoutContext } from 'context/checkout-context';
 import {
@@ -9,7 +9,6 @@ import {
 } from 'lib/stripe-lib';
 import Loader from 'components/shared/Loader/Loader';
 import Button from 'components/shared/Button/Button';
-import { Checkbox } from '@mui/material';
 import { createRecord } from 'lib/airtable-lib';
 import { ErrorMessage } from 'components/CheckoutPage/checkout-shared-components';
 import { validateEmail } from 'utils/utils';
@@ -27,6 +26,10 @@ export default function UserForm() {
   const [vendorSecondGuest, setVendorSecondGuest] = useState('');
   const [errorMessage, setErrorMessage] = useState('');
   const router = useRouter();
+
+  useEffect(() => {
+    setIsVendor(router.query.vendor === 'true');
+  }, []);
 
   const handleSubmit = async e => {
     e.preventDefault();
@@ -94,7 +97,9 @@ export default function UserForm() {
 
   return (
     <form onSubmit={e => handleSubmit(e)}>
-      <p className={styles.contactInformation}>Guest Information</p>
+      <p className={styles.contactInformation}>
+        {isVendor ? 'Vendor Information' : 'Guest Information'}
+      </p>
       {errorMessage && <ErrorMessage message={errorMessage} />}
       <div className={styles.nameContainer}>
         <Input
@@ -131,18 +136,6 @@ export default function UserForm() {
         required
       />
 
-      <div className={styles.checkboxContainer}>
-        <Checkbox
-          value={isVendor}
-          onChange={() => setIsVendor(!isVendor)}
-          name="vendor-checkbox"
-          id="vendor-checkbox"
-          className={styles.checkbox}
-        />
-        <label htmlFor="vendor-checkbox" className={styles.checkboxLabel}>
-          I am a vendor
-        </label>
-      </div>
       {isVendor && (
         <div>
           <Input

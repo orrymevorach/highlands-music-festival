@@ -17,6 +17,7 @@ import {
 import { sendSlackNotification } from 'lib/slack-lib';
 import { useRouter } from 'next/router';
 import { createTemporaryPassword } from 'components/CheckoutPage/checkout-utils';
+import Cookies from 'js-cookie';
 
 export default function CheckoutForm() {
   const [isLoading, setIsLoading] = useState(false);
@@ -46,6 +47,7 @@ export default function CheckoutForm() {
     let paymentResponse;
     let setupIntent;
     const hasSubscription = router.query.installments === 'true';
+    const isVendor = router.query.vendor === 'true';
     if (hasSubscription) {
       // Create a payment method
       const { setupIntent: setupIntentResponse, error: setupError } =
@@ -91,7 +93,9 @@ export default function CheckoutForm() {
     const password = createTemporaryPassword(paymentResponse.id);
 
     const isPurchasingCabin = priceData.cabin?.length;
-    const ticketStatus = isPurchasingCabin
+    const ticketStatus = isVendor
+      ? 'Vendor'
+      : isPurchasingCabin
       ? 'Cabin Purchased'
       : 'Ticket Purchased';
     const subscriptionRecordId = subscriptionData?.recordId;
@@ -157,6 +161,23 @@ export default function CheckoutForm() {
       //   temporaryPassword: password,
       //   emailAddress: email,
       // });
+
+      const cartId = Cookies.get('cartId');
+      if (cartId) {
+        try {
+          await updateRecord({
+            tableId: 'Carts',
+            recordId: cartId,
+            newFields: {
+              Status: 'Paid',
+              Ticket: [airtableResponse.id],
+            },
+          });
+          Cookies.remove('cartId');
+        } catch (error) {
+          throw new Error(`Failed to update cart record with ID: ${cartId}`);
+        }
+      }
 
       try {
         // Slack Notification

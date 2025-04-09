@@ -1,3 +1,5 @@
+@use '@variables' as variables;
+
 .container {
   padding-top: 50px !important;
   padding-bottom: 0 !important;
@@ -21,4 +23,8 @@
   width: calc(100% - 60px);
   margin: 0 auto;
   margin-top: 50px;
+  background-color: variables.$black;
+  svg {
+    margin-left: 10px;
+  }
 }
