@@ -30,7 +30,7 @@ export default function BuyTickets({
   );
 }
 
-export async function getStaticProps() {
+export async function getServerSideProps() {
   const pageLoadData = await getPageLoadData({
     url: PAGE_SLUGS.BUY_TICKETS,
   });
